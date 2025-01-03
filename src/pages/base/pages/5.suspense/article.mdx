@@ -1,12 +1,13 @@
 import Cardruntime from 'components/Cardruntime.jsx'
-import Demo01 from "./case/demo01.jsx";
-import Demo02 from "./case/demo02.jsx";
-import Demo03 from "./case/demo03.jsx";
+import Demo01 from './case/demo01/Layout'
+import Demo02 from './case/demo02/Layout'
+import Demo03 from './case/demo03/Layout'
+import Demo04 from './case/demo04/Layout'
 
 ## *0*
 **Suspense**
 
-先来回顾一下这段代码。在前面一篇文中，我们知道，如果直接使用 use 获取未直接创建的 Promise 中的值，会抛出一个异常。
+在前面一篇文中，我们知道，如果直接使用 use 获取未直接 resolve 的 Promise 中的值，会抛出一个异常。
 
 ```js
 const _api3 = () => {
@@ -19,60 +20,40 @@ const _api3 = () => {
 const result = use(_api3())
 ```
 
-但是实际上在开发过程中，大多数情况都是这种并没有直接得到 Promise resolve 的结果状态，那我们应该怎么办呢？这个时候我们可以利用 Suspense 来解决这个问题。
+在实践中，大多数情况都是这种并没有直接得到 Promise resolve 的结果状态，那我们应该怎么办呢？这个时候我们可以利用 Suspense 来解决这个问题。
 
-Suspense 可以捕获这种异常。我们来看一下这段代码
+Suspense 可以捕获 use 无法读取到数据时抛出的异常，然后此时会在页面上渲染回退组件 `fallback`
 
-```javascript
-import {use, Suspense} from 'react'
-import Message from './Message'
-
-const _api3 = () => {
-  return new Promise(resolve => {
-    resolve({ value: 'React does not preserve any state for renders that got suspended before they were able to mount for the first time. When the component has loaded, React will retry rendering the suspended tree from scratch.' })
-  })
-}
-
-export default function Demo01() {
-  const promise = _api3()
-  return (
-    <Suspense fallback=''>
-      <Content promise={promise} />
-    </Suspense>
-  )
-}
-
-function Content(props) {
-  const {value} = use(props.promise)
-  return (
-    <Message message={value} />
-  )
-}
+```jsx
+<Suspense fallback={<Skeleton />}>
+  <Message promise={promise} />
+</Suspense>
 ```
 
-在这段代码中，为了让 Suspense 捕获更小范围的组件，我们单独定义了一个子组件 `Content` 来使用 use 获取 promise 中的数据。这也是未来使用的比较常规的思路和手段。案例预览效果如下所示。
+接下来看一个简单的演示案例。在这个例子中，为了让 Suspense 捕获更小范围的组件，我们单独定义了一个子组件 `Message` 来使用 use 获取 promise 中的数据。
 
-<Cardruntime reload><Demo01/></Cardruntime>
+<Demo01 />
 
+
+## *1*
+**Suspense + use 读取异步接口请求数据**
 
 当然，在开发中更常见的效果是使用 use 读取异步 promise，主要的场景就是接口请求。
 
-
-```html
+```jsx
 <Suspense fallback={<Loading />}>
   <Albums />
 </Suspense>
 ```
 
-`Suspense` 能够捕获到子组件首次渲染的异常。因此我们常常将 `Suspense` 当成一种组件错误边界来处理。
+在 React 19 中，`use(promise)` 被设计成完全符合 Suspense 规范的 hook，因此我们可以轻松的结合他们两者来完成页面开发。当 `use(promise)` 读取数据失败时，会抛出一个异常交给 Suspense 捕获，此时 Suspense 会渲染 `fallback` 回退组件。当请求成功之后，组件会重新渲染，此时 `use(promise)` 则可以读取到正确的值。
 
-但是需要注意的是，传递给 `Suspense` 的异步组件必须在报错时返回一个 Promise 对象，它才能正常工作。在 React 19 中，`use(promise)` 被设计成完全符合 Suspense 规范的 hook，因此我们可以轻松的结合他们两者来完成页面开发。
-
-我们来分析一下上一章最后的例子。
+我们来梳理一下代码流程。
 
 首先，我们定义好一个用于接口请求的函数，该函数执行返回 promise
 
 ```javascript
+// 由于访问限制，演示案例中使用了别的接口，可在演示案例中的代码中查看
 export const getMessage = async () => {
   const res = await fetch('https://api.chucknorris.io/jokes/random')
   return res.json()
@@ -83,15 +64,13 @@ export const getMessage = async () => {
 
 ```javascript
 const Message = (props) => {
-  const content = use(props.promise)
+  const {value} = use(props.promise)
   return (
-    <div className='flex border border-blue-100 p-4 rounded-md shadow'>
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6 mt-2">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.631 8.41m5.96 5.96a14.926 14.926 0 0 1-5.841 2.58m-.119-8.54a6 6 0 0 0-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 0 0-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 0 1-2.448-2.448 14.9 14.9 0 0 1 .06-.312m-2.24 2.39a4.493 4.493 0 0 0-1.757 4.306 4.493 4.493 0 0 0 4.306-1.758M16.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
-      </svg>
+    <div className='flex border border-blue-100 p-4 rounded'>
+      <MapPinPlus />
       <div className='flex-1 ml-3'>
         <div>Heads Up!</div>
-        <div className='text-sm mt-1 text-gray-600'>{content.value}</div>
+        <div className='mt-1 text-gray-600'>{value}</div>
       </div>
     </div>
   )
@@ -101,7 +80,7 @@ const Message = (props) => {
 有了这个子组件之后，我们使用 Suspense 包裹捕获该组件的错误，防止错误溢出到更高层级的组件。
 
 ```javascript
-export default function Index() {
+export default function Page() {
   const promise = getMessage()
   return (
     <Suspense fallback={<Skeleton />}>
@@ -111,15 +90,15 @@ export default function Index() {
 }
 ```
 
+完整代码及演示
+
+<Demo02 />
+
 当 Message 组件首次渲染时，由于直接读取 promise 导致报错，Suspense 捕获到该异常后，会渲染 `fallback` 中设置的组件。此时我们设置了一个骨架屏 Skeleton 组件，大家可以多次点击 reload 按钮查看演示效果。
 
 因此，这个案例的视觉表现应该为：1. 首先渲染 Skeleton 组件。然后请求成功之后，use 渲染 Message 组件。
 
-演示案例运行结果如下
-
-<Cardruntime reload><Demo02 /></Cardruntime>
-
-## *1*
+## *2*
 **Suspense 工作原理**
 
 Suspense 提供了一个加载数据的标准。在源码中，Suspense 的子组件被称为 `primary`。
@@ -143,96 +122,45 @@ Suspense ->
 primary ->
 ```
 
-## *2*
+## *3*
 **primary 为普通组件时**
 
 当 `primary` 为普通组件时，会直接渲染普通组件，如下案例所示。
 
-```javascript
-import React, { Suspense } from 'react';
-import Message from './Message'
-import Skeleton from './Skeleton'
-
-export default function Index() {
-  return (
-    <Suspense fallback={<Skeleton />}>
-      <Message
-        message='这是一个普通的 UI 组件，Skeleton 组件不会有任何渲染机会，直接渲染 Message 组件'
-        title='Primary'
-      />
-    </Suspense>
-  )
-}
-```
-
-渲染结果如下
-
-<Cardruntime reload><Demo03/></Cardruntime>
+<Demo03/>
 
 
 
-## *3*
+## *4*
 **新旧实现对比**
 
 在前面我们 结合 use 与 Suspense 实现了一个初始化加载的案例。该案例的视觉表现是在初始化时，首先显示 Skeleton 组件，请求成功之后，显示 Message 组件。
 
-核心代码与演示效果如下，点击 reload 按钮可重复观察执行过程
-
-```javascript
-export default function Index() {
-  const promise = getMessage()
-  return (
-    <Suspense fallback={<Skeleton />}>
-      <Message promise={promise} />
-    </Suspense>
-  )
-}
-```
-
 刷新页面时重新请求数据渲染，请求过程中显示骨架屏组件 Skeleton
 
-<Cardruntime reload><Demo02 /></Cardruntime>
+核心代码与演示效果如下，点击刷新按钮重复观察执行效果
 
-这里我们需要关注的是，对比以前必须要借助 `state` `useEffect` 的实现方式，体会一下差别。核心逻辑如下
+<Demo02 />
 
-```javascript
-// 之前的实现方式
-export default function Index() {
-  const [content, update] = useState({value: ''})
-  const [loading, setLoading] = useState(true)
+这里我们需要关注的是，对比以前必须要借助 `state` `useEffect` 的实现方式，体会一下差别
 
-  useEffect(() => {
-    getMessage().then(res => {
-      update(res)
-      setLoading(false)
-    })
-  }, []);
+完整实现如下
 
-  if (loading) {
-    return <Skeleton />
-  }
-
-  return (
-    <Message message={content.value} />
-  )
-}
-```
-
-我们可以在右侧演练场中观察完整的演示效果。
+<Demo04 />
 
 可以很明显的看出，新的方式使用 use + Suspense ，代码更加简洁。
 
-除此之外，由于在严格模式下，组件首次加载会执行两次，因此我们还需要想额外的办法防止重复执行，代码会变得更加冗余。一个很明显的差别就是 `Suspense + use` 的方式会自动帮助我们弃用第二次的请求数据。从视觉上的效果就是，右侧使用 useEffect 实现的结果，UI 会更新两次。
+除此之外，在严格模式下，开发环境组件首次加载会执行两次，因此我们还需要想额外的办法防止重复执行，代码会变得更加冗余。一个很明显的差别就是 `Suspense + use` 的方式会自动帮助我们弃用第二次的请求数据。而使用 `useEffect` 则需要我们自己来处理防止重复请求的逻辑。
 
 
-## *4*
+## *5*
 **总结**
 
 与老版本使用 `state` + `useEffect` 完成首页初始化的需求相比，新的开发方式更加的简洁，代码舒适度更高。
 
 需要注意区分的是，在以前的开发方式中，我们可以通过自定义 hook 的方式，把状态与 `useEffect` 封装成自定义 hook.
 
-```javascript
+```js
 function useFetch() {
   const [content, update] = useState({value: ''})
   const [loading, setLoading] = useState(true)

@@ -22,7 +22,7 @@ export default function Codepack(props) {
     updateCurrentCode(titles[i])
   }
 
-  const base = 'flex bg-white flex-col-reverse rounded'
+  const base = 'flex bg-white flex-col-reverse rounded my-5'
   const cls = clsx(base, className)
 
   return (

@@ -62,10 +62,13 @@ button:hover {
     @apply leading-7;
   }
   .keep pre {
-    @apply overflow-hidden;
+    @apply overflow-hidden border rounded my-4;
   }
   .keep pre div:first-child {
-    @apply !px-4 border rounded;
+    @apply !px-4;
+  }
+  .codepack pre {
+    @apply my-0 border-t-0;
   }
   .codepack pre div:first-child {
     @apply border-none !bg-white;

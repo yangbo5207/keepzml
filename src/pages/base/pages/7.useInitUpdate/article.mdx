@@ -1,16 +1,17 @@
-import Cardruntime from 'components/Cardruntime.jsx'
-import Demo01 from "./case/demo01.jsx";
-import Demo02 from "./case/demo02.jsx";
+import Demo01 from './case/demo01/Layout'
+import Demo02 from './case/demo02/Layout'
+import Demo03 from './case/demo03/Layout'
 
+在上一章的基础之上，我们来做一个小的需求变动。
 
-在上一章的基础之上，我们做一个小的需求变动。上一章的案例要求我们不要初始化时请求一条数据，因此，默认渲染结果是 `no data`
+上一章的案例要求我们不要初始化时请求一条数据，因此，默认渲染结果是 `no data`
 
-这一章的案例则不同，我们需要在初始化时请求数据。也就是说，我们此时同时需要初始化和更新的逻辑
+这一章的案例则不同，我们需要**在初始化时**请求数据。也就是说，我们此时同时需要初始化和更新的逻辑
 
 ## *0*
 **需求变动之后的思考**
 
-在以前版本的实现中，接口数据的触发方式不同，因此我们需要分别处理这两种触发时机。
+在以前版本的实现中，由于接口数据的触发方式不同，因此我们需要分别处理这两种触发时机。
 
 首先，我们需要定义两个状态来管理数据结果和 loading 状态
 
@@ -44,46 +45,7 @@ function __handler() {
 
 完整代码如下
 
-```javascript
-import {use, useState, Suspense, useEffect} from 'react'
-import Message from './Message'
-import Skeleton from './Skeleton'
-import Button from './Button'
-import {getMessage} from './api'
-
-export default function Demo01() {
-  const [content, update] = useState({value: ''})
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    getMessage().then(res => {
-      update(res)
-      setLoading(false)
-    })
-  }, []);
-
-  function __handler() {
-    setLoading(true)
-    getMessage().then(res => {
-      update(res)
-      setLoading(false)
-    })
-  }
-
-  return (
-    <>
-      <div className='text-right mb-4'>
-        <Button onClick={__handler}>更新数据</Button>
-      </div>
-      {loading ? <Skeleton /> : <Message message={content.value} />}
-    </>
-  )
-}
-```
-
-演示效果如下案例所示
-
-<Cardruntime reload><Demo01 /></Cardruntime>
+<Demo01 />
 
 ## *1*
 **新的实现方式**
@@ -100,57 +62,25 @@ export default function Demo01() {
 
 这里的思路就是给状态 promise 赋值一个 Promise 对象作为初始值。修改之后的完整代码如下
 
-```javascript
-import {use, useState, Suspense} from 'react'
-import Message from './Message'
-import Skeleton from './Skeleton'
-import Button from './Button'
-import {getMessage} from './api'
-
-export default function Demo02() {
-  const [promise, update] = useState(getMessage())
-
-  function __handler() {
-    update(getMessage())
-  }
-
-  return (
-    <>
-      <div className='text-right mb-4'>
-        <Button onClick={__handler}>更新数据</Button>
-      </div>
-      <Suspense fallback={<Skeleton />}>
-        <Content promise={promise} />
-      </Suspense>
-    </>
-  )
-}
-
-function Content(props) {
-  const {value} = use(props.promise)
-  return (
-    <Message message={value} />
-  )
-}
-````
-
-演示效果如下所示
-
-<Cardruntime reload><Demo02 /></Cardruntime>
+<Demo02 />
 
 **非常的方便省事。**
 
+## *2*
+**完善细节**
 
-最后需要注意的是一个小的细节，如果不考虑 Compiler 编译之后的代码去缓存初始化时的 `getMessage()`，那么每次更新组件时，该方法都会执行一次，因此，会导致冗余的接口请求。
+
+这里有一个非常重要的小的细节，如果不考虑 Compiler 编译之后的代码去缓存初始化时的 `getMessage()`，那么每次更新组件时，该方法都会执行一次，因此，会导致冗余的接口请求。
 
 > 使用 Compiler 编译之后，这段代码会被缓存下来而不会重复执行
 
-因此，最好的方式是进一步调整一下，利用 useState 的初始化机制修改如下
+我们期望的是 useState 中的初始化方法仅在组件首次渲染时执行一次，因此，最好的方式是进一步调整一下，利用 useState 的初始化机制修改如下
 
 ```diff
 - const [promise, update] = useState(getMessage())
 + const [promise, update] = useState(getMessage)
 ```
 
-这样，即使不用 Compiler 编译缓存，也不会出现冗余请求的情况。完整的代码和演示案例请在右侧模块中查看。
+这样，即使不用 Compiler 编译缓存，也不会出现冗余请求的情况。结果如下
 
+<Demo03 />

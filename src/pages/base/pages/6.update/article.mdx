@@ -1,14 +1,16 @@
 import Cardruntime from 'components/Cardruntime.jsx'
-import Demo01 from "./case/demo01.jsx";
-import Demo02 from "./case/demo02.jsx";
+import Demo01 from './case/demo01/Layout'
+import Demo02 from './case/demo02/Layout'
 
 接下来，我们将会以大量的实践案例来展开 React 19 新 hook 的运用。
 
 本文模拟的实践案例为**点击按钮更新数据**。这在开发中是一个非常常见的场景。
 
-案例完成之后的最终演示效果图如下。案例的视觉表现为：初始化时没有请求，所以组件显示为空数据样式。当我们点击按钮时请求一条数据，数据更新，请求成功之后显示更新之后的内容。
+案例的视觉表现为：初始化时没有请求，所以组件显示为空数据样式。当我们点击按钮时请求一条数据，数据更新，请求成功之后显示更新之后的内容。
 
-<Cardruntime reload><Demo01 /></Cardruntime>
+案例完成之后的最终演示效果如下
+
+<Demo01 />
 
 接下来，我们直接用 React 19 新的开发方式来完成这个需求。
 
@@ -17,16 +19,19 @@ import Demo02 from "./case/demo02.jsx";
 
 首先创建一个方法用于请求数据，请确保该方法执行会返回一个 promise 对象。
 
-```javascript
-const getApi = async () => {
-  const res = await fetch('https://api.chucknorris.io/jokes/random')
-  return res.json()
+```js
+export const getMessage = async () => {
+  await fetch(url, requestOptions)
+  const i = Math.floor(Math.random() * 10) % 5
+  return {
+    value: random[i]
+  }
 }
 ```
 
 这里一个非常关键的地方就在于，当我们要更新的数据时，我们不再需要设计一个 `loading` 状态去记录数据是否正在发生请求行为，因为 `Suspense` 帮助我们解决了 Loading 组件的显示问题。
 
-与此同时，`use()` 又帮助我们解决了数据获取的问题。那么问题就来了，这个时候，好像我们也不需要设计一个状态去存储数据。
+与此同时，`use()` 又帮助我们解决了数据获取的问题。这个时候，好像我们也不需要设计一个状态去存储数据。
 
 那么我们应该怎么办呢？
 
@@ -48,54 +53,15 @@ function __handler() {
 }
 ```
 
-`getApi()` 执行，新的请求会发生。他的执行结果，又返回了一个新的 promise.
-
+`getMessage()` 执行，新的请求会发生。他的执行结果，又返回了一个新的 promise.
 
 因此，点击之后会创建的新 promise 值，promise 此时就会作为状态更改触发组件的更新。
 
 完整代码如下
 
-```jsx
-import {use, useState, Suspense} from 'react'
-import Message from './Message'
-import Skeleton from './Skeleton'
-import Button from './Button'
-import {getMessage} from './api'
+<Demo01 />
 
-export default function Demo01() {
-  const [promise, update] = useState(null)
-
-  function __handler() {
-    update(getMessage())
-  }
-
-  return (
-    <>
-      <div className='text-right mb-4'>
-        <Button onClick={__handler}>更新数据</Button>
-      </div>
-      <Suspense fallback={<Skeleton />}>
-        <Content promise={promise} />
-      </Suspense>
-    </>
-  )
-}
-
-function Content(props) {
-  if (!props.promise) {
-    return <Message message='' />
-  }
-
-  const {value} = use(props.promise)
-  return (
-    <Message message={value} />
-  )
-}
-```
-
-案例写完之后。我们基本上就能够实现最开始案例中的交互效果了。完整的代码在右侧查看。
-
-但是现别急，还没有完。我们还需要进一步分析一下这个案例。
+接下来，我们还需要进一步分析一下这个案例。
 
 ## *1*
 **案例分析**
@@ -106,13 +72,11 @@ function Content(props) {
 
 发现，当我们重新请求时，当前组件更新，但是上层组件并不会重新执行。
 
-我们可以出得结论：**更简洁的状态设计，有利于命中 React 默认的性能优化规则**。
-
-> 具体的规则请在 React 知命境合集中查看。
+很显然：**更简洁的状态设计，有利于命中 React 默认的性能优化规则**。
 
 更简洁的状态设计，也是 React 19 所倡导的开发思路。我们需要尽可能少的使用 useState，例如，这里借助了 Suspense 减少了 loading 状态的维护。
 
-另外一个事情，是我们要特别特别注意观察子组件 `Content` 的实现。
+另外一个事情，是我们要特别特别注意观察子组件 `Message` 的实现。
 
 
 首先因为我们初始化时，给状态 `promise` 赋予的默认值是 `null`。
@@ -122,15 +86,15 @@ function Content(props) {
 const [promise, update] = useState(null)
 ```
 
-之后，我们就将状态 promise 传给了子组件 `Content`
+之后，我们就将状态 promise 传给了子组件 `Message`
 
 ```javascript
 <Suspense fallback={<Skeleton />}>
-  <Content promise={promise} />
+  <Message promise={promise} />
 </Suspense>
 ```
 
-然后在 Content 组件的内部实现中，因为我们直接把 promise 传给了 `use`，那么此时直接执行肯定会报错
+然后在 Message 组件的内部实现中，因为我们直接把 promise 传给了 `use`，那么此时直接执行肯定会报错
 
 ```javascript
 const {value} = use(props.promise)
@@ -141,36 +105,25 @@ const {value} = use(props.promise)
 
 所以，为了处理好初始化时传入 `api` 值为 null，我在内部实现代码逻辑中，使用了 `if` 判断该条件，然后执行了一次 `return`。我试图让 `use(null)` 得不到执行的时机。
 
-```javascript
-function Content(props) {
+```jsx
+function Message(props) {
   if (!props.promise) {
-    return <Message message='' />
+    return ...
   }
 
   const {value} = use(props.promise)
-  return (
-    <Message message={value} />
-  )
+  return ...
 }
 ```
 
-当然，我们还可以给状态 promise 一个默认的，自带 resolve 值的 Promise 对象作为初始值，这样可以在子组件中避免这个异常判断。
+还有一种方式是，我们可以给状态 promise 一个默认的，自带 resolve 值的 Promise 对象作为初始值，这样可以在子组件中避免这个异常判断。
 
 ```javascript
 const [promise, update] = useState(Promise.resolve({value: ''}))
 ```
 
-```javascript
-function Content(props) {
-  const {value} = use(props.promise)
-  return (
-    <Message message={value} />
-  )
-}
-```
-
 演示效果如下图所示
 
-<Cardruntime reload><Demo02 /></Cardruntime>
+<Demo02 />
 
-这种写法有一个很小的瑕疵，就是在初始化时，也不可避免的显示了 Skeleton 组件，实际上是不需要的。因此具体采用哪种写法，要依据实践中的需求而定。
+这种写法有一个瑕疵，就是在初始化时，也不可避免的显示了 Skeleton 组件，实际上是不需要的。因此具体采用哪种写法，要依据实践中的需求而定。

@@ -1,30 +1,8 @@
-import AppText from './case/index.jsx?raw'
-import ButtonText from './case/Button.jsx?raw'
-import apiText from './case/api.js?raw'
-import SkeletonText from './case/Skeleton.jsx?raw'
-import MessageText from './case/Message.jsx?raw'
-
+import Playground from 'components/Playground'
 import Article from './article.mdx'
 
-import Playground from "components/Playground/index.jsx";
-import MainCase from './case/index.jsx'
-
-const files = {
-  'App.js': AppText,
-  'api.js': apiText,
-  'Message.jsx': MessageText,
-  'Button.jsx': ButtonText,
-  'Skeleton.jsx': SkeletonText,
-}
-
-function App() {
+export default function App() {
   return (
-    <Playground
-      files={files}
-      renderArticle={(code) => <Article components={{code}} />}
-      caseRender={<MainCase />}
-    />
+    <Playground renderArticle={code => <Article components={{code}} />} />
   )
 }
-
-export default App;

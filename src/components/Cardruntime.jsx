@@ -9,8 +9,10 @@ export default function Cardruntime(props) {
   const ref = useRef(null)
 
   useEffect(() => {
-    const h = ref.current.getBoundingClientRect().height
-    ref.current.style.minHeight = `${h}px`
+    setTimeout(() => {
+      const h = ref.current.getBoundingClientRect().height
+      ref.current.style.minHeight = `${h}px`  
+    }, 50);
   }, [])
 
   function __handler() {
