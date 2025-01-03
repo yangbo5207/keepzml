@@ -1,7 +1,7 @@
 export default function Skeleton(props) {
   if (props.type === 'card') {
     return (
-      <div className="border border-blue-100 rounded p-4 w-full">
+      <div className="border border-blue-100 rounded p-4 w-full my-4">
         <div className="animate-pulse flex space-x-4 items-center">
           {[1, 2, 3].map((_, i) => (
             <div className="flex-1" key={`z-${i}`}>
@@ -22,7 +22,7 @@ export default function Skeleton(props) {
 
   if (props.type === 'header') {
     return (
-      <div className="border border-blue-100 rounded p-4 w-full">
+      <div className="border border-blue-100 rounded p-4 w-full my-4">
         <div className="animate-pulse flex space-x-4 items-center">
           <div className="rounded-full bg-slate-200 h-10 w-10"></div>
           <div className="flex-1 space-y-3 py-1">
@@ -40,7 +40,7 @@ export default function Skeleton(props) {
   }
 
   return (
-    <div className="border border-blue-100 rounded p-4 w-full">
+    <div className="border border-blue-100 rounded p-4 w-full my-4">
       <div className="animate-pulse flex space-x-4">
         <div className="rounded-full bg-slate-200 h-10 w-10"></div>
         <div className="flex-1 space-y-6 py-1">

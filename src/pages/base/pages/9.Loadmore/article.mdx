@@ -1,4 +1,5 @@
 import Cardruntime from 'components/Cardruntime.jsx'
+import Demo01 from './case/demo01/Layout'
 
 我们可以在思维上将上一节课的解决方案扩展到分页列表中，加载更多的场景。
 
@@ -26,37 +27,27 @@ export const fetchList = async () => {
 
 然后定义一个可以遍历显示一页数据的组件。该组件接收一个 promise，并使用 use 读取请求结果。
 
-```javascript
+```jsx
 // List.jsx
 import { use } from 'react';
+import {random} from './api'
 export default function CurrentList({promise}) {
   const {results} = use(promise)
   return (
     <div>
       {results.map((item, i) => (
-        <div key={item.name.last} className='flex border-b py-4 mx-4 items-center'>
-          <div className='flex-1'>
-            <div className='flex'>
-              <img className='w-14 h-14 rounded-full' src={item.picture.large} alt='' />
-              <div className='flex-1 ml-4'>
-                <div className='font-bold'>{item.name.last}</div>
-                <div className='text-gray-400 mt-3 text-sm line-clamp-1'>react 19 re, a design language for background applications</div>
-              </div>
-            </div>
-
-            <div className='mt-4 line-clamp-2 text-sm'>We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.</div>
+        <div key={item.name.last} className='flex border-b py-4 mx-4 items-center border-dashed'>
+          <img className='w-14 h-14 rounded-full' src={item.picture.large} alt='' />
+          <div className='flex-1 ml-4'>
+            <div className='font-bold'>{item.name.last}</div>
+            <div className='text-gray-400 mt-1 text-sm line-clamp-1'>{random[i]}</div>
           </div>
-
-          <img
-            className='w-52 ml-2'
-            alt="logo"
-            src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
-          />
         </div>
       ))}
     </div>
   )
 }
+
 ```
 
 此时我们稍微梳理一下逻辑，首先我们有多个 promise，然后每个 promise 中有一页数据，因此，我们可以遍历 promise，并在遍历中渲染能显示一页数据的 List 组件。
@@ -87,6 +78,8 @@ const onLoadMore = () => {
 ))}
 ```
 
-完整的代码与演示效果请查看右侧案例。
+完整的代码与演示效果如下。
+
+<Demo01 />
 
 > 分页参数的维护、最后一页的判断，大家在实践中要自行维护，这里只做方案的演示，没有考虑所有边界情况

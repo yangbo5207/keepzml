@@ -29,7 +29,7 @@ export async function getAuth() {
   }
 
   access_token = res.access_token
-  refresh_token = res.access_token
+  refresh_token = res.refresh_token
   open_id = res.open_id
   localStorage.setItem('access_token', access_token)
   localStorage.setItem('refresh_token', refresh_token)
