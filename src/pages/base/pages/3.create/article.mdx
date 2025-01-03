@@ -1,4 +1,4 @@
-![](https://files.mdnice.com/user/3925/b4869674-83ae-4ed2-a70d-34574d4451da.png)
+import Demo01 from './case/Layout'
 
 首先，我们使用 vite 创建一个 React 项目
 
@@ -29,14 +29,13 @@ npm create vite
 ```bash
 cd react19feature
 ```
-然后用编辑器打开项目文件，在根目录的 `package.json` 文件中修改 `react` 与 `react-dom` 的依赖版本为 react 19 rc.
+然后用编辑器打开项目文件，在根目录的 `package.json` 文件中修改 `react` 与 `react-dom` 的依赖版本为 react 19.
 
 ```ts
 "dependencies": {
-  "react": "19.0.0-rc-dfd30974ab-20240613",
-  "react-dom": "19.0.0-rc-dfd30974ab-20240613",
-  "react-router-dom": "^6.23.0"
-},
+  "react": "^19.0.0",
+  "react-dom": "^19.0.0",
+}
 ```
 
 > 注意：如果已经正式发版，那么vite 创建的版本可能会直接更新为最新版而不需要我们手动修改
@@ -53,10 +52,12 @@ npm i
 npm run dev
 ```
 
-成功启动之后，我们可以在浏览器中输入 `http://localhost:5173` 访问到项目，初始页面如右侧案例所示。
+成功启动之后，我们可以在浏览器中输入 `http://localhost:5173` 访问到项目
+
+<Demo01 />
 
 
-由于我们项目需要用到 `require`，但是 vite 中使用 ES module 作为模块方案，因此并没有内置对 CommonJS 的支持，如果你需要在项目中支持 `require` 语法引入模块，则需要做点其他的操作
+由于我们项目需要用到 `require`，但是 vite 中使用 ES module 作为模块方案，因此并没有内置对CommonJS 的支持，如果你需要在项目中支持 `require` 语法引入模块，则需要做点其他的操作
 
 首先，我们需要**安装如下依赖**
 
@@ -85,3 +86,15 @@ export default defineConfig({
 > 如果你需要支持更多的文件后缀，则需要在 `fileRegex` 中添加，本项目仅支持 `.js` 与 `.jsx`
 
 最后重启项目即可。
+
+除此之外，如果你的项目中需要使用路由库，我们可以安装 `react-router`
+
+```ts
+npm i react-router
+```
+
+状态管理库 `zustand`
+
+```ts
+npm i zustand
+```

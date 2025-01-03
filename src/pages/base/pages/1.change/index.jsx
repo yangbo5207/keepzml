@@ -1,4 +1,4 @@
-import Article from './article.mdx'
+import Article from './page.mdx'
 import Playground from 'components/Playground'
 
 function Entry() {

@@ -1,8 +1,7 @@
 import {useState, useRef, useEffect} from 'react'
-import clsx from 'clsx'
-import Button from './Button'
 import {TvMinimalPlay, RefreshCw} from 'lucide-react'
 import Flex from 'components/Flex'
+import clsx from 'clsx'
 
 export default function Cardruntime(props) {
   const {className} = props
