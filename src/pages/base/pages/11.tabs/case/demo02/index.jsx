@@ -1,8 +1,8 @@
 import {useState, Suspense} from 'react'
-import Skeleton from './Skeleton.jsx'
-import {fetchListWithCancel} from './api.js'
-import Tabs from './Tabs.jsx'
-import List from './List.jsx'
+import Skeleton from 'components/Skeleton'
+import {fetchListWithCancel} from './api'
+import Tabs from './tabs'
+import List from './List'
 
 const tabs = [
   { name: 'My Account', href: '#', current: true },
@@ -11,10 +11,9 @@ const tabs = [
   { name: 'Billing', href: '#', current: false },
 ]
 
-
 export default function Example() {
   const [current, switchToSelected] = useState(0)
-  const [promise, update] = useState(() => fetchListWithCancel(5))
+  const [promise, update] = useState(fetchListWithCancel)
 
   function __handler(index) {
     tabs[current].current = false
@@ -22,14 +21,12 @@ export default function Example() {
     switchToSelected(index)
 
     promise.cancel()
-    const len = Math.floor(Math.random() * 10)
-    update(fetchListWithCancel(len))
+    update(fetchListWithCancel())
   }
 
   return (
     <div>
       <Tabs tabs={tabs} onSwitch={__handler} />
-
       <Suspense fallback={<Skeleton />}>
         <List promise={promise} />
       </Suspense>

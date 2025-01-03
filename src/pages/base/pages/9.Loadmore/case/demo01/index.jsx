@@ -1,6 +1,8 @@
 import {useState, Suspense} from 'react'
 import Skeleton from 'components/Skeleton'
-import {getUuid, fetchList} from './api'
+import {uuid} from 'utils'
+import { fetchList} from './api'
+
 import List from './list'
 
 const Index = () => {
@@ -13,7 +15,7 @@ const Index = () => {
   return (
     <>
       {promises.map((promise, i) => (
-        <Suspense fallback={<Skeleton />} key={getUuid()}>
+        <Suspense fallback={<Skeleton />} key={uuid()}>
           <List promise={promise} />
         </Suspense>
       ))}

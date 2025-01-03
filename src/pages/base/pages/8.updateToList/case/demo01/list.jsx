@@ -7,7 +7,7 @@ export default function List(props) {
     <>
       {list.map((item, index) => {
         if (item.type === 'loading') {
-          return <Skeleton key='loading' />
+          return <Skeleton key={`loading-${index}`} />
         }
         return <Userinfo index={index} username={item.id} message={item.value} key={item.id} />
       })}

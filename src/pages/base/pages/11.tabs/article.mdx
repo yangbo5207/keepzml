@@ -1,5 +1,5 @@
-import Cardruntime from 'components/Cardruntime.jsx'
-import Demo01 from './case/Demo01.jsx'
+import Demo01 from './case/Demo01/Layout'
+import Demo02 from './case/Demo02/Layout'
 
 Tab 切换的过程中，请求接口也是日常开发中非常常见的交互方式。不过 tabs 切换的情况比较多，很考验开发者的个人能力。我们准备了三个不同的场景以供大家直接学习。
 
@@ -9,39 +9,7 @@ Tab 切换的过程中，请求接口也是日常开发中非常常见的交互�
 
 然后使用一下，检测一下效果
 
-```javascript
-import {useState, Suspense} from 'react'
-import Tabs from './Tabs'
-
-const tabs = [
-  { name: 'My Account', href: '#', current: true },
-  { name: 'Company', href: '#', current: false },
-  { name: 'Team Members', href: '#', current: false },
-  { name: 'Billing', href: '#', current: false },
-]
-
-export default function Example() {
-  const [current, switchToSelected] = useState(0)
-
-  function __handler(index) {
-    tabs[current].current = false
-    tabs[index].current = true
-    switchToSelected(index)
-  }
-
-  return (
-    <div>
-      <Tabs tabs={tabs} onSwitch={__handler} />
-      <div className='mt-4 text-gray-500'>
-        当前选中：{tabs[current].name}
-      </div>
-    </div>
-  )
-}
-```
-
-<Cardruntime><Demo01 /></Cardruntime>
-
+<Demo01 />
 
 这里需要注意观察的是，案例中我们对 tabs 数据和 current 当前选中项的一个管理方式。在使用过程中，我们可以尽量减少对于 state 的使用，能不用就不用。但是许多人在开发过程中会非常依赖于 state，管理不善时，可能会导致数据的大量冗余 re-render 产生。这里当我们切换点击时，会修改两个数据，但是最终只有一个 state 变化。
 
@@ -51,7 +19,7 @@ export default function Example() {
 所以我们需要声明一个新的状态 promise
 
 ```javascript
-const [promise, update] = useState(() => fetchListWithCancel(5))
+const [promise, update] = useState(fetchListWithCancel)
 ```
 
 然后再点击时重新请求并修改 state promise 即可。
@@ -63,9 +31,10 @@ function __handler(index) {
   switchToSelected(index)
 
 + promise.cancel()
-+ const len = Math.floor(Math.random() * 10)
-+ update(fetchListWithCancel(len))
++ update(fetchListWithCancel())
 }
 ```
 
-这里我们依然需要取消上一次请求是因为可能有的使用者会连续快速切换，我们可以通过取消为完成请求的方式让页面响应变得合理与流畅。完整的案例请看右侧区域。
+这里我们依然需要取消上一次请求是因为可能有的使用者会连续快速切换，我们可以通过取消为完成请求的方式让页面响应变得合理与流畅。
+
+<Demo02 />

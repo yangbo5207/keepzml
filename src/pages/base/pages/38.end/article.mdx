@@ -2,13 +2,7 @@ import Cardruntime from 'components/Cardruntime.jsx'
 import Demo01 from 'pages/base/pages/11.tabs/case/Demo01'
 import Codepack from 'components/Codepack/index.jsx'
 
-import AppText from 'pages/base/pages/11.tabs/case/index.jsx?raw'
-import apiText from 'pages/base/pages/11.tabs/case/api.js?raw'
-import SkeletonText from 'pages/base/pages/11.tabs/case/Skeleton.jsx?raw'
-import ListText from 'pages/base/pages/11.tabs/case/List.jsx?raw'
-import TabsText from 'pages/base/pages/11.tabs/case/Tabs.jsx?raw'
-
-import MainCase from "pages/base/pages/11.tabs/case";
+import MainCase from "pages/base/pages/11.tabs/case/demo02/Layout";
 import MainCase2 from 'pages/base/pages/7.useInitUpdate/case/demo01/Layout'
 
 ### 完结感言
@@ -36,17 +30,7 @@ import MainCase2 from 'pages/base/pages/7.useInitUpdate/case/demo01/Layout'
 
 这个思考的灵感来源于付费群里的同学有人跟我说，很多时候不用非得彻底理解，先知道怎么用，用多了自然就理解了。因此在这个基础之上，我在文章内容中，内置了大量的实战案例，以及对应的，原样的代码。大概如下所示。
 
-<Cardruntime>
-  <Codepack files={{
-      'App': AppText,
-      'api.js': apiText,
-      'List': ListText,
-      'Tabs': TabsText,
-      'Skeleton': SkeletonText,
-    }}
-    caseRender={<MainCase />} auth
-  />
-</Cardruntime>
+<MainCase />
 
 在大量这样的案例的支撑之下，有可能读者无法快速理解我想要传达的开发思维与架构思维，但是现成的案例可以让他快速将其运用到项目实践中。大量的运用实践可以帮助读者在实践中消化，在实践中理解与感悟，这样的障碍和瓶颈会降低很多。学习推进的进度可能会比较慢，但不会让人感觉窒息，不得其法。
 
@@ -117,9 +101,7 @@ import MainCase2 from 'pages/base/pages/7.useInitUpdate/case/demo01/Layout'
 
 自己开发一个网站，很多时候最考验我的，反而是综合能力。例如在做这个网站的过程中，我自己为整个网站摸索了 UI 风格，并且为每一个案例都精心准备了视觉效果良好的 UI 设计。例如这个案例
 
-<Cardruntime>
-  <MainCase2 />
-</Cardruntime>
+<MainCase2 />
 
 我自己设计并实现了常用的 UI 组件。
 

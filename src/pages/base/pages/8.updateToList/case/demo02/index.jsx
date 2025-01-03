@@ -1,6 +1,7 @@
 import {useState, Suspense} from 'react'
 import Skeleton from 'components/Skeleton'
-import {getMessage, getUuid} from './api'
+import {uuid} from 'utils'
+import {getMessage} from './api'
 import Userinfo from './userinfo'
 
 export default function Demo01() {
@@ -16,7 +17,7 @@ export default function Demo01() {
         <button onClick={__handler}>新增数据</button>
       </div>
       {promise.map((item, index) => (
-        <Suspense fallback={<Skeleton />} key={getUuid()}>
+        <Suspense fallback={<Skeleton />} key={uuid()}>
           <Userinfo promise={item} index={index} />
         </Suspense>
       ))}

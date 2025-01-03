@@ -1,13 +1,13 @@
 import { useState, useRef } from 'react'
 import Modal from './Modal.jsx'
-import getUuid from "utils/uuid.js";
+import {uuid} from 'utils'
 
 
 export default function Table() {
   const modal = useRef(null)
 
   const [revenues, setRevenues] = useState([{
-    id: getUuid(),
+    id: uuid(),
     name: 'Logo redesign',
     desc: 'New logo and digital asset playbook.',
     hours: '20.0',

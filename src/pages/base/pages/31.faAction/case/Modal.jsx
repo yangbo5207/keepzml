@@ -1,13 +1,13 @@
 import Dialog from 'components/Dialog/index.jsx'
 import Input from "components/Input/index.jsx";
-import getUuid from "utils/uuid.js";
+import {uuid} from 'utils'
 
 export default function Modal(props) {
   const {ref, onChange} = props
 
   function action(f) {
     const item = {
-      id: getUuid(),
+      id: uuid(),
       name: f.get('name'),
       desc: f.get('desc'),
       hours: f.get('hours'),

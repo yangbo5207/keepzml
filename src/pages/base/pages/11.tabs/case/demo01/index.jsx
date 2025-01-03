@@ -1,5 +1,5 @@
-import {useState, Suspense} from 'react'
-import Tabs from './Tabs.jsx'
+import {useState} from 'react'
+import Tabs from './tabs'
 
 const tabs = [
   { name: 'My Account', href: '#', current: true },

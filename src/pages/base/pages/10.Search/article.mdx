@@ -1,26 +1,31 @@
-import Cardruntime from 'components/Cardruntime.jsx'
-import Demo01 from './case/Demo01.jsx'
+import Demo01 from './case/Demo01/Layout'
+import Demo02 from './case/Demo02/Layout'
 
-<Cardruntime><Demo01 /></Cardruntime>
+这是一个搜索的案例。当我们学会把数据存放在 promise 中时，实现这个案例的代码将会非常简单。
 
-这是一个搜索的案例。当我们学会把数据存放在 promise 中时，实现这个案例的代码将会非常简单。案例演示如上面所示。
+案例演示
+
+<Demo01 />
 
 首先，我们需要定义一个 List 组件，用于显示列表数据。我们计划将列表数据存放在一个 promise 中，然后使用 use 从该 promise 中读取列表然后渲染。
 
-因此，该 List 组件的代码如下所示
+该 List 组件的代码如下
 
-```javascript
+```jsx
 import { use } from 'react';
+import { createRandomMessage } from 'utils'
+
 export default function CurrentList({promise}) {
   const {results} = use(promise)
+  console.log('List with use renderred.')
   return (
     <div>
       {results.map((item, i) => (
-        <div key={`h${i}`} className='flex border p-4 items-center my-4 rounded-md'>
+        <div className='flex border p-4 items-center my-4 rounded' key={`v${i}`}>
           <img className='w-12 h-12 rounded-full' src={item.picture.large} alt='' />
           <div className='flex-1 ml-4'>
             <div className='font-bold'>{item.name.last}</div>
-            <div className='text-gray-400 mt-1 text-sm line-clamp-1'>react 19 re, a design language for background applications</div>
+            <div className='text-gray-400 mt-1 text-sm line-clamp-1'>{createRandomMessage()}</div>
           </div>
         </div>
       ))}
@@ -31,52 +36,33 @@ export default function CurrentList({promise}) {
 
 然后，我们只需要在 useState 中存储一个 promise 即可
 
-```javascript
-const [promise, update] = useState(() => fetchList(10))
+```js
+const [promise, update] = useState(fetchList)
 ```
 
 更新时，更改该 promise
 
-```javascript
-function __inputChange(e) {
-  const len = e.target.value.length % 10
-  update(fetchList(len))
+```js
+function __inputChange() {    
+  update(fetchList())
 }
 ```
 
 最后结合 Suspense，完整代码如下
 
-```javascript
-import {useState, Suspense} from 'react'
-import Skeleton from './Skeleton'
-import {fetchList} from './api'
-import List from './List'
-import Input from './Input'
+<Demo01 />
 
-export default function Demo01() {
-  const [promise, update] = useState(() => fetchList(10))
-
-  function __inputChange(e) {
-    const len = e.target.value.length % 10
-    update(fetchList(len))
-  }
-
-  return (
-    <div>
-      <Input onChange={__inputChange} placeholder='Enter something' />
-      <Suspense fallback={<Skeleton />}>
-        <List promise={promise} />
-      </Suspense>
-    </div>
-  )
-}
-```
 
 在演示这个例子时，我们要结合 chrome 开发者工具一起查看。观察接口请求的情况。我们发现，当我们快速输入时，此时会发起多个接口请求。React 会帮助我们解决竞态的问题，将接口任务依次排列好执行。
 
 但是在请求结果的获取上，反馈到页面上只会获取最后一次请求的结果。这一点非常舒适。
 
-与此同时，本次案例演示了一个需要传入参数的接口应该如何处理。
+另外一个小的知识点是，如果接口需要传入参数，我们可以按照如下的方式处理
+
+```js
+const [promise, update] = useState(() => fetchList())
+```
+
 
 ## *1*
 **取消上一次请求**
@@ -87,7 +73,7 @@ export default function Demo01() {
 
 在 JavaScript 中，有一个特殊的内建对象 `AbortController` 可以终止异步任务。我们可以利用该对象实例来终止 `fetch` 请求。
 
-```ts
+```js
 let controller = new AbortController();
 ```
 
@@ -131,14 +117,19 @@ controller.abort();
 封装代码如下
 
 ```javascript
-export const fetchListWithCancel = (number) => {
+export const host = 'https://randomuser.me'
+
+export const fetchListWithCancel = () => {
+  const i = Math.floor(Math.random() * 10) % 10
+  const query = new URLSearchParams({
+    inc: 'name,gender,email,nat,picture',
+    results: i,
+    noinfo: true
+  })
   let controller = new AbortController();
   let signal = controller.signal;
   const promise = new Promise(resolve => {
-    fetch(
-      `https://randomuser.me/api/?results=${number}&inc=name,gender,email,nat,picture&noinfo`,
-      {signal}
-    ).then(res => {
+    fetch(`${host}/api/?${query.toString()}`, {signal}).then(res => {
       resolve(res.json())
     }).catch(() => {
       console.log('接口成功取消！')
@@ -158,25 +149,18 @@ export const fetchListWithCancel = (number) => {
 
 使用时，只需要调用 `promise.cancel()` 就可以取消对应的请求了。
 
-
 ## 3
 **结合 react 19 使用**
 
-我们接下来要完成右侧案例的演示效果。注意仔细感受一下代码的简洁性。逻辑和之前没有发生任何明显的变化，只是我们需要切换我们新封装的 api 来发送请求。
+直接观察演示案例
 
+<Demo02 />
 
-```javascript
-const [promise, update] = useState(() => fetchListWithCancel(10))
-```
+和之前相比，我们的代码仅新增了一行
 
-然后在新的请求发生之前，取消还未完成的请求
-
-```javascript
-function __inputChange(e) {
-  promise.cancel()
-  const len = e.target.value.length % 10
-  update(fetchListWithCancel(len))
+```diff
+function __inputChange() {
++ promise.cancel()
+  update(fetchListWithCancel())
 }
 ```
-
-其他的逻辑基本保持不变，完整代码和演示效果请在右侧区域查看。请务必结合调试工具中的网络请求一起观察演示效果。

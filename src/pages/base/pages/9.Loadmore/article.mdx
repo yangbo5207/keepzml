@@ -1,18 +1,14 @@
-import Cardruntime from 'components/Cardruntime.jsx'
 import Demo01 from './case/demo01/Layout'
 
 我们可以在思维上将上一节课的解决方案扩展到分页列表中，加载更多的场景。
+
+<Demo01 />
 
 这里唯一的一个小区别就是，上一章中，我们只在 promise 中存储了一条数据。如果我们将一页数据也存在 promise 中呢？
 
 加载更多的分页逻辑就会变得非常简单。为了方便演示，我们这里以一页数据只有三条为例。
 
-> 大多数情况是一页 10 条，这个可根据具体的实践需求随时改动
-
-
 首先简单约定接口，该接口返回一页数据。`3条`
-
-> 你也可以在右侧演示案例的 `api.js` 中，修改 count = 10 查看一页数据 10 条的演示效果
 
 ```javascript
 // api.js
@@ -29,25 +25,24 @@ export const fetchList = async () => {
 
 ```jsx
 // List.jsx
-import { use } from 'react';
-import {random} from './api'
+import { use } from 'react'
+
 export default function CurrentList({promise}) {
   const {results} = use(promise)
   return (
     <div>
       {results.map((item, i) => (
-        <div key={item.name.last} className='flex border-b py-4 mx-4 items-center border-dashed'>
+        <div key={item.id} className='flex border-b py-4 mx-4 items-center border-dashed'>
           <img className='w-14 h-14 rounded-full' src={item.picture.large} alt='' />
           <div className='flex-1 ml-4'>
             <div className='font-bold'>{item.name.last}</div>
-            <div className='text-gray-400 mt-1 text-sm line-clamp-1'>{random[i]}</div>
+            <div className='text-gray-400 mt-1 line-clamp-1'>{item.desc}</div>
           </div>
         </div>
       ))}
     </div>
   )
 }
-
 ```
 
 此时我们稍微梳理一下逻辑，首先我们有多个 promise，然后每个 promise 中有一页数据，因此，我们可以遍历 promise，并在遍历中渲染能显示一页数据的 List 组件。
