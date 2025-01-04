@@ -1,10 +1,11 @@
 import { useRef } from 'react'
+import Input from './Input'
 
-export default function Demo01() {
+export default function Demo02() {
   const input = useRef(null)
   return (
     <div className='flex justify-between'>
-      <input ref={input} type='text' className='border p-2 rounded-md flex-1' />
+      <Input ref={input} type='text' className='flex-1' />
       <button
         onClick={() => input.current.focus()}
         className='ml-3'

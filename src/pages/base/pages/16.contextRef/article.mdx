@@ -1,7 +1,6 @@
-import Cardruntime from 'components/Cardruntime.jsx'
-import Demo01 from './case/Demo01.jsx'
-import Demo02 from './case/Demo02.jsx'
-import Demo03 from './case/Demo03.jsx'
+import Demo01 from './case/Demo01/Layout'
+import Demo02 from './case/Demo02/Layout'
+import Demo03 from './case/Demo03/Layout'
 
 
 ## *1*
@@ -17,23 +16,7 @@ IOC 的设计理念里，有三个角色，一个角色是**容器 C**，一个�
 
 在实践中，我们可以通过 ref 直接拿到 input 的对象，然后通过调用 `.focus` 让输入框获取焦点。代码如下
 
-```javascript
-import { useRef } from 'react'
-
-export default function Demo01() {
-  const input = useRef(null)
-  return (
-    <div className='flex justify-between'>
-      <input ref={input} type='text' className='border p-2 rounded-md flex-1' />
-      <button
-        onClick={() => input.current.focus()}
-        className='ml-3'
-      >点击获取焦</button>
-    </div>
-  )
-}
-```
-<Cardruntime reload><Demo01 /></Cardruntime>
+<Demo01 />
 
 
 但是许多时候，直接使用 `input` 标签并不能满足我们的需求，我们需要基于 input 做额外的封装。但是封装之后，我们还是希望能通过调用 `.focus` 让输入框获取焦点。
@@ -67,52 +50,9 @@ ref 是控制器
 
 当前组件利用 ref 来调用 input。从而让代码的解耦变得非常合理。可扩展性也很强。
 
-```javascript
-import { useRef } from 'react'
-import Input from './Input'
+这个案例的代码封装逻辑如下
 
-export default function Demo02() {
-  const input = useRef(null)
-  return (
-    <div className='flex justify-between'>
-      <Input ref={input} type='text' className='flex-1' />
-      <button
-        onClick={() => input.current.focus()}
-        className='ml-3'
-      >点击获取焦</button>
-    </div>
-  )
-}
-```
-
-<Cardruntime reload><Demo02 /></Cardruntime>
-
-这个案例中 Input 代码封装逻辑如下
-
-```javascript
-import clsx from 'clsx'
-import {twMerge} from 'tailwind-merge'
-
-export default function Input(props) {
-  const {ref, className, ...other} = props
-  const base = 'flex items-center border px-2 rounded-md text-gray-500'
-  const cls = clsx(base, className)
-  return (
-    <div className={twMerge(cls)}>
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-      </svg>
-
-      <input
-        ref={ref}
-        className='flex-1 !border-none p-2'
-        style={{ outline: 'none' }}
-        type='text' {...other}
-      />
-    </div>
-  )
-}
-```
+<Demo02 />
 
 > 注意一些概念上的区分：**控制反转是一种设计思维**，依赖注入是控制反转的一种具体实现，在 React 中，ref 也是一种控制反转的具体实现
 
@@ -180,7 +120,7 @@ function MyInput(props) {
 
 其次，代码这样写了之后，就可以直接在父组件中，通过 ref 拿到 input 的控制权
 
-```js
+```jsx
 function Index() {
   const input = useRef(null)
 
@@ -202,7 +142,7 @@ function Index() {
 在父组件中的使用与以前一样，但是子组件由于不再需要 forwardRef，变得更加简单了。
 
 
-```javascript
+```jsx
 import { useRef } from 'react'
 
 export default function Demo02() {
@@ -233,8 +173,6 @@ useImperativeHandle 接收三个参数，分别是
 
 在官方文档中，有这样一个案例，演示效果如图所示，当我点击按钮时，下方的 input 自动获取焦点，并且中间的滚动条滚动到最底部。
 
-![](https://files.mdnice.com/user/3925/5454bbf2-46c4-43b8-b3ff-d71e23ad31b0.png)
-
 我们结合新的 ref 传递机制和 useImperativeHandle 一起来分析一下这个案例应该怎么实现。
 
 > 思考时，请一定要把封装的思维带入进来，否则可能很难感受到这样做在解耦上的具体好处
@@ -251,8 +189,8 @@ useImperativeHandle 接收三个参数，分别是
 我们期望点击按钮时，信息部分的输入框自动获取焦点，信息部分的信息展示区域能滚动到最底部，因此整个页面组件的代码可以表示为如下：
 
 ```jsx
-import { useRef } from 'react';
-import Post from './Post.js';
+import { useRef } from 'react'
+import Post from './Post'
 
 export default function Page() {
   const postRef = useRef(null);
@@ -299,93 +237,13 @@ useImperativeHandle(ref, () => {
 }, []);
 ```
 
-ref 的传递，只需要把它看成是一个普通的 props 即可，因此，`Post` 组件完整代码如下
+ref 的传递，只需要把它看成是一个普通的 props 即可。完整代码如下
 
-```jsx
-const Post = ({ref}) => {
-  const commentsRef = useRef(null);
-  const addCommentRef = useRef(null);
+<Demo03 />
 
-  useImperativeHandle(ref, () => {
-    return {
-      scrollAndFocusAddComment() {
-        commentsRef.current.scrollToBottom();
-        addCommentRef.current.focus();
-      }
-    };
-  }, []);
 
-  return (
-    <>
-      <article>
-        <p>Welcome to my blog!</p>
-      </article>
-      <CommentList ref={commentsRef} />
-      <AddComment ref={addCommentRef} />
-    </>
-  );
-}
-```
-
-同样的道理，我们只需要把 CommentList 与 AddComment 的 ref 传递出来就可以了。
-
-所以信息展示部分 CommentList 组件的代码为
-
-```jsx
-import { useRef, useImperativeHandle } from 'react';
-
-const CommentList = ({ref}) => {
-  const divRef = useRef(null);
-
-  useImperativeHandle(ref, () => {
-    return {
-      scrollToBottom() {
-        const node = divRef.current;
-        node.scrollTop = node.scrollHeight;
-      }
-    };
-  }, []);
-
-  let comments = [];
-  for (let i = 0; i < 50; i++) {
-    comments.push(<p key={i}>Comment #{i}</p>);
-  }
-
-  return (
-    <div className="CommentList" ref={divRef}>
-      {comments}
-    </div>
-  );
-};
-
-export default CommentList;
-```
-
-信息输入部分 AddComment 的代码为
-
-```jsx
-function AddComment(props) {
-  return (
-    <input
-      placeholder="Add comment..."
-      ref={props.ref}
-    />
-  )
-};
-
-export default AddComment;
-```
-
-与之前相比，确实要简单了许多。完整的代码与案例演示请戳右侧区域。
 
 ## 5
 **总结**
 
 如果你对封装解耦比较重视，那么你一定能明显感受到，ref 与 useImperativeHandle 的结合能发挥的想象空间远不止于此，这种方式给 React 提供了一种扩展 React 能力的重要手段，因此，当你成为 React 高手之后，你一定会非常喜欢使用它们，他们的组合能让 React 项目变得更加多样化。
-
-
-
-
-<Cardruntime reload><Demo03 /></Cardruntime>
-
-
