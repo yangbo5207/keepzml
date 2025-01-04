@@ -1,8 +1,8 @@
 import Cardruntime from 'components/Cardruntime.jsx'
-import Demo01 from './case/Demo01.jsx'
+import Layout from './case/Layout'
 
 
-<Cardruntime reload><Demo01 /></Cardruntime>
+<Layout />
 
 如案例演示的这样，有的时候，我们需要这种**瀑布流式**的接口请求交互方式。也就是上一个模块请求成功之后，再请求下一个模块。
 
@@ -11,30 +11,28 @@ import Demo01 from './case/Demo01.jsx'
 我们可以在父组件中，通过一个 promise 向子组件传递数据
 
 ```javascript
-export default function Example() {
-  const [promise, update] = useState(() => fetchList(3))
+export default function Page() {
+  const promise = fetchList(4)
   return (
     <div>
-
       <Suspense fallback={<Skeleton type='card' />}>
-        <AccountUse promise={promise} />
+        <Account promise={promise} />
       </Suspense>
     </div>
   )
 }
 ```
 
-然后在子组件 AccountUse 中，使用同样的方式向它的子组件传递数据
+然后在子组件 Account 中，使用同样的方式向它的子组件传递数据
 
 ```javascript
-function AccountUse(props) {
+function Account(props) {
   const {results} = use(props.promise)
-  const [promise, update] = useState(() => fetchList(5))
+  const [promise] = useState(() => fetchList(results.length))
   return (
     <div className='border border-blue-100 shadow rounded-md p-4 w-full mt-4'>
       <div>...</div>
 
-      <div className="mt-8 text-gray-400 text-sm">Account users</div>
       <Suspense fallback={<Skeleton/>}>
         <List promise={promise}/>
       </Suspense>
@@ -61,5 +59,3 @@ export default function CurrentList({promise}) {
 ```
 
 这里需要注意的是，当你决定这样用时，往往后请求的接口都会依赖先请求的结果，如果并没有明确的先后依赖关系，我们并不建议采用这种交互方案。
-
-完整的代码和案例演示看右侧区域。

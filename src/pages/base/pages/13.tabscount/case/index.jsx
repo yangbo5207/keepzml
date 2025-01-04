@@ -1,8 +1,8 @@
-import {useState, Suspense, useCallback} from 'react'
-import Skeleton from './Skeleton.jsx'
-import {fetchListWithCancel} from './api.js'
-import Tabs from './Tabs.jsx'
-import List from './List.jsx'
+import {useState, Suspense} from 'react'
+import Skeleton from 'components/Skeleton'
+import {fetchListWithCancel} from './api'
+import Tabs from './Tabs'
+import List from './List'
 
 const config = [
   { name: 'Applied', href: '#', count: 0, current: true },
@@ -10,9 +10,9 @@ const config = [
   { name: 'Interview', href: '#', count: 0, current: false }
 ]
 
-export default function Example() {
+export default function Page() {
   const [current, switchToSelected] = useState(0)
-  const [promise, update] = useState(() => fetchListWithCancel(5))
+  const [promise, update] = useState(fetchListWithCancel)
   const [tabs, changeTabs] = useState(config)
 
   function __handler(index) {
@@ -22,8 +22,7 @@ export default function Example() {
     changeTabs([...tabs])
 
     promise.cancel()
-    const len = Math.floor(Math.random() * 10)
-    update(fetchListWithCancel(len))
+    update(fetchListWithCancel())
   }
 
   function __complete(number) {

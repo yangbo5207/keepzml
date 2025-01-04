@@ -1,17 +1,16 @@
-import clsx from 'clsx'
 import {useState, Suspense} from 'react'
-import Skeleton from './Skeleton.jsx'
-import {fetchListWithCancel} from './api.js'
-import List from './List.jsx'
-import Input from './Input.jsx'
+import Skeleton from 'components/Skeleton'
+import {fetchListWithCancel} from './api'
+import List from './List'
+import Input from './Input'
+import clsx from 'clsx'
 
 export default function Search(props) {
-  const [promise, update] = useState(() => fetchListWithCancel(10))
+  const [promise, update] = useState(fetchListWithCancel)
 
-  function __inputChange(e) {
+  function __inputChange() {
     promise.cancel()
-    const len = e.target.value.length % 10
-    update(fetchListWithCancel(len))
+    update(fetchListWithCancel())
   }
 
   const cls = clsx('pt-4', {

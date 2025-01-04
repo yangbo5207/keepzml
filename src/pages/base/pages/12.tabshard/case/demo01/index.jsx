@@ -1,10 +1,10 @@
 import {useState, useRef} from 'react'
-import Tabs from './Tabs.jsx'
+import Tabs from './tabs'
 
-import Account from './Account.jsx'
-import Search from './Search.jsx'
+import Account from './Account'
+import Search from './Search'
 
-export default function Example() {
+export default function Page() {
   const [current, switchToSelected] = useState(0)
   const t = useRef([
     { name: 'My Account', href: '#', current: true, element: Account },
@@ -31,9 +31,8 @@ export default function Example() {
   return (
     <div>
       <Tabs tabs={t.current} onSwitch={__handler} />
-
       {arr.map((item, index) => (
-        <item.element selected={item.current} key={`z-${index}`}/>
+        <item.element selected={item.current} key={`v-${index}`}/>
       ))}
     </div>
   )

@@ -1,9 +1,8 @@
-import Cardruntime from 'components/Cardruntime.jsx'
-import Demo01 from './case/Demo01.jsx'
-
-<Cardruntime reload><Demo01 /></Cardruntime>
+import Layout from './case/Layout'
 
 有的时候我们需要从 Suspense 包裹的子组件中获取数据。
+
+<Layout />
 
 注意看这个案例。我设计了一个随机数量的请求，每一次请求返回随机数量的列表，Tabs 中的按钮旁边需要显示当前列表的长度。
 
@@ -50,5 +49,3 @@ function __complete(number) {
   changeTabs([...tabs])
 }
 ```
-
-完整代码与案例演示查看右侧区域。

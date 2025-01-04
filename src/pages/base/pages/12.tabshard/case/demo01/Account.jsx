@@ -1,11 +1,11 @@
 import clsx from 'clsx'
 import {useState, Suspense} from 'react'
-import Skeleton from './Skeleton.jsx'
-import {fetchListWithCancel} from './api.js'
-import List from './List.jsx'
+import Skeleton from 'components/Skeleton'
+import {fetchListWithCancel} from './api'
+import List from './List'
 
 export default function Account(props) {
-  const [promise, update] = useState(() => fetchListWithCancel(5))
+  const [promise] = useState(fetchListWithCancel)
 
   const cls = clsx({
     ['hidden']: !props.selected

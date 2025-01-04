@@ -1,7 +1,8 @@
 import Cardruntime from 'components/Cardruntime.jsx'
 
+import Layout from './case/Layout'
 
-可以看到，use + Suspense 的结合，可以极大的简化我们的开发代码，在开发体验上的提升是非常明显的。但是，如果由于客观原因，我们的项目无法升级到 React 19，那么我们就无法享受这种开发体验带来的提升了吗？
+use + Suspense 的结合，可以极大的简化我们的开发代码，在开发体验上的提升是非常明显的。但是，如果由于客观原因，我们的项目无法升级到 React 19，那么我们就无法享受这种开发体验带来的提升了吗？
 
 当然不是。早在 React 16 的后期版本中，就提供了对 Suspense 的支持，因此，我们只需要在这个基础之上，自己定义一个 use 方法，去读取 promise 中的值就可以实现我们前面所有章节的效果了。
 
@@ -38,4 +39,4 @@ export default function use(promise) {
 + import use from './use'
 ```
 
-在右侧代码中，我提供了一个完整的案例来使用 use，右侧案例的 React 运行版本是 `react@16.14.0`
+<Layout />

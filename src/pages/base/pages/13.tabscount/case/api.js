@@ -1,17 +1,16 @@
-export const fetchList = async (number) => {
-  const res = await fetch(`https://randomuser.me/api/?results=${number}&inc=name,gender,email,nat,picture&noinfo`)
-  return res.json()
-}
+export const host = 'https://randomuser.me'
 
-export const fetchListWithCancel = (number) => {
+export const fetchListWithCancel = () => {
+  const i = Math.floor(Math.random() * 10) % 10
+  const query = new URLSearchParams({
+    inc: 'name,gender,email,nat,picture',
+    results: i,
+    noinfo: true
+  })
   let controller = new AbortController();
   let signal = controller.signal;
   const promise = new Promise(resolve => {
-    fetch(
-      `https://randomuser.me/api/?results=${number}&inc=name,gender,email,nat,picture&noinfo`,
-      {signal}
-    ).then(res => {
-      localStorage.setItem('modal', 'xxx')
+    fetch(`${host}/api/?${query.toString()}`, {signal}).then(res => {
       resolve(res.json())
     }).catch(() => {
       console.log('接口成功取消！')
@@ -25,4 +24,3 @@ export const fetchListWithCancel = (number) => {
   }
   return promise
 }
-

@@ -4,7 +4,7 @@ function classNames(...classes) {
 
 export default function Tabs({tabs, onSwitch}) {
   return (
-    <div>
+    <div className='overflow-auto'>
       <div className="border-b border-gray-200">
         <nav className="-mb-px flex space-x-8" aria-label="Tabs">
           {tabs.map((tab, index) => (

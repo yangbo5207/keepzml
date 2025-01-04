@@ -1,23 +1,11 @@
 import {use, useState, Suspense} from 'react'
-import Skeleton from './Skeleton.jsx'
-import {fetchList} from './api.js'
-import List from './List.jsx'
+import Skeleton from 'components/Skeleton'
+import {fetchList} from './api'
+import List from './List'
 
-export default function Example() {
-  const [promise, update] = useState(() => fetchList(3))
-  return (
-    <div>
-
-      <Suspense fallback={<Skeleton type='card' />}>
-        <AccountUse promise={promise} />
-      </Suspense>
-    </div>
-  )
-}
-
-function AccountUse(props) {
+export default function Account(props) {
   const {results} = use(props.promise)
-  const [promise, update] = useState(() => fetchList(5))
+  const [promise] = useState(() => fetchList(results.length))
   return (
     <div className='border border-blue-100 shadow rounded-md p-4 w-full mt-4'>
       <div className='flex space-x-4'>

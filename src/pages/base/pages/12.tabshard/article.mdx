@@ -1,14 +1,13 @@
 import Cardruntime from 'components/Cardruntime.jsx'
-import Demo01 from './case/Demo01.jsx'
+import Demo01 from './case/Demo01/Layout'
 
-<Cardruntime reload><Demo01 /></Cardruntime>
+<Demo01 />
 
 这个案例的实现就稍微有点难度了。我们需要满足如下条件
 
 1. 1、初始化时，只渲染默认的当前列页，而不会渲染其他任何未被点击过的页面/组件。
 2. 2、渲染过的页面，在切换离开之后，需要缓存下来，下一次切换回事来直接显示即可，效果类似于 keep-alive
 3. 3、每个 tab 按钮，对应一个页面，按钮与页面之间应该是 1 对 1 的关系
-
 
 首先，我们应该设计 tabs 的格式如下。
 
@@ -82,4 +81,6 @@ export default function Account(props) {
 
 这里我们还要考虑一个布局的问题。只能当前选中的页面显示出来。因此我们这里通过利用 `display` 的值来控制。传入一个 `selected` 来判断是否需要将其值从 `block` 改变为 `none`
 
-完整代码与案例演示请看右侧区域。
+完整代码如下所示
+
+<Demo01 />
