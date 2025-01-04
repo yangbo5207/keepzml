@@ -1,13 +1,8 @@
-import Cardruntime from 'components/Cardruntime'
-import MainCase from './case'
 
+import MainCase from './case/Layout'
 
-<Cardruntime reload><MainCase /></Cardruntime>
+<MainCase />
 
 场景：上一个模块请求成功之后，再请求下一个模块。
 
-该场景在之前的基础版中出现，但是我严格按照 MVC 架构重新组织了代码逻辑。主要看代码学习。
-
-1、支持单独更新列表
-
-2、可快速点击 `update` 按钮，会取消上一次请求
+之前出现过类似的场景，但是我严格按照 MVC 架构重新组织了代码逻辑。

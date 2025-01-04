@@ -4,7 +4,7 @@
  * 2. 数据二次处理, 整理返回给 View 层的基本格式
  */
 import {fetchList} from './service'
-import {createRandomMessage} from 'utils'
+import {createRandomMessage, uuid} from 'utils'
 
 export const fetchListController = async () => {
   const list = await fetchList()
@@ -12,6 +12,7 @@ export const fetchListController = async () => {
     item.desc = `${index}、${createRandomMessage()}`
     item.name = item.name.first + ' ' + item.name.last
     item.thumbnail = item.picture.thumbnail
+    item.id = uuid()
     return item
   })
 }

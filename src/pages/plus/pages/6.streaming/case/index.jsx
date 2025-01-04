@@ -1,35 +1,15 @@
-import {use, useState, Suspense} from 'react'
+import {use, Suspense} from 'react'
 import Skeleton from 'components/Skeleton'
+import UserAccount from './user-account'
 import {fetchList} from './api'
-import List from './List'
 
-export default function Example() {
-  const banners = fetchList(3)
+export default function Page() {
+  const banners = fetchList(4)
   return (
     <div>
       <Suspense fallback={<Skeleton type='card' />}>
-        <UseAccount promise={banners} />
+        <UserAccount promise={banners} />
       </Suspense>
-    </div>
-  )
-}
-
-function UseAccount(props) {
-  const {results} = use(props.promise)
-
-  return (
-    <div className='border border-blue-100 shadow rounded-md p-4 w-full mt-4'>
-      <div className='flex space-x-4'>
-        {results.map((item, index) => (
-          <div className="flex-1 overflow-hidden" key={`z-${index}`}>
-            <div className='rounded-md h-32 overflow-hidden bg-cover bg-no-repeat bg-center' style={{backgroundImage: `url(${item.picture.large})`}}></div>
-            <div className="mt-4 font-bold">{item.name.last}</div>
-            <div className="mt-1 text-gray-400 text-sm">{item.email}</div>
-          </div>
-        ))}
-      </div>
-
-      <List />
     </div>
   )
 }
