@@ -1,9 +1,9 @@
 import Cardruntime from "components/Cardruntime.jsx";
-import Demo01 from './case/Demo01.jsx'
-import Demo02 from './case/Demo02.jsx'
+import Demo01 from './case/demo01/Layout'
+import Demo02 from './case/Demo02/Layout'
 
-<Cardruntime><Demo01 /></Cardruntime>
 
+<Demo01 />
 
 这个案例会非常的复杂，经验稍微欠缺一点的前端开发可能都实现不了。我们可以先操作一下上面的按钮，看一下我想要实现的演示效果。
 
@@ -108,47 +108,7 @@ React 依然通过从根节点自上而下的 diff 来找出需要更新的节�
 
 测试代码如下
 
-```js
-export default function Demo02() {
-  return (
-    <div>
-      <OnlyFor />
-      <ForAndJudge />
-    </div>
-  )
-}
-
-function OnlyFor() {
-  var cur = performance.now()
-
-  for(let i = 0; i < 1000000; i++) {}
-
-  return (
-    <div className='mt-4'>
-      仅执行 1000,000 次耗时 for 循环耗时：
-      <span className='text-red-500'>{performance.now() - cur} ms</span>
-    </div>
-  )
-}
-
-
-function ForAndJudge() {
-  var cur = performance.now()
-
-  for(let i = 0; i < 1000000; i++) {
-    'xxx' === 'xx'
-  }
-
-  return (
-    <div className='mt-4'>
-      for 循环中，比较 1000,000 次耗时：
-      <span className='text-red-500'>{performance.now() - cur} ms</span>
-    </div>
-  )
-}
-```
-
-<Cardruntime reload><Demo02 /></Cardruntime>
+<Demo02 />
 
 由于 for 循环本身也会消耗一点时间，因此我这里单独列出来了 for 循环中不执行任何逻辑的耗时结果。我们可以多次点击 `reload` 按钮查看耗时波动。
 

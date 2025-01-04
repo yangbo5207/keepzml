@@ -1,8 +1,8 @@
-import { useState, useEffect, useRef } from 'react'
-import Panel1 from "./Panel1.jsx";
-import Panel2 from "./Panel2.jsx";
-import Panel3 from "./Panel3.jsx";
-import Panel4 from "./Panel4.jsx";
+import { useState, useRef } from 'react'
+import Panel1 from './Panel1'
+import Panel2 from './Panel2'
+import Panel3 from './Panel3'
+import Panel4 from './Panel4'
 
 const tabs = [
   { title: 'Tailwindcss', component: Panel1, appeared: false },

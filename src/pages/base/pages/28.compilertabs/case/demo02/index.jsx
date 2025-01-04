@@ -20,7 +20,6 @@ function OnlyFor() {
   )
 }
 
-
 function ForAndJudge() {
   var cur = performance.now()
 
