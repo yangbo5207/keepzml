@@ -1,5 +1,5 @@
 import {useState, Suspense, useRef} from 'react'
-import Skeleton from './Skeleton'
+import Skeleton from 'components/Skeleton'
 import List from './List'
 
 import {fetchListController} from './controller'

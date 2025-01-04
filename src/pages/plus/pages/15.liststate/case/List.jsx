@@ -26,7 +26,7 @@ export default function CurrentList({promise}) {
   return (
     <div>
       {list.map((item, i) => (
-        <Flex key={`h${i}`}>
+        <Flex key={item.id}>
           <input type="checkbox" className='w-5 mr-4' checked={item.selected} onChange={(e) => __radioHandler(e, i)} />
           <div className='flex border p-4 items-center my-4 rounded-md flex-1'>
             <img className='w-12 h-12 rounded-full' src={item.thumbnail} alt=''/>
