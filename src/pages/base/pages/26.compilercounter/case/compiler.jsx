@@ -1,5 +1,4 @@
 import {useState} from 'react'
-import {_c} from './useCache.js'
 
 export default function Counter() {
   const $ = _c(10);

@@ -1,10 +1,12 @@
-非常的 nice，经过几天的尝试和研究，我在低版本中成功引入了 Compiler，目前已经在 vite 中运行起来了。
+> 也许你学习时，该方法已经得到了官方的支持
+
+非常的 nice，经过几天的尝试和研究，我在 React 低版本中成功引入了 Compiler，目前已经在 vite 中运行起来了。
 
 > 我的思考过程，你可以[点击这篇文章阅读](https://mp.weixin.qq.com/s/RQ1c6YdNgyG-vCCPQBFMjw)，其他脚手架暂时还没试过，不过基本原理应该都是一致的，大家可以自己按照我的思路尝试一下
 
 这里的关键就是在低版本中，缓存 hook `useCacheMemo` 的缺失，当然这个名字只是一个语义化的称呼，在底层可能不一定是这个名字，我们只需要找个地方自定义这个 hook 即可。代码如下，非常的简单。
 
-```javascript
+```js
 import { useState } from "react";
 
 export function c(size) {

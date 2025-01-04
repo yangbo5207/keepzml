@@ -13,7 +13,7 @@
 
 一个组件节点在 React 中很难被判断为没有发生过更新。因为 props 的比较总是不同的。它的比较方式如下。
 
-```javascript
+```js
 {} === {} // false
 ```
 
@@ -52,7 +52,7 @@ npx react-compiler-healthcheck
 
 > 该脚本主要用于检测
 >
-> 1、项目中有多少组件可以成功优化**：越多越好**
+> 1、项目中有多少组件可以成功优化：**越多越好**
 >
 > 2、是否使用严格模式，使用了优化成功率更高
 >
@@ -60,7 +60,7 @@ npx react-compiler-healthcheck
 
 例如，我的其中一个项目，检测结果如下
 
-<div style={{color: 'rgb(23, 163, 74)'}}>
+<div style={{color: 'rgb(23, 163, 74)'}} className='border p-4 rounded'>
   <div>Successfully compiled 38 out of 40 components. </div>
   <div>StrictMode usage found.</div>
   <div>Found no usage of incompatible libraries.</div>

@@ -1,5 +1,4 @@
-import Cardruntime from "components/Cardruntime.jsx";
-import Demo01 from './case/Demo01.jsx'
+import Demo01 from './case/Layout'
 
 ## *1*
 **如何查看编译之后的代码**
@@ -27,85 +26,7 @@ Chrome 开发者工具 -> Sources -> Page -> src
 
 看是得看懂才行。虽然这个代码很不像是正常人应该去阅读的代码。先来感受一下编译之后的代码长什么样，下面是一个案例的运行结果与其对应的代码。
 
-<Cardruntime><Demo01 /></Cardruntime>
-
-```javascript
-function Counter() {
-  const $ = _c(10);
-
-  if ($[0] !== "a13b836c47c4cd480504d73b45661476522265776f255f2150833079731132ac") {
-    for (let $i = 0; $i < 10; $i += 1) {
-      $[$i] = Symbol.for("react.memo_cache_sentinel");
-    }
-    $[0] = "a13b836c47c4cd480504d73b45661476522265776f255f2150833079731132ac";
-  }
-
-  const [count, setCount] = useState(0);
-  let t0;
-
-  if ($[0] !== count) {
-    t0 = function __clickHanler() {
-      setCount(count + 1);
-    };
-
-    $[0] = count;
-    $[1] = t0;
-  } else {
-    t0 = $[1];
-  }
-
-  const __clickHanler = t0;
-  let t1;
-
-  if ($[2] === Symbol.for("react.memo_cache_sentinel")) {
-    t1 = <div>A Base Case</div>;
-    $[2] = t1;
-  } else {
-    t1 = $[2];
-  }
-
-  let t2;
-
-  if ($[3] !== count) {
-    t2 = <div>currnt count is: {count}</div>;
-    $[3] = count;
-    $[4] = t2;
-  } else {
-    t2 = $[4];
-  }
-
-  let t3;
-
-  if ($[5] !== __clickHanler) {
-    t3 = <button onClick={__clickHanler}>Increment</button>;
-    $[5] = __clickHanler;
-    $[6] = t3;
-  } else {
-    t3 = $[6];
-  }
-
-  let t4;
-
-  if ($[7] !== t2 || $[8] !== t3) {
-    t4 = (
-      <div>
-        {t1}
-        <div className="flex items-center justify-between">
-          {t2}
-          {t3}
-        </div>
-      </div>
-    );
-    $[7] = t2;
-    $[8] = t3;
-    $[9] = t4;
-  } else {
-    t4 = $[9];
-  }
-
-  return t4;
-}
-```
+<Demo01 />
 
 
 在 Compiler 编译后的代码中，有一个比较少见的语法会频繁出现：`Symbol.for`，我先把这个知识点科普一下。
@@ -504,11 +425,7 @@ if ($[7] === Symbol.for("react.memo_cache_sentinel")) {
 ## 6
 **实践案例三：Tab 切换**
 
-这个案例会非常的复杂，经验稍微欠缺一点的前端开发可能都实现不了。我们先来看一下我想要实现的演示效果。
-
-![](https://files.mdnice.com/user/3925/551a8f32-866d-4155-881a-5e3bce0d38ff.gif)
-
-从演示效果上来看，这是一个普通的 tab 切换。但是先别急，我还有要求。我希望能实现极限的性能优化。
+这个案例会非常的复杂，经验稍微欠缺一点的前端开发可能都实现不了。
 
 1、我希望首次渲染时，页面渲染更少的内容，因此此时，只能先渲染默认的 Panel。其他 Panel 需要在点击对应的按钮时，才渲染出来。
 
@@ -518,7 +435,6 @@ if ($[7] === Symbol.for("react.memo_cache_sentinel")) {
 
 > 这个案例和要求不算特别难，但是对综合能力的要求还是蛮高的，大家有空可以自己尝试实现一下，看看能不能完全达到要求
 
-具体的完整实现我们会在后续的直播中跟大家分享。大家可以加我好友然后进 React19 讨论群，React19 相关的直播消息会第一时间在群内公布。
 
 这里，我主要想跟大家分享的就是 map 方法的小细节。有如下代码
 
@@ -621,23 +537,21 @@ console.log(now - cur)
 
 执行结果，比较 100 万次，只需要花费不到 **1.3 毫秒**。卧槽(¬д¬。)，这太强了啊。我们很难有项目能够达到 1000,000 次的比较级别，甚至许多达到 10000 都难。那也就意味着，这里大量的比较成本，几乎可以忽略不计。
 
-![](https://files.mdnice.com/user/3925/c7215fd7-c92d-4aaa-8433-8b93be700fa7.png)
+
 
 为了对比具体的效果，我们可以判断一下依赖收集的时间成本。
 
 首先是使用数组来收集依赖。依然是 100 万次，具体执行结果如下。耗时 8 毫秒。
 
-![](https://files.mdnice.com/user/3925/8c8d4d13-dc2f-4855-a709-36811a895ba4.png)
+
 
 使用 Map 来收集依赖。100 万次依赖收集耗时 54 ms。
 
-![](https://files.mdnice.com/user/3925/7d78bae3-15cd-48cb-aeda-46250e404ddf.png)
 
 
 使用 WeakMap 来收集依赖，那就更慢了。100万次依赖收集耗时 200 毫秒。
 > WeakMap 的 key 不能是一个 number 类型
 
-![](https://files.mdnice.com/user/3925/f140d968-30ef-42c9-961a-f8fcb8e1cbf0.png)
 
 数据展示给大家了，具体强不强，大家自行判断。
 
@@ -689,10 +603,4 @@ var [counter, setCounter] = useState(0)
 
 React Compiler 在保持了函数式编程的开发范式的同时，弥补了之前可能存在性能问题的缺陷，这无疑是进一步确认了 React 在前端框架方向都领先地位。
 
-并且 React Compiler 上手成本低，理解起来也不难，未来肯定会快速被开发者所接受。作为开发者我们只需要耐心等待整个生态的跟进，目前从 npm 下载数据上来看，整个生态适配 React19 的积极性非常高。因此距离能成熟使用的时间肯定是不会太长。
-
-
-
-> 顶尖前端都在关注我，就差你啦，右下角
->
-> 成为 React 高手，推荐阅读 React 哲学
+并且 React Compiler 上手成本低，理解起来也不难，未来肯定会快速被开发者所接受。作为开发者我们只需要耐心等待整个生态的跟进，目前从 npm 下载数据上来看，整个生态适配 React19 的积极性非常高。因此距离能成熟使用的时间肯定是不会太长
