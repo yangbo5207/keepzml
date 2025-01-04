@@ -1,5 +1,4 @@
-import Cardruntime from 'components/Cardruntime.jsx'
-import MainCase from './case/index.jsx'
+import MainCase from './case/Layout'
 
 
 ### **解决上一章的问题**
@@ -64,8 +63,8 @@ function formAction(formData) {
 
 完整代码请看右侧展示区域，代码演示如下
 
-<Cardruntime>
-  <MainCase />
-</Cardruntime>
+<MainCase />
+
+为了方便观察输入前和输入后的变化过程，我特意让请求成功之后返回的内容与输入时的内容不同。实际情况应该保持一致。
 
 > 剩下一个需求，是请求失败展示错误或者重试，留一个小挑战，大家可以自行扩展一下

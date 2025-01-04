@@ -1,6 +1,6 @@
-import Input from 'components/Input/index.jsx'
-import {formAction} from './actions.js'
-import SubmitButton from './SubmitButton.jsx'
+import Input from 'components/Input'
+import {formAction} from './actions'
+import SubmitButton from './SubmitButton'
 
 export default function Demo01() {
   return (

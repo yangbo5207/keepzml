@@ -1,6 +1,6 @@
 import {useActionState} from 'react'
-import {submit} from './actions.js'
-import SubmitButton from './SubmitButton.jsx'
+import {submit} from './actions'
+import SubmitButton from './SubmitButton'
 
 function BookItem({id, title, onSubmit}) {
   const [count, formAction] = useActionState((cur, formData) => submit(cur, formData, onSubmit), 0)

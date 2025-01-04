@@ -1,6 +1,6 @@
 import { useOptimistic, useState, useTransition } from "react";
-import {reducer} from './reducer.js'
-import { likeApi } from "./api.js";
+import {reducer} from './reducer'
+import { likeApi } from "./api";
 import s from './index.module.css'
 
 export default function Index() {

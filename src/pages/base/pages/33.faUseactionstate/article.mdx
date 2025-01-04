@@ -1,24 +1,12 @@
-import Cardruntime from "components/Cardruntime.jsx";
-import Demo01 from './case/Demo01.jsx'
-import Demo02 from './case/Demo02.jsx'
-
-import Codepack from "components/Codepack/index.jsx";
-import actionsRaw from './case/actions.js?raw'
-import Demo02Raw from './case/Demo02.jsx?raw'
-import SubmitButtonRaw from './case/SubmitButton.jsx?raw'
-import BookItemRaw from './case/BookItem.jsx?raw'
-import ListRaw from './case/List.jsx?raw'
+import Demo01 from './demo01/Layout'
+import Demo02 from './demo02/Layout'
 
 > 注：由于 FormAction 在 next.js 中的表现暂时还不稳定，因此，本文以及后续文章的探讨全部都是基于他们在客户端的交互与表现
-
-<Cardruntime>
-  <Demo01 />
-</Cardruntime>
 
 ## 1
 **useActionState**
 
-`useActionState` 与 useState 的使用基本上是一致的。它同样可以用来定义一个**状态**。他和 useState 不一样的是，`useActionState` 需要结合 form action 使用，它的更新机制依赖于 action。实例代码如下所示。
+`useActionState` 与 useState 的使用基本上是一致的。它同样可以用来定义一个**状态**。他和 useState 不一样的是，`useActionState` 需要结合 form action 使用，它的更新机制依赖于 action。
 
 useActionState 接收两个参数，第一个参数是一个回调函数，用于获取 action 传递过来的值。第二个参数表示定义状态的初始值。
 
@@ -26,23 +14,8 @@ useActionState 接收两个参数，第一个参数是一个回调函数，用�
 
 简单的代码如下
 
-```javascript
-import { useActionState } from 'react'
+<Demo01 />
 
-async function increment(cur) {
-  return cur + 1
-}
-
-export default function Demo01() {
-  const [state, action] = useActionState(increment, 0)
-  return (
-    <form action={action} className='flex items-center'>
-      <button>count++</button>
-      <div className='ml-4'>{state}</div>
-    </form>
-  )
-}
-```
 
 这里需要特别注意的是，我们可以轻松将 useActionAtate 的更新方法 `increment` 放到函数之外去。这里的一个好处是更利于与其他组件或者 server 进行交互。在解耦上非常有用。
 
@@ -51,15 +24,9 @@ export default function Demo01() {
 
 大家先来看一下演示效果。然后再根据代码学习，这是一个比较复杂的案例。
 
-<Cardruntime reload>
-  <Demo02 />
-</Cardruntime>
+<Demo02 />
 
-
-<Codepack files={{Demo02: Demo02Raw, BookItem: BookItemRaw, 'actions.js': actionsRaw, SubmitButton: SubmitButtonRaw, List: ListRaw }} auth />
-
-
-> 在 next.js 中使用时，我们可以把 action 单独执行服务端的逻辑，从而轻松做到客户端组件与服务端组件的交互。上面案例中的 `actions.js` 则表示服务端的代码
+在 next.js 中使用时，我们可以把 action 单独执行服务端的逻辑，从而轻松做到客户端组件与服务端组件的交互。上面案例中的 `actions.js` 则表示服务端的代码
 
 ```js
 "use server";

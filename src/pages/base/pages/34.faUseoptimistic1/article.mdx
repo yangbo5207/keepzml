@@ -1,5 +1,4 @@
-import Cardruntime from 'components/Cardruntime.jsx'
-import MainCase from './case/index.jsx'
+import Demo01 from './case/Layout'
 
 ### **useOptimistic**
 
@@ -130,14 +129,11 @@ updateFn = (currentState, value) => {
 ---
 ### 案例一：消息发送
 
-<Cardruntime>
-  <MainCase />
-</Cardruntime>
+直接来看一下目标案例
 
+<Demo01 />
 
-我们要实现的效果案例如上。
-
-首先明确一点，消息发送是一个异步过程，因此我们把这个过程使用 `Sending...` 字符来表示，当每条消息的 `Sending...` 消失，才表示数据更新成功。
+消息发送是一个异步过程，因此我们把这个过程使用 `Sending...` 字符来表示，当每条消息的 `Sending...` 消失，才表示数据更新成功。
 
 先来考虑布局。
 
@@ -213,12 +209,7 @@ async function formAction(formData) {
 
 > 请求发送成功之后，更新真实状态
 
-这样，一个简单的乐观更新交互，我们就完成了，该案例的完整代码右侧所示。
-
-<Cardruntime>
-  <MainCase />
-</Cardruntime>
-
+这样，一个简单的乐观更新交互，我们就完成了
 
 > reset() 用于立即重置表单内容，可进行下一次输入。默认行为是接口请求成功之后才会重置
 

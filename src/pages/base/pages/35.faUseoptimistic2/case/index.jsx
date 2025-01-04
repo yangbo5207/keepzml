@@ -1,6 +1,6 @@
-import { useOptimistic, useState, useRef, useTransition } from "react";
-import { getMessage } from "./api.js";
-import {reducer} from './reducer.js'
+import { useOptimistic, useState, useRef, useTransition } from 'react'
+import { getMessage } from './api'
+import {reducer} from './reducer'
 
 export default function Index() {
   const [messages, setMessages] = useState([]);

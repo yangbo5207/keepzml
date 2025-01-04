@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
-import List from './List.jsx'
-import BookItem from './BookItem.jsx'
+import List from './List'
+import BookItem from './BookItem'
 
 export default function Demo02() {
   const [carts, updateCarts] = useState([])

@@ -1,52 +1,19 @@
-import Cardruntime from "components/Cardruntime.jsx";
-import Demo01 from './case/Demo01.jsx'
-import Demo02 from './case/Demo02.jsx'
-
-import Codepack from "components/Codepack/index.jsx";
-import actionsRaw from './case/actions.js?raw'
-import Demo01Raw from './case/Demo01.jsx?raw'
-import Demo02Raw from './case/Demo02.jsx?raw'
-import SubmitButtonRaw from './case/SubmitButton.jsx?raw'
-import InputRaw from 'components/Input/index.jsx?raw'
+import Demo01 from './case/demo01/Layout'
+import Demo02 from './case/Demo02/Layout'
 
 > 注：由于 FormAction 在 next.js 中的表现暂时还不稳定，因此，本文以及后续文章的探讨全部都是基于他们在客户端的交互与表现
 
-<Cardruntime>
-  <Demo01 />
-</Cardruntime>
 
 ## 1
 **action 支持异步回调**
 
 一个令人振奋的特性就是，在 React19 中，action 支持传入异步回调函数。我们可以在上面的案例中，输入内容，然后点击提交按钮，你会发现弹窗会在延迟一秒之后展示。
 
-案例完整代码如下
-
-```js
-export default function Demo01() {
-  async function formAction(fd) {
-    const title = fd.get('title')
-    const content = fd.get('content')
-    if (!title || !content) {
-      alert('Miss')
-    }
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    alert(`Title: ${title}, Content: ${content}`)
-  }
-  return (
-    <form action={formAction}>
-      <Input label='Title' name='title' />
-      <Input label='content' name='content' />
-      <Button>Submit</Button>
-    </form>
-  )
-}
-```
-
 这里一个比较好玩的事情是，我们可以把 `formAction` 函数定义到组件外面去。
 
-<Codepack files={{Demo01: Demo01Raw, 'actions.js': actionsRaw}} auth />
+案例完整代码如下
 
+<Demo01 />
 
 有了这个特性的支持，我们就可以非常方便的利用它来实现一些上传逻辑。不过一个小小的需求就是，点击提交之后，接口请求的过程中，我们希望按钮处于禁用状态，那应该怎么办呢？
 
@@ -91,17 +58,13 @@ method 表示我们在提交时，所采用的请求方式，默认值为 `get`�
 
 为了防止重复提交，我们希望在提交之后就马上禁用按钮，等到提交完成之后再恢复按钮的点击。与此同时，我们可能还需要在 UI 交互上做出一些提示，让用户知道当前正在发送请求
 
-交互效果如如下，大家可以自行操作感受一下
-
-<Cardruntime>
-  <Demo02 />
-</Cardruntime>
-
 这里主要是针对提交按钮做的操作，因此我们需要单独将提交按钮相关的部分拿出来封装成为一个子组件，并在子组件中利用 `useFormStatus` 获取异步 action 的 pending 状态。
 
-代码非常的简单，如下所示
+交互效果如如下，大家可以自行操作感受一下
 
-<Codepack files={{Demo02: Demo02Raw, 'SubmitButton': SubmitButtonRaw, 'actions.js': actionsRaw}} active='1' auth />
+
+<Demo02 />
+
 
 ## 4
 **案例二：提交时禁止输入内容**
@@ -143,11 +106,7 @@ function Input2({required, name}) {
 
 我们还可以更激进一点，将其逻辑下层到 `Input` 基础组件的封装，演示效果与代码如下
 
-<Cardruntime>
-  <Demo02 />
-</Cardruntime>
-
-<Codepack files={{Demo03: Demo02Raw, Input: InputRaw, 'SubmitButton': SubmitButtonRaw, 'actions.js': actionsRaw}} active='1' auth />
+<Demo02 />
 
 ## 5
 **总结**
