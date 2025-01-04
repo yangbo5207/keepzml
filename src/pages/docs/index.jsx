@@ -16,7 +16,7 @@ export default function Tutorial() {
   }
 
   useEffect(() => {
-    if (location.pathname === '/component') {
+    if (location.pathname === '/docs') {
       navigate('button')
     }
   }, [pathname])

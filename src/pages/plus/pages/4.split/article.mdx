@@ -1,11 +1,4 @@
-import Cardruntime from 'components/Cardruntime'
-import MainCase from './case'
-
-import AppText from './case/index.jsx?raw'
-import apiText from './case/api.js?raw'
-import ListText from './case/List.jsx?raw'
-
-import Codepack from 'components/Codepack'
+import MainCase from './case/Layout'
 
 学习了架构思维之后，我们也必须要重视一个问题，那就是要做到合理的拆分组件。
 
@@ -72,6 +65,6 @@ import Codepack from 'components/Codepack'
 
 > Loading 个数是基于交互设计而言，与接口个数无关，我们只需要通过中间层来抹平差异即可
 
-例如下面这个例子，一个列表中的数据，由两个 api 的返回结果组合而成。但是很明显只设计一个 Loading 是比较合理的。那么，我们就将其看成是一个组件，该案例的完整代码在右侧代码区。点击 reload 按钮可重新初始化观察 loading 效果。
+例如下面这个例子，一个列表中的数据，由两个 api 的返回结果组合而成。但是很明显只设计一个 Loading 是比较合理的。那么，我们就将其看成是一个组件，该案例的完整代码在右侧代码区。点击刷新按钮可重新初始化观察 loading 效果。
 
-<Cardruntime reload><MainCase /></Cardruntime>
+<MainCase />

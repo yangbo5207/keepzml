@@ -1,18 +1,18 @@
 import { use } from 'react';
-import Flex from "components/Flex";
 export default function CurrentList({promise}) {
   const results = use(promise)
 
   return (
-    <Flex between>
+    <div>
       {results.map((item, i) => (
-        <div key={`h${i}`} className='w-[20%] rounded-2xl overflow-hidden my-4 relative'>
-          <img className='w-full' src={item.large} alt='' />
-          <div className='flex-1 absolute bottom-0 bg-black w-full left-0 opacity-60 text-center text-white'>
-            {item.name}
+        <div key={`h${i}`} className='flex border p-4 items-center my-4 rounded-md'>
+          <img className='w-12 h-12 rounded-full' src={item.thumbnail} alt='' />
+          <div className='flex-1 ml-4'>
+            <div className='font-bold'>{item.name}</div>
+            <div className='text-gray-400 mt-1 text-sm line-clamp-1'>{item.desc}</div>
           </div>
         </div>
       ))}
-    </Flex>
+    </div>
   )
 }

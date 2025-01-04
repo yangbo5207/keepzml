@@ -1,14 +1,4 @@
-import Cardruntime from 'components/Cardruntime'
-import MainCase from './case'
-
-import AppText from './case/index.jsx?raw'
-import apiText from './case/api.js?raw'
-import ListText from './case/List.jsx?raw'
-
-import Codepack from 'components/Codepack'
-
-<Cardruntime><MainCase /></Cardruntime>
-
+import Demo01 from './demo01/Layout'
 
 接下来，我们正式开始学习 React 19 的进阶内容。
 
@@ -68,10 +58,11 @@ MVC 大家都不陌生，但这里对于前端开发来说，比较困难的是�
 
 ### 三、结合案例来理解
 
-例如本文顶部的那个案例，我们用代码实现大概如下。其中
+例如下面这个案例，我们用代码实现大概如下
 
-<Codepack files={{'index.jsx': AppText, 'api.js': apiText, 'List': ListText}} auth />
+<Demo01 />
 
+其中
 
 `index.jsx` 表示 View 层
 

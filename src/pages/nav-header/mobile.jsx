@@ -8,8 +8,8 @@ import {motion} from 'motion/react'
 
 export const links = [
   {path: 'tutorial', text: '基础版', icon: BellDot},
-  {path: 'component', text: '内置组件', icon: BellRing},
   {path: 'advance', text: '架构尊享版', icon: BellElectric},
+  {path: 'docs', text: '内置组件', icon: BellRing},
 ]
 
 export default function MobileHeader() {

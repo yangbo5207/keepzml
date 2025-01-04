@@ -7,8 +7,8 @@ import './index.css'
 
 export const links = [
   {path: 'tutorial', text: '基础版'},
-  {path: 'component', text: '组件'},
   {path: 'advance', text: '尊享版'},
+  {path: 'docs', text: '内置组件'},
 ]
 
 export default function NavHeader() {

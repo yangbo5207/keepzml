@@ -4,13 +4,14 @@
  * 2. 数据二次处理, 整理返回给 View 层的基本格式
  */
 import {fetchList} from './service'
+import {createRandomMessage} from 'utils'
 
 export const fetchListController = async () => {
   const list = await fetchList()
   return list.map((item, index) => {
-    item.desc = `${index}、react 19 arch, a design language for background applications`
-    item.name = item.name.first
-    item.large = item.picture.large
+    item.desc = `${index}、${createRandomMessage()}`
+    item.name = item.name.first + ' ' + item.name.last
+    item.thumbnail = item.picture.thumbnail
     return item
   })
 }

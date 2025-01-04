@@ -1,7 +1,7 @@
-import Cardruntime from 'components/Cardruntime'
-import MainCase from './case'
 
-<Cardruntime><MainCase /></Cardruntime>
+import MainCase from './case/Layout'
+
+<MainCase />
 
 ### 一、前置场景
 
@@ -137,16 +137,18 @@ export const fetchList = async () => {
 
 ```js
 import {fetchList} from './service'
+import {createRandomMessage} from 'utils'
 
 export const fetchListController = async () => {
   const list = await fetchList()
   return list.map((item, index) => {
-    item.desc = `${index}、react 19 arch, a design language for background applications`
+    item.desc = `${index}、${createRandomMessage()}`
     item.name = item.name.first + ' ' + item.name.last
     item.thumbnail = item.picture.thumbnail
     return item
   })
 }
+
 ```
 
 那么在应用层中，则直接使用 `controller` 返回的 Promise 来获取数据
