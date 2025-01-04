@@ -1,6 +1,6 @@
 import { use } from 'react'
-import Dialog from 'components/Dialog/index.jsx'
-import {Context} from './context.jsx'
+import Dialog from 'components/Dialog'
+import {Context} from './context'
 
 export default function Editor(props) {
   const {ref, ...other} = props

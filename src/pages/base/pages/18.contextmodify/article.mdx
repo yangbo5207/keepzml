@@ -1,5 +1,6 @@
-import Cardruntime from 'components/Cardruntime.jsx'
-import Entry from './case/index.jsx'
+import Cardruntime from 'components/Cardruntime'
+import Entry from './case'
+import Layout from './case/Layout'
 
 
 <Cardruntime><Entry /></Cardruntime>
@@ -207,7 +208,7 @@ function Button() {
 
 学习了 context 的知识之后，我们来结合之前自定义的弹窗组件，一起来实现一下页面最开始的那个案例。
 
-<Cardruntime><Entry /></Cardruntime>
+<Layout />
 
 > 由于是演示案例，所以数据比较简单，组件层级也不够深，所以大家把重点关注在 context 的技术学习上即可。并非代表真实实践中需要这样使用。
 
@@ -260,7 +261,5 @@ export default function Editor(props) {
   const {task, updateTask} = use(Context)
   ...
 ```
-
-完整的代码请查看右侧代码。
 
 这里比较有意思的一个地方是在 `editor.jsx` 文件中，对于 ref 的使用和处理，大家可以留心观察一下。

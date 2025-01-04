@@ -1,6 +1,6 @@
 import { useRef, use } from 'react'
-import Editor from './editor.jsx'
-import {Context} from './context.jsx'
+import Editor from './editor'
+import {Context} from './context'
 
 export default function Demo03() {
   const editor = useRef(null)

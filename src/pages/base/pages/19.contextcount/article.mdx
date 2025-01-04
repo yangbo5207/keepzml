@@ -1,8 +1,4 @@
-import Cardruntime from 'components/Cardruntime.jsx'
-import Entry from './case/index.jsx'
-
-
-<Cardruntime reload><Entry /></Cardruntime>
+import Layout from './case/Layout'
 
 ## *0*
 **皮肤切换方案**
@@ -76,7 +72,7 @@ element {
 
 首先，我们要创建一个 context，并在 context 中准备好可能会用到的全局数据。
 
-```javascript
+```jsx
 import {createContext, useState} from 'react'
 
 export const Context = createContext({})
@@ -97,7 +93,7 @@ export default function Provider({ children }) {
 
 然后，我们要在顶层父组件中，使用 Provider 将所有的子组件包裹起来，这里也顺带引入皮肤切换相关的 css 文件
 
-```javascript
+```jsx
 import Provider from './context'
 import Total from './Total'
 import Card from './Card.jsx'
@@ -117,9 +113,9 @@ export default function App() {
 
 最后，我们只需要在子组件中，使用 use 读取对应的数据和方法
 
-```javascript
+```jsx
 import {use, useState} from 'react'
-import {Context} from './context.jsx'
+import {Context} from './context'
 
 export default function Total() {
   const {count} = use(Context)
@@ -132,9 +128,10 @@ export default function Total() {
 }
 ```
 
-演示效果如下，完整代码，请看右侧代码区域。
+演示效果、完整代码如下
 
-<Cardruntime reload><Entry /></Cardruntime>
+<Layout />
+
 
 ## *2*
 **皮肤切换思路的扩展**
@@ -168,7 +165,7 @@ export default function Total() {
 }
 ```
 
-```javascript
+```jsx
 import {useState} from 'react'
 import './index.css'
 

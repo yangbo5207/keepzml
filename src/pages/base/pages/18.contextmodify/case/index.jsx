@@ -1,5 +1,5 @@
-import Provider from './context.jsx'
-import Task from './task.jsx'
+import Provider from './context'
+import Task from './task'
 
 export default function App() {
   return (

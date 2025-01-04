@@ -1,21 +1,8 @@
-import Entry from './case/index.jsx?raw'
-import Dialog from 'components/Dialog?raw'
-import Modal from 'components/Modal?raw'
-
+import Playground from 'components/Playground'
 import Article from './article.mdx'
 
-import Playground from "components/Playground/index.jsx";
-
-const files = {
-  'App.js': Entry,
-  'Dialog.jsx': Dialog,
-  'Modal.jsx': Modal
-}
-
-function App() {
+export default function App() {
   return (
-    <Playground files={files} hidePreview renderArticle={(code) => <Article components={{code}} />} />
+    <Playground renderArticle={code => <Article components={{code}} />} />
   )
 }
-
-export default App;

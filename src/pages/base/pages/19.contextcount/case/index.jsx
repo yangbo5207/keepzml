@@ -1,6 +1,6 @@
-import Provider from './context.jsx'
-import Total from './Total.jsx'
-import Card from './Card.jsx'
+import Provider from './context'
+import Total from './Total'
+import Card from './Card'
 import './skin.css'
 
 export default function App() {
