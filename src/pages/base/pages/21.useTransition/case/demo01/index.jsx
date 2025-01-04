@@ -1,18 +1,15 @@
 import {use, useState, Suspense, useTransition} from 'react'
-import Message from './Message.jsx'
-import Skeleton from './Skeleton.jsx'
-import Button from './Button.jsx'
-import Spin from 'components/Spin/index.jsx'
-import {getMessage} from './api.js'
+import Message from './Message'
+import Skeleton from 'components/Skeleton'
+import Spin from 'components/Spin'
+import {getMessage} from './api'
 
 export default function Demo01() {
   const [promise, update] = useState(getMessage())
   const [isPending, startTransition] = useTransition()
 
   function __handler() {
-    console.log('click')
     startTransition(() => {
-      console.log('transition')
       update(getMessage())
     })
   }
@@ -20,20 +17,13 @@ export default function Demo01() {
   return (
     <>
       <div className='text-right mb-4'>
-        <Button onClick={__handler}>更新数据</Button>
+        <button onClick={__handler}>更新数据</button>
       </div>
       <Suspense fallback={<Skeleton />}>
         <Spin loading={isPending}>
-          <Content promise={promise} />
+          <Message promise={promise} />
         </Spin>
       </Suspense>
     </>
-  )
-}
-
-function Content(props) {
-  const {value} = use(props.promise)
-  return (
-    <Message message={value} />
   )
 }

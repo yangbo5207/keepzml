@@ -1,9 +1,10 @@
 import {useState, Suspense, useDeferredValue} from 'react'
-import Skeleton from './Skeleton.jsx'
-import {fetchListWithCancel} from './api.js'
-import Tabs from './Tabs.jsx'
-import List from './List.jsx'
-import Spin from './Spin'
+import Skeleton from 'components/Skeleton'
+import Spin from 'components/Spin'
+import {fetchListWithCancel} from './api'
+import Tabs from './Tabs'
+import List from './List'
+
 
 const tabs = [
   { name: 'My Account', href: '#', current: true },

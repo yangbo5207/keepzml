@@ -1,10 +1,13 @@
-import Cardruntime from 'components/Cardruntime.jsx'
-import Demo01 from './case/Demo01.jsx'
-import Demo02 from './case/Demo02.jsx'
-import Democount1 from './case/Democount1.jsx'
-import Democount2 from './case/Democount2.jsx'
-import Democount3 from './case/Democount3.jsx'
-import Democount4 from './case/Democount4.jsx'
+import Cardruntime from 'components/Cardruntime'
+import Demo01 from './case/demo01'
+import Demo02 from './case/demo02'
+
+import Demo01Layout from './case/Demo01/Layout'
+
+import Counter01 from './case/counter01/Layout'
+import Counter02 from './case/counter02/Layout'
+import Counter03 from './case/counter03/Layout'
+import Counter04 from './case/counter04/Layout'
 
 重头戏来了！
 
@@ -12,14 +15,13 @@ import Democount4 from './case/Democount4.jsx'
 
 <Cardruntime reload><Demo01 /></Cardruntime>
 
-
 然后再对比一下前后两种 Loading 交互方式的区别。
 
 <Cardruntime><Demo02 /></Cardruntime>
 
-很显然，大多数时候，第一种 Loading 交互方案的体验是更好的。他的具体表现为：
+很显然，大多数时候，第一种 Loading 交互方案的体验是更好的。
 
-初始化时，显示 Skeleton 组件，表示此时列表中没有内容，即将加载新的内容进来。
+他的具体表现为：初始化时，显示 Skeleton 组件，表示此时列表中没有内容，即将加载新的内容进来。
 
 **更新时，保持现有列表**，可在此的基础之上显示 Loading/蒙层/透明度，如果你确定接口请求的时间非常短，也可以没有任何 Loading 显示
 
@@ -32,66 +34,25 @@ import Democount4 from './case/Democount4.jsx'
 
 > 并发模式的基础理论详细学习，你需要关注我的 React 知命境
 
-```javascript
+```js
 const deferredValue = useDeferredValue(value, initialValue?)
 ```
 
 对于刚接触的道友们来说，useDeferredValue 理解起来比较困难，我们循序渐进的用 4 个案例来理解一下。
 
-首先，在正常情况下，一个 state 的变化，会导致 UI 发生变化。例如下面这个案例
+首先，在正常情况下，一个 state 的变化，会导致 UI 发生变化。
 
-```javascript
-import {useState} from 'react'
+例如下面这个案例，状态 `counter` 被两个元素使用，这两个元素的更改，实际上是**一个任务**，他们必定会同时响应 counter 的变化。
 
-export default function Index() {
-  const [counter, setCounter] = useState(0)
+因此，当你快速点击按钮时，两个元素的变化是同时进行的。
 
-  function __clickHanler() {
-    setCounter(counter + 1)
-  }
-
-  return (
-    <div className='flex justify-between items-center'>
-      <div>
-        <div>counter: {counter}</div>
-        <div className="mt-4">counter: {counter}</div>
-      </div>
-      <button onClick={__clickHanler}>counter++</button>
-    </div>
-  )
-}
-```
-这里需要注意的是，状态 `counter` 被两个元素使用，因此，这两个元素的更改，实际上是**一个任务**。他们必定会同时响应 counter 的变化。
-
-因此，当你快速点击按钮时，两个元素的变化是快速同时响应
-
-<Cardruntime reload><Democount1 /></Cardruntime>
+<Counter01 />
 
 
 这个时候，我们可以利用 useDeferredValue，把他们拆分成两个任务。
 
-```javascript
-import {useState, useDeferredValue} from 'react'
+<Counter02 />
 
-export default function Index() {
-  const [counter, setCounter] = useState(0)
-  const deferred = useDeferredValue(counter)
-
-  function __clickHanler() {
-    setCounter(counter + 1)
-  }
-
-  return (
-    <div className='flex justify-between items-center'>
-      <div>
-        <div>counter: {counter}</div>
-        <div className='mt-4'>counter: {deferred}</div>
-      </div>
-      <button onClick={__clickHanler}>counter++</button>
-    </div>
-  )
-}
-```
 注意看，我们使用 counter 作为 useDeferredValue 的初始值，并将其返回值替换第二个元素
 
 ```js
@@ -104,49 +65,15 @@ const deferred = useDeferredValue(counter)
 
 此时，第二个元素的更新，就不再与第一个元素同步。它更新的优先级被降低。这个时候它的执行在理论上是可以被更高的优先级插队和中断的。
 
-但是由于渲染都太短了，我们肉眼无法区分出来两个任务已经被分开了，因此，从视觉上的表现结果和刚才的案例没啥区别。
-
-快速点击按钮查看一下演示效果
-
-<Cardruntime reload><Democount2 /></Cardruntime>
+快速点击按钮查看一下演示效果，但是由于渲染都太短了，我们肉眼无法区分出来两个任务已经被分开了，因此，从视觉上的表现结果和刚才的案例没啥区别。
 
 
 为了看出区别，我们把第二个元素重构成一个子组件，并模拟成一个耗时组件
 
-```javascript
-import {useState, useDeferredValue} from 'react'
-
-export default function Index() {
-  const [counter, setCounter] = useState(0)
-  const deferred = useDeferredValue(counter, 0)
-
-  function __clickHanler() {
-    setCounter(counter + 1)
-  }
-
-  return (
-    <div className='flex justify-between items-center'>
-      <div>
-        <div>counter: {counter}</div>
-        <Expensive counter={deferred} />
-      </div>
-      <button onClick={__clickHanler}>counter++</button>
-    </div>
-  )
-}
-
-const Expensive = ({counter}) => {
-  const start = performance.now()
-  while (performance.now() - start < 200) {}
-  return (
-    <div className="mt-4">Deferred: {counter}</div>
-  )
-}
-```
+<Counter03 />
 
 快速点击按钮，此时我们发现，两个按钮的更新可以区分开了。并且在快速点击时，第二个 counter 的更新，会落后于第一个 counter，此时表示，我们可以利用 useDeferredValue 推迟 UI 的更新。将对应任务的优先级降低，使其可以被插队与中断。
 
-<Cardruntime reload><Democount3 /></Cardruntime>
 
 此时我们也发现另外一个情况，那就是 counter 直接对应的高优先级执行也没有那么流畅，这是为什么呢？其实很简单，因为在我们的模拟案例中，**并没有把耗时定位在渲染上**。这就和实际的情况不太一样了。我们把耗时写在了 Expensive 函数里，而这个函数每次都会执行，它的执行阻塞了渲染。所以我们会觉得第一个 counter 的更新变得比较卡顿
 
@@ -154,59 +81,9 @@ const Expensive = ({counter}) => {
 
 这里我们可以通过任务拆分的方式，把执行耗时时间分散到更多的子组件中去，这样 React 就可以利用任务中断的机制，在不阻塞渲染的情况下，中断低优先级的任务。
 
-```javascript
-import {useState, useDeferredValue} from 'react'
-
-export default function Index() {
-  const [counter, setCounter] = useState(0)
-  const deferred = useDeferredValue(counter)
-
-  function __clickHanler() {
-    setCounter(counter + 1)
-  }
-
-  return (
-    <div className='flex justify-between items-center'>
-      <div>
-        <div>counter: {counter}</div>
-        <Expensive counter={deferred} />
-      </div>
-      <button onClick={__clickHanler}>counter++</button>
-    </div>
-  )
-}
-
-const Expensive = ({counter}) => {
-  let items = []
-  for (let i = 0; i < 200; i++) {
-    items.push(<SlowItem key={i} counter={counter} />);
-  }
-
-  return (
-    <div className='mt-4 text-green-500'>
-      <div>Deferred: {counter}</div>
-      <ul className='h-32 hidden'>
-        {items}
-      </ul>
-    </div>
-  );
-}
-
-function SlowItem({counter}) {
-  let startTime = performance.now();
-  while (performance.now() - startTime < 1) {
-    // Do nothing for 1 ms per item to emulate extremely slow code
-  }
-
-  return (
-    <li>{counter}</li>
-  )
-}
-```
-
 再来感受一下演示结果，我们就发现，第一个 counter 的更新也变得非常流畅了。
 
-<Cardruntime reload><Democount4 /></Cardruntime>
+<Counter04 />
 
 此时我们注意观察，不要错漏这个细节。slowList 中包含了 250 个子组件。每个子组件都渲染 1ms，那么整个组件渲染就需要耗时至少 250ms.
 
@@ -272,27 +149,7 @@ useDeferredValue 会尝试将 UI 任务更新两次。
 
 那我们回过头来，分析一下最开始的那个案例，重新看一眼代码
 
-```jsx
-export default function Search() {
-  const [promise, update] = useState(() => fetchListWithCancel(5))
-  const deferred = useDeferredValue(promise)
-
-
-  function __inputChange(e) {
-    promise.cancel()
-    const len = e.target.value.length % 5
-    update(fetchListWithCancel(len))
-  }
-  ...
-```
-
-```html
-<Suspense fallback={<Skeleton />}>
-  <Spin loading={deferred !== promise} type='mask'>
-    <List promise={deferred} />
-  </Spin>
-</Suspense>
-```
+<Demo01Layout />
 
 这里我们将 promise 做为 state，当 promise 被重新赋值时，List 会经历两次更新。
 
@@ -302,7 +159,6 @@ export default function Search() {
 
 在 Suspense 包裹之下，只有当接口请求成功之后，deferred 的第二次更新才会发生，因此，在这个过程中，如果我们快速进行第二次点击，可以直接取消上一次请求，让第二次更新来不及执行。此时新的请求发生。
 
-最终案例的完整代码与演示效果请看右侧区域。
 
 ## *4*
 **总结**

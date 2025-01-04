@@ -1,8 +1,9 @@
 import {useState, useDeferredValue} from 'react'
+import Expensive from './expensive'
 
 export default function Index() {
   const [counter, setCounter] = useState(0)
-  const deferred = useDeferredValue(counter, 0)
+  const deferred = useDeferredValue(counter)
 
   function __clickHanler() {
     setCounter(counter + 1)
@@ -16,13 +17,5 @@ export default function Index() {
       </div>
       <button onClick={__clickHanler}>counter++</button>
     </div>
-  )
-}
-
-const Expensive = ({counter}) => {
-  const start = performance.now()
-  while (performance.now() - start < 200) {}
-  return (
-    <div className="mt-4">Deferred: {counter}</div>
   )
 }
