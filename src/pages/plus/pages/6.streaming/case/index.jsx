@@ -1,4 +1,4 @@
-import {use, Suspense} from 'react'
+import {Suspense} from 'react'
 import Skeleton from 'components/Skeleton'
 import UserAccount from './user-account'
 import {fetchList} from './api'

@@ -1,20 +1,12 @@
-import {get} from "./http";
+export const host = 'https://randomuser.me'
 
-export const fetchList = async (number) => {
-  const res = await fetch(`https://randomuser.me/api/?results=${number}&inc=name,gender,email,nat,picture&noinfo`)
+export async function fetchList(count) {
+  const query = new URLSearchParams({
+    inc: 'name,gender,email,nat,picture',
+    results: count,
+    noinfo: true
+  })
+  
+  const res = await fetch(`${host}/api/?${query.toString()}`)
   return res.json()
-}
-
-export const bannerListApi = () => {
-  return get('https://randomuser.me/api', {
-    results: 3,
-    inc: 'name,gender,email,nat,picture&noinfo',
-  })
-}
-
-export const userListApi = () => {
-  return get('https://randomuser.me/api', {
-    results: 5,
-    inc: 'name,gender,email,nat,picture&noinfo',
-  })
 }
