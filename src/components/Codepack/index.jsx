@@ -28,7 +28,7 @@ export default function Codepack(props) {
   return (
     <div className={cls}>
       <div className='overflow-scroll flex-1 relative'>
-        <header className='flex border-b border-x border-gray-200 sticky top-0 bg-gray-50 py-1 rounded'>
+        <header className='flex border-b border-x border-gray-200 sticky top-0 bg-gray-50 py-1 rounded overflow-auto'>
           {titles.map((title, i) => (
             <Button key={title} ghost onClick={() => __switch(i)} className={currentCode === title ? 'text-green-500' : ''}>
               {title}

@@ -3,7 +3,7 @@ export default function Skeleton(props) {
     return (
       <div className="border border-blue-100 rounded p-4 w-full my-4">
         <div className="animate-pulse flex space-x-4 items-center">
-          {[1, 2, 3].map((_, i) => (
+          {[1, 2, 3, 4].map((_, i) => (
             <div className="flex-1" key={`z-${i}`}>
               <div className='rounded-md bg-slate-200  h-32'></div>
               <div className="grid grid-cols-3 gap-4 mt-2">

@@ -38,7 +38,7 @@ export const plus_router = [
   },
   {
     path: 'streaming',
-    name: '6、流式渲染',
+    name: '6、瀑布流',
     component: require('pages/plus/pages/6.streaming')
   },
   {
