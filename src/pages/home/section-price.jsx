@@ -13,13 +13,12 @@ const ultraFeatures = [
   'BFF架构与运用',
   '组件拆分原则',
   '解耦与嵌套',
-  '流式渲染',
+  '瀑布流渲染',
   '复杂接口请求处理方式',
   '其他大量实践案例',
-  '性能优化方案',
   '项目亮点表达方式',
-  '视频讲解',
-  '本项目中组件源码'
+  '群内直播讲解',
+  '群内大量高质量答疑视频'
 ]
 
 const pricing = {
@@ -31,8 +30,8 @@ const pricing = {
     {
       name: '基础版',
       id: 'tier-hobby',
-      href: './pay?price=30',
-      price: { monthly: '￥30', annually: '$144' },
+      href: 'https://xinyuzone.cn/column/1876449089626005504',
+      price: { monthly: '￥40', annually: '$144' },
       description: '大量可演示实践案例，帮助学习者轻松掌握 React 19.',
       delay: 0.4,
       features: [
@@ -53,7 +52,7 @@ const pricing = {
     {
       name: '尊享版',
       id: 'tier-freelancer',
-      href: './pay?price=400',
+      href: 'https://xinyuzone.cn/column/1876560978079080448',
       price: { monthly: '￥400', annually: '$288' },
       description: '严格践行一套架构思维扩展复杂场景的使用',
       features: ultraFeatures,
@@ -109,9 +108,8 @@ export default function Price() {
                 <span className="text-sm font-semibold leading-6 text-gray-600">{frequency.priceSuffix}</span>
               </p>
               <Link
-                to={tier.href}
                 aria-describedby={tier.id}
-                target={index === 2 ? '_blank' : ''}
+                target='_blank'
                 className={classNames(
                   tier.mostPopular
                     ? 'bg-indigo-600 text-white shadow-sm hover:bg-indigo-500'

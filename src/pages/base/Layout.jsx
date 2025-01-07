@@ -6,7 +6,7 @@ import BaseContent from './index'
 import {LOGO} from 'pages/nav-header'
 import {getSubscribeApi} from './api'
 
-import {Telescope, MousePointerClick, PlaneTakeoff, ArrowUpToLine} from 'lucide-react'
+import {Telescope, MousePointerClick, PlaneTakeoff, ArrowUpToLine, ArrowDownToLine} from 'lucide-react'
 import {Link} from 'react-router-dom'
 import {reactversion} from './config'
 
@@ -19,6 +19,16 @@ export default function Tutorial() {
       top: 0,
       behavior: 'smooth'
     })
+  }
+
+  function __scrollToAnchor() {
+    const diviler = document.getElementById('diviler_')
+    if (diviler) {
+      diviler.scrollIntoView({
+        block: 'start',
+        behavior: 'smooth'
+      })
+    }
   }
 
   return (
@@ -92,7 +102,14 @@ export default function Tutorial() {
                 className='rounded py-2 border border-gray-200 text-center flex items-center justify-center cursor-pointer'
               >
                 <ArrowUpToLine size={16} />
-                <div className='ml-2'>TOP</div>
+                <div className='ml-2'>滚动到顶部</div>
+              </div>
+              <div 
+                onClick={__scrollToAnchor}
+                className='rounded py-2 border border-gray-200 text-center flex items-center justify-center cursor-pointer'
+              >
+                <ArrowDownToLine size={16} />
+                <div className='ml-2'>滚动到评论</div>
               </div>
             </div>
           </aside>

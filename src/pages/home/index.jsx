@@ -1,5 +1,6 @@
 import Background from './background'
 import Banner from './banner'
+import SectionDatas from './section-datas'
 import SectionCase from './section-case'
 import LearnBefore from './learn-before'
 import EfficientLearning from './efficient-learning'
@@ -26,6 +27,7 @@ function App() {
       <Background />
       <div>
         <Banner />
+        <SectionDatas />
         <SectionCase />
         <LearnBefore />
         <EfficientLearning />
