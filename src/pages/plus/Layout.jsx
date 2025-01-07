@@ -8,6 +8,7 @@ import {getSubscribeApi} from './api'
 
 import {Telescope, MousePointerClick, PlaneTakeoff, ArrowUpToLine} from 'lucide-react'
 import {Link} from 'react-router-dom'
+import {reactversion} from './config'
 
 export default function Tutorial() {
   const [promise] = useState(getSubscribeApi)
@@ -33,7 +34,7 @@ export default function Tutorial() {
 
             <div className='text-sm'>
               <div>当前版本</div>
-              <div className='text-gray-500'>React@19.0.0</div>
+              <div className='text-gray-500'>{reactversion}</div>
             </div>
           </div>
           <nav className='pb-8'>

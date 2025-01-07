@@ -2,6 +2,7 @@ import {useRef, useEffect, use} from 'react'
 import {useOutlet, useLocation, useNavigate} from 'react-router-dom'
 import Authentication from './components/authentication'
 import {setSubscribe} from './api'
+import {homepath, column_key} from './config'
 
 export default function BaseArticle({promise}) {
   const navigate = useNavigate();
@@ -17,8 +18,8 @@ export default function BaseArticle({promise}) {
   setSubscribe(res.status)
 
   useEffect(() => {
-    if (location.pathname === '/tutorial') {
-      navigate('index')
+    if (location.pathname === `/${column_key}`) {
+      navigate(homepath)
     }
   }, [pathname])
 

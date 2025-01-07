@@ -1,11 +1,8 @@
 import Article from './article.mdx'
-import Playground from "components/Playground2";
+import Playground from 'components/Playground'
 
-export default function App() {
+export default function Page() {
   return (
-    <Playground 
-      renderArticle={(code) => <Article components={{code}} />} 
-      isGiscus={false} 
-    />
+    <Playground renderArticle={(code) => <Article components={{code}} />} />
   )
 }

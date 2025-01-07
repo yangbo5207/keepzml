@@ -1,9 +1,7 @@
 import {get, Result} from '../../utils/http'
 import {getUserinfo} from '../service'
 import {user_ids} from './database'
-
-// JavaScript 核心进阶
-const column_id = '1818097927437131776'
+import {column_id} from './config'
 
 export const columnURL = `https://xinyuzone.cn/column/${column_id}`
 

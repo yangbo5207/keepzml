@@ -1,7 +1,10 @@
 import {Suspense} from 'react'
 import {Routes, Route} from 'react-router-dom'
 import PageLoading from 'components/PageLoading'
+
+import AppLayout from './pages/Layout'
 import Home from 'pages/home'
+import Payment from 'pages/payment'
 
 import BaseLayout from './pages/base/Layout'
 import {navigation} from 'pages/base/components/path'
@@ -9,11 +12,8 @@ import {navigation} from 'pages/base/components/path'
 import AdvanceLayout from './pages/plus/Layout'
 import {plus_router} from 'pages/plus/components/path'
 
-import Docs from './pages/docs'
-import {compath} from 'pages/docs/path'
-
-import Payment from 'pages/payment'
-import AppLayout from './pages/Layout'
+import DocsLayout from './pages/docs/Layout'
+import {compath} from 'pages/docs/components/path'
 
 function App() {
   return (
@@ -40,7 +40,7 @@ function App() {
           ))}
         </Route>
 
-        <Route path='docs' element={<Docs />}>
+        <Route path='docs' element={<DocsLayout />}>
           {compath.filter((item) => !!item.path).map((item ,i) => (
             <Route key={item.path} path={item.path} element={
               <Suspense fallback={<PageLoading />}>

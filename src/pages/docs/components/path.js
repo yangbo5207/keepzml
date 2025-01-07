@@ -1,31 +1,26 @@
-import Button from './pages/button'
-import Input from './pages/input'
-import Skeleton from './pages/skeleton'
-import Pagination from './pages/pagination'
-
 export const compath = [
   {
     type: 'tip',
-    name: '基础组件'
+    name: '基础组件',
   }, 
   {
     path: 'button',
     name: '1、按钮 Button',
-    component: Button
+    component: require('pages/docs/pages/button')
   }, 
   {
     path: 'input',
     name: '2、输入框 Input',
-    component: Input
+    component: require('pages/docs/pages/input')
   }, 
   {
     path: 'skeleton',
     name: '2、骨架屏 Skeleton',
-    component: Skeleton
+    component: require('pages/docs/pages/skeleton')
   },
   {
     path: 'pagination',
     name: '3、分页器 Pagination',
-    component: Pagination
+    component: require('pages/docs/pages/pagination')
   }
 ]
