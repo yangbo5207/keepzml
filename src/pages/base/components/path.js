@@ -47,6 +47,11 @@ import End from 'pages/base/pages/38.end'
 
 export const navigation = [
   {
+    path: 'live',
+    name: '0、直播录屏地址',
+    component: require('pages/base/pages/0.live')
+  },
+  {
   type: 'tip',
   name: '前言'
 }, {

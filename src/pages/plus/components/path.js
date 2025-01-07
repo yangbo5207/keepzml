@@ -1,5 +1,10 @@
 export const plus_router = [
   {
+    path: 'live',
+    name: '0、直播讲解录屏',
+    component: require('pages/plus/pages/0.live')
+  },
+  {
     type: 'tip',
     name: '序'
   },

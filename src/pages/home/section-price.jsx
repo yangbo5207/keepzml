@@ -110,6 +110,7 @@ export default function Price() {
               <Link
                 aria-describedby={tier.id}
                 target='_blank'
+                to={tier.href}
                 className={classNames(
                   tier.mostPopular
                     ? 'bg-indigo-600 text-white shadow-sm hover:bg-indigo-500'
