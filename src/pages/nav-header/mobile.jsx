@@ -34,7 +34,7 @@ export default function MobileHeader() {
 
         {links.map((item, index) => (
           <motion.div key={item.path} className='flex items-center text-gray-700 bg-white px-6 py-4' {...variants(0.1 * (index + 1))}>
-            <ActiveLink className='flex items-center justify-between w-full' to={item.path}>
+            <ActiveLink className='flex items-center justify-between w-full' to={item.path} onClick={() => modal.current.close()}>
               <div className='flex items-center'>
                 <item.icon size={20} />
                 <div className='ml-2'>{item.text}</div>

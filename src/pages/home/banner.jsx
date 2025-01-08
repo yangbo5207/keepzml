@@ -43,7 +43,7 @@ export default function Banner() {
             transition={{duration: 0.5}}
           >
             <span>Created by</span>
-            <img className='size-8 rounded-full overflow-hidden' src='https://avatars.githubusercontent.com/u/13758605?u=1c26a12708f649e096bc17d934d317d01255ee92&v=4' alt=''/>
+            <img className='size-8 rounded-full overflow-hidden' src='https://avatars.githubusercontent.com/u/13758605?u=75da5f0ab0a298d380242929e17fb28d4314b635&v=4' alt=''/>
             <span>这波能反杀</span>
           </motion.div>
 
