@@ -6,7 +6,8 @@ export const start_path = 'structuring'
 export const reactversion = 'React@19.0.0'
 
 export const user_ids: string[] = [
-  '1813145181655089152', // 这波能反杀
   '1843582181168160768', // sj
   '1823968445075886080', // little
+  '1831498228496052224', // 未央
+  '1881680380730470400', // 我不是小朋哟~
 ]
