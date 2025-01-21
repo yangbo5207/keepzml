@@ -1,0 +1,69 @@
+import CodeTabs from 'components/codehike/code-tabs'
+import Preview from 'components/preview'
+import Demo01 from './demo01'
+import Demo02 from './demo02'
+
+React 19 在表单上提供了更多充满想象空间的 API，它们用好了非常爽，不过一个麻烦的事情是如果你通过自学，想要透彻理解并找到最佳实践可能会非常困难。
+
+这里最核心的原因是因为开发思维发生了比较彻底的变化，主要体现在 React19 在尝试弱化受控组件的概念，尝试引导开发者尽可能少的使用 useEffect，并且尽可能少的使用 useState 存储数据。
+
+抛开学习成本不谈，我个人认为这是一个非常好的变化，新的开发方式上在开发体验和性能表现上都有非常大的提升。它充分利用了 HTML 中表单元素本身已经支持的能力，例如表单验证，自定义异常样式，自定义错误信息等。
+
+不过没关系，我会尽量拆分去学习。确保大家都能读有所得。这一章节就先简单给大家介绍一下 React 在表单上的基础表现。
+
+
+### 1、action 基础
+
+在 HTML 的表单元素中，我们可以通过监听 form 对象的 onsubmit 来回调函数的执行。也可以通过 `action` 属性来直接向服务端发送请求。
+
+在 React 19 中，form 元素支持的 action 在这个基础之上发生了一些变化。它支持给 action 传递一个回调函数以供我们使用。该回调函数会将 FormData 作为参数传入。我们可以通过这种方式拿到表单里的所有数据。
+
+> 这个变化主要是 React 中并不提倡直接获取元素对象，以及直接往后端发送请求的方式并不常用
+
+<Preview><Demo01 /></Preview>
+<CodeTabs>
+```jsx !!tabs index.tsx -c
+!from ./demo01/index.tsx
+```
+</CodeTabs>
+
+当我们点击提交按钮时，action 方法就会触发执行。当然，我们也可以给 `submit` 一个 `formAction` 属性来达到同样的效果
+
+```javascript
+<form>
+  ...
+  <button formAction={__formAction} type='submit'>提交</button>
+</form>
+```
+
+
+> 默认情况下，当我们点击提交之后，form 会自动清空内部的所有数据，或者重置回  `defaultValue`
+>
+> 如果你在设置了 action 的同时，又设置了 onSubmit 回调，那么 onSubmit 会优先执行，我们可以通过在 onSbumit 中执行 `e.preventDefault()` 来阻止 action 回调的执行
+
+```javascript
+function __onSubmit(e) {
+  e.preventDefault()
+  ...
+}
+```
+
+
+### 2、案例
+
+学习了这些基础知识之后，我们来完成一个比较简单的案例。我们在表单中输入信息，并把信息记录展示在一个列表中。
+
+在这个案例中，我们提供了一个 `Add` 按钮，点击该按钮之后，会出现一个弹窗。在弹窗中，我们可以输入每一条信息。输入完成之后，点击提交，输入的信息就会展示在列表中。
+
+案例演示效果如下
+
+<Preview><Demo02 /></Preview>
+<CodeTabs>
+```jsx !!tabs index.tsx -c
+!from ./demo02/index.tsx
+```
+
+```jsx !!tabs modal.tsx -c
+!from ./demo02/modal.tsx
+```
+</CodeTabs>

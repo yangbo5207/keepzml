@@ -1,0 +1,177 @@
+import CodeTabs from 'components/codehike/code-tabs'
+import Preview from 'components/preview'
+import Demo01 from './demo01'
+import Demo02 from './demo02'
+
+<Preview><Demo02 /></Preview>
+<CodeTabs>
+```tsx !!tabs index.tsx -c
+!from ./demo02/index.tsx
+```
+
+```tsx !!tabs Input.tsx -c
+!from ./demo02/Input.tsx
+```
+
+```tsx !!tabs list.tsx -c
+!from ./demo02/list.tsx
+```
+
+```tsx !!tabs api.ts -c
+!from ./demo02/api.ts
+```
+</CodeTabs>
+
+这是一个搜索的案例。当我们学会把数据存放在 promise 中时，实现这个案例的代码将会非常简单。
+
+### 1、基础实现
+
+首先，我们需要定义一个 List 组件，用于显示列表数据。我们计划将列表数据存放在一个 promise 中，然后使用 use 从该 promise 中读取列表然后渲染。
+
+该 List 组件的代码如下
+
+```tsx list.tsx -c
+!from ./demo01/list.tsx
+```
+
+然后，我们只需要在 useState 中存储一个 promise 即可
+
+```ts
+// 该接口返回一个列表
+const [promise, update] = useState(getUsersInfo)
+```
+
+更新时，更改该 promise
+
+```ts
+const __inputChange = () => {
+  update(getUsersInfo())
+}
+```
+
+最后结合 Suspense，完整代码如下
+
+<Preview><Demo01 /></Preview>
+<CodeTabs>
+```tsx !!tabs index.tsx -c
+!from ./demo01/index.tsx
+```
+
+```tsx !!tabs Input.tsx -c
+!from ./demo01/Input.tsx
+```
+
+```tsx !!tabs list.tsx -c
+!from ./demo01/list.tsx
+```
+
+```tsx !!tabs api.ts -c
+!from ./demo01/api.ts
+```
+</CodeTabs>
+
+
+在演示这个例子时，我们要结合 chrome 开发者工具一起查看。观察接口请求的情况。我们发现，当我们快速输入时，此时会发起多个接口请求。React 会帮助我们解决竞态的问题，将接口任务依次排列好执行。
+
+但是在请求结果的获取上，反馈到页面上只会获取最后一次请求的结果。这一点非常舒适。
+
+另外一个小的知识点是，如果接口需要传入参数，我们可以按照如下的方式处理
+
+```ts
+const [promise, update] = useState(() => getUsersInfo(5))
+```
+
+
+
+### 2、**取消上一次请求**
+
+由于上面的实现方式，每次都会发送接口请求，因此在耗时上可能会比较久，所以我们可以使用防抖或者节流的方式减少请求次数。这两个也是面试中比较常见的需要考察的小知识点。
+
+除此之外，我们这里介绍一种新的方案来解决这个问题，那就是在新的请求发生时，取消上一次还未完成的请求。我们一起来学习一下
+
+在 JavaScript 中，有一个特殊的内建对象 `AbortController` 可以终止异步任务。我们可以利用该对象实例来终止 `fetch` 请求。
+
+```ts
+let controller = new AbortController();
+```
+
+`controller` 具有单个属性 `signal`，我们可以在这个属性上设置事件监听。
+
+```ts
+let signal = controller.signal
+signal.addEventListener('abort', () => alert("abort!"));
+```
+
+`controller` 具有单个方法：`abort()`，当 `abort()` 调用时，signal 的事件监听就会执行。
+
+```ts
+controller.abort();
+
+// 事件触发，signal.aborted 变为 true
+alert(signal.aborted); // true
+```
+
+`fetch` 中封装了 `signal` 的事件监听，因此它可以很好的与 `AbortController` 对象一起工作。
+
+`fetch` 的第二个参数 option 可以接收 `signal`
+
+```js
+fetch(url, {
+  signal: controller.signal
+});
+```
+
+当我们在任意地方调用 `abort` 时，对应的请求就会被取消
+
+```ts
+controller.abort();
+```
+
+借助这些基础知识，我们就可以封装一个可以被取消的 promise。
+
+## 2
+**封装一个新的 api 函数**
+
+封装代码如下
+
+```ts api.ts -c
+!from ./demo02/api.ts
+```
+
+我这里使用了一个返回结果是一个列表的案例接口。然后将 `abort` 函数挂载到返回的 `promise` 中
+
+使用时，只需要调用 `promise.cancel()` 就可以取消对应的请求了。
+
+## 3
+**结合 react 19 使用**
+
+直接观察演示案例
+
+<Preview><Demo02 /></Preview>
+<CodeTabs>
+```tsx !!tabs index.tsx -c
+!from ./demo02/index.tsx
+```
+
+```tsx !!tabs Input.tsx -c
+!from ./demo02/Input.tsx
+```
+
+```tsx !!tabs list.tsx -c
+!from ./demo02/list.tsx
+```
+
+```tsx !!tabs api.ts -c
+!from ./demo02/api.ts
+```
+</CodeTabs>
+
+和之前相比，我们的代码仅新增了一行
+
+```tsx
+const __inputChange = () => {
+  // !diff +
+  promise.cancel()
+  update(getUsersInfo())
+}
+```

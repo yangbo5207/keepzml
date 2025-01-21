@@ -1,0 +1,62 @@
+> 也许你学习时，该方法已经得到了官方的支持
+
+非常的 nice，经过几天的尝试和研究，我在 React 低版本中成功引入了 Compiler，目前已经在 vite 中运行起来了。
+
+> 我的思考过程，你可以[点击这篇文章阅读](https://mp.weixin.qq.com/s/RQ1c6YdNgyG-vCCPQBFMjw)，其他脚手架暂时还没试过，不过基本原理应该都是一致的，大家可以自己按照我的思路尝试一下
+
+这里的关键就是在低版本中，缓存 hook `useCacheMemo` 的缺失，当然这个名字只是一个语义化的称呼，在底层可能不一定是这个名字，我们只需要找个地方自定义这个 hook 即可。代码如下，非常的简单。
+
+```tsx useCache.js -c
+import { useState } from "react";
+
+export function c(size) {
+  return useState(() => new Array(size))[0];
+}
+```
+
+我们将其存储在某一个文件中，并取名为 `usecache.js`
+
+接下来要在 `vite.config.js` 中，配置具体的 ReactCompilerConfig，让 `runtimeModule` 指向我们刚才的 usecache.js。这里的目的是重新改写 `react-compiler-runtime` 的引用路径。
+
+```javascript
+const ReactCompilerConfig = {
+  runtimeModule: "@/usecache",
+};
+```
+
+`@/*` 是在 vite 中配置的路径别名，完整的配置文件如下
+
+```javascript
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import path from 'path'
+
+const ReactCompilerConfig = {
+  runtimeModule: "@/usecache",
+};
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    }
+  },
+  plugins: [
+    react({
+      babel: {
+        plugins: [["babel-plugin-react-compiler", ReactCompilerConfig]],
+      }
+    })
+  ],
+})
+```
+
+
+配置搞好之后，我们再引入 babel 插件，就可以正常运行了。
+
+```bash
+yarn add babel-plugin-react-compiler
+```
+
+运行项目，查看开发者工具的 Sources 面板中的 Page 目录，我们发现 App.jsx 已经被编译成了右侧代码的样子。搞定。

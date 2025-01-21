@@ -1,0 +1,43 @@
+import CodeTabs from 'components/codehike/code-tabs'
+import Preview from 'components/preview'
+import Demo01 from './demo01'
+
+<Preview><Demo01 /></Preview>
+<CodeTabs>
+```tsx !!tabs index.tsx -c
+!from ./demo01/index.tsx
+```
+
+```tsx !!tabs user-account.tsx -c
+!from ./demo01/user-account.tsx
+```
+
+```tsx !!tabs api.ts -c
+!from ./demo01/api.ts
+```
+
+```tsx !!tabs list/index.tsx -c
+!from ./demo01/list/index.tsx
+```
+
+```tsx !!tabs list/user-list.tsx -c
+!from ./demo01/list/user-list.tsx
+```
+
+```tsx !!tabs list/controller.ts -c
+!from ./demo01/list/controller.ts
+```
+
+```tsx !!tabs list/service.ts -c
+!from ./demo01/list/service.ts
+```
+</CodeTabs>
+
+
+场景：
+
+1、支持单独更新列表
+
+2、可快速点击 `update` 按钮，会取消上一次请求
+
+3、支持并发更新

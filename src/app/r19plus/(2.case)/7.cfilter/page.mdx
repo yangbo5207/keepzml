@@ -1,0 +1,64 @@
+import CodeTabs from 'components/codehike/code-tabs'
+import Preview from 'components/preview'
+import Demo01 from './demo01'
+
+<Preview><Demo01 /></Preview>
+<CodeTabs>
+```tsx !!tabs index.tsx -c
+!from ./Demo01/index.tsx
+```
+
+```tsx !!tabs list.tsx -c
+!from ./Demo01/list.tsx
+```
+
+```tsx !!tabs controller.ts -c
+!from ./Demo01/controller.ts
+```
+
+```tsx !!tabs service.ts -c
+!from ./Demo01/service.ts
+```
+
+```tsx !!tabs api.ts -c
+!from ./Demo01/api.ts
+```
+
+```tsx !!tabs http.ts -c
+!from ./Demo01/http.ts
+```
+
+```tsx !!tabs filter/index.tsx -c
+!from ./Demo01/filter/index.tsx
+```
+
+```tsx !!tabs filter/select.tsx -c
+!from ./Demo01/filter/select.tsx
+```
+
+```tsx !!tabs filter/Input.tsx -c
+!from ./Demo01/filter/Input.tsx
+```
+</CodeTabs>
+
+
+### 场景描述
+
+本案例在上一个例子的基础之上进行修改。
+
+当过滤条件过多时，我们需要将所有的过滤条件全部封装起来，以确保应用层代码的简洁。注意观察实现方式
+
+文件结构
+
+```js
+- index.tsx
+- controller.ts
+- service.ts
+- api.ts
+- http.ts
+- list.tsx
++ filter
+  - index.tsx
+  - Input.tsx
+  - select.tsx
+```

@@ -1,0 +1,110 @@
+import CodeTabs from 'components/codehike/code-tabs'
+import Preview from 'components/preview'
+import Demo01 from './demo01'
+
+<Preview><Demo01 /></Preview>
+
+接下来，我们正式开始学习 React 19 的进阶内容。
+
+基本思路会以架构思维出发，然后基于这个架构思维，用大量实践按钮覆盖更多的业务场景。本文先讲理论，后续的文章以实践为主实践。
+
+
+### 一、项目结构设计
+
+语义结构
+
+```ts
++ src
+  - main.tsx // 表示项目入口文件
+  + pages  // 表示页面
+  + components // 表示共用基础组件，可复用
+  + utils  // 表示共用工具方法
+  + hooks  // 表示公用 hook 方法，与 utils 类似
+  + other // 根据项目需求自行添加
+```
+
+**组件化内聚**
+
+例如一个页面组件，对外是一个完整的 Home 组件，与 Home 组件相关的内容都尽量放置在 home 文件之内，对内再进行职能和角色的拆分。这是一种**高内聚的组件化思维**
+
+```javascript
++ pages
+  + home
+    - index.tsx
+    - index.d.ts
+    - index.css
+    - api.ts
+    - model.ts   // Modal 数据层
+    + components // 可能存在的子组件
+```
+
+### 二、组件内的 MVC 模式
+
+在**对内**进行职能和角色的拆分时，我们要追求的目标就是**低耦合**。每个模块都有自己独立的语义，然后模块之间再通过特地语法规范或者接口进行组合与交互。
+
+通常情况下，前端项目都遵循传统的 MVC 设计模式进行拆分。
+
+MVC 大家都不陌生，但这里对于前端开发来说，比较困难的是如何对号入座与融汇贯通。
+
+**`M，Model`**，数据模型，表示一个处理数据的对象或者模块，是一个数据模型。
+
+> 在 React 的架构模型中，数据模型是最难理解的一个部分。也是我们需要特别学习和关注的一个模块
+
+**`V, View`**，视图，在前端通俗称之为 UI 层，在 React 组件内部，我们可以将 JSX 部分看成是 View 层。
+
+> 但是从底层实现上来说，这里的 View 层实际上指的是整个虚拟 DOM 树。React 的每一次更新，都是从根节点从上往下深度遍历 diff 的过程。不过本文探讨的 View 层只涉及到应用层面，不涉及到底层逻辑实现
+
+**`C，Controller`**，控制器，数据变化时控制 UI 变化，在 React 中，定义在 useState 中的数据，自带控制器能力。当 state 中的数据发生了变化，UI 会自动变化，因此我们不会特别强调它，而是直接说：数据驱动 UI。
+
+但是在 React 19 中，控制器会稍微有一些不同。我们要分享的架构模式，是将数据存储在 promise 中，然后将 promise 存储在 state 中，因此，此时控制器将由 promise 的变化来承担。
+
+> 我们也可以把 setState 理解为控制器，它直接控制数据的变化，间接控制 UI 的变化
+
+### 三、结合案例来理解
+
+例如下面这个案例，我们用代码实现大概如下
+
+<Preview><Demo01 /></Preview>
+<CodeTabs>
+```tsx !!tabs index.tsx -c
+!from ./Demo01/index.tsx
+```
+
+```tsx !!tabs Input.tsx -c
+!from ./Demo01/Input.tsx
+```
+
+```tsx !!tabs list.tsx -c
+!from ./Demo01/list.tsx
+```
+
+```tsx !!tabs api.ts -c
+!from ./Demo01/api.ts
+```
+</CodeTabs>
+
+其中
+
+`index.tsx` 表示 View 层
+
+`api.ts` 表示 Model 层
+
+`update` 表示控制器。
+
+案例比较简单，所以大家理解起来应该不难。
+
+但普通的开发在复杂场景中，有的同学没有足够的能力支撑他严格践行 MVC 模式，经常会把数据与 UI 耦合在一起编写。从而导致了代码的可维护性变得非常低。
+
+因此，在后续的实践案例中，我们需要进一步学习如何在各类复杂场景中践行 MVC 的设计模式。
+
+### 三、在 promise 中存储数据
+
+在学习时，我们需要花更多的精力放在 Model 层的思考上。在 React 19 中，由于提供了 `use + Suspense` 的语法方式，我们可以将数据存放在 promise 中，从而弱化副作用的语法表现，也因此，**我们可以不用在代码中依赖 `useEffect` 来实现异步逻辑**
+
+因此，本小册在 Model 层的思考，都会依赖于 `use + Suspense` 的思路来实现，我们会优先将数据存储在 promise 中，然后通过 use 来获取数据。
+
+基于以上架构思维原则，在同一个组件中，我们需要明确的是
+
++ 1、View 层只应该有一个入口获取数据，而不是多个
++ 2、如果你确实觉得需要多个入口，需要优先考虑拆分组件，然后满足第一条
++ 3、View 层不处理数据相关的任何逻辑，例如过滤数据，修改数据结构等，都应该在数据层处理好，View 层的数据应该是**拿来即用**的

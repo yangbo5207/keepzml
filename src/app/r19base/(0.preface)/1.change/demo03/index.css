@@ -1,0 +1,94 @@
+.fv-container {
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.fv-box {
+  width: 100%;
+  height: 500px;
+  border-radius: 4px;
+  padding: 4px;
+  display: block;
+  border: 1px solid #000;
+}
+
+.fv-box-shadow {
+  visibility: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.fv-box .fv-box-item {
+  position: absolute;
+  padding: 4px;
+}
+
+.fv-box-shadow .fv-box-item {
+  position: relative;
+}
+
+.fv-container .fv-box-inner {
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  border: 1px dashed red;
+  border-radius: 2px;
+  min-width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fv-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 12px;
+  gap: 14px;
+  position: relative;
+}
+
+.fv-display .fv-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 8px;
+  position: relative;
+  transition: left 0.3s ease, width 0.3s ease;
+}
+.fv-display .fv-btn .fv-bottom-line {
+  width: 100%;
+  background-color: black;
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.tab-buttons button {
+  padding: 10px 20px;
+  background-color: lightgray;
+  border: none;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.tab-buttons button.active {
+  background-color: gray;
+  color: white;
+}
+
+.tab-contents div {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid gray;
+}
+
+.tab-contents div.hidden {
+  display: none;
+}

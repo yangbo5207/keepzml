@@ -1,0 +1,57 @@
+@import 'tailwindcss';
+
+.modal {
+  @apply fixed top-0 w-full h-[100vh];
+  
+  background-color: rgba(0, 0, 0, 0.8);
+  animation-duration: 400ms;
+  z-index: 1000;
+}
+.modal.animation-in {
+  animation-name: show;
+  animation-fill-mode: forwards;
+}
+
+.modal.animation-out {
+  animation-name: hide;
+  animation-fill-mode: forwards;
+}
+
+.drawer {
+  @apply fixed top-0 right-0 w-full h-[100vh] bg-white;
+  --drawer-wdith: 200px;
+  --drawer-x: 200px;
+  width: var(--drawer-wdith);
+  translate: var(--drawer-x);
+  animation-duration: 400ms;
+  z-index: 1000;
+
+  &.animation-in {
+    animation-name: fade-in;
+    animation-fill-mode: forwards;
+  }
+
+  &.animation-out {
+    animation-name: fade-out;
+    animation-fill-mode: forwards;
+  }
+}
+
+@keyframes show {
+  0% { background-color: rgba(0, 0, 0, 0); }
+  100% { background-color: rgba(0, 0, 0, 0.8); }
+}
+@keyframes hide {
+  0% { background-color: rgba(0, 0, 0, 0.8); }
+  100% { background-color: rgba(0, 0, 0, 0); }
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; translate: var(--drawer-x); }
+  100% { opacity: 1; translate: 0; }
+}
+
+@keyframes fade-out {
+  0% { opacity: 1; translate: 0; }
+  100% { opacity: 0; translate: var(--drawer-x) }
+}

@@ -1,0 +1,83 @@
+import CodeTabs from 'components/codehike/code-tabs'
+import Preview from 'components/preview'
+import Demo01 from './demo01'
+
+
+<Preview><Demo01 /></Preview>
+<CodeTabs>
+```tsx !!tabs index.tsx -c
+!from ./demo01/index.tsx
+```
+
+```tsx !!tabs account.tsx -c
+!from ./demo01/account.tsx
+```
+
+```tsx !!tabs list.tsx -c
+!from ./demo01/list.tsx
+```
+
+```tsx !!tabs api.ts -c
+!from ./demo01/api.ts
+```
+</CodeTabs>
+
+
+如案例演示的这样，有的时候，我们需要这种**瀑布流式**的接口请求交互方式。也就是上一个模块请求成功之后，再请求下一个模块。
+
+我们可以利用 Suspense 的嵌套来轻松做到这个事情。
+
+我们可以在父组件中，通过一个 promise 向子组件传递数据
+
+```tsx index.tsx -c
+!from ./demo01/index.tsx
+```
+
+然后在子组件 Account 中，使用同样的方式向它的子组件传递数据
+
+```tsx account.tsx -c
+import { use, useState, Suspense } from 'react'
+import Skeleton from 'components/ui/skeleton'
+import { getUsersInfo } from './api'
+import List from './list'
+
+export default function Account(props: {
+  promise: ReturnType<typeof getUsersInfo>
+}) {
+  const users = use(props.promise)
+  const [promise] = useState(() => getUsersInfo(users.length))
+  return (
+    <div className='...'>
+      <div className='...'>
+        ...
+      </div>
+
+      <div className="mt-8 text-gray-400 text-sm">Account users</div>
+      <Suspense fallback={<Skeleton />}>
+        <List promise={promise} />
+      </Suspense>
+    </div>
+  )
+}
+```
+
+最后在之后的子组件 List 中仅使用 use 获取数据即可
+
+```tsx list.tsx -c
+import { use } from 'react'
+import { getUsersInfo } from './api'
+
+export default function CurrentList({ promise }: {
+  promise: ReturnType<typeof getUsersInfo>
+}) {
+  const users = use(promise)
+
+  return (
+    <div className='space-y-2'>
+      ...
+    </div>
+  )
+}
+```
+
+这里需要注意的是，当你决定这样用时，往往后请求的接口都会依赖先请求的结果，如果并没有明确的先后依赖关系，我们并不建议采用这种交互方案。

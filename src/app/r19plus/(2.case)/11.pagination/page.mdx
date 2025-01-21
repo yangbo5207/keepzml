@@ -1,0 +1,47 @@
+import CodeTabs from 'components/codehike/code-tabs'
+import Preview from 'components/preview'
+import Demo01 from './demo01'
+
+<Preview><Demo01 /></Preview>
+<CodeTabs>
+```tsx !!tabs index.tsx -c
+!from ./Demo01/index.tsx
+```
+
+```tsx !!tabs list.tsx -c
+!from ./Demo01/list.tsx
+```
+
+```tsx !!tabs controller.ts -c
+!from ./Demo01/controller.ts
+```
+
+```tsx !!tabs service.ts -c
+!from ./Demo01/service.ts
+```
+
+```tsx !!tabs api.ts -c
+!from ./Demo01/api.ts
+```
+
+```tsx !!tabs http.ts -c
+!from ./Demo01/http.ts
+```
+
+```tsx !!tabs filter/index.tsx -c
+!from ./Demo01/filter/index.tsx
+```
+
+```tsx !!tabs filter/select.tsx -c
+!from ./Demo01/filter/select.tsx
+```
+
+```tsx !!tabs filter/Input.tsx -c
+!from ./Demo01/filter/Input.tsx
+```
+</CodeTabs>
+
+
+### 场景描述
+
+引入分页组件，注意观察 `list.tsx` 中的代码，你也可以将分页组件划分到 `filter` 中去，逻辑上会更统一。

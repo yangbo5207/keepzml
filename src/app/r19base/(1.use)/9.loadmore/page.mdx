@@ -1,0 +1,91 @@
+import CodeTabs from 'components/codehike/code-tabs'
+import Preview from 'components/preview'
+import Demo01 from './demo01'
+
+<Preview><Demo01 /></Preview>
+<CodeTabs>
+```tsx !!tabs index.tsx -c
+!from ./demo01/index.tsx
+```
+
+```tsx !!tabs list.tsx -c
+!from ./demo01/list.tsx
+```
+
+```tsx !!tabs api.ts -c
+!from ./demo01/api.ts
+```
+
+```tsx !!tabs type.d.ts -c
+!from ../type.d.ts
+```
+</CodeTabs>
+
+这里唯一的一个小区别就是，上一章中，我们只在 promise 中存储了一条数据。如果我们将一页数据也存在 promise 中呢？
+
+加载更多的分页逻辑就会变得非常简单。为了方便演示，我们这里以一页数据只有三条为例。
+
+首先简单约定接口，该接口返回一页数据。`3条`
+
+```ts api.ts -c
+!from ./demo01/api.ts
+```
+
+然后定义一个可以遍历显示一页数据的组件。该组件接收一个 promise，并使用 use 读取请求结果。
+
+```tsx !!tabs list.tsx -c
+!from ./demo01/list.tsx
+```
+
+此时我们稍微梳理一下逻辑，首先我们有多个 promise，然后每个 promise 中有一页数据，因此，我们可以遍历 promise，并在遍历中渲染能显示一页数据的 List 组件。
+
+因此，我们首先要定义一个状态用于保存 promise 数组
+
+```ts
+const [promises, increasePromise] = useState(
+  () => [getUsersInfo()]
+)
+```
+
+初始化时需要渲染一页数据，所以我们设置该数组的默认值为 `[getUsersInfo()]`
+
+loadmore 事件触发之后，我们只需要往该数组中新增一个 promise 即可
+
+```ts
+const onLoadMore = () => {
+  increasePromise([...promises, getUsersInfo()])
+};
+```
+
+然后遍历 promises，在遍历中使用 `Suspense` 包裹内部有 use 逻辑的 List 组件
+
+```tsx
+{promises.map(promise => (
+  <Suspense fallback={<Skeleton />} key={uuid()}>
+    <List promise={promise} />
+  </Suspense>
+))}
+```
+
+完整的代码与演示效果如下。
+
+<Preview><Demo01 /></Preview>
+<CodeTabs>
+```tsx !!tabs index.tsx -c
+!from ./demo01/index.tsx
+```
+
+```tsx !!tabs list.tsx -c
+!from ./demo01/list.tsx
+```
+
+```tsx !!tabs api.ts -c
+!from ./demo01/api.ts
+```
+
+```tsx !!tabs type.d.ts -c
+!from ../type.d.ts
+```
+</CodeTabs>
+
+> 分页参数的维护、最后一页的判断，大家在实践中要自行维护，这里只做方案的演示，没有考虑所有边界情况

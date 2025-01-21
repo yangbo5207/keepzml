@@ -1,0 +1,52 @@
+import CodeTabs from 'components/codehike/code-tabs'
+import Preview from 'components/preview'
+import Demo01 from './demo01'
+
+<Preview><Demo01 /></Preview>
+<CodeTabs>
+```tsx !!tabs index.tsx -c
+!from ./Demo01/index.tsx
+```
+
+```tsx !!tabs select.tsx -c
+!from ./Demo01/select.tsx
+```
+
+```tsx !!tabs list.tsx -c
+!from ./Demo01/list.tsx
+```
+
+```tsx !!tabs Input.tsx -c
+!from ./Demo01/Input.tsx
+```
+
+```tsx !!tabs controller.ts -c
+!from ./Demo01/controller.ts
+```
+
+```tsx !!tabs service.ts -c
+!from ./Demo01/service.ts
+```
+
+```tsx !!tabs api.ts -c
+!from ./Demo01/api.ts
+```
+
+```tsx !!tabs http.ts -c
+!from ./Demo01/http.ts
+```
+</CodeTabs>
+
+
+### 场景描述
+
+本案例在上一个案例的基础之上进行修改。
+
+在本次案例中，有一个多选一的搜索条件。我们计划将其封装成为一个独立的子组件。
+
+当我们封装成独立的子组件时，注意案例中，该组件中有一个数据与父组件的交互方式。这种方式可以帮助我们在很多场景脱离**受控组件的限制**，从而做到父子组件数据解耦。这里重点关注 Select 组件的封装与使用方式,
+
+```tsx select.tsx -c
+!from ./demo01/select.tsx
+```
+

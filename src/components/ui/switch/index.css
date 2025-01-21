@@ -1,0 +1,27 @@
+@import 'tailwindcss';
+
+@layer switch {
+  .left {
+    --bg-color: rgba(0, 0, 0, 0.1);
+    --border-color: rgba(0, 0, 0, 0.2);
+    --x: 0;
+  }
+  
+  .right {
+    --bg-color: rgba(0, 0, 0, 0.9);
+    --border-color: rgba(0, 0, 0, 0.5);
+    --x: 22px;
+  }
+}
+
+.switch {
+  @apply p-[1px] border w-12 rounded-full cursor-pointer transition hover:border-slate-600;
+  background-color: var(--bg-color);
+  border-color: var(--border-color);
+}
+
+.switch .circle {
+  @apply rounded-full w-5 h-5 transition;
+  background-color: white;
+  transform: translateX(var(--x));
+}

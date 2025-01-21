@@ -1,0 +1,42 @@
+import CodeTabs from 'components/codehike/code-tabs'
+import Preview from 'components/preview'
+import Demo01 from './demo01'
+
+<Preview><Demo01 /></Preview>
+<CodeTabs>
+```tsx !!tabs index.tsx -c
+!from ./Demo01/index.tsx
+```
+
+```tsx !!tabs list.tsx -c
+!from ./Demo01/list.tsx
+```
+
+```tsx !!tabs Input.tsx -c
+!from ./Demo01/Input.tsx
+```
+
+```tsx !!tabs controller.ts -c
+!from ./Demo01/controller.ts
+```
+
+```tsx !!tabs service.ts -c
+!from ./Demo01/service.ts
+```
+
+```tsx !!tabs api.ts -c
+!from ./Demo01/api.ts
+```
+
+```tsx !!tabs http.ts -c
+!from ./Demo01/http.ts
+```
+</CodeTabs>
+
+
+### 场景描述
+
+组件初始化时，需要请求多个接口。此时接口不分先后顺序，只需要将返回结果按照需求组合在一起。
+
+1、支持快速输入时，取消上一次的两次请求
+

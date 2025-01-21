@@ -1,0 +1,45 @@
+import CodeTabs from 'components/codehike/code-tabs'
+import Preview from 'components/preview'
+import Demo01 from './demo01'
+
+<Preview><Demo01 /></Preview>
+<CodeTabs>
+```tsx !!tabs index.tsx -c
+!from ./Demo01/index.tsx
+```
+
+```tsx !!tabs list.tsx -c
+!from ./Demo01/list.tsx
+```
+
+```tsx !!tabs Input.tsx -c
+!from ./Demo01/Input.tsx
+```
+
+```tsx !!tabs controller.ts -c
+!from ./Demo01/controller.ts
+```
+
+```tsx !!tabs service.ts -c
+!from ./Demo01/service.ts
+```
+
+```tsx !!tabs api.ts -c
+!from ./Demo01/api.ts
+```
+
+```tsx !!tabs http.ts -c
+!from ./Demo01/http.ts
+```
+</CodeTabs>
+
+
+### 场景描述
+
+更新频率不一致
+
+1、两个接口
+
+2、搜索更新时，更新全部
+
+3、自动更新时，仅更新第一个接口

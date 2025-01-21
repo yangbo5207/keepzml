@@ -1,0 +1,102 @@
+import CodeTabs from 'components/codehike/code-tabs'
+import Preview from 'components/preview'
+import Demo01 from './demo01'
+
+<Preview><Demo01 /></Preview>
+<CodeTabs>
+```jsx !!tabs index.tsx -c
+!from ./demo01/index.tsx
+```
+
+```jsx !!tabs message.tsx -c
+!from ./demo01/message.tsx
+```
+
+```jsx !!tabs api.ts -c
+!from ./demo01/api.ts
+```
+</CodeTabs>
+
+### 1、**解决上一章的问题**
+
+我们这一章要解决的问题是，如果我要连续快速输入，内容，又不想多个 Sending 中的信息被合并，同时呢，我们又不想使用一些方式限制用户的输入，那么我们应该怎么做？
+
+我们在解决问题时，一定要对问题做出精准的分析，从而找到合适的解决方案。这里需求发生了一点变动，这里的变动就是，我不希望多个同时处于发送状态中的信息被回退重置。因此，我们要把状态拆分开，每一条信息各自维护自己的状态。
+
+> 因此，通常情况下，我们会把需求进一步调整成为请求失败也不回退，而是给出重试按钮或者异常状态，这种情况下，就和乐观更新的需求产生了一点微妙的差异。基于这个基础，我们来重新思考实现方案
+
+即然已经跟乐观更新产生了差异，那么我们就只需要借助常规的手段来实现即可。这里需要注意的是，虽然从需求上来说，我们可以不再思考回退，但是还需要保持乐观更新的 UI 特性。因此，在数据结构的设计上就需要有一些技巧。
+
+UI 需求的步骤为
+
+```javascript
+1、事件触发 -> UI 立即更新
+2、UI 更新的同时，发送请求，此时可以显示 Loading 状态
+3、请求成功之后，UI 确定更新，Loading 状态小时
+4、请求失败，显示失败状态
+```
+
+> 我们注意看，这里虽然与我们之前描述的乐观更新有所差异，但是保留了大部分乐观更新的核心特征，只是没有失败回退的效果，而是失败重置或者显示失败状态
+
+首先，我们设计一个状态数据结构，该状态将要保留了乐观更新时提前展示的消息
+
+```ts
+export interface Payload {
+  value: string,
+  id: string,
+}
+```
+
+我们将会维护一个 payload 组成的数组作为状态
+
+```ts
+const [paylaods, setPayloads] = useState<Payload[]>([]);
+```
+
+我们将结合 Suspense fallback 的特性，请求过程中通过 fallback 展示 `newMessage`，然后请求成功之后再使用 promise 的请求结果来替换
+
+```ts message.ts -c
+export default function Message({ message }: {
+  message: string
+}) {
+  const [promise] = useState(() => getMessage(message))
+
+  return (
+    <div className='indent-1 text-slate-600 mt-1 hover:bg-slate-100 p-2 cursor-pointer rounded'>
+      <Suspense fallback={<>{message}<small>(Sendding...)</small></>}>
+        <MessageInner promise={promise} />
+      </Suspense>
+    </div>
+  )
+}
+```
+
+然后在 form 的 action 回调中，添加新的 Payload 数据即可
+
+```ts
+async function formAction(formData: FormData) {
+  let newMessage = formData.get("message") as string
+  setPayloads([...paylaods, { value: newMessage, id: uuid() }])
+  form.current.reset();
+}
+```
+
+完整如下
+
+<Preview><Demo01 /></Preview>
+<CodeTabs>
+```jsx !!tabs index.tsx -c
+!from ./demo01/index.tsx
+```
+
+```jsx !!tabs message.tsx -c
+!from ./demo01/message.tsx
+```
+
+```jsx !!tabs api.ts -c
+!from ./demo01/api.ts
+```
+</CodeTabs>
+
+
+> 剩下一个需求，是请求失败展示错误或者重试，留一个小挑战，大家可以自行扩展一下

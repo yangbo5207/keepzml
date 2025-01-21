@@ -1,0 +1,52 @@
+import CodeTabs from 'components/codehike/code-tabs'
+import Preview from 'components/preview'
+import Demo01 from './demo01'
+
+通过上面对 Compiler 渲染结果的理解，我们应该已经大概知道我们的 React 代码最终会渲染成什么样。我们目前要思考的问题就是，我们的代码通过 Compiler 编译之后，**收益表现在哪里？**
+
+接下来我们要分析三个不同的案例，来思考这个问题。这篇文章先分析第一个出现在上一章中，最简单的基础案例
+
+<Preview><Demo01 /></Preview>
+<CodeTabs>
+```jsx !!tabs index.tsx -c
+!from ./demo01/index.tsx
+```
+
+```jsx !!tabs compiled.jsx -c
+!from ./demo01/compiled.jsx
+```
+</CodeTabs>
+
+本文的这个案例中，当我们点击按钮时，此时 `count` 增加，
+
+由于 `__clickHandler` 函数内部使用了外部的 `count` 状态，因此 `__clickHanler` 无法缓存，需要重新创建，
+
+```js
+function __clickHanler() {
+  setCount(count + 1)
+}
+```
+
+那么很显然的， button 按钮也就无法缓存
+
+```js
+// 无法缓存
+<button onClick={__clickHanler}>Increment</button>
+```
+
+```js
+// 无法缓存
+<div>currnt count is: {count}</div>
+```
+
+最终，只有 `A Base Case` 标签可以被缓存
+
+```js
+<div>A Base Case</div>
+```
+
+因此，在组件由于 count 的增加而反复重新执行的过程中，大多数元素都无法被缓存，需要重新创建，那么也就意味着，这个案例的编译之后的收益为**负收益**。因此，如果你经验比较丰富的话，你可以快速判断你写的当前的组件是否具备明确的正向收益，从而选择是否需要编译当前组件。
+
+> 我们可以通过有意违背规则的方式让编译不发生
+
+当然，这里多执行的逻辑也并不是很多，我们也可以选择无视。

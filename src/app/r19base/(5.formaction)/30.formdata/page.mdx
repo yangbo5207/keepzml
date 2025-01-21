@@ -1,0 +1,99 @@
+这一章，我们要简单过一遍 FormData 相关的使用方式。
+
+FormData API 如下所示。
+
+```ts
+FormData
+  [[Prototype]]
+    .append: f append()
+    .delete: f delete()
+    .entries: f entries()
+    .forEach: f forEach()
+    .get: f ()
+    .getAll: f getAll()
+    .has: f has()
+    .keys: f keys()
+    .set: f ()
+    .values: f values()
+```
+
+
+我们可以先创建一个空的 FormData 对象，然后通过 `append` 方法来添加属性。
+
+```javascript
+const formdata = new FormData()
+formdata.append('title', 'hello world')
+```
+
+也可以直接使用 form 元素对象进行初始化。并在子表单元素中合并具体的字段和值。
+
+```html
+<form id="form" method="post">
+  First name:
+  <input type="text" value="Jake" name="fname">
+  Last name:
+  <input type="text" value="Ma" name="lname">
+  <input type="submit" value="提交">
+</form>
+```
+```javascript
+const formdata = new FormData(form)
+```
+
+我们可以通过 `.get` 方法获取具体字段的值。在表单元素中，`name` 属性表示字段名。
+
+```js -c
+// <input type="text" value="Jake" name="fname">
+formdata.get('fname')
+```
+
+可以有多个同名的 name，因此 `.get()` 表示获取第一个，`.getAll()` 表示获取所有
+
+```javascript
+// 获取所有 name 为 age 的字段，返回数组
+formdata.getAll('age')
+```
+
+我们可以通过 `.set` 方法设置对应字段的值。如果字段名不存在，则添加该字段。
+
+```javascript
+formdata.set('fname', 'Jake')
+```
+
+可以通过 `.has(key)` 来判断是否存在某个字段。
+
+```javascript
+formdata.has('fname') // true
+```
+
+可以通过 `.delete(key)` 删除某一个字段。
+
+```javascript
+formdata.delete('fname')
+```
+
+我们可以使用 formdata 来实现一个上传文件的功能。
+
+```html
+<form id="form">
+  <input type="text" name="firstName" value="John">
+  Picture:
+  <input type="file" name="picture" accept="image/*">
+  <input type="submit">
+</form>
+```
+
+```javascript
+form.onsubmit = async e => {
+  e.preventDefault()
+
+  const response = await fetch('/post/file', {
+    method: 'POST',
+    body: new FormData(form)
+  })
+  let res = await response.json()
+  // do something
+}
+```
+
+OK，简单了解了 FormData 的常用方式之后，有了这个基础，我们再来学习 react 中的 form action.
