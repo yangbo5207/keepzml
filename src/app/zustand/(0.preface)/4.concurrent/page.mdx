@@ -1,0 +1,46 @@
+import CodeTabs from 'components/codehike/code-tabs'
+import Preview from 'components/preview'
+import Demo01 from './demo01'
+import Demo02 from './demo02'
+
+在 React 中，能否与并发模式有机结合，是判断一个状态管理库是否合格的重要标准，经过验证，我们发现 zustand 在这一方面表现的非常好。
+
+首先，我们先来看一个正常的并发模式的案例，这个案例在之前我们已经学习过
+
+<Preview><Demo01 /></Preview>
+<CodeTabs>
+```tsx !!tabs index.tsx -c
+!from ./demo01/index.tsx
+```
+
+```tsx !!tabs expensive.tsx -c
+!from ./demo01/expensive.tsx
+```
+
+```tsx !!tabs slow-item.tsx -c
+!from ./demo01/slow-item.tsx
+```
+</CodeTabs>
+
+
+然后观察一下同样的案例，使用 zustand 来存储状态
+
+<Preview><Demo02 /></Preview>
+<CodeTabs>
+```tsx !!tabs index.tsx -c
+!from ./demo02/index.tsx
+```
+
+```tsx !!tabs store.ts -c
+!from ./demo02/store.ts
+```
+
+```tsx !!tabs expensive.tsx -c
+!from ./demo02/expensive.tsx
+```
+
+```tsx !!tabs slow-item.tsx -c
+!from ./demo02/slow-item.tsx
+```
+</CodeTabs>
+
