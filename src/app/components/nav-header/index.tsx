@@ -11,6 +11,7 @@ import clsx from 'clsx'
 export const links = [
   { path: 'r19base', text: 'React 19 . 基础', icon: BellDot },
   { path: 'r19plus', text: 'React 19 . 尊享', icon: BellElectric },
+  { path: 'zustand', text: 'zustand', icon: Squirrel },
   { path: 'r19lightning', text: 'React 速成宝典 . 上', icon: Zap },
 ]
 

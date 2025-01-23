@@ -1,0 +1,42 @@
+import CodeTabs from 'components/codehike/code-tabs'
+import Preview from 'components/preview'
+import Demo01 from './demo01'
+
+通过如下的方式安装
+
+<CodeTabs>
+```bash !!tabs npm -c
+npm install zustand
+```
+
+```bash !!tabs yarn -c
+yarn add zustand
+```
+</CodeTabs>
+
+### 1、创建一个 store
+
+我们可以在项目中的任意位置，创建一个 ts 文件，用于管理状态，在该文件中，首先我们需要引入 zustand，并利用 `create` 方法创建一个 store
+
+```ts store.ts -c
+import { create } from 'zustand'
+```
+
+`create` 方法创建的是一个自定义 hook，因此，通常情况下，我们会以 `use` 作为开头。我们可以通过它返回基础数据类型、对象、函数等。如下面的案例所示，我定义了一个位置信息的状态，以及一个更新位置信息的方法
+
+```ts store.ts -c
+!from ./demo01/store.ts
+```
+
+然后我们可以在任意组件中引入刚才创建好的自定义 hook `useStore`，结合 UI 完成案例的完整逻辑，完整代码以及案例演示如下所示。
+
+<Preview><Demo01 /></Preview>
+<CodeTabs>
+```tsx !!tabs index.tsx -c
+!from ./demo01/index.tsx
+```
+
+```tsx !!tabs store.ts -c
+!from ./demo01/store.ts
+```
+</CodeTabs>

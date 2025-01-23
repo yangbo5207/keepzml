@@ -5,11 +5,13 @@ import { getAuthURL } from 'utils/http'
 import { PropsWithChildren } from 'react'
 import * as r19base_config from 'app/r19base/config'
 import * as r19plus_config from 'app/r19plus/config'
+import * as zustand_config from 'app/zustand/config'
 import * as r19lightning_config from 'app/r19lightning/config'
 
 const config = {
   r19base: r19base_config,
   r19plus: r19plus_config,
+  zustand: zustand_config,
   r19lightning: r19lightning_config
 }
 

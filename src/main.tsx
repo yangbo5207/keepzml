@@ -15,6 +15,10 @@ import R19PlusLayout from 'app/r19plus/layout'
 import R19Plus from 'app/r19plus/page'
 import { routers as r19plusRouters } from 'app/r19plus/router'
 
+import ZustandLayout from 'app/zustand/layout'
+import ZustandPage from 'app/zustand/page'
+import { routers as zustandrouters } from 'app/zustand/router'
+
 import R19LightningLayout from 'app/r19lightning/layout'
 import R19Lightning from 'app/r19lightning/page'
 import { routers as r19lightningRouters } from 'app/r19lightning/router'
@@ -41,6 +45,17 @@ createRoot(document.getElementById('root')!).render(
         <Route path='r19plus' element={<R19PlusLayout />}>
           <Route index element={<R19Plus />} />
           {r19plusRouters.filter((item) => !!item.path).map((item, i) => (
+            <Route key={item.path} path={item.path} element={
+              <Suspense fallback={<PageLoading />}>
+                <item.component />
+              </Suspense>
+            } />
+          ))}
+        </Route>
+
+        <Route path='zustand' element={<ZustandLayout />}>
+          <Route index element={<ZustandPage />} />
+          {zustandrouters.filter((item) => !!item.path).map((item, i) => (
             <Route key={item.path} path={item.path} element={
               <Suspense fallback={<PageLoading />}>
                 <item.component />

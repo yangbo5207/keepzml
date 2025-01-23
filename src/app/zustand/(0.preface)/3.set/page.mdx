@@ -1,0 +1,61 @@
+import CodeTabs from 'components/codehike/code-tabs'
+import Preview from 'components/preview'
+import Demo01 from './demo01'
+
+当我们想要触发更新时，必须要调用 `set | setState` 方法。该方法是基于现有整体状态的**浅合并**
+
+例如下面这种写法，最后将得到状态 __`{salmon, tuna, setSalmon }`__
+
+<CodeTabs>
+```ts !!tabs set -c
+const useStore = create((set) => ({
+  salmon: 1,
+  tuna: 2,
+  setSalmon: (newVal) => set(() => ({ salmon: newVal }))
+}))
+```
+
+```ts !!tabs setState -c
+export function setSalmon() {
+  useStore.setState(newVal => ({
+    salmon: newVal
+  }))
+}
+```
+</CodeTabs>
+
+
+
+如果我们要单独针对某一个状态进行更改，我们可以从 state 中获取当前值，然后进行新值的运算并返回合并
+
+```ts store.ts -c
+export const useStore = create()((set) => ({
+  count1: 1,
+  count2: 1,
+  inc_count1: () => set((state) => ({ count1: state.count1 + 1 })),
+  dec_count1: () => set((state) => ({ count1: state.count1 - 1 })),
+  inc_count2: () => set((state) => ({ count2: state.count2 + 1 })),
+  dec_count2: () => set((state) => ({ count2: state.count2 - 1 })),
+}))
+```
+
+完整如下
+
+<Preview><Demo01 /></Preview>
+<CodeTabs>
+```tsx !!tabs index.tsx -c
+!from ./demo01/index.tsx
+```
+
+```tsx !!tabs store.ts -c
+!from ./demo01/store.ts
+```
+
+```tsx !!tabs count1.tsx -c
+!from ./demo01/count1.tsx
+```
+
+```tsx !!tabs count2.tsx -c
+!from ./demo01/count2.tsx
+```
+</CodeTabs>
