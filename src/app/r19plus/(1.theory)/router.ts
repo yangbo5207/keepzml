@@ -22,5 +22,12 @@ export const r1 = [
     path: 'nested',
     name: '4、解耦与嵌套',
     component: require('./3.nested/layout')
+  },
+  {
+    path: 'ddd',
+    name: '5、DDD 领域驱动设计',
+    component: require('./4.DDD/layout'),
+    label: 'new',
+    type: 'newer'
   }
 ]
