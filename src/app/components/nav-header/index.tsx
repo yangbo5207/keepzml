@@ -40,7 +40,7 @@ export default function NavHeader() {
         </div>
       </aside>
 
-      <div id='vp-content' className='h-16 flex items-center pr-4 md:pr-0'>
+      <div id='vp-content' className='h-15 flex items-center pr-4 md:pr-0'>
         <div className='flex px-4 md:px-8 2xl:px-24 flex-1'>
           <div className='md:hidden'>
             <LOGO />
