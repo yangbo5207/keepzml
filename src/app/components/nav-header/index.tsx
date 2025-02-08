@@ -40,7 +40,7 @@ export default function NavHeader() {
         </div>
       </aside>
 
-      <div id='vp-content' className='h-15 flex items-center pr-4 md:pr-0'>
+      <div id='vp-content' className='h-15 flex items-center pr-4 lg:pr-0'>
         <div className='flex px-4 md:px-8 2xl:px-24 flex-1'>
           <div className='md:hidden'>
             <LOGO />
@@ -48,7 +48,7 @@ export default function NavHeader() {
           {links.map(link => (
             <ActiveLink
               to={link.path} key={link.path}
-              className={clsx('hidden md:flex text-gray-600 text-[14px] items-center hover:bg-white py-2 px-3 rounded-md transition', {
+              className={clsx('hidden lg:flex text-gray-600 text-[14px] items-center hover:bg-white py-2 px-3 rounded-md transition', {
                 'hover:bg-gray-100': !isHome
               })}
               end={false} activeName='text-blue-600'
@@ -59,7 +59,7 @@ export default function NavHeader() {
           ))}
         </div>
 
-        <aside id='hp-aside' className='hidden md:flex h-16 items-center pr-4 lg:pr-6 space-x-4'>
+        <aside id='hp-aside' className='hidden lg:flex h-16 items-center pr-6 space-x-4'>
           <ChatButton />
           <Profile />
         </aside>

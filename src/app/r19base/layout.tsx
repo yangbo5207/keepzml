@@ -56,7 +56,7 @@ export default function R19BaseLayout() {
       </aside>
       <div id='vp-content'>
         <div className='pt-4 md:pt-8 relative flex justify-center'>
-          <div id='cp-content' className='px-4 md:px-8 2xl:px-24 pb-24 w-0 flex-1'>
+          <div id='cp-content' className='pb-24 w-0 flex-1'>
             <Suspense fallback={<div></div>}>
               <BaseComponent promise={promise} />
             </Suspense>
