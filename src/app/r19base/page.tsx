@@ -8,19 +8,23 @@ import SectionCourse from './components/section/course'
 
 export default function Page() {
   return (
-    <div className='overflow-hidden'>
-      <SectionBanner />
-      <SectionDatas />
-      <div className='border-b my-10 border-dashed border-gray-300'></div>
-      <SectionBefore />
-      <div className='border-b my-10 border-dashed border-gray-300'></div>
-      <SectionEfficient />
-      <div className='border-b my-10 border-dashed border-gray-300'></div>
-      <SectionType />
-      <div className='border-b my-10 border-dashed border-gray-300'></div>
-      <SectionPrice />
-      <div className='border-b my-10 border-dashed border-gray-300'></div>
-      <SectionCourse />
+    <div className='pt-8 md:pt-16'>
+      <div id='cp-content' className='px-4 max-w-[1024px] mx-auto 2xl:pr-2!'>
+        <div className='overflow-hidden'>
+          <SectionBanner />
+          <SectionDatas />
+          <div className='border-b my-10 border-dashed border-gray-300'></div>
+          <SectionBefore />
+          <div className='border-b my-10 border-dashed border-gray-300'></div>
+          <SectionEfficient />
+          <div className='border-b my-10 border-dashed border-gray-300'></div>
+          <SectionType />
+          <div className='border-b my-10 border-dashed border-gray-300'></div>
+          <SectionPrice />
+          <div className='border-b my-10 border-dashed border-gray-300'></div>
+          <SectionCourse />
+        </div>
+      </div>
     </div>
   )
 }

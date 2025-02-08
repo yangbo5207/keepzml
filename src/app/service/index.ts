@@ -51,11 +51,12 @@ const store = {
   subscrible: {
     'r19base': 0,
     'r19plus': 0,
+    'zustand': 0,
     'r19lightning': 0
   }
 }
 
-export type ColumnKey = 'r19base' | 'r19plus' | 'r19lightning'
+export type ColumnKey = 'r19base' | 'r19plus' | 'r19lightning' | 'zustand'
 
 export const useLoginStore = create(() => store)
 
