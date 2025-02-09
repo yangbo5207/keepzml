@@ -9,7 +9,7 @@ import SectionCourse from './components/section/course'
 export default function Page() {
   return (
     <div className='pt-8 md:pt-16'>
-      <div id='cp-content' className='px-4 max-w-[1024px] mx-auto 2xl:pr-2!'>
+      <div id='cp-content' className='px-4 max-w-[1024px] mx-auto 2xl:pr-9!'>
         <div className='overflow-hidden'>
           <SectionBanner />
           <SectionDatas />
