@@ -5,5 +5,8 @@ export const start_path = 'change'
 export const reactversion = 'React@19.0.0'
 
 export const user_ids: string[] = [
-  '1813145181655089152' // 这波能反杀
+  '1813145181655089152', // 这波能反杀
+  '1876539126241779712', // Z
+  '1874636777894313984', // HTML-6
+  '1889381002569383936', // 小天
 ]
