@@ -2,7 +2,7 @@
 export const column_id = '1876560978079080448'
 export const column_url = `https://xinyuzone.cn/column/${column_id}`
 export const column_key = 'r19plus'
-export const start_path = 'structuring'
+export const start_path = '/r19plus/1.structuring'
 export const reactversion = 'React@19.0.0'
 
 export const user_ids: string[] = [

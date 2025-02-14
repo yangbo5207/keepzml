@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import Dialog from 'components/ui/dialog'
 import ercode from '/src/assets/ercode.png'
 import { motion } from 'motion/react'
@@ -60,7 +61,7 @@ export default function Banner() {
               <span>关注公众号</span>
             </a>
             <Dialog ref={dialog} title='Follow me!'>
-              <img src={ercode} alt='' />
+              <Image src={ercode} alt='' width={500} height={500} />
             </Dialog>
 
             <a onClick={() => __scrollToAnchor('price')}

@@ -16,7 +16,13 @@ type LinkProps = PropsOf<typeof Link> & {
 function ActiveLink(props: LinkProps) {
   const { children, className = '', end = true, activeName = '', href, onClick, ...prop } = props
   const pathname = usePathname()
-  let match = pathname.endsWith(href)
+  let match = true
+
+  if (end) {
+    match = pathname.endsWith(href)
+  } else {
+    match = pathname.startsWith(href)
+  }
 
   const __cls = twMerge(clsx(className, 'transition cursor-pointer', {
     [activeName]: !!match
