@@ -1,10 +1,9 @@
 import CodeTabs from 'components/codehike/code-tabs'
-import Preview from 'components/preview'
-import Demo01 from './demo01'
-import Demo02 from './demo02'
-import Demo03 from './demo03'
+import Demo01 from './demo01/preview'
+import Demo02 from './demo02/preview'
+import Demo03 from './demo03/preview'
 
-<Preview><Demo03 /></Preview>
+<Demo03 />
 <CodeTabs>
 ```tsx !!tabs index.tsx -c
 !from ./demo03/index.tsx
@@ -62,7 +61,7 @@ function __handler() {
 
 完整代码如下
 
-<Preview><Demo01 /></Preview>
+<Demo01 />
 <CodeTabs>
 ```tsx !!tabs index.tsx -c
 !from ./demo01/index.tsx
@@ -94,7 +93,7 @@ const [promise, update] = useState(getMessage())
 
 这里的思路就是给状态 promise 赋值一个 Promise 对象作为初始值。修改之后的完整代码如下
 
-<Preview><Demo02 /></Preview>
+<Demo02 />
 <CodeTabs>
 ```tsx !!tabs index.tsx -c
 !from ./demo02/index.tsx
@@ -130,7 +129,7 @@ const [promise, update] = useState(getMessage)
 这样，即使不用 Compiler 编译缓存，也不会出现冗余请求的情况。结果如下
 
 
-<Preview><Demo03 /></Preview>
+<Demo03 />
 <CodeTabs>
 ```tsx !!tabs index.tsx -c
 !from ./demo03/index.tsx

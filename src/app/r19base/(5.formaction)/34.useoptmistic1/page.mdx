@@ -1,9 +1,8 @@
 import CodeTabs from 'components/codehike/code-tabs'
-import Preview from 'components/preview'
-import Demo01 from './demo01'
-import Demo02 from './demo02'
+import Demo01 from './demo01/preview'
+import Demo02 from './demo02/preview'
 
-<Preview><Demo01 /></Preview>
+<Demo01 />
 
 
 ### 1、**useOptimistic**
@@ -137,7 +136,7 @@ updateFn = (currentState, value) => {
 
 直接来看一下目标案例
 
-<Preview><Demo01 /></Preview>
+<Demo01 />
 <CodeTabs>
 ```jsx !!tabs index.tsx -c
 !from ./demo01/index.tsx
@@ -239,4 +238,4 @@ async function formAction(formData: FormData) {
 尝试一下快速连续输入内容并 `Send`，我们会发现，最终的效果并非我们所愿，此时会有多条内容同时正在 `Sending`，但是最终请求成功之后，这些同时的 `Sending` 内容仅有一条信息被合并到最终结果中，其他的内容会消失。那么在此基础之上，我们需要如何来解决这个问题呢？下一章我们继续学习。
 
 
-<Preview><Demo02 /></Preview>
+<Demo02 />

@@ -1,3 +1,5 @@
+'use client'
+
 import { motion } from 'motion/react'
 import Block from './block'
 import { variants } from './variants'
@@ -10,13 +12,13 @@ export default function SectionCourse() {
         <motion.p {...variants()} className="mb-8 md:mb-12 leading-8">我负责提供过硬的学习质量，确保每一位用户都能学有所得</motion.p>
 
         <div className='mt-12 space-y-6'>
-          {/* <Block
+          <Block
             title='React 知命境'
             desc='本专栏是沉淀了四年的诚意之作。为了帮助广大开发者轻松掌握 React 的学习，我们从基础知识出发，循序渐进，逐渐深入，是学习 React 的最佳最佳选择'
             path='r19plus'
             delay={0}
             className='flex-1'
-          /> */}
+          />
 
           <Block
             title='React 19 . 基础'

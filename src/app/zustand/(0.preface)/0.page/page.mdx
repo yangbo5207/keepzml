@@ -1,9 +1,9 @@
 import CodeTabs from 'components/codehike/code-tabs'
-import Preview from 'components/preview'
-import Demo01 from './demo01'
-import Demo02 from './demo02'
 
-<Preview><Demo01 /></Preview>
+import Demo01 from './demo01/preview'
+import Demo02 from './demo02/preview'
+
+<Demo01 />
 <CodeTabs>
 ```tsx !!tabs index.tsx -c
 !from ./demo01/index.tsx
@@ -110,7 +110,7 @@ export default function Counter() {
 
 `zustand` 基于 react hooks 来设计，他的使用习惯比较接近 react 的自定义 hook，因此如果你熟悉自定义 hook 的话，学会 `zustand` 的使用只需要一分钟。也许当你看到了文中的几个案例，你就已经掌握了它的基础使用
 
-<Preview><Demo02 /></Preview>
+<Demo02 />
 <CodeTabs>
 ```tsx !!tabs index.tsx -c
 !from ./demo02/index.tsx

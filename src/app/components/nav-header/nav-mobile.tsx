@@ -1,7 +1,7 @@
 import Drawer from '@/components/ui/modal/drawer'
 import Button from '@/components/ui/button'
 import { useRef } from 'react'
-import { Link } from 'react-router'
+import Link from 'next/link'
 import { Nut, AlignRight, Anchor, BriefcaseConveyorBelt, CupSoda, ShoppingCart } from 'lucide-react'
 import { motion } from 'motion/react'
 
@@ -21,7 +21,7 @@ export default function NavMobile() {
     </Button>,
     <Drawer ref={modal} direction='right' width='50%' key='b'>
       <header className='px-6 h-14 flex items-center justify-between border-b border-b-white/[0.1]'>
-        <Link to='/' className='font-bold flex text-sm items-center'><Nut className='mr-2' />KEEPCSS</Link>
+        <Link href='/' className='font-bold flex text-sm items-center'><Nut className='mr-2' />KEEPCSS</Link>
       </header>
 
       <div className='px-6'>

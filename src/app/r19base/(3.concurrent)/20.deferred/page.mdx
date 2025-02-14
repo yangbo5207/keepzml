@@ -1,11 +1,10 @@
 import CodeTabs from 'components/codehike/code-tabs'
-import Preview from 'components/preview'
-import Demo01 from './demo01'
-import Demo02 from './demo02'
-import Counter01 from './counter01'
-import Counter02 from './counter02'
-import Counter03 from './counter03'
-import Counter04 from './counter04'
+import Demo01 from './demo01/preview'
+import Demo02 from './demo02/preview'
+import Counter01 from './counter01/preview'
+import Counter02 from './counter02/preview'
+import Counter03 from './counter03/preview'
+import Counter04 from './counter04/preview'
 
 
 ### 1、效果对比
@@ -14,12 +13,12 @@ import Counter04 from './counter04'
 
 在进一步学习之前，道友们先操作感受一下这个案例中，搜索时 loading 的交互状态。在输入框中，快速输入任意内容。这是未使用并发 API 实现的交互效果。
 
-<Preview><Demo01 /></Preview>
+<Demo01 />
 
 
 然后接下来是使用了并发 API 的交互效果。
 
-<Preview><Demo02 /></Preview>
+<Demo02 />
 
 很显然，我更偏好于第二个案例的 Loading 交互方案。
 
@@ -48,7 +47,7 @@ const deferredValue = useDeferredValue(value, initialValue?)
 
 因此，当你快速点击按钮时，两个元素的变化是同时进行的。
 
-<Preview><Counter01 /></Preview>
+<Counter01 />
 <CodeTabs>
 ```tsx !!tabs index.tsx -c
 !from ./counter01/index.tsx
@@ -59,7 +58,7 @@ const deferredValue = useDeferredValue(value, initialValue?)
 
 这个时候，我们可以利用 useDeferredValue，把他们拆分成两个任务。
 
-<Preview><Counter02 /></Preview>
+<Counter02 />
 <CodeTabs>
 ```tsx !!tabs index.tsx -c
 !from ./counter02/index.tsx
@@ -87,7 +86,7 @@ const deferred = useDeferredValue(counter)
 
 为了看出区别，我们把第二个元素重构成一个子组件，并模拟成一个耗时组件
 
-<Preview><Counter03 /></Preview>
+<Counter03 />
 <CodeTabs>
 ```tsx !!tabs index.tsx -c
 !from ./counter03/index.tsx
@@ -109,7 +108,7 @@ const deferred = useDeferredValue(counter)
 
 再来感受一下演示结果，我们就发现，第一个 counter 的更新也变得非常流畅了。
 
-<Preview><Counter04 /></Preview>
+<Counter04 />
 <CodeTabs>
 ```tsx !!tabs index.tsx -c
 !from ./counter04/index.tsx
@@ -187,7 +186,7 @@ useDeferredValue 会尝试将 UI 任务更新两次。
 
 那我们回过头来，分析一下最开始的那个案例，重新看一眼代码
 
-<Preview><Demo02 /></Preview>
+<Demo02 />
 <CodeTabs>
 ```tsx !!tabs index.tsx -c
 !from ./demo02/index.tsx

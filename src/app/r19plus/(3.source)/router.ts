@@ -4,62 +4,62 @@ export const r3 = [
     name: '组件源码'
   },
   {
-    path: 'button',
+    path: '1.button',
     name: '1、Button',
     component: require('./1.button/layout')
   },
   {
-    path: 'modal',
+    path: '2.modal',
     name: '2、Modal',
     component: require('./2.modal/layout')
   },
   {
-    path: 'drawer',
+    path: '3.drawer',
     name: '3、Drawer',
     component: require('./3.drawer/layout')
   },
   {
-    path: 'dialog',
+    path: '4.dialog',
     name: '4、Dialog',
     component: require('./4.dialog/layout')
   },
   {
-    path: 'switch',
+    path: '5.switch',
     name: '5、Switch',
     component: require('./5.switch/layout')
   },
   {
-    path: 'spin',
+    path: '6.spin',
     name: '6、Spin',
     component: require('./6.spin/layout')
   },
   {
-    path: 'Input',
+    path: '7.Input',
     name: '7、Input',
     component: require('./7.Input/layout')
   },
   {
-    path: 'flex',
+    path: '8.flex',
     name: '8、Flex',
     component: require('./8.flex/layout')
   },
   {
-    path: 'show',
+    path: '9.show',
     name: '9、Show',
     component: require('./9.show/layout')
   },
   {
-    path: 'pagination',
+    path: '10.pagination',
     name: '10、Pagination',
     component: require('./10.pagination/layout')
   },
   {
-    path: 'skeleton',
+    path: '11.skeleton',
     name: '11、Skeleton',
     component: require('./11.skeleton/layout')
   },
   {
-    path: 'active-link',
+    path: '12.active-link',
     name: '12、active-link',
     component: require('./12.active-link/layout')
   },

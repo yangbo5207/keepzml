@@ -1,3 +1,5 @@
+'use client'
+
 import SectionBanner from './components/section/banner'
 import SectionDatas from './components/section/datas'
 import SectionBefore from './components/section/before'

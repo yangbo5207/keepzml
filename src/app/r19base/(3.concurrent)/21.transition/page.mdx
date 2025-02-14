@@ -1,9 +1,8 @@
 import CodeTabs from 'components/codehike/code-tabs'
-import Preview from 'components/preview'
-import Demo01 from './demo01'
-import Demo02 from './demo02'
+import Demo01 from './demo01/preview'
+import Demo02 from './demo02/preview'
 
-<Preview><Demo01 /></Preview>
+<Demo01 />
 
 useTransition 与 useDeferredValue 有几乎一致的作用。他们都可以降低 UI 任务更新的优先级。只是在语法上有一些不太一样。因此这一章我们主要重点是介绍 useTransition 的语法，以及它与 useDeferredValue 的细微差异。
 
@@ -18,7 +17,7 @@ const [isPending, startTransition] = useTransition()
 
 `isPending` 表示是否还有未完成的 UI 更新任务。我们可以利用这个状态来判断请求是否正在发生。来看一个完整的演示案例，点击按钮更新数据时，注意观察交互。
 
-<Preview><Demo01 /></Preview>
+<Demo01 />
 <CodeTabs>
 ```tsx !!tabs index.tsx -c
 !from ./demo01/index.tsx
@@ -98,7 +97,7 @@ export default function Ex(props) {
 最后直接来看这个案例，大家可以通过连续快速点击多次 Tab 按钮，来验证接口是否被取消
 
 
-<Preview><Demo02 /></Preview>
+<Demo02 />
 <CodeTabs>
 ```tsx !!tabs index.tsx -c
 !from ./demo02/index.tsx

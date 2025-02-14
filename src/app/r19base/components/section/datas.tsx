@@ -21,7 +21,7 @@ export default function LearnBefore() {
     delay: 0.3
   }, {
     desc: '已重构',
-    count: 3,
+    count: 4,
     icon: LandPlot,
     delay: 0.35
   }]

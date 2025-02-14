@@ -1,7 +1,6 @@
 import CodeTabs from 'components/codehike/code-tabs'
-import Preview from 'components/preview'
-import Demo01 from './demo01'
-import Demo02 from './demo02'
+import Demo01 from './demo01/preview'
+import Demo02 from './demo02/preview'
 
 
 接下来，我们将会以大量的实践案例来展开 React 19 新 hook 的运用。
@@ -12,7 +11,7 @@ import Demo02 from './demo02'
 
 案例完成之后的最终演示效果如下
 
-<Preview><Demo01 /></Preview>
+<Demo01 />
 <CodeTabs>
 ```tsx !!tabs index.tsx -c
 !from ./demo01/index.tsx
@@ -68,7 +67,7 @@ function __handler() {
 
 完整代码如下
 
-<Preview><Demo01 /></Preview>
+<Demo01 />
 <CodeTabs>
 ```tsx !!tabs index.tsx -c
 !from ./demo01/index.tsx
@@ -147,7 +146,7 @@ const [promise, update] = useState(Promise.resolve({value: ''}))
 
 演示效果如下图所示
 
-<Preview><Demo02 /></Preview>
+<Demo02 />
 <CodeTabs>
 ```tsx !!tabs index.tsx -c
 !from ./demo02/index.tsx

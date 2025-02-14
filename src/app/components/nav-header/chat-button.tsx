@@ -1,6 +1,8 @@
 import { useRef } from 'react'
-import Dialog from 'components/ui/dialog'
+import dynamic from 'next/dynamic'
 import { UserRoundPlus } from 'lucide-react'
+
+const Dialog = dynamic(() => import('components/ui/dialog'), { ssr: false })
 
 export default function ChatButton() {
   const dialog = useRef<any>(null)

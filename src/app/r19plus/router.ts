@@ -16,4 +16,9 @@ export const routers: RouteItem[] = [
   ...r1,
   ...r2,
   ...r3,
-]
+].map(item => {
+  if (item.path) {
+    item.path = `/r19plus/${item.path}`
+  }
+  return item
+})

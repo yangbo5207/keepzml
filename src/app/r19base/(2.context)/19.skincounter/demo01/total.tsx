@@ -1,5 +1,5 @@
 import { use } from 'react'
-import { Context } from './context.jsx'
+import { Context } from './context'
 
 export default function Total() {
   const { count } = use(Context)

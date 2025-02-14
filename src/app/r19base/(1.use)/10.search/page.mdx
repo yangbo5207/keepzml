@@ -1,9 +1,8 @@
 import CodeTabs from 'components/codehike/code-tabs'
-import Preview from 'components/preview'
-import Demo01 from './demo01'
-import Demo02 from './demo02'
+import Demo01 from './demo01/preview'
+import Demo02 from './demo02/preview'
 
-<Preview><Demo02 /></Preview>
+<Demo02 />
 <CodeTabs>
 ```tsx !!tabs index.tsx -c
 !from ./demo02/index.tsx
@@ -51,7 +50,7 @@ const __inputChange = () => {
 
 最后结合 Suspense，完整代码如下
 
-<Preview><Demo01 /></Preview>
+<Demo01 />
 <CodeTabs>
 ```tsx !!tabs index.tsx -c
 !from ./demo01/index.tsx
@@ -147,7 +146,7 @@ controller.abort();
 
 直接观察演示案例
 
-<Preview><Demo02 /></Preview>
+<Demo02 />
 <CodeTabs>
 ```tsx !!tabs index.tsx -c
 !from ./demo02/index.tsx

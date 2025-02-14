@@ -1,12 +1,11 @@
 import CodeTabs from 'components/codehike/code-tabs'
-import Preview from 'components/preview'
-import Demo01 from './demo01'
+import Demo01 from './demo01/preview'
 
 通过上面对 Compiler 渲染结果的理解，我们应该已经大概知道我们的 React 代码最终会渲染成什么样。我们目前要思考的问题就是，我们的代码通过 Compiler 编译之后，**收益表现在哪里？**
 
 接下来我们要分析三个不同的案例，来思考这个问题。这篇文章先分析第一个出现在上一章中，最简单的基础案例
 
-<Preview><Demo01 /></Preview>
+<Demo01 />
 <CodeTabs>
 ```jsx !!tabs index.tsx -c
 !from ./demo01/index.tsx

@@ -1,22 +1,30 @@
+'use client'
+
 import { FolderDown } from 'lucide-react'
-import { useState, Suspense, useRef, use, useEffect } from 'react'
-import { useLocation, useOutlet } from 'react-router'
+import { useRef, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import NavSider from 'components/nav-sider'
 import Drawer from 'components/ui/modal/drawer'
 import Button from 'components/ui/button'
 import { LOGO } from 'app/components/nav-header'
 import { getSubscribe } from 'app/service/api'
-import { setSubscribe, ColumnKey } from 'app/service/index'
+import { setSubscribe, ColumnKey, useLoginStore } from 'app/service/index'
 import { reactversion, column_id } from './config'
 import { routers } from './router'
 
-export default function ColumnLayout() {
-  const { pathname } = useLocation()
+export default function ColumnLayout({ children }: any) {
+  const pathname = usePathname()
   const column_key = pathname.split('/')[1] as ColumnKey
-  const [promise] = useState(() => getSubscribe(column_id).then(res => {
-    setSubscribe(column_key, res.status)
-  }))
   const drawer = useRef<any>(null)
+
+  const isLogin = useLoginStore(s => s.isLogin)
+
+  useEffect(() => {
+    if (!isLogin) return
+    getSubscribe(column_id).then(res => {
+      setSubscribe(column_key, res.status)
+    })
+  }, [isLogin])
 
   return (
     <div className='pt-16 md:flex'>
@@ -38,9 +46,7 @@ export default function ColumnLayout() {
         </div>
       </aside>
       <div id='vp-content'>
-        <Suspense fallback={<div></div>}>
-          <BaseComponent promise={promise} />
-        </Suspense>
+        {children}
 
         <Button className='fixed bottom-6 right-4 md:hidden' signal onClick={() => drawer.current.show()}>目录</Button>
 
@@ -55,24 +61,4 @@ export default function ColumnLayout() {
       </div>
     </div>
   )
-}
-
-interface BaseComponentProps {
-  promise: Promise<any>
-}
-
-export function BaseComponent({ promise }: BaseComponentProps) {
-  use(promise)
-  return <Poster />
-}
-
-export function Poster() {
-  const outLet = useOutlet()
-  const { pathname } = useLocation()
-
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [pathname])
-
-  return outLet
 }

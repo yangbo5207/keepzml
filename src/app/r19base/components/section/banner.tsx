@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { Link } from 'react-router'
+import Link from 'next/link'
 import Dialog from 'components/ui/dialog'
 import ercode from '/src/assets/ercode.png'
 import { motion } from 'motion/react'
@@ -50,7 +50,7 @@ export default function Banner() {
           </motion.p>
 
           <motion.div {...variants(0.15)} className='flex items-center justify-center mt-10'>
-            <Link to={start_path} className='inline-flex items-center px-4 py-2 bg-gray-800 hover:bg-gray-900 text-white text-sm rounded'>
+            <Link href={start_path} className='inline-flex items-center px-4 py-2 bg-gray-800 hover:bg-gray-900 text-white text-sm rounded'>
               <span className='mr-2'>快速开始</span>
               <ArrowRight size={16} />
             </Link>

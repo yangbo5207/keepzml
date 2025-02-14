@@ -1,8 +1,7 @@
 import CodeTabs from 'components/codehike/code-tabs'
-import Preview from 'components/preview'
-import Demo01 from './demo01'
-import Demo02 from './demo02'
-import Demo03 from './demo03/layout'
+import Demo01 from './demo01/preview'
+import Demo02 from './demo02/preview'
+import Demo03 from './demo03/preview'
 
 `use()` 是 React19 提升异步开发体验最重要的 hook。也是让 useEffect 重要性大幅度削弱的主要原因。
 
@@ -54,7 +53,7 @@ async/await is not yet supported in Client Components, only Server Components. T
 
 一个完整的案例代码以及演示效果如下
 
-<Preview><Demo01 /></Preview>
+<Demo01 />
 <CodeTabs>
 ```tsx !!tabs index.tsx -c
 !from ./demo01/index.tsx
@@ -82,7 +81,7 @@ if (!loading) {
 
 完整的代码与最终的演示效果如下，你可以在演示案例中多次点击切换按钮查看交互效果。
 
-<Preview><Demo02 /></Preview>
+<Demo02 />
 <CodeTabs>
 ```tsx !!tabs index.tsx -c
 !from ./demo02/index.tsx
@@ -101,8 +100,7 @@ if (!loading) {
 
 当然，为了加强对 use 的理解，我们也准备了一个不顾任何风险提示，强行等 promise 请求完成之后使用 use 去读取它的值的案例。代码与演示效果如下。
 
-<Preview><Demo03 /></Preview>
-
+<Demo03 />
 <CodeTabs>
 ```tsx !!tabs index.tsx -c
 !from ./demo03/index.tsx

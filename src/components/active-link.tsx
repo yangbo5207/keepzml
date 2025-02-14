@@ -1,20 +1,22 @@
-import { Link, useMatch, useResolvedPath } from 'react-router'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import clsx from 'clsx'
 import { twMerge } from 'tailwind-merge'
 
 type PropsOf<C> = C extends (props: infer P) => any ? P : never
 type LinkProps = PropsOf<typeof Link> & {
   end?: boolean,
-  activeName?: string
+  activeName?: string,
+  href: string
 }
 
 /**
  * end: 是否从尾部开始比较
  */
 function ActiveLink(props: LinkProps) {
-  const { children, className = '', end = true, activeName = '', to, onClick, ...prop } = props
-  const resolved = useResolvedPath(to)
-  let match = useMatch({ path: resolved.pathname, end })
+  const { children, className = '', end = true, activeName = '', href, onClick, ...prop } = props
+  const pathname = usePathname()
+  let match = pathname.endsWith(href)
 
   const __cls = twMerge(clsx(className, 'transition cursor-pointer', {
     [activeName]: !!match
@@ -28,7 +30,7 @@ function ActiveLink(props: LinkProps) {
   return (
     <Link
       className={__cls}
-      to={to}
+      href={href}
       {...prop}
       onClick={__handler}
     >

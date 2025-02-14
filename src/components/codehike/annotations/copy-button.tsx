@@ -1,6 +1,7 @@
+'use client'
+
 import { useState } from 'react'
 import { Copy, Check } from 'lucide-react'
-import { cn } from 'components/codehike/lib'
 
 export function CopyButton({ text }: { text: string }) {
   const [copied, setCopied] = useState(false)

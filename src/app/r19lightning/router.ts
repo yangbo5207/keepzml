@@ -10,4 +10,9 @@ interface RouteItem {
 
 export const routers: RouteItem[] = [
   ...r0,
-]
+].map(item => {
+  if (item.path) {
+    item.path = `/r19lightning/${item.path}`
+  }
+  return item
+})

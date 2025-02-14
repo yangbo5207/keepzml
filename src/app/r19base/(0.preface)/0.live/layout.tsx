@@ -1,8 +1,10 @@
-import Page from './page.mdx'
 import Layout from 'components/post-layout'
+import { PropsWithChildren } from 'react'
 
-export default function Article() {
+export default function Article({ children }: PropsWithChildren) {
   return (
-    <Layout post={Page} />
+    <Layout>
+      {children}
+    </Layout>
   )
 }

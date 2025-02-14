@@ -1,3 +1,5 @@
+'use client'
+
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'motion/react'
 import { User, Orbit, TreePalm } from 'lucide-react'
@@ -7,7 +9,7 @@ export default function Banner() {
   const containerRef = useRef<any>(null)
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ['end start', 'start start'] })
 
-  const translateY = useTransform(scrollYProgress, [1, 0], [0, 555])
+  const translateY = useTransform(scrollYProgress, [1, 0], [0, 355])
   const opacity = useTransform(scrollYProgress, [1, 0], [1, 0])
   const scale = useTransform(scrollYProgress, [1, 0], [1.5, 1])
 

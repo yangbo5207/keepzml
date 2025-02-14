@@ -1,6 +1,6 @@
 import CodeTabs from 'components/codehike/code-tabs'
-import Preview from 'components/preview'
-import Demo01 from './demo01'
+
+import Demo01 from './demo01/preview'
 
 当我们想要触发更新时，必须要调用 `set | setState` 方法。该方法是基于现有整体状态的**浅合并**
 
@@ -41,7 +41,7 @@ export const useStore = create()((set) => ({
 
 完整如下
 
-<Preview><Demo01 /></Preview>
+<Demo01 />
 <CodeTabs>
 ```tsx !!tabs index.tsx -c
 !from ./demo01/index.tsx

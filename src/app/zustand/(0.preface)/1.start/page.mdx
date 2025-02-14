@@ -1,6 +1,6 @@
 import CodeTabs from 'components/codehike/code-tabs'
-import Preview from 'components/preview'
-import Demo01 from './demo01'
+
+import Demo01 from './demo01/preview'
 
 通过如下的方式安装
 
@@ -30,7 +30,7 @@ import { create } from 'zustand'
 
 然后我们可以在任意组件中引入刚才创建好的自定义 hook `useStore`，结合 UI 完成案例的完整逻辑，完整代码以及案例演示如下所示。
 
-<Preview><Demo01 /></Preview>
+<Demo01 />
 <CodeTabs>
 ```tsx !!tabs index.tsx -c
 !from ./demo01/index.tsx

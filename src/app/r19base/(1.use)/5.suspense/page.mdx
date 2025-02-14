@@ -1,9 +1,8 @@
 import CodeTabs from 'components/codehike/code-tabs'
-import Preview from 'components/preview'
-import Demo01 from './demo01'
-import Demo02 from './demo02'
-import Demo03 from './demo03'
-import Demo04 from './demo04'
+import Demo01 from './demo01/preview'
+import Demo02 from './demo02/preview'
+import Demo03 from './demo03/preview'
+import Demo04 from './demo04/preview'
 
 
 
@@ -34,9 +33,8 @@ Suspense 可以捕获 use 无法读取到数据时抛出的异常，然后此时
 
 接下来看一个简单的演示案例。在这个例子中，为了让 Suspense 捕获更小范围的组件，我们单独定义了一个子组件 `Message` 来使用 use 获取 promise 中的数据。
 
-<Preview>
-  <Demo01 />
-</Preview>
+
+<Demo01 />
 <CodeTabs>
 ```tsx !!tabs index.tsx -c
 !from ./demo01/index.tsx
@@ -86,9 +84,7 @@ Suspense 可以捕获 use 无法读取到数据时抛出的异常，然后此时
 
 完整代码及演示
 
-<Preview>
-  <Demo02 />
-</Preview>
+<Demo02 />
 <CodeTabs>
 ```tsx !!tabs index.tsx -c
 !from ./demo02/index.tsx
@@ -136,9 +132,7 @@ primary ->
 
 当 `primary` 为普通组件时，会直接渲染普通组件，如下案例所示。
 
-<Preview>
-  <Demo03 />
-</Preview>
+<Demo03 />
 <CodeTabs>
 ```tsx !!tabs index.tsx -c
 !from ./demo03/index.tsx
@@ -160,7 +154,7 @@ primary ->
 
 核心代码与演示效果如下，点击刷新按钮重复观察执行效果
 
-<Preview><Demo02 /></Preview>
+<Demo02 />
 <CodeTabs>
 ```tsx !!tabs index.tsx -c
 !from ./demo02/index.tsx
@@ -177,7 +171,7 @@ primary ->
 
 这里我们需要关注的是，对比以前必须要借助 `state` `useEffect` 的实现方式，体会一下差别
 
-<Preview><Demo04 /></Preview>
+<Demo04 />
 <CodeTabs>
 ```tsx !!tabs index.tsx -c
 !from ./demo04/index.tsx

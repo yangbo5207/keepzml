@@ -1,5 +1,7 @@
+'use client'
+
 import { Telescope, MousePointerClick, PlaneTakeoff, ArrowUpToLine, ArrowDownToLine } from 'lucide-react'
-import { Link } from 'react-router'
+import Link from 'next/link'
 import Gisucs from '@giscus/react'
 import { Code, InlineCode } from 'components/codehike/code'
 import Authentication from 'components/authentication'
@@ -7,7 +9,8 @@ import { MDXProps } from 'mdx/types'
 
 interface LayoutProps {
   pass?: boolean,
-  post: (props: MDXProps) => any
+  post?: (props: MDXProps) => any,
+  children?: any
 }
 
 export default function Article(props: LayoutProps) {
@@ -27,15 +30,16 @@ export default function Article(props: LayoutProps) {
       })
     }
   }
+
   return (
     <div className='pt-4 md:pt-8 relative flex justify-center'>
       <div id='cp-content' className='px-4 md:px-8 2xl:px-24 pb-24 w-0 flex-1'>
-        <Authentication pass={props.pass} key='a'>
+        <Authentication pass={props.pass}>
           <div className='keep'>
-            <props.post components={{ Code, InlineCode }} />
+            {props.post ? <props.post components={{ Code, InlineCode }} /> : props.children}
           </div>
         </Authentication>
-        <div id='diviler_' className='border-b border-gray-300 my-8 border-dashed scroll-mt-24' key='b' />
+        <div id='diviler_' className='border-b border-gray-300 my-8 border-dashed scroll-mt-24' />
         <Gisucs
           repo='yangbo5207/react19feature'
           repoId='R_kgDOMGiHOw'
@@ -55,7 +59,7 @@ export default function Article(props: LayoutProps) {
       <aside id='cp-aside' className='pr-6 relative items-start'>
         <div id='headings' className='w-full sticky top-24 space-y-4 text-gray-700'>
           <Link
-            to='https://xinyuzone.cn/column/1818097927437131776'
+            href='https://xinyuzone.cn/column/1818097927437131776'
             className='block rounded bg-gray-50 p-4 border border-gray-100'
             target='_blank'
           >
@@ -65,7 +69,7 @@ export default function Article(props: LayoutProps) {
           </Link>
 
           <Link
-            to='https://usehook.cn/'
+            href='https://usehook.cn/'
             className='block rounded bg-gray-50 p-4 border border-gray-100'
             target='_blank'
           >
@@ -75,7 +79,7 @@ export default function Article(props: LayoutProps) {
           </Link>
 
           <Link
-            to='https://usehook.cn/advance/index'
+            href='https://usehook.cn/advance/index'
             className='block rounded bg-gray-50 p-4 border border-gray-100'
             target='_blank'
           >

@@ -1,7 +1,6 @@
 import CodeTabs from 'components/codehike/code-tabs'
-import Preview from 'components/preview'
-import Demo01 from './demo01'
-import Demo02 from './demo02'
+import Demo01 from './demo01/preview'
+import Demo02 from './demo02/preview'
 
 React 19 在表单上提供了更多充满想象空间的 API，它们用好了非常爽，不过一个麻烦的事情是如果你通过自学，想要透彻理解并找到最佳实践可能会非常困难。
 
@@ -20,7 +19,7 @@ React 19 在表单上提供了更多充满想象空间的 API，它们用好了�
 
 > 这个变化主要是 React 中并不提倡直接获取元素对象，以及直接往后端发送请求的方式并不常用
 
-<Preview><Demo01 /></Preview>
+<Demo01 />
 <CodeTabs>
 ```jsx !!tabs index.tsx -c
 !from ./demo01/index.tsx
@@ -57,7 +56,7 @@ function __onSubmit(e) {
 
 案例演示效果如下
 
-<Preview><Demo02 /></Preview>
+<Demo02 />
 <CodeTabs>
 ```jsx !!tabs index.tsx -c
 !from ./demo02/index.tsx

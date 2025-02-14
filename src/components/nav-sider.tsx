@@ -24,7 +24,7 @@ export default function SideNav({ routers }: {
         }
         return (
           <motion.div {...variants(0.03 * index)} key={item.path}>
-            <ActiveLink className='text-gray-700' activeName='text-blue-700' to={item.path!}>
+            <ActiveLink className='text-gray-700' activeName='text-blue-700' href={item.path!}>
               <li key={item.path} className='py-2 text-xs transition flex items-center justify-between hover:text-blue-700'>
                 <div className='line-clamp-1'>{item.name}</div>
                 <Show when={!!item.label}>

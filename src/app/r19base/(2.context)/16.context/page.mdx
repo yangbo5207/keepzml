@@ -1,8 +1,7 @@
 import CodeTabs from 'components/codehike/code-tabs'
-import Preview from 'components/preview'
-import Demo01 from './demo01'
-import Demo02 from './demo02'
-import Demo03 from './demo03'
+import Demo01 from './demo01/preview'
+import Demo02 from './demo02/preview'
+import Demo03 from './demo03/preview'
 
 ### 1、**React 中的控制反转**
 
@@ -16,7 +15,7 @@ IOC 的设计理念里，有三个角色，一个角色是**容器 C**，一个�
 
 在实践中，我们可以通过 ref 直接拿到 input 的对象，然后通过调用 `.focus` 让输入框获取焦点。代码如下
 
-<Preview><Demo01 /></Preview>
+<Demo01 />
 <CodeTabs>
 ```tsx !!tabs index.tsx -c
 !from ./demo01/index.tsx
@@ -55,7 +54,7 @@ input.focus()
 
 这个案例的代码封装逻辑如下
 
-<Preview><Demo02 /></Preview>
+<Demo02 />
 <CodeTabs>
 ```tsx !!tabs index.tsx -c
 !from ./demo02/index.tsx
@@ -250,7 +249,7 @@ useImperativeHandle(ref, () => {
 
 ref 的传递，只需要把它看成是一个普通的 props 即可。完整代码如下
 
-<Preview><Demo03 /></Preview>
+<Demo03 />
 <CodeTabs>
 ```tsx !!tabs index.tsx -c
 !from ./demo03/index.tsx

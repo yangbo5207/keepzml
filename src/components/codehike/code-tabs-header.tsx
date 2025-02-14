@@ -1,16 +1,18 @@
+'use client'
+
+import { useState, useRef, use } from 'react'
 import { RawCode } from 'codehike/code'
 import { CodeTitle } from './code-base'
 import { AnimatePresence, motion } from 'framer-motion'
-import { useState, useRef } from 'react'
+import { CodeTabsContext } from './code-tabs-context'
 import clsx from 'clsx'
 
 interface CodeTabHeaderProps {
-  tabs: RawCode[],
-  index: number,
-  onClick: (i: number) => any
+  tabs: RawCode[]
 }
 
-export function CodeTabHeader({ tabs, index = 0, onClick }: CodeTabHeaderProps) {
+export function CodeTabHeader({ tabs }: CodeTabHeaderProps) {
+  const { index, setIndex } = use(CodeTabsContext)
   const [hover, setHover] = useState<number | null>(null)
   let timeoutRef = useRef<any>(null)
 
@@ -28,7 +30,7 @@ export function CodeTabHeader({ tabs, index = 0, onClick }: CodeTabHeaderProps) 
   }
 
   function _click(i: number) {
-    onClick && onClick(i)
+    setIndex(i)
   }
 
   return (

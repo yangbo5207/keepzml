@@ -1,5 +1,7 @@
+'use client'
+
 import { useState, useEffect, useRef } from 'react'
-import { Link } from 'react-router'
+import Link from 'next/link'
 import { motion } from 'motion/react'
 import clsx from 'clsx'
 import { variants } from './variants'
@@ -82,7 +84,7 @@ export default function Block({ title, desc = '', path, className, delay }: Bloc
           </svg>
         </div>
         <h3 className="mt-4 text-sm font-semibold leading-7 text-zinc-900 dark:text-white">
-          <Link to={path}>
+          <Link href={path}>
             <span className="absolute inset-0 rounded"></span>
             {_title}
           </Link>

@@ -1,0 +1,96 @@
+.keep p,
+  .keep li {
+    @apply text-[15px] text-gray-900 my-5 tracking-wider leading-8
+  }
+  .keep li {
+    @apply my-4 border border-gray-100 leading-6 rounded-md px-4 py-3 text-[14px] border-b-cyan-300 relative;
+  }
+
+  pre {
+    @apply overflow-auto py-2 leading-7 text-sm px-0;
+  }
+
+  pre code {
+    @apply leading-8 text-sm;
+  }
+  
+  pre div:first-child div {
+    @apply border-none! px-0!;
+  }
+  
+  .codepack pre {
+    @apply my-0 border-t-0;
+  }
+  .codepack pre div:first-child {
+    @apply border-none !bg-white;
+  }
+  /* 处理红色类型的异常提示 */
+  .keep .error pre {
+    @apply border-red-200 py-0 !bg-white !text-red-500 !break-words !whitespace-pre-wrap;
+  }
+  .keep .error pre:before {
+    @apply content-['Error'] bg-red-100 text-red-500 block bg-no-repeat py-2 pl-10;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAyNCAyNCIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZT0icmdiKDIzOSwgNjgsIDY4KSIgY2xhc3M9InNpemUtNiI+CiAgPHBhdGggc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBkPSJNMTIgOXYzLjc1bS05LjMwMyAzLjM3NmMtLjg2NiAxLjUuMjE3IDMuMzc0IDEuOTQ4IDMuMzc0aDE0LjcxYzEuNzMgMCAyLjgxMy0xLjg3NCAxLjk0OC0zLjM3NEwxMy45NDkgMy4zNzhjLS44NjYtMS41LTMuMDMyLTEuNS0zLjg5OCAwTDIuNjk3IDE2LjEyNlpNMTIgMTUuNzVoLjAwN3YuMDA4SDEydi0uMDA4WiIgLz4KPC9zdmc+Cg==');
+    background-size: 1.25rem;
+    background-position: 0.75rem center;
+  }
+  .code-wrapper:has(> div.error) {
+    @apply !border-red-200
+  }
+  .code-wrapper .error .line-number {
+    @apply hidden
+  }
+  .code-wrapper .error .line-number + div {
+    @apply !p-3;
+  }
+  .code-wrapper .error .line-number + div span {
+    @apply !text-red-500;
+  }
+
+  .keep p a {
+    @apply underline text-blue-700;
+  }
+  
+  .keep h1 {
+    @apply my-10 font-bold text-2xl
+  }
+  .keep h2 {
+    @apply my-12 font-bold text-lg
+  }
+  .keep h2 + p:has(> strong) {
+    @apply mt-0 text-center mb-10;
+  }
+
+  /* blockquote 普通提示 */
+  .keep blockquote {
+    @apply bg-blue-50 px-4 my-5 py-0.5 rounded leading-6;
+  }
+  .keep blockquote:before {
+    @apply content-['i'] w-5 h-5 text-white bg-blue-500 flex items-center justify-center rounded-full mt-4
+  }
+  .keep blockquote p {
+    @apply mt-3 mb-4 text-gray-600;
+    font-size: 14px;
+  }
+  .keep p code {
+    @apply text-blue-700 text-sm
+  }
+  .keep h3 {
+    @apply font-bold text-lg mt-12 mb-6;
+  }
+  
+  /*h2:not(:first-of-type):not(:last-of-type) {*/
+  /*  @apply text-center mb-0;*/
+  /*}*/
+  .keep h2:has(+ p) {
+    @apply text-center mb-1;
+  }
+  .keep h2:has(+ p):before,
+  .keep h2:has(+ p):after {
+    @apply inline-block font-normal;
+    content: '__';
+  }
+  
+  .keep hr {
+    @apply border-t border-gray-100 my-12
+  }

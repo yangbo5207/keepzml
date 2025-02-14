@@ -20,4 +20,9 @@ export const routers: RouteItem[] = [
   ...r3,
   ...r4,
   ...r5,
-]
+].map(item => {
+  if (item.path) {
+    item.path = `/r19base/${item.path}`
+  }
+  return item
+})

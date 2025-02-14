@@ -1,7 +1,6 @@
 import CodeTabs from 'components/codehike/code-tabs'
-import Preview from 'components/preview'
-import Demo01 from './demo01'
-import Demo02 from './demo02'
+import Demo01 from './demo01/preview'
+import Demo02 from './demo02/preview'
 
 > 注：由于 FormAction 在 next.js 中的表现暂时还不稳定，因此，本文以及后续文章的探讨全部都是基于他们在客户端的交互与表现
 
@@ -14,7 +13,7 @@ import Demo02 from './demo02'
 
 案例完整代码如下
 
-<Preview><Demo01 /></Preview>
+<Demo01 />
 <CodeTabs>
 ```jsx !!tabs index.tsx -c
 !from ./demo01/index.tsx
@@ -73,7 +72,7 @@ method 表示我们在提交时，所采用的请求方式，默认值为 `get`�
 交互效果如如下，大家可以自行操作感受一下
 
 
-<Preview><Demo02 /></Preview>
+<Demo02 />
 <CodeTabs>
 ```jsx !!tabs index.tsx -c
 !from ./demo02/index.tsx

@@ -1,7 +1,7 @@
 import CodeTabs from 'components/codehike/code-tabs'
-import Preview from 'components/preview'
-import Demo01 from './demo01'
-import Demo02 from './demo02'
+
+import Demo01 from './demo01/preview'
+import Demo02 from './demo02/preview'
 
 `create` 方法可以帮助我们创建一个自定义 hook 用于状态管理
 
@@ -41,7 +41,7 @@ create 函数运行之后返回一个 react hooks，我们可以利用返回的 
 
 例如，上一章的案例，我们可以利用 `setState` 进行改写来单独创建更新函数，注意观察 `store.ts`
 
-<Preview><Demo01 /></Preview>
+<Demo01 />
 <CodeTabs>
 ```tsx !!tabs index.tsx -c
 !from ./demo01/index.tsx
@@ -75,7 +75,7 @@ const y = useStore(state => state.y)
 完整的案例如下
 
 
-<Preview><Demo02 /></Preview>
+<Demo02 />
 <CodeTabs>
 ```tsx !!tabs index.tsx -c
 !from ./demo02/index.tsx

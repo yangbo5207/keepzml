@@ -1,7 +1,6 @@
 import CodeTabs from 'components/codehike/code-tabs'
-import Preview from 'components/preview'
-import Demo01 from './demo01'
-import Demo02 from './demo02'
+import Demo01 from './demo01/preview'
+import Demo02 from './demo02/preview'
 
 > 本章内容理解起来难度偏高，只需简单阅读，理解和感受 ref 的作用即可，**无需掌握**。
 
@@ -10,7 +9,7 @@ import Demo02 from './demo02'
 
 我们的目标是封装一个 Modal 组件，但是我并不需要传入 `show` 等状态来控制 Modal 的显示与隐藏。而是使用 ref 来控制。目标代码如下
 
-<Preview><Demo01 /></Preview>
+<Demo01 />
 <CodeTabs>
 ```tsx !!tabs index.tsx -c
 !from ./demo01/index.tsx
@@ -92,7 +91,7 @@ useImperativeHandle(ref, () => ({
 
 先来点击按钮感受一下演示效果。
 
-<Preview><Demo02 /></Preview>
+<Demo02 />
 <CodeTabs>
 ```tsx !!tabs index.tsx -c
 !from ./demo02/index.tsx

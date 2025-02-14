@@ -1,8 +1,7 @@
-import Page from './page.mdx'
 import Layout from 'components/post-layout'
 
-export default function Article() {
+export default function Article({ children }: any) {
   return (
-    <Layout post={Page} />
+    <Layout>{children}</Layout>
   )
 }
