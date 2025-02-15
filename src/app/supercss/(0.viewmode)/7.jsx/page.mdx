@@ -1,0 +1,213 @@
+### *1、* 扩展语法 JSX
+
+JSX 的全称是 JavaScript XML，它是一种 JavaScript 的语法扩展，允许我们在 JavaScript 中编写类似 HTML 的代码。它的主要作用是让开发者更直观地描述 UI 的结构。
+
+我们可以直接在 JS 代码中，把 JSX 语法当成一种表达式进行运算与赋值。
+
+```ts
+const element = <h1>Hello, JSX!</h1>
+```
+
+从长相上来说，它跟 html 标签几乎没有差别，但它不是 html。我们可以在 JavaScript 代码中任意拆分组合这些元素。
+
+例如，一段完整的 html 元素如下：
+
+```html
+<div>
+  <header>header</header>
+  <span>hello world.</span>
+  <footer>footer</footer>
+</div>
+```
+
+而 JSX 可以这样写
+
+```js
+const header = <header>header</header>
+
+const div = (
+  <div>
+    {header}
+    <span>hello world.</span>
+    <footer>footer</footer>
+  </div>
+)
+```
+
+还可以这样
+
+```jsx
+const header = <header>header</header>
+
+function footer() {
+  return  <footer>footer</footer>
+}
+
+const div = (
+  <div>
+    {header}
+    <span>hello world.</span>
+    {footer()}
+  </div>
+)
+```
+
+这样的灵活性，为开发者在拆分逻辑时提供了巨大的想象空间。我们可以抽离任意部分单独处理，也可以将任意部分通过合适的方式组合在一起。
+
+> 注意：JSX 代码需要在 React 环境之下才有效。并且我们需要将具备 JSX 代码的模块文件以 `.jsx` 或者 `.tsx` 为后缀名。
+
+
+在 JSX 中，开发者可以在大括号中放置任何有效的 JavaScript 表达式。例如
+
+```tsx
+const element = <div>计算结果：{2 + 2}</div>
+```
+或者
+
+```tsx
+function formatName(user) {
+  return user.firstName + ' ' + user.lastName;
+}
+
+const user = {
+  firstName: 'Harper',
+  lastName: 'Perez'
+};
+
+const element = (
+  <h1>
+    Hello, {formatName(user)}!
+  </h1>
+);
+```
+
+JSX 中的属性（类似于 HTML 的属性）可以是字符串，也可以是 JavaScript 表达式。
+
+```tsx
+const url = 'https://example.com';
+const element = <img src={url} alt="Example" />;
+```
+
+### *2、* JSX 本质
+
+JSX 本身也是一个**表达式**，例如可以作为一个函数的返回结果。从视觉上看他是一个标签，但是当我们对其取值时，**它本质是一个 JavaScript 对象**。
+
+
+在开发环境中，Babel 会把 JSX 编译成为一个名为 `React.createElement()` 的函数调用，如下两种写法完全等效
+
+```tsx
+const element = (
+  <h1 className="greeting">
+    Hello, world!
+  </h1>
+);
+```
+
+```tsx
+const element = React.createElement(
+  'h1',
+  {className: 'greeting'},
+  'Hello, world!'
+);
+```
+
+他们创建了一个这样的对象
+
+```tsx
+// 注意：这是简化过的结构
+const element = {
+  type: 'h1',
+  props: {
+    className: 'greeting',
+    children: 'Hello, world!'
+  }
+};
+```
+
+标签元素是 React 组件的重要组成部分。
+
+在开发中，我们通常会使用 JSX 的可任意拆分组合的特性，将整个项目拆分成许多模块，并最后组合成一个完整的 JSX，并使用 `createRoot` 渲染到已经存在的根 DOM 节点中。
+
+```tsx
+import React from 'react';
+import { createRoot } from 'react-dom/client'
+
+import './index.css';
+import App from './App';
+
+
+const root = createRoot(document.getElementById('root'))
+root.render(<App />)
+```
+
+这些与 html 元素类似的标签元素，被称之为 React 元素。他们是**不可变对象**。一个元素就像电影中的一帧，它代表了某个特定时刻的 UI。
+
+我们可以利用 React 元素创建自定义组件。
+
+```tsx
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+```
+
+每个自定义组件，也可以看成是一个 React 元素。
+
+```tsx
+const element = <Welcome name="Tony" />;
+...
+```
+
++ 在自定义时，标签元素上所有的属性以及该元素的子组件，都会聚合到 props 中，也就是函数的第一个参数。
++ 自定义组件必须以大写字母开头
++ 注意：自定义组件也可以参与到 JSX 的任意拆分与组合中去。
+
+
+### *3、* JSX 的特殊规则
+
+1. JSX 必须有一个根元素，不能返回多个并列的元素。
+
+```tsx
+// bad
+const element = (
+  <h1>Title</h1>
+  <p>Content</p>
+);
+
+// good
+const element = (
+  <div>
+    <h1>Title</h1>
+    <p>Content</p>
+  </div>
+);
+```
+
+2. 使用 className 代替 class. 因为 class 是 JavaScript 的关键字，所以在 JSX 中需要用 className 来代替。
+
+```tsx
+// 而不是 class
+const element = <div className="container">Content</div>;
+```
+
+3. 使用 htmlFor 代替 for. 同样，for 是 JavaScript 的关键字，所以在 JSX 中需要用 htmlFor 来代替。
+
+```tsx
+// for -> htmlFor
+const element = <label htmlFor="name">Name</label>;
+```
+
+4. style 属性需要传入对象。如下所示
+
+```ts
+const element = <div 
+  style={{ color: 'red', fontSize: '20px' }}
+>
+  Styled Text
+</div>;
+```
+
+### *4、* 总结
+
+本文主要内容在于阐述 JSX 语法并明确标签语言的本质，使用时重点要关注其可任意拆分组合的特性。他的灵活性在开发时非常有用。
+
+> JSX 最初是专门为 React 设计的，但是发展到现在，其他库也陆续支持了这种表达 UI 的方式，例如 Vue、Solidjs、Preact 等。

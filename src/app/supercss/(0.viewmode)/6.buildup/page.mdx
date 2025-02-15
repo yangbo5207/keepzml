@@ -1,0 +1,94 @@
+### *1、* 概述
+
+**一切都是模块 module。**
+
+React 是完全基于模块化的开发思路。整个项目是由多个小模块，通过 ESModule 语法组装在一起形成。在 vite 构建工具支持的环境中，每一个项目文件都会被看做是一个模块参与到项目的组成中去。
+
+例如，我们可以使用 `import` 语法在 JS 模块中引入 `css` 文件与图片
+
+```ts app.tsx
+import Logo from '/assets/images/logo.png'
+import './index.css'
+```
+
+这样，`index.css` 文件就会被解析成为 `app.tsx` 的一部分影响元素样式。我们也可以在当前模块中使用 `Logo` 模块
+
+```tsx app.tsx
+<a href="https://vite.dev" target="_blank">
+  <img src={Logo} className="logo" alt="Vite logo" />
+</a>
+```
+
+### *1、* 插入到真实 DOM
+
+所有的模块最终会组合成为一个大的模块 `App.tsx`，通过 `createRoot` 插入到真实 DOM 中去，从而渲染出来内容。
+
+在 `index.html` 中，我们会提前编写好一个项目根节点
+
+```html index.html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React + TS</title>
+  </head>
+  <body>
+    <!--!mark-->
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+```
+
+然后在 `src` 的入口文件 `main.tsx` 中，将组合好的内容渲染到 `root` 节点中
+
+```ts
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.tsx'
+
+// !mark(1:4)
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
+```
+
+### *3、* 使用函数创建一个组件
+
+在 React 中，创建一个组件非常简单，只需要在函数中返回一段 JSX 即可。JSX 的基础知识我们会专门花一个章节来学习。它是一种与 `html` 非常相似的语法糖，原生的 JavaScript 并不支持这种语法，构建工具会负责专门解析这种语法，从而让其在构建工具的环境之下得以支持。
+
+```tsx hello.tsx
+export default function Hello() {
+  return (
+    <div>hello world</div>
+  )
+}
+```
+
+这就是一个自定义组件。注意：**在 React 中，自定义组件的函数名必须要大写**。
+
+创建组件还有许多知识点需要学习，我们会在后续的章节中详细分析。
+
+这样声明之后，我们就可以在别的组件模块中引入该组件，并将其当做元素标签来使用。
+
+```ts app.tsx
+import Hello from './hello'
+
+function App() {
+  ...
+
+  return (
+    <div>
+      <Hello />
+      ...
+    </div>
+  )
+}
+```
+
+我们可以看到，React 组件的学习，与 JSX 语法息息相关，因此，我们需要专门花一个章节来学习它。
