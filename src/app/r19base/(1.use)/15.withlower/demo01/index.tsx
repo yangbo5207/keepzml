@@ -14,7 +14,7 @@ export default function Demo01() {
   return (
     <>
       <div className='text-right mb-4'>
-        <button onClick={__handler}>新增数据</button>
+        <button className='button' onClick={__handler}>新增数据</button>
       </div>
       <div className='space-y-4'>
         {promise.map((item, index) => (

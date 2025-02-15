@@ -7,7 +7,7 @@ export default function Demo01() {
       <input ref={input} type='text' className='border p-2 rounded flex-1' />
       <button
         onClick={() => input.current.focus()}
-        className='ml-3'
+        className='button ml-3'
       >点击获取焦</button>
     </div>
   )

@@ -1,0 +1,151 @@
+import CodeTabs from 'components/codehike/code-tabs'
+import Demo01 from './demo01/preview'
+
+
+### *1*、vite 简介
+
+随着前端项目越来越复杂，我们无法像十多年前那样，只编写一些简单的 JS 脚本然后在 html 中引入，就可以应付整个项目。因此，现阶段的前端项目已经发展成为了一个完整的工程化项目。我们需要借助构建工具帮助我们把复杂的前端项目打包然后交付给浏览器运行。
+
+在过去，我们总是基于 webpack 来构建我们的前端项目。但是随着项目的越来越庞大，webpack 相关的性能问题成为了前端开发者的痛点，启动时间和热更新的时间都太长了。因此，现在最热门的构建工具变成了更快的 **[vite](https://cn.vite.dev/)**。
+
+vite 是一个超快的构建工具，他基于**浏览器开始支持原生的 ES 模块**这一特性使开发者获得了超快的开发体验。因此，它快速的流行了起来。在我们的专栏中，也推荐大家基于 vite 来构建自己的第一个 React 项目。
+
+> 当然，也推荐使用 [rspack](https://rspack.dev/zh/guide/start/quick-start)，和 vite 相比，它具备更好的兼容性
+
+### *2*、创建项目
+
+首先，我们在终端中，运行如下指令创建一个 React 项目
+
+<CodeTabs>
+```bash !!tabs npm
+npm create vite
+```
+
+```bash !!tabs yarn
+yarn create vite
+```
+
+```bash !!tabs pnpm
+pnpm create vite
+```
+
+</CodeTabs>
+
+上面的命令执行完成之后，会引导你输入项目名称，我们将项目名称取为：`keeplearn`
+
+```bash
+✔ Project name: keeplearn
+```
+
+输入之后，按下回车，选择前端框架，我们依次选择
+
+```bash
+    vanilla
+    vue
+❯   react
+    preact
+    lit
+    svelte
+```
+
+```bash
+    TypeScript
+❯   TypeScript + SWC
+    JavaScript
+    JavaScript + SWC
+```
+
+SWC 是对标 babel 的编译工具，具备更好的编译性能，但是在引入三方插件时，有可能会存在兼容性的问题，因此**在生产环境需要谨慎使用**。由于本项目仅为学习项目，所以我们这里选择 `TypeScript + SWC`。
+
+执行完毕之后，vite 会在当前目录中创建项目 `keeplearn`，我们通过如下指令进入到项目文件
+
+```bash
+cd keeplearn
+```
+
+然后用编辑器打开项目文件，在根目录的 `package.json` 文件中观察到，目前 `react` 与 `react-dom` 的依赖版本为 react 19. 如果未来你的版本发生了变化，则自行调整即可。
+
+```ts
+"dependencies": {
+  "react": "^19.0.0",
+  "react-dom": "^19.0.0"
+},
+```
+
+在终端中进入到项目目录之后，我们可以执行如下指令安装项目依赖
+
+```bash
+npm i
+```
+
+依赖安装完成之后，然后执行如下指令运行项目
+
+```bash
+npm run dev
+```
+
+成功启动之后，我们可以在浏览器中输入 `http://localhost:5173` 访问到项目，项目运行结果大概如下所示。下面例子中的代码与实际的代码会略有出入，以实际为准。
+
+
+<Demo01 />
+<CodeTabs>
+
+```tsx !!tabs app.tsx -c
+!from ./demo01/index.tsx
+```
+
+```tsx !!tabs react.svg -c
+!from ./demo01/react.svg
+```
+
+```tsx !!tabs vite.svg -c
+!from ./demo01/vite.svg
+```
+
+</CodeTabs>
+
+### *3*、支持 require
+
+由于我们项目需要用到 `require`，但是 vite 中使用 ES module 作为模块方案，因此并没有内置对CommonJS 的支持，如果你需要在项目中支持 `require` 语法引入模块，则需要做点其他的操作
+
+首先，我们需要**安装如下依赖**
+
+```bash
+npm i vite-plugin-require-transform --save-dev
+```
+
+然后，在 `vite.config.ts` 中新增如下配置
+
+```ts vite.config.ts
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react-swc'
+// !diff +
+import requireTransform from 'vite-plugin-require-transform'
+
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [
+    react(),
+    // !diff(1:3) +
+    requireTransform({
+      fileRegex: /.js$|.jsx$/,
+    }),
+  ],
+})
+```
+> 如果你需要支持更多的文件后缀，则需要在 `fileRegex` 中添加，本项目仅支持 `.js` 与 `.jsx`
+
+最后重启项目即可。
+
+除此之外，如果你的项目中需要使用路由库，我们可以安装 `react-router`
+
+```bash
+npm i react-router
+```
+
+状态管理库 `zustand`
+
+```bash terminal
+npm i zustand
+```

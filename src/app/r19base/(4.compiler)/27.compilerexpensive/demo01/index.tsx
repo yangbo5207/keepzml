@@ -13,7 +13,7 @@ function App() {
       <div>A Expensive Case</div>
       <div className="flex items-center justify-between mt-4">
         <div className="counter">current counter is: <span className='font-bold text-lg'>{counter}</span></div>
-        <button onClick={__clickHanler}>counter++</button>
+        <button className='button' onClick={__clickHanler}>counter++</button>
       </div>
       <Expensive />
     </div>

@@ -34,7 +34,7 @@ export default function Table() {
           </p>
         </div>
         <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-          <button className='primary' onClick={() => modal.current.show()}>Add</button>
+          <button className='button primary' onClick={() => modal.current.show()}>Add</button>
         </div>
       </div>
       <Modal ref={modal} onChange={__onChange} />

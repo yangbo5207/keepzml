@@ -1,11 +1,15 @@
 import { useRef } from 'react'
 import Link from 'next/link'
-import Dialog from 'components/ui/dialog'
+import Image from 'next/image'
 import ercode from '/src/assets/ercode.png'
 import { motion } from 'motion/react'
 import { ShoppingCart, ArrowRight } from 'lucide-react'
 import { variants } from './variants'
 import { start_path } from 'app/r19plus/config'
+
+import dynamic from 'next/dynamic'
+
+const Dialog = dynamic(() => import('components/ui/dialog'), { ssr: false })
 
 export default function Banner() {
   const dialog = useRef<any>(null)
@@ -60,7 +64,7 @@ export default function Banner() {
               <span>关注公众号</span>
             </a>
             <Dialog ref={dialog} title='Follow me!'>
-              <img src={ercode} alt='' />
+              <Image src={ercode} alt='' width={500} height={300} />
             </Dialog>
 
             <a onClick={() => __scrollToAnchor('price')}

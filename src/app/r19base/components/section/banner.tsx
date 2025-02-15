@@ -1,12 +1,15 @@
 import { useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import Dialog from 'components/ui/dialog'
 import ercode from '/src/assets/ercode.png'
 import { motion } from 'motion/react'
 import { ShoppingCart, ArrowRight } from 'lucide-react'
 import { variants } from './variants'
 import { start_path } from 'app/r19base/config'
+
+import dynamic from 'next/dynamic'
+
+const Dialog = dynamic(() => import('components/ui/dialog'), { ssr: false })
 
 export default function Banner() {
   const dialog = useRef<any>(null)

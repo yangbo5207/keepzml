@@ -10,12 +10,14 @@ import * as r19base_config from 'app/r19base/config'
 import * as r19plus_config from 'app/r19plus/config'
 import * as zustand_config from 'app/zustand/config'
 import * as r19lightning_config from 'app/r19lightning/config'
+import * as reactzm_config from 'app/reactzm/config'
 
 const config = {
   r19base: r19base_config,
   r19plus: r19plus_config,
   zustand: zustand_config,
-  r19lightning: r19lightning_config
+  r19lightning: r19lightning_config,
+  reactzm: reactzm_config,
 }
 
 export default function Authentication({ children, pass }: PropsWithChildren<{ pass?: boolean }>) {

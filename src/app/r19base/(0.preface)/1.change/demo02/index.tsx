@@ -16,7 +16,7 @@ export default function App() {
   return (
     <div className='space-y-4'>
       <div className='flex justify-end'>
-        <button onClick={__click} disabled={isPending}>点击更新</button>
+        <button className='button' onClick={__click} disabled={isPending}>点击更新</button>
       </div>
 
       <Suspense fallback={<Skeleton />}>

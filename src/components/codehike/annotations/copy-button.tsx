@@ -7,7 +7,7 @@ export function CopyButton({ text }: { text: string }) {
   const [copied, setCopied] = useState(false)
 
   return (
-    <button
+    <button className='button'
       onClick={() => {
         navigator.clipboard.writeText(text)
         setCopied(true)

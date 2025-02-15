@@ -15,7 +15,7 @@ export default function Index() {
         <div>counter: {counter}</div>
         <Expensive counter={deferred} />
       </div>
-      <button onClick={__clickHanler}>counter++</button>
+      <button className='button' onClick={__clickHanler}>counter++</button>
     </div>
   )
 }

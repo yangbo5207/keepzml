@@ -21,7 +21,7 @@ export default function Index() {
     <>
       <form action={formAction} ref={form} className='flex'>
         <input type="text" name="message" placeholder="enter your message" />
-        <button type="submit" className='ml-2'>Send</button>
+        <button type="submit" className='button ml-2'>Send</button>
       </form>
 
       {paylaods.map(paylaod => (

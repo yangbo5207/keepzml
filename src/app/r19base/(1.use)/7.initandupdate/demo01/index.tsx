@@ -25,7 +25,7 @@ export default function Page() {
   return (
     <>
       <div className='text-right mb-4'>
-        <button onClick={__handler}>更新数据</button>
+        <button className='button' onClick={__handler}>更新数据</button>
       </div>
       {loading ? <Skeleton /> : <Message message={content.value} />}
     </>

@@ -18,7 +18,7 @@ export default function Demo02() {
     <>
       {loading ? <Skeleton /> : <Message message={result.value} />}
       <div className='mt-4 text-right'>
-        <button onClick={() => setLoading(!loading)}>切换</button>
+        <button className='button' onClick={() => setLoading(!loading)}>切换</button>
       </div>
     </>
   )

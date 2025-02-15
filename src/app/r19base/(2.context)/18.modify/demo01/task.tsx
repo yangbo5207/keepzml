@@ -14,7 +14,7 @@ export default function Demo03() {
 
       <button
         onClick={() => editor.current.show()}
-        className='ml-3'
+        className='ml-3 button'
       >edit</button>
       <Editor ref={editor} title='Editor' />
     </div>

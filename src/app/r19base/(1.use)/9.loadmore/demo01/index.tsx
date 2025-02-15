@@ -20,7 +20,7 @@ const Index = () => {
         </Suspense>
       ))}
       <div className='text-center my-4'>
-        <button onClick={onLoadMore}>loading more</button>
+        <button className='button' onClick={onLoadMore}>loading more</button>
       </div>
     </>
   );

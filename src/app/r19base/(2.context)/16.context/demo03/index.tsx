@@ -12,7 +12,7 @@ export default function Demo03() {
 
   return (
     <>
-      <button onClick={handleClick}>Write a comment</button>
+      <button className='button' onClick={handleClick}>Write a comment</button>
       <Post ref={postRef} />
     </>
   );

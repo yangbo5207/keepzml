@@ -18,7 +18,7 @@ export default function List() {
     <>
       <Flex between className='mt-8'>
         <div className="text-gray-400 text-sm">Account users</div>
-        <button onClick={__click}>update</button>
+        <button className='button' onClick={__click}>update</button>
       </Flex>
 
       <Suspense fallback={<Skeleton />}>

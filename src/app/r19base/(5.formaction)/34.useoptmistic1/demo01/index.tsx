@@ -28,7 +28,7 @@ export default function Index() {
           name="message"
           placeholder="enter your message"
         />
-        <button type="submit" className='ml-2'>Send</button>
+        <button type="submit" className='button ml-2'>Send</button>
       </form>
 
       {optimisticMessages.map((message) => (

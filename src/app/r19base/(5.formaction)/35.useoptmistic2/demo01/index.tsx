@@ -25,7 +25,7 @@ export default function Index() {
     <>
       <form action={formAction} ref={form} className='flex'>
         <input disabled={isPending} type="text" name="message" placeholder="enter your message" />
-        <button disabled={isPending} type="submit" className='ml-2'>Send</button>
+        <button disabled={isPending} type="submit" className='button ml-2'>Send</button>
       </form>
 
       {optimisticMessages.map((message) => (

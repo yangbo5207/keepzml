@@ -11,7 +11,7 @@ export default function Counter() {
         <Number value={count2} />
       </Flex>
       <div className='space-x-2'>
-        <button onClick={inc_count2}>count++</button>
+        <button className='button' onClick={inc_count2}>count++</button>
       </div>
     </div>
   )

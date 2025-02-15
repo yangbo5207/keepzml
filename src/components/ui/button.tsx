@@ -19,7 +19,7 @@ export default function Button(props: ButtonProps) {
   const base = 'rounded border border-transparent font-medium cursor-pointer transition relative text-gray-700 inline-flex items-center justify-center space-x-1.5'
 
   // size
-  const md = 'text-xs py-1.5 px-3'
+  const md = 'text-[13px] py-1 px-3'
 
   const def = !primary && !danger && !success && !signal
 
@@ -67,6 +67,7 @@ function generatorDefault(disabled: boolean, ghost: boolean) {
 function generatorPrimary(disabled: boolean, ghost: boolean) {
   let base = 'bg-blue-500 text-white'
   let inter = 'hover:bg-blue-600 active:bg-blue-700'
+
   if (ghost) {
     base = 'bg-transparent text-blue-500'
     inter = 'hover:text-blue-600 active:text-blue-700'

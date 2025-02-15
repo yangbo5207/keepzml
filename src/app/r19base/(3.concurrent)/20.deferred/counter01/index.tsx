@@ -13,7 +13,7 @@ export default function Index() {
         <div>counter: {counter}</div>
         <div className="mt-4">counter: {counter}</div>
       </div>
-      <button onClick={__clickHanler}>counter++</button>
+      <button className='button' onClick={__clickHanler}>counter++</button>
     </div>
   )
 }

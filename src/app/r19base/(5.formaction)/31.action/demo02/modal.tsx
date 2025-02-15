@@ -31,7 +31,7 @@ export default function Modal(props: {
         <Input label='Rate' name='rate' type='number' placeholder='please input rate.' required />
 
         <div className='flex justify-end'>
-          <button type='submit'>Submit</button>
+          <button className='button' type='submit'>Submit</button>
         </div>
       </form>
     </Dialog>

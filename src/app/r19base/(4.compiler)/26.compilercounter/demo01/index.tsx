@@ -12,7 +12,7 @@ export default function Counter() {
       <div>A Base Case</div>
       <div className="flex items-center justify-between">
         <div>currnt count is: {count}</div>
-        <button onClick={__clickHanler}>Increment</button>
+        <button className='button' onClick={__clickHanler}>Increment</button>
       </div>
     </div>
   )

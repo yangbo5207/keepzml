@@ -18,7 +18,7 @@ export default function Index() {
         </div>
       </div>
       <div className='text-right mt-8'>
-        <button onClick={increment}>counter++</button>
+        <button className='button' onClick={increment}>counter++</button>
       </div>
 
     </div>

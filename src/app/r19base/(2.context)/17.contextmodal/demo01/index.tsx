@@ -10,7 +10,7 @@ export default function Demo01() {
   }
   return (
     <div className='flex justify-between'>
-      <button onClick={__click} className='ml-3'>点击弹窗显示</button>
+      <button onClick={__click} className='button ml-3'>点击弹窗显示</button>
       <Modal ref={modal}>
         <div className='bg-white p-4 max-w-xl mt-48 mx-auto rounded'>
           这是一个小弹窗

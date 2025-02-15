@@ -10,7 +10,7 @@ export default function Demo01() {
         <input type="text" defaultValue="Ma" name="lname" />
       </div>
       <div className='flex justify-end'>
-        <button type='submit'>提交</button>
+        <button className='button' type='submit'>提交</button>
       </div>
     </form>
   )
