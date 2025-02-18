@@ -32,6 +32,7 @@ export default function RootLayout({
         <meta charSet="UTF-8" />
         <link href="https://framerusercontent.com/images/YRd2KCq4G2aXNg15aHvl7AtcGQ.png" rel="icon" media="(prefers-color-scheme: light)"></link>
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css"></link>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossOrigin="anonymous" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1, user-scalable=no" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />

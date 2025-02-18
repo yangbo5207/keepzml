@@ -1,10 +1,13 @@
 import type { NextConfig } from 'next'
 import createMDX from '@next/mdx'
 import remarkGfm from 'remark-gfm'
+import remarkMath from 'remark-math'
 import {remarkCodeHike, recmaCodeHike} from 'codehike/mdx'
+import remarkToc from 'remark-toc'
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
-import remarkToc from 'remark-toc'
+import rehypeKatex from'rehype-katex'
+
 
 const nextConfig: NextConfig = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
@@ -48,9 +51,9 @@ const autolinkHeadingOptions = {
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [remarkToc, remarkGfm, [remarkCodeHike, chConfig]],
+    remarkPlugins: [remarkToc, remarkGfm, remarkMath, [remarkCodeHike, chConfig]],
     recmaPlugins: [[recmaCodeHike, chConfig]],
-    rehypePlugins: [[rehypeSlug, [rehypeAutolinkHeadings, autolinkHeadingOptions]]],
+    rehypePlugins: [[rehypeSlug, [rehypeAutolinkHeadings, autolinkHeadingOptions]], rehypeKatex],
     jsx: true
   }
 })

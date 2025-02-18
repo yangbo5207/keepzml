@@ -1,0 +1,14 @@
+.reactzm_zx_demo02 {
+  display: inline-flex;
+  align-items: center;
+  flex-direction: row;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.reactzm_zx_demo02 button {
+  font-size: 14px;
+  margin-left: 6px;
+}

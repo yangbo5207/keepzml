@@ -9,7 +9,7 @@
   @apply list-disc pl-5;
 }
 .keep li {
-  @apply text-[14px] my-2;
+  @apply text-[15px] my-2;
 }
 .keep li p {
   @apply my-2;
@@ -82,6 +82,7 @@ pre div:first-child div {
   @apply mt-3 mb-4 text-gray-900;
   font-size: 14px;
 }
+.keep li code,
 .keep p code {
   @apply text-blue-700 text-sm
 }

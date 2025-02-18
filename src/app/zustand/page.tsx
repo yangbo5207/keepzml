@@ -1,9 +1,22 @@
+import Banner from './components/banner'
+import Invest from './components/invest'
+import Part from './components/part'
+import SuitableFor from './components/suitable_for'
+import Introduce from './components/introduce'
+import Tip from './components/tip'
 
 export default function Page() {
   return (
-    <div className='pt-8 md:pt-16'>
+    <div className='py-8 md:pt-16'>
       <div id='cp-content' className='px-4 max-w-[1024px] mx-auto 2xl:pr-9!'>
-        zustantd 是 React 生态中最火的状态管理库，它的 API 设计非常简单，而且性能非常好。
+        <div className='overflow-hidden space-y-8'>
+          <Banner />
+          <Invest />
+          <SuitableFor />
+          <Part />
+          <Introduce />
+          <Tip />
+        </div>
       </div>
     </div>
   )

@@ -1,5 +1,4 @@
-import {r0} from './(0.viewmode)/router'
-import {r1} from './(1.rendertree)/router'
+import {r0} from './(0.dimen)/router'
 
 interface RouteItem {
   type?: string,
@@ -10,8 +9,7 @@ interface RouteItem {
 }
 
 export const routers: RouteItem[] = [
-  ...r0,
-  ...r1,
+  ...r0
 ].map(item => {
   if (item.path) {
     item.path = `/supercss/${item.path}`
