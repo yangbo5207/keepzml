@@ -1,13 +1,13 @@
 1:"$Sreact.fragment"
-2:I[51790,["7525","static/chunks/7525-411280bffc37a107.js","8173","static/chunks/8173-1aab990e083a60ce.js","5926","static/chunks/5926-2f921190ce1e6581.js","6341","static/chunks/6341-09ffe1312961b92b.js","7177","static/chunks/app/layout-d913069c8618a68a.js"],"default"]
-3:I[46341,["7525","static/chunks/7525-411280bffc37a107.js","8173","static/chunks/8173-1aab990e083a60ce.js","5926","static/chunks/5926-2f921190ce1e6581.js","6341","static/chunks/6341-09ffe1312961b92b.js","7177","static/chunks/app/layout-d913069c8618a68a.js"],"default"]
+2:I[51790,["7525","static/chunks/7525-411280bffc37a107.js","8173","static/chunks/8173-1aab990e083a60ce.js","5926","static/chunks/5926-2f921190ce1e6581.js","6821","static/chunks/6821-5133cee7c0d53a06.js","7177","static/chunks/app/layout-44419dbf8641362a.js"],"default"]
+3:I[56821,["7525","static/chunks/7525-411280bffc37a107.js","8173","static/chunks/8173-1aab990e083a60ce.js","5926","static/chunks/5926-2f921190ce1e6581.js","6821","static/chunks/6821-5133cee7c0d53a06.js","7177","static/chunks/app/layout-44419dbf8641362a.js"],"default"]
 4:I[15244,[],""]
 5:I[43866,[],""]
 6:I[14547,[],"ClientSegmentRoot"]
-7:I[34489,["7525","static/chunks/7525-411280bffc37a107.js","8173","static/chunks/8173-1aab990e083a60ce.js","5926","static/chunks/5926-2f921190ce1e6581.js","6341","static/chunks/6341-09ffe1312961b92b.js","8083","static/chunks/app/r19base/layout-94293494eb68fa97.js"],"default"]
-9:I[98087,["8150","static/chunks/7cfd557f-0718c923d48595ad.js","7525","static/chunks/7525-411280bffc37a107.js","4320","static/chunks/4320-eb0b4108191194bc.js","8173","static/chunks/8173-1aab990e083a60ce.js","3152","static/chunks/3152-e813ba8dd61cd947.js","8993","static/chunks/8993-5f7344fb385eb5fb.js","7711","static/chunks/app/r19base/(5.formaction)/31.action/layout-5f52e3781d2978fa.js"],"default"]
-a:I[99913,["7525","static/chunks/7525-411280bffc37a107.js","4320","static/chunks/4320-eb0b4108191194bc.js","5926","static/chunks/5926-2f921190ce1e6581.js","2794","static/chunks/2794-e7741df2722cee1f.js","287","static/chunks/287-f0d30836025bc816.js","1196","static/chunks/app/r19base/(5.formaction)/31.action/page-bbde2b5195bf6c6d.js"],"default"]
-e:I[5694,["7525","static/chunks/7525-411280bffc37a107.js","4320","static/chunks/4320-eb0b4108191194bc.js","5926","static/chunks/5926-2f921190ce1e6581.js","2794","static/chunks/2794-e7741df2722cee1f.js","287","static/chunks/287-f0d30836025bc816.js","1196","static/chunks/app/r19base/(5.formaction)/31.action/page-bbde2b5195bf6c6d.js"],"default"]
+7:I[34489,["7525","static/chunks/7525-411280bffc37a107.js","8173","static/chunks/8173-1aab990e083a60ce.js","5926","static/chunks/5926-2f921190ce1e6581.js","6821","static/chunks/6821-5133cee7c0d53a06.js","8083","static/chunks/app/r19base/layout-b67e0f150aecc23f.js"],"default"]
+9:I[98087,["8150","static/chunks/7cfd557f-0718c923d48595ad.js","7525","static/chunks/7525-411280bffc37a107.js","4320","static/chunks/4320-eb0b4108191194bc.js","8173","static/chunks/8173-1aab990e083a60ce.js","3152","static/chunks/3152-e813ba8dd61cd947.js","8993","static/chunks/8993-7379c56d7e27cf43.js","7711","static/chunks/app/r19base/(5.formaction)/31.action/layout-5f52e3781d2978fa.js"],"default"]
+a:I[99913,["7525","static/chunks/7525-411280bffc37a107.js","4320","static/chunks/4320-eb0b4108191194bc.js","5926","static/chunks/5926-2f921190ce1e6581.js","2794","static/chunks/2794-e7741df2722cee1f.js","1196","static/chunks/app/r19base/(5.formaction)/31.action/page-8c61965b5aa54b75.js"],"default"]
+e:I[5694,["7525","static/chunks/7525-411280bffc37a107.js","4320","static/chunks/4320-eb0b4108191194bc.js","5926","static/chunks/5926-2f921190ce1e6581.js","2794","static/chunks/2794-e7741df2722cee1f.js","1196","static/chunks/app/r19base/(5.formaction)/31.action/page-8c61965b5aa54b75.js"],"default"]
 10:I[86213,[],"OutletBoundary"]
 12:I[86213,[],"MetadataBoundary"]
 14:I[86213,[],"ViewportBoundary"]
@@ -15,526 +15,526 @@ e:I[5694,["7525","static/chunks/7525-411280bffc37a107.js","4320","static/chunks/
 :HL["/_next/static/media/569ce4b8f30dc480-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/93f479601ee12b01-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/css/d498c84e4ab246b3.css","style"]
-:HL["/_next/static/css/b13ba518bb6acf46.css","style"]
+:HL["/_next/static/css/8b1007989f3c0f29.css","style"]
 :HL["/_next/static/css/738174a5e4c964fb.css","style"]
-:HL["/_next/static/css/4efe359edb8595b9.css","style"]
-:HL["/_next/static/css/9696847bcc7c7891.css","style"]
-0:{"P":null,"b":"vLSEQrw__G3A0Lqb1tUr3","p":"","c":["","r19base","31.action"],"i":false,"f":[[["",{"children":["r19base",{"children":["(5.formaction)",{"children":["31.action",{"children":["__PAGE__",{}]}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/d498c84e4ab246b3.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/css/b13ba518bb6acf46.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","2",{"rel":"stylesheet","href":"/_next/static/css/738174a5e4c964fb.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","3",{"rel":"stylesheet","href":"/_next/static/css/4efe359edb8595b9.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"zh","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","meta",null,{"charSet":"UTF-8"}],["$","link",null,{"href":"https://framerusercontent.com/images/YRd2KCq4G2aXNg15aHvl7AtcGQ.png","rel":"icon","media":"(prefers-color-scheme: light)"}],["$","link",null,{"rel":"stylesheet","href":"https://rsms.me/inter/inter.css"}],["$","meta",null,{"name":"viewport","content":"width=device-width, initial-scale=1.0 maximum-scale=1, user-scalable=no"}],["$","meta",null,{"name":"mobile-web-app-capable","content":"yes"}],["$","meta",null,{"name":"apple-mobile-web-app-status-bar-style","content":"black-translucent"}]]}],["$","body",null,{"className":"__variable_4d318d __variable_ea5f4b antialiased","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[],[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]]],"forbidden":"$undefined","unauthorized":"$undefined"}]]}]}]]}]]}],{"children":["r19base",["$","$1","c",{"children":[null,["$","$L6",null,{"Component":"$7","slots":{"children":["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children","r19base","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]},"params":{},"promise":"$@8"}]]}],{"children":["(5.formaction)",["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children","r19base","children","(5.formaction)","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["31.action",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/9696847bcc7c7891.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L9",null,{"children":["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children","r19base","children","(5.formaction)","children","31.action","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}]]}],{"children":["__PAGE__",["$","$1","c",{"children":[[["$","p",null,{"children":"React 19 在表单上提供了更多充满想象空间的 API，它们用好了非常爽，不过一个麻烦的事情是如果你通过自学，想要透彻理解并找到最佳实践可能会非常困难。"}],"\n",["$","p",null,{"children":"这里最核心的原因是因为开发思维发生了比较彻底的变化，主要体现在 React19 在尝试弱化受控组件的概念，尝试引导开发者尽可能少的使用 useEffect，并且尽可能少的使用 useState 存储数据。"}],"\n",["$","p",null,{"children":"抛开学习成本不谈，我个人认为这是一个非常好的变化，新的开发方式上在开发体验和性能表现上都有非常大的提升。它充分利用了 HTML 中表单元素本身已经支持的能力，例如表单验证，自定义异常样式，自定义错误信息等。"}],"\n",["$","p",null,{"children":"不过没关系，我会尽量拆分去学习。确保大家都能读有所得。这一章节就先简单给大家介绍一下 React 在表单上的基础表现。"}],"\n",["$","h3",null,{"id":"1action-基础","children":"1、action 基础"}],"\n",["$","p",null,{"children":["在 HTML 的表单元素中，我们可以通过监听 form 对象的 onsubmit 来回调函数的执行。也可以通过 ",["$","code",null,{"children":"action"}]," 属性来直接向服务端发送请求。"]}],"\n",["$","p",null,{"children":"在 React 19 中，form 元素支持的 action 在这个基础之上发生了一些变化。它支持给 action 传递一个回调函数以供我们使用。该回调函数会将 FormData 作为参数传入。我们可以通过这种方式拿到表单里的所有数据。"}],"\n",["$","blockquote",null,{"children":["\n",["$","p",null,{"children":"这个变化主要是 React 中并不提倡直接获取元素对象，以及直接往后端发送请求的方式并不常用"}],"\n"]}],"\n",["$","$La",null,{}],"\n","$Lb","\n",["$","p",null,{"children":["当我们点击提交按钮时，action 方法就会触发执行。当然，我们也可以给 ",["$","code",null,{"children":"submit"}]," 一个 ",["$","code",null,{"children":"formAction"}]," 属性来达到同样的效果"]}],"\n","$Lc","\n",["$","blockquote",null,{"children":["\n",["$","p",null,{"children":["默认情况下，当我们点击提交之后，form 会自动清空内部的所有数据，或者重置回  ",["$","code",null,{"children":"defaultValue"}]]}],"\n",["$","p",null,{"children":["如果你在设置了 action 的同时，又设置了 onSubmit 回调，那么 onSubmit 会优先执行，我们可以通过在 onSbumit 中执行 ",["$","code",null,{"children":"e.preventDefault()"}]," 来阻止 action 回调的执行"]}],"\n"]}],"\n","$Ld","\n",["$","h3",null,{"id":"2案例","children":"2、案例"}],"\n",["$","p",null,{"children":"学习了这些基础知识之后，我们来完成一个比较简单的案例。我们在表单中输入信息，并把信息记录展示在一个列表中。"}],"\n",["$","p",null,{"children":["在这个案例中，我们提供了一个 ",["$","code",null,{"children":"Add"}]," 按钮，点击该按钮之后，会出现一个弹窗。在弹窗中，我们可以输入每一条信息。输入完成之后，点击提交，输入的信息就会展示在列表中。"]}],"\n",["$","p",null,{"children":"案例演示效果如下"}],"\n",["$","$Le",null,{}],"\n","$Lf"],null,["$","$L10",null,{"children":"$L11"}]]}],{},null,false]},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","D8iWP6eqSTtBAFL1AeRUx",{"children":[["$","$L12",null,{"children":"$L13"}],["$","$L14",null,{"children":"$L15"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]]}],false]],"m":"$undefined","G":["$16","$undefined"],"s":false,"S":true}
+:HL["/_next/static/css/53fca1cf6016bb03.css","style"]
+:HL["/_next/static/css/7749780c63c7faf9.css","style"]
+0:{"P":null,"b":"3HEQNNCmmvOB764yITJzS","p":"","c":["","r19base","31.action"],"i":false,"f":[[["",{"children":["r19base",{"children":["(5.formaction)",{"children":["31.action",{"children":["__PAGE__",{}]}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/d498c84e4ab246b3.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/css/8b1007989f3c0f29.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","2",{"rel":"stylesheet","href":"/_next/static/css/738174a5e4c964fb.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","3",{"rel":"stylesheet","href":"/_next/static/css/53fca1cf6016bb03.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"zh","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","meta",null,{"charSet":"UTF-8"}],["$","link",null,{"href":"https://framerusercontent.com/images/YRd2KCq4G2aXNg15aHvl7AtcGQ.png","rel":"icon","media":"(prefers-color-scheme: light)"}],["$","link",null,{"rel":"stylesheet","href":"https://rsms.me/inter/inter.css"}],["$","link",null,{"rel":"stylesheet","href":"https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css","integrity":"sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV","crossOrigin":"anonymous"}],["$","meta",null,{"name":"viewport","content":"width=device-width, initial-scale=1.0 maximum-scale=1, user-scalable=no"}],["$","meta",null,{"name":"mobile-web-app-capable","content":"yes"}],["$","meta",null,{"name":"apple-mobile-web-app-status-bar-style","content":"black-translucent"}]]}],["$","body",null,{"className":"__variable_4d318d __variable_ea5f4b antialiased","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[],[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]]],"forbidden":"$undefined","unauthorized":"$undefined"}]]}]}]]}]]}],{"children":["r19base",["$","$1","c",{"children":[null,["$","$L6",null,{"Component":"$7","slots":{"children":["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children","r19base","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]},"params":{},"promise":"$@8"}]]}],{"children":["(5.formaction)",["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children","r19base","children","(5.formaction)","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["31.action",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/7749780c63c7faf9.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L9",null,{"children":["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children","r19base","children","(5.formaction)","children","31.action","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}]]}],{"children":["__PAGE__",["$","$1","c",{"children":[[["$","p",null,{"children":"React 19 在表单上提供了更多充满想象空间的 API，它们用好了非常爽，不过一个麻烦的事情是如果你通过自学，想要透彻理解并找到最佳实践可能会非常困难。"}],"\n",["$","p",null,{"children":"这里最核心的原因是因为开发思维发生了比较彻底的变化，主要体现在 React19 在尝试弱化受控组件的概念，尝试引导开发者尽可能少的使用 useEffect，并且尽可能少的使用 useState 存储数据。"}],"\n",["$","p",null,{"children":"抛开学习成本不谈，我个人认为这是一个非常好的变化，新的开发方式上在开发体验和性能表现上都有非常大的提升。它充分利用了 HTML 中表单元素本身已经支持的能力，例如表单验证，自定义异常样式，自定义错误信息等。"}],"\n",["$","p",null,{"children":"不过没关系，我会尽量拆分去学习。确保大家都能读有所得。这一章节就先简单给大家介绍一下 React 在表单上的基础表现。"}],"\n",["$","h3",null,{"id":"1action-基础","children":"1、action 基础"}],"\n",["$","p",null,{"children":["在 HTML 的表单元素中，我们可以通过监听 form 对象的 onsubmit 来回调函数的执行。也可以通过 ",["$","code",null,{"children":"action"}]," 属性来直接向服务端发送请求。"]}],"\n",["$","p",null,{"children":"在 React 19 中，form 元素支持的 action 在这个基础之上发生了一些变化。它支持给 action 传递一个回调函数以供我们使用。该回调函数会将 FormData 作为参数传入。我们可以通过这种方式拿到表单里的所有数据。"}],"\n",["$","blockquote",null,{"children":["\n",["$","p",null,{"children":"这个变化主要是 React 中并不提倡直接获取元素对象，以及直接往后端发送请求的方式并不常用"}],"\n"]}],"\n",["$","$La",null,{}],"\n","$Lb","\n",["$","p",null,{"children":["当我们点击提交按钮时，action 方法就会触发执行。当然，我们也可以给 ",["$","code",null,{"children":"submit"}]," 一个 ",["$","code",null,{"children":"formAction"}]," 属性来达到同样的效果"]}],"\n","$Lc","\n",["$","blockquote",null,{"children":["\n",["$","p",null,{"children":["默认情况下，当我们点击提交之后，form 会自动清空内部的所有数据，或者重置回  ",["$","code",null,{"children":"defaultValue"}]]}],"\n",["$","p",null,{"children":["如果你在设置了 action 的同时，又设置了 onSubmit 回调，那么 onSubmit 会优先执行，我们可以通过在 onSbumit 中执行 ",["$","code",null,{"children":"e.preventDefault()"}]," 来阻止 action 回调的执行"]}],"\n"]}],"\n","$Ld","\n",["$","h3",null,{"id":"2案例","children":"2、案例"}],"\n",["$","p",null,{"children":"学习了这些基础知识之后，我们来完成一个比较简单的案例。我们在表单中输入信息，并把信息记录展示在一个列表中。"}],"\n",["$","p",null,{"children":["在这个案例中，我们提供了一个 ",["$","code",null,{"children":"Add"}]," 按钮，点击该按钮之后，会出现一个弹窗。在弹窗中，我们可以输入每一条信息。输入完成之后，点击提交，输入的信息就会展示在列表中。"]}],"\n",["$","p",null,{"children":"案例演示效果如下"}],"\n",["$","$Le",null,{}],"\n","$Lf"],null,["$","$L10",null,{"children":"$L11"}]]}],{},null,false]},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","hRDt0iXQq-5ZRBs6xhdgU",{"children":[["$","$L12",null,{"children":"$L13"}],["$","$L14",null,{"children":"$L15"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]]}],false]],"m":"$undefined","G":["$16","$undefined"],"s":false,"S":true}
 8:{}
+17:I[34034,["7525","static/chunks/7525-411280bffc37a107.js","4320","static/chunks/4320-eb0b4108191194bc.js","5926","static/chunks/5926-2f921190ce1e6581.js","2794","static/chunks/2794-e7741df2722cee1f.js","1196","static/chunks/app/r19base/(5.formaction)/31.action/page-8c61965b5aa54b75.js"],"default"]
+18:I[65470,["7525","static/chunks/7525-411280bffc37a107.js","4320","static/chunks/4320-eb0b4108191194bc.js","5926","static/chunks/5926-2f921190ce1e6581.js","2794","static/chunks/2794-e7741df2722cee1f.js","1196","static/chunks/app/r19base/(5.formaction)/31.action/page-8c61965b5aa54b75.js"],"CodeTabHeader"]
+19:I[65703,["7525","static/chunks/7525-411280bffc37a107.js","4320","static/chunks/4320-eb0b4108191194bc.js","5926","static/chunks/5926-2f921190ce1e6581.js","2794","static/chunks/2794-e7741df2722cee1f.js","1196","static/chunks/app/r19base/(5.formaction)/31.action/page-8c61965b5aa54b75.js"],"CodeTabsInner"]
+c:["$","div",null,{"className":"code-wrapper border my-4 border-gray-200 rounded overflow-hidden","children":[null,["$","div",null,{"className":"code-base javascript","children":[false,["$","pre",null,{"data-theme":"github-from-css","data-lang":"javascript","ref":"$undefined","data-ch":true,"children":["$","div",null,{"style":{"minWidth":"fit-content"},"children":[["$","div","1,1",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[1,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":[["$","span","0",{"style":{"color":"var(--ch-4)"},"children":"<"}],["$","span","1",{"style":{"color":"var(--ch-6)"},"children":"form"}],["$","span","2",{"style":{"color":"var(--ch-4)"},"children":">"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","2,2",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[2,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":["  ",["$","span","1",{"style":{"color":"var(--ch-4)"},"children":"..."}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","3,3",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[3,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":["  ",["$","span","1",{"style":{"color":"var(--ch-4)"},"children":"<"}],["$","span","2",{"style":{"color":"var(--ch-6)"},"children":"button"}]," ",["$","span","4",{"style":{"color":"var(--ch-2)"},"children":"formAction"}],["$","span","5",{"style":{"color":"var(--ch-7)"},"children":"={"}],["$","span","6",{"style":{"color":"var(--ch-4)"},"children":"__formAction"}],["$","span","7",{"style":{"color":"var(--ch-7)"},"children":"}"}]," ",["$","span","9",{"style":{"color":"var(--ch-2)"},"children":"type"}],["$","span","10",{"style":{"color":"var(--ch-7)"},"children":"="}],["$","span","11",{"style":{"color":"var(--ch-8)"},"children":"'submit'"}],["$","span","12",{"style":{"color":"var(--ch-4)"},"children":">提交</"}],["$","span","13",{"style":{"color":"var(--ch-6)"},"children":"button"}],["$","span","14",{"style":{"color":"var(--ch-4)"},"children":">"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","4,4",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[4,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":[["$","span","0",{"style":{"color":"var(--ch-4)"},"children":"</"}],["$","span","1",{"style":{"color":"var(--ch-6)"},"children":"form"}],["$","span","2",{"style":{"color":"var(--ch-4)"},"children":">"}]],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}]]}]}]]}]]}]
+d:["$","div",null,{"className":"code-wrapper border my-4 border-gray-200 rounded overflow-hidden","children":[null,["$","div",null,{"className":"code-base javascript","children":[false,["$","pre",null,{"data-theme":"github-from-css","data-lang":"javascript","ref":"$undefined","data-ch":true,"children":["$","div",null,{"style":{"minWidth":"fit-content"},"children":[["$","div","1,1",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[1,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":[["$","span","0",{"style":{"color":"var(--ch-7)"},"children":"function"}]," ",["$","span","2",{"style":{"color":"var(--ch-5)"},"children":"__onSubmit"}],["$","span","3",{"style":{"color":"var(--ch-4)"},"children":"("}],["$","span","4",{"style":{"color":"var(--ch-3)"},"children":"e"}],["$","span","5",{"style":{"color":"var(--ch-4)"},"children":") {"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","2,2",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[2,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":["  ",["$","span","1",{"style":{"color":"var(--ch-4)"},"children":"e."}],["$","span","2",{"style":{"color":"var(--ch-5)"},"children":"preventDefault"}],["$","span","3",{"style":{"color":"var(--ch-4)"},"children":"()"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","3,3",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[3,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":["  ",["$","span","1",{"style":{"color":"var(--ch-7)"},"children":"..."}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","4,4",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[4,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":[["$","span","0",{"style":{"color":"var(--ch-4)"},"children":"}"}]],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}]]}]}]]}]]}]
+b:["$","div",null,{"className":"code-tabs border rounded border-gray-200 overflow-hidden my-5","children":["$","$L17",null,{"children":[["$","$L18",null,{"tabs":[{"meta":"index.tsx -c","value":"export default function Demo01() {\n  function __formAction(formData: FormData) {\n    const fname = formData.get('fname')\n    const lname = formData.get('lname')\n    alert(`输入内容：FirstName: ${fname}, LastName: ${lname}`)\n  }\n  return (\n    <form action={__formAction} className='space-y-3'>\n      <div className='flex items-center'>\n        <label className='w-[100px]'>First name: </label>\n        <input type=\"text\" defaultValue=\"Jake\" name=\"fname\" />\n      </div>\n      <div className='flex items-center'>\n        <label className='w-[100px]'>Last name: </label>\n        <input type=\"text\" defaultValue=\"Ma\" name=\"lname\" />\n      </div>\n      <div className='flex justify-end'>\n        <button className='button' type='submit'>提交</button>\n      </div>\n    </form>\n  )\n}\n","lang":"jsx"}]}],["$","$L19",null,{"highlighteds":[{"meta":"index.tsx -c","value":"export default function Demo01() {\n  function __formAction(formData: FormData) {\n    const fname = formData.get('fname')\n    const lname = formData.get('lname')\n    alert(`输入内容：FirstName: ${fname}, LastName: ${lname}`)\n  }\n  return (\n    <form action={__formAction} className='space-y-3'>\n      <div className='flex items-center'>\n        <label className='w-[100px]'>First name: </label>\n        <input type=\"text\" defaultValue=\"Jake\" name=\"fname\" />\n      </div>\n      <div className='flex items-center'>\n        <label className='w-[100px]'>Last name: </label>\n        <input type=\"text\" defaultValue=\"Ma\" name=\"lname\" />\n      </div>\n      <div className='flex justify-end'>\n        <button className='button' type='submit'>提交</button>\n      </div>\n    </form>\n  )\n}\n","lang":"jsx","code":"export default function Demo01() {\n  function __formAction(formData: FormData) {\n    const fname = formData.get('fname')\n    const lname = formData.get('lname')\n    alert(`输入内容：FirstName: ${fname}, LastName: ${lname}`)\n  }\n  return (\n    <form action={__formAction} className='space-y-3'>\n      <div className='flex items-center'>\n        <label className='w-[100px]'>First name: </label>\n        <input type=\"text\" defaultValue=\"Jake\" name=\"fname\" />\n      </div>\n      <div className='flex items-center'>\n        <label className='w-[100px]'>Last name: </label>\n        <input type=\"text\" defaultValue=\"Ma\" name=\"lname\" />\n      </div>\n      <div className='flex justify-end'>\n        <button className='button' type='submit'>提交</button>\n      </div>\n    </form>\n  )\n}\n","tokens":[["export default function","var(--ch-7)"]," ",["Demo01","var(--ch-5)"],["()","var(--ch-3)"]," ",["{","var(--ch-4)"],"\n  ",["function","var(--ch-7)"]," ",["__formAction","var(--ch-5)"],["(","var(--ch-4)"],["formData","var(--ch-3)"],[":","var(--ch-7)"]," ",["FormData","var(--ch-3)"],[") {","var(--ch-4)"],"\n    ",["const","var(--ch-7)"]," ",["fname","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["formData.","var(--ch-4)"],["get","var(--ch-5)"],["(","var(--ch-4)"],["'fname'","var(--ch-8)"],[")","var(--ch-4)"],"\n    ",["const","var(--ch-7)"]," ",["lname","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["formData.","var(--ch-4)"],["get","var(--ch-5)"],["(","var(--ch-4)"],["'lname'","var(--ch-8)"],[")","var(--ch-4)"],"\n    ",["alert","var(--ch-5)"],["(","var(--ch-4)"],["`输入内容：FirstName: ${","var(--ch-8)"],["fname","var(--ch-4)"],["}, LastName: ${","var(--ch-8)"],["lname","var(--ch-4)"],["}`","var(--ch-8)"],[")","var(--ch-4)"],"\n  ",["}","var(--ch-4)"],"\n  ",["return","var(--ch-7)"]," ",["(","var(--ch-4)"],"\n    ",["<","var(--ch-4)"],["form","var(--ch-6)"]," ",["action","var(--ch-2)"],["={","var(--ch-7)"],["__formAction","var(--ch-4)"],["}","var(--ch-7)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["'space-y-3'","var(--ch-8)"],[">","var(--ch-4)"],"\n      ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["'flex items-center'","var(--ch-8)"],[">","var(--ch-4)"],"\n        ",["<","var(--ch-4)"],["label","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["'w-[100px]'","var(--ch-8)"],[">First name: </","var(--ch-4)"],["label","var(--ch-6)"],[">","var(--ch-4)"],"\n        ",["<","var(--ch-4)"],["input","var(--ch-6)"]," ",["type","var(--ch-2)"],["=","var(--ch-7)"],["\"text\"","var(--ch-8)"]," ",["defaultValue","var(--ch-2)"],["=","var(--ch-7)"],["\"Jake\"","var(--ch-8)"]," ",["name","var(--ch-2)"],["=","var(--ch-7)"],["\"fname\"","var(--ch-8)"]," ",["/>","var(--ch-4)"],"\n      ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n      ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["'flex items-center'","var(--ch-8)"],[">","var(--ch-4)"],"\n        ",["<","var(--ch-4)"],["label","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["'w-[100px]'","var(--ch-8)"],[">Last name: </","var(--ch-4)"],["label","var(--ch-6)"],[">","var(--ch-4)"],"\n        ",["<","var(--ch-4)"],["input","var(--ch-6)"]," ",["type","var(--ch-2)"],["=","var(--ch-7)"],["\"text\"","var(--ch-8)"]," ",["defaultValue","var(--ch-2)"],["=","var(--ch-7)"],["\"Ma\"","var(--ch-8)"]," ",["name","var(--ch-2)"],["=","var(--ch-7)"],["\"lname\"","var(--ch-8)"]," ",["/>","var(--ch-4)"],"\n      ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n      ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["'flex justify-end'","var(--ch-8)"],[">","var(--ch-4)"],"\n        ",["<","var(--ch-4)"],["button","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["'button'","var(--ch-8)"]," ",["type","var(--ch-2)"],["=","var(--ch-7)"],["'submit'","var(--ch-8)"],[">提交</","var(--ch-4)"],["button","var(--ch-6)"],[">","var(--ch-4)"],"\n      ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n    ",["</","var(--ch-4)"],["form","var(--ch-6)"],[">","var(--ch-4)"],"\n  ",[")","var(--ch-4)"],"\n",["}","var(--ch-4)"],"\n"],"annotations":[],"themeName":"github-from-css","style":{"color":"var(--ch-4)","background":"var(--ch-16)","colorScheme":"var(--ch-0)"}}]}]]}]}]
+1a:T1352,import { useState, useRef } from 'react'
+import Modal from './modal'
+import { uuid } from '@/utils'
+
+const def = {
+  id: uuid(),
+  name: 'Logo redesign',
+  desc: 'New logo and digital asset playbook.',
+  hours: 20.0,
+  rate: 100.00,
+}
+
+export default function Table() {
+  const modal = useRef<any>(null)
+
+  const [revenues, setRevenues] = useState([def])
+
+  function __onChange(data: typeof def) {
+    setRevenues([...revenues, data])
+  }
+
+  const subtotal = revenues.reduce((pre, cur) => {
+    return pre + cur.hours * cur.rate
+  }, 0)
+
+  return (
+    <div className="px-4 sm:px-6 lg:px-8">
+      <div className="sm:flex sm:items-center">
+        <div className="sm:flex-auto">
+          <h1 className="text-base font-semibold leading-6 text-gray-900">Invoice</h1>
+          <p className="mt-2 text-sm text-gray-700">
+            For work completed from <time dateTime="2022-08-01">August 1, 2022</time> to{' '}
+            <time dateTime="2022-08-31">August 31, 2022</time>.
+          </p>
+        </div>
+        <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+          <button className='button primary' onClick={() => modal.current.show()}>Add</button>
+        </div>
+      </div>
+      <Modal ref={modal} onChange={__onChange} />
+
+      <div className="-mx-4 mt-8 flow-root sm:mx-0">
+        <table className="min-w-full">
+          <colgroup>
+            <col className="w-full sm:w-1/2" />
+            <col className="sm:w-1/6" />
+            <col className="sm:w-1/6" />
+            <col className="sm:w-1/6" />
+          </colgroup>
+          <thead className="border-b border-gray-300 text-gray-900">
+            <tr>
+              <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
+                Project
+              </th>
+              <th
+                scope="col"
+                className="hidden px-3 py-3.5 text-right text-sm font-semibold text-gray-900 sm:table-cell"
+              >
+                Hours
+              </th>
+              <th
+                scope="col"
+                className="hidden px-3 py-3.5 text-right text-sm font-semibold text-gray-900 sm:table-cell"
+              >
+                Rate
+              </th>
+              <th scope="col" className="py-3.5 pl-3 pr-4 text-right text-sm font-semibold text-gray-900 sm:pr-0">
+                Price
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {revenues.map((project) => (
+              <tr key={project.id} className="border-b border-gray-200">
+                <td className="max-w-0 py-5 pl-4 pr-3 text-sm sm:pl-0">
+                  <div className="font-medium text-gray-900">{project.name}</div>
+                  <div className="mt-1 truncate text-gray-500">{project.desc}</div>
+                </td>
+                <td className="hidden px-3 py-5 text-right text-sm text-gray-500 sm:table-cell">{project.hours}</td>
+                <td className="hidden px-3 py-5 text-right text-sm text-gray-500 sm:table-cell">${project.rate}</td>
+                <td className="py-5 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-0">${project.hours * project.rate}</td>
+              </tr>
+            ))}
+          </tbody>
+          <tfoot>
+            <tr>
+              <th
+                scope="row"
+                colSpan={3}
+                className="hidden sm:table-cell pl-4 pr-3 pt-6 text-right text-sm font-normal text-gray-500 sm:pl-0"
+              >
+                Subtotal
+              </th>
+              <th scope="row" className="pl-4 pr-3 pt-6 text-left text-sm font-normal text-gray-500 sm:hidden">
+                Subtotal
+              </th>
+              <td className="pl-3 pr-4 pt-6 text-right text-sm text-gray-500 sm:pr-0">${subtotal}</td>
+            </tr>
+            <tr>
+              <th
+                scope="row"
+                colSpan={3}
+                className="hidden pl-4 pr-3 pt-4 text-right text-sm font-normal text-gray-500 sm:table-cell sm:pl-0"
+              >
+                Tax
+              </th>
+              <th scope="row" className="pl-4 pr-3 pt-4 text-left text-sm font-normal text-gray-500 sm:hidden">
+                Tax
+              </th>
+              <td className="pl-3 pr-4 pt-4 text-right text-sm text-gray-500 sm:pr-0">$1760.00</td>
+            </tr>
+            <tr>
+              <th
+                scope="row"
+                colSpan={3}
+                className="hidden pl-4 pr-3 pt-4 text-right text-sm font-semibold text-gray-900 sm:table-cell sm:pl-0"
+              >
+                Total
+              </th>
+              <th scope="row" className="pl-4 pr-3 pt-4 text-left text-sm font-semibold text-gray-900 sm:hidden">
+                Total
+              </th>
+              <td className="pl-3 pr-4 pt-4 text-right text-sm font-semibold text-gray-900 sm:pr-0">${subtotal - 1760}</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  )
+}
+1b:T4c9,import { RefObject } from 'react'
+import Dialog, { DialogRef } from 'components/ui/dialog'
+import Input from 'components/ui/Input'
+import { uuid } from '@/utils'
+
+export default function Modal(props: {
+  ref: RefObject<DialogRef>,
+  onChange: (item: any) => any
+}) {
+  const { ref, onChange } = props
+
+  function action(f: FormData) {
+    const item = {
+      id: uuid(),
+      name: f.get('name'),
+      desc: f.get('desc'),
+      hours: f.get('hours'),
+      rate: f.get('rate'),
+      price: f.get('price'),
+    }
+    ref.current.close()
+    onChange && onChange(item)
+  }
+
+  return (
+    <Dialog title='Editor' ref={ref} footer>
+      <form action={action}>
+        <Input label='Name' name='name' placeholder='Plase input your project name.' required />
+        <Input label='Desc' name='desc' placeholder='please input your project description.' required />
+        <Input label='Hours' name='hours' type='number' placeholder='please input hours.' required />
+        <Input label='Rate' name='rate' type='number' placeholder='please input rate.' required />
+
+        <div className='flex justify-end'>
+          <button className='button' type='submit'>Submit</button>
+        </div>
+      </form>
+    </Dialog>
+  )
+}
+1c:T1352,import { useState, useRef } from 'react'
+import Modal from './modal'
+import { uuid } from '@/utils'
+
+const def = {
+  id: uuid(),
+  name: 'Logo redesign',
+  desc: 'New logo and digital asset playbook.',
+  hours: 20.0,
+  rate: 100.00,
+}
+
+export default function Table() {
+  const modal = useRef<any>(null)
+
+  const [revenues, setRevenues] = useState([def])
+
+  function __onChange(data: typeof def) {
+    setRevenues([...revenues, data])
+  }
+
+  const subtotal = revenues.reduce((pre, cur) => {
+    return pre + cur.hours * cur.rate
+  }, 0)
+
+  return (
+    <div className="px-4 sm:px-6 lg:px-8">
+      <div className="sm:flex sm:items-center">
+        <div className="sm:flex-auto">
+          <h1 className="text-base font-semibold leading-6 text-gray-900">Invoice</h1>
+          <p className="mt-2 text-sm text-gray-700">
+            For work completed from <time dateTime="2022-08-01">August 1, 2022</time> to{' '}
+            <time dateTime="2022-08-31">August 31, 2022</time>.
+          </p>
+        </div>
+        <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+          <button className='button primary' onClick={() => modal.current.show()}>Add</button>
+        </div>
+      </div>
+      <Modal ref={modal} onChange={__onChange} />
+
+      <div className="-mx-4 mt-8 flow-root sm:mx-0">
+        <table className="min-w-full">
+          <colgroup>
+            <col className="w-full sm:w-1/2" />
+            <col className="sm:w-1/6" />
+            <col className="sm:w-1/6" />
+            <col className="sm:w-1/6" />
+          </colgroup>
+          <thead className="border-b border-gray-300 text-gray-900">
+            <tr>
+              <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
+                Project
+              </th>
+              <th
+                scope="col"
+                className="hidden px-3 py-3.5 text-right text-sm font-semibold text-gray-900 sm:table-cell"
+              >
+                Hours
+              </th>
+              <th
+                scope="col"
+                className="hidden px-3 py-3.5 text-right text-sm font-semibold text-gray-900 sm:table-cell"
+              >
+                Rate
+              </th>
+              <th scope="col" className="py-3.5 pl-3 pr-4 text-right text-sm font-semibold text-gray-900 sm:pr-0">
+                Price
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {revenues.map((project) => (
+              <tr key={project.id} className="border-b border-gray-200">
+                <td className="max-w-0 py-5 pl-4 pr-3 text-sm sm:pl-0">
+                  <div className="font-medium text-gray-900">{project.name}</div>
+                  <div className="mt-1 truncate text-gray-500">{project.desc}</div>
+                </td>
+                <td className="hidden px-3 py-5 text-right text-sm text-gray-500 sm:table-cell">{project.hours}</td>
+                <td className="hidden px-3 py-5 text-right text-sm text-gray-500 sm:table-cell">${project.rate}</td>
+                <td className="py-5 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-0">${project.hours * project.rate}</td>
+              </tr>
+            ))}
+          </tbody>
+          <tfoot>
+            <tr>
+              <th
+                scope="row"
+                colSpan={3}
+                className="hidden sm:table-cell pl-4 pr-3 pt-6 text-right text-sm font-normal text-gray-500 sm:pl-0"
+              >
+                Subtotal
+              </th>
+              <th scope="row" className="pl-4 pr-3 pt-6 text-left text-sm font-normal text-gray-500 sm:hidden">
+                Subtotal
+              </th>
+              <td className="pl-3 pr-4 pt-6 text-right text-sm text-gray-500 sm:pr-0">${subtotal}</td>
+            </tr>
+            <tr>
+              <th
+                scope="row"
+                colSpan={3}
+                className="hidden pl-4 pr-3 pt-4 text-right text-sm font-normal text-gray-500 sm:table-cell sm:pl-0"
+              >
+                Tax
+              </th>
+              <th scope="row" className="pl-4 pr-3 pt-4 text-left text-sm font-normal text-gray-500 sm:hidden">
+                Tax
+              </th>
+              <td className="pl-3 pr-4 pt-4 text-right text-sm text-gray-500 sm:pr-0">$1760.00</td>
+            </tr>
+            <tr>
+              <th
+                scope="row"
+                colSpan={3}
+                className="hidden pl-4 pr-3 pt-4 text-right text-sm font-semibold text-gray-900 sm:table-cell sm:pl-0"
+              >
+                Total
+              </th>
+              <th scope="row" className="pl-4 pr-3 pt-4 text-left text-sm font-semibold text-gray-900 sm:hidden">
+                Total
+              </th>
+              <td className="pl-3 pr-4 pt-4 text-right text-sm font-semibold text-gray-900 sm:pr-0">${subtotal - 1760}</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  )
+}
+1d:T1352,import { useState, useRef } from 'react'
+import Modal from './modal'
+import { uuid } from '@/utils'
+
+const def = {
+  id: uuid(),
+  name: 'Logo redesign',
+  desc: 'New logo and digital asset playbook.',
+  hours: 20.0,
+  rate: 100.00,
+}
+
+export default function Table() {
+  const modal = useRef<any>(null)
+
+  const [revenues, setRevenues] = useState([def])
+
+  function __onChange(data: typeof def) {
+    setRevenues([...revenues, data])
+  }
+
+  const subtotal = revenues.reduce((pre, cur) => {
+    return pre + cur.hours * cur.rate
+  }, 0)
+
+  return (
+    <div className="px-4 sm:px-6 lg:px-8">
+      <div className="sm:flex sm:items-center">
+        <div className="sm:flex-auto">
+          <h1 className="text-base font-semibold leading-6 text-gray-900">Invoice</h1>
+          <p className="mt-2 text-sm text-gray-700">
+            For work completed from <time dateTime="2022-08-01">August 1, 2022</time> to{' '}
+            <time dateTime="2022-08-31">August 31, 2022</time>.
+          </p>
+        </div>
+        <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+          <button className='button primary' onClick={() => modal.current.show()}>Add</button>
+        </div>
+      </div>
+      <Modal ref={modal} onChange={__onChange} />
+
+      <div className="-mx-4 mt-8 flow-root sm:mx-0">
+        <table className="min-w-full">
+          <colgroup>
+            <col className="w-full sm:w-1/2" />
+            <col className="sm:w-1/6" />
+            <col className="sm:w-1/6" />
+            <col className="sm:w-1/6" />
+          </colgroup>
+          <thead className="border-b border-gray-300 text-gray-900">
+            <tr>
+              <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
+                Project
+              </th>
+              <th
+                scope="col"
+                className="hidden px-3 py-3.5 text-right text-sm font-semibold text-gray-900 sm:table-cell"
+              >
+                Hours
+              </th>
+              <th
+                scope="col"
+                className="hidden px-3 py-3.5 text-right text-sm font-semibold text-gray-900 sm:table-cell"
+              >
+                Rate
+              </th>
+              <th scope="col" className="py-3.5 pl-3 pr-4 text-right text-sm font-semibold text-gray-900 sm:pr-0">
+                Price
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {revenues.map((project) => (
+              <tr key={project.id} className="border-b border-gray-200">
+                <td className="max-w-0 py-5 pl-4 pr-3 text-sm sm:pl-0">
+                  <div className="font-medium text-gray-900">{project.name}</div>
+                  <div className="mt-1 truncate text-gray-500">{project.desc}</div>
+                </td>
+                <td className="hidden px-3 py-5 text-right text-sm text-gray-500 sm:table-cell">{project.hours}</td>
+                <td className="hidden px-3 py-5 text-right text-sm text-gray-500 sm:table-cell">${project.rate}</td>
+                <td className="py-5 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-0">${project.hours * project.rate}</td>
+              </tr>
+            ))}
+          </tbody>
+          <tfoot>
+            <tr>
+              <th
+                scope="row"
+                colSpan={3}
+                className="hidden sm:table-cell pl-4 pr-3 pt-6 text-right text-sm font-normal text-gray-500 sm:pl-0"
+              >
+                Subtotal
+              </th>
+              <th scope="row" className="pl-4 pr-3 pt-6 text-left text-sm font-normal text-gray-500 sm:hidden">
+                Subtotal
+              </th>
+              <td className="pl-3 pr-4 pt-6 text-right text-sm text-gray-500 sm:pr-0">${subtotal}</td>
+            </tr>
+            <tr>
+              <th
+                scope="row"
+                colSpan={3}
+                className="hidden pl-4 pr-3 pt-4 text-right text-sm font-normal text-gray-500 sm:table-cell sm:pl-0"
+              >
+                Tax
+              </th>
+              <th scope="row" className="pl-4 pr-3 pt-4 text-left text-sm font-normal text-gray-500 sm:hidden">
+                Tax
+              </th>
+              <td className="pl-3 pr-4 pt-4 text-right text-sm text-gray-500 sm:pr-0">$1760.00</td>
+            </tr>
+            <tr>
+              <th
+                scope="row"
+                colSpan={3}
+                className="hidden pl-4 pr-3 pt-4 text-right text-sm font-semibold text-gray-900 sm:table-cell sm:pl-0"
+              >
+                Total
+              </th>
+              <th scope="row" className="pl-4 pr-3 pt-4 text-left text-sm font-semibold text-gray-900 sm:hidden">
+                Total
+              </th>
+              <td className="pl-3 pr-4 pt-4 text-right text-sm font-semibold text-gray-900 sm:pr-0">${subtotal - 1760}</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  )
+}
+1e:T4c9,import { RefObject } from 'react'
+import Dialog, { DialogRef } from 'components/ui/dialog'
+import Input from 'components/ui/Input'
+import { uuid } from '@/utils'
+
+export default function Modal(props: {
+  ref: RefObject<DialogRef>,
+  onChange: (item: any) => any
+}) {
+  const { ref, onChange } = props
+
+  function action(f: FormData) {
+    const item = {
+      id: uuid(),
+      name: f.get('name'),
+      desc: f.get('desc'),
+      hours: f.get('hours'),
+      rate: f.get('rate'),
+      price: f.get('price'),
+    }
+    ref.current.close()
+    onChange && onChange(item)
+  }
+
+  return (
+    <Dialog title='Editor' ref={ref} footer>
+      <form action={action}>
+        <Input label='Name' name='name' placeholder='Plase input your project name.' required />
+        <Input label='Desc' name='desc' placeholder='please input your project description.' required />
+        <Input label='Hours' name='hours' type='number' placeholder='please input hours.' required />
+        <Input label='Rate' name='rate' type='number' placeholder='please input rate.' required />
+
+        <div className='flex justify-end'>
+          <button className='button' type='submit'>Submit</button>
+        </div>
+      </form>
+    </Dialog>
+  )
+}
+1f:T4c9,import { RefObject } from 'react'
+import Dialog, { DialogRef } from 'components/ui/dialog'
+import Input from 'components/ui/Input'
+import { uuid } from '@/utils'
+
+export default function Modal(props: {
+  ref: RefObject<DialogRef>,
+  onChange: (item: any) => any
+}) {
+  const { ref, onChange } = props
+
+  function action(f: FormData) {
+    const item = {
+      id: uuid(),
+      name: f.get('name'),
+      desc: f.get('desc'),
+      hours: f.get('hours'),
+      rate: f.get('rate'),
+      price: f.get('price'),
+    }
+    ref.current.close()
+    onChange && onChange(item)
+  }
+
+  return (
+    <Dialog title='Editor' ref={ref} footer>
+      <form action={action}>
+        <Input label='Name' name='name' placeholder='Plase input your project name.' required />
+        <Input label='Desc' name='desc' placeholder='please input your project description.' required />
+        <Input label='Hours' name='hours' type='number' placeholder='please input hours.' required />
+        <Input label='Rate' name='rate' type='number' placeholder='please input rate.' required />
+
+        <div className='flex justify-end'>
+          <button className='button' type='submit'>Submit</button>
+        </div>
+      </form>
+    </Dialog>
+  )
+}
+f:["$","div",null,{"className":"code-tabs border rounded border-gray-200 overflow-hidden my-5","children":["$","$L17",null,{"children":[["$","$L18",null,{"tabs":[{"meta":"index.tsx -c","value":"$1a","lang":"jsx"},{"meta":"modal.tsx -c","value":"$1b","lang":"jsx"}]}],["$","$L19",null,{"highlighteds":[{"meta":"index.tsx -c","value":"$1c","lang":"jsx","code":"$1d","tokens":[["import","var(--ch-7)"]," ",["{ useState, useRef }","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'react'","var(--ch-8)"],"\n",["import","var(--ch-7)"]," ",["Modal","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'./modal'","var(--ch-8)"],"\n",["import","var(--ch-7)"]," ",["{ uuid }","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'@/utils'","var(--ch-8)"],"\n\n",["const","var(--ch-7)"]," ",["def","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["{","var(--ch-4)"],"\n  ",["id:","var(--ch-4)"]," ",["uuid","var(--ch-5)"],["(),","var(--ch-4)"],"\n  ",["name:","var(--ch-4)"]," ",["'Logo redesign'","var(--ch-8)"],[",","var(--ch-4)"],"\n  ",["desc:","var(--ch-4)"]," ",["'New logo and digital asset playbook.'","var(--ch-8)"],[",","var(--ch-4)"],"\n  ",["hours:","var(--ch-4)"]," ",["20.0","var(--ch-2)"],[",","var(--ch-4)"],"\n  ",["rate:","var(--ch-4)"]," ",["100.00","var(--ch-2)"],[",","var(--ch-4)"],"\n",["}","var(--ch-4)"],"\n\n",["export default function","var(--ch-7)"]," ",["Table","var(--ch-5)"],["()","var(--ch-3)"]," ",["{","var(--ch-4)"],"\n  ",["const","var(--ch-7)"]," ",["modal","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["useRef","var(--ch-5)"],["<","var(--ch-4)"],["any","var(--ch-2)"],[">(","var(--ch-4)"],["null","var(--ch-2)"],[")","var(--ch-4)"],"\n\n  ",["const","var(--ch-7)"]," ",["[","var(--ch-4)"],["revenues","var(--ch-2)"],[",","var(--ch-4)"]," ",["setRevenues","var(--ch-2)"],["]","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["useState","var(--ch-5)"],["([def])","var(--ch-4)"],"\n\n  ",["function","var(--ch-7)"]," ",["__onChange","var(--ch-5)"],["(","var(--ch-4)"],["data","var(--ch-3)"],[": typeof","var(--ch-7)"]," ",["def) {","var(--ch-4)"],"\n    ",["setRevenues","var(--ch-5)"],["([","var(--ch-4)"],["...","var(--ch-7)"],["revenues, data])","var(--ch-4)"],"\n  ",["}","var(--ch-4)"],"\n\n  ",["const","var(--ch-7)"]," ",["subtotal","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["revenues.","var(--ch-4)"],["reduce","var(--ch-5)"],["((","var(--ch-4)"],["pre","var(--ch-3)"],[",","var(--ch-4)"]," ",["cur","var(--ch-3)"],[")","var(--ch-4)"]," ",["=>","var(--ch-7)"]," ",["{","var(--ch-4)"],"\n    ",["return","var(--ch-7)"]," ",["pre","var(--ch-4)"]," ",["+","var(--ch-7)"]," ",["cur.hours","var(--ch-4)"]," ",["*","var(--ch-7)"]," ",["cur.rate","var(--ch-4)"],"\n  ",["},","var(--ch-4)"]," ",["0","var(--ch-2)"],[")","var(--ch-4)"],"\n\n  ",["return","var(--ch-7)"]," ",["(","var(--ch-4)"],"\n    ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"px-4 sm:px-6 lg:px-8\"","var(--ch-8)"],[">","var(--ch-4)"],"\n      ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"sm:flex sm:items-center\"","var(--ch-8)"],[">","var(--ch-4)"],"\n        ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"sm:flex-auto\"","var(--ch-8)"],[">","var(--ch-4)"],"\n          ",["<","var(--ch-4)"],["h1","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"text-base font-semibold leading-6 text-gray-900\"","var(--ch-8)"],[">Invoice</","var(--ch-4)"],["h1","var(--ch-6)"],[">","var(--ch-4)"],"\n          ",["<","var(--ch-4)"],["p","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"mt-2 text-sm text-gray-700\"","var(--ch-8)"],[">","var(--ch-4)"],"\n            ",["For work completed from <","var(--ch-4)"],["time","var(--ch-6)"]," ",["dateTime","var(--ch-2)"],["=","var(--ch-7)"],["\"2022-08-01\"","var(--ch-8)"],[">August 1, 2022</","var(--ch-4)"],["time","var(--ch-6)"],["> to","var(--ch-4)"],["{","var(--ch-7)"],["' '","var(--ch-8)"],["}","var(--ch-7)"],"\n            ",["<","var(--ch-4)"],["time","var(--ch-6)"]," ",["dateTime","var(--ch-2)"],["=","var(--ch-7)"],["\"2022-08-31\"","var(--ch-8)"],[">August 31, 2022</","var(--ch-4)"],["time","var(--ch-6)"],[">.","var(--ch-4)"],"\n          ",["</","var(--ch-4)"],["p","var(--ch-6)"],[">","var(--ch-4)"],"\n        ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n        ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"mt-4 sm:ml-16 sm:mt-0 sm:flex-none\"","var(--ch-8)"],[">","var(--ch-4)"],"\n          ",["<","var(--ch-4)"],["button","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["'button primary'","var(--ch-8)"]," ",["onClick","var(--ch-2)"],["={","var(--ch-7)"],["()","var(--ch-4)"]," ",["=>","var(--ch-7)"]," ",["modal.current.","var(--ch-4)"],["show","var(--ch-5)"],["()","var(--ch-4)"],["}","var(--ch-7)"],[">Add</","var(--ch-4)"],["button","var(--ch-6)"],[">","var(--ch-4)"],"\n        ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n      ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n      ",["<","var(--ch-4)"],["Modal","var(--ch-6)"]," ",["ref","var(--ch-2)"],["={","var(--ch-7)"],["modal","var(--ch-4)"],["}","var(--ch-7)"]," ",["onChange","var(--ch-2)"],["={","var(--ch-7)"],["__onChange","var(--ch-4)"],["}","var(--ch-7)"]," ",["/>","var(--ch-4)"],"\n\n      ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"-mx-4 mt-8 flow-root sm:mx-0\"","var(--ch-8)"],[">","var(--ch-4)"],"\n        ",["<","var(--ch-4)"],["table","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"min-w-full\"","var(--ch-8)"],[">","var(--ch-4)"],"\n          ",["<","var(--ch-4)"],["colgroup","var(--ch-6)"],[">","var(--ch-4)"],"\n            ",["<","var(--ch-4)"],["col","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"w-full sm:w-1/2\"","var(--ch-8)"]," ",["/>","var(--ch-4)"],"\n            ",["<","var(--ch-4)"],["col","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"sm:w-1/6\"","var(--ch-8)"]," ",["/>","var(--ch-4)"],"\n            ",["<","var(--ch-4)"],["col","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"sm:w-1/6\"","var(--ch-8)"]," ",["/>","var(--ch-4)"],"\n            ",["<","var(--ch-4)"],["col","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"sm:w-1/6\"","var(--ch-8)"]," ",["/>","var(--ch-4)"],"\n          ",["</","var(--ch-4)"],["colgroup","var(--ch-6)"],[">","var(--ch-4)"],"\n          ",["<","var(--ch-4)"],["thead","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"border-b border-gray-300 text-gray-900\"","var(--ch-8)"],[">","var(--ch-4)"],"\n            ",["<","var(--ch-4)"],["tr","var(--ch-6)"],[">","var(--ch-4)"],"\n              ",["<","var(--ch-4)"],["th","var(--ch-6)"]," ",["scope","var(--ch-2)"],["=","var(--ch-7)"],["\"col\"","var(--ch-8)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0\"","var(--ch-8)"],[">","var(--ch-4)"],"\n                ",["Project","var(--ch-4)"],"\n              ",["</","var(--ch-4)"],["th","var(--ch-6)"],[">","var(--ch-4)"],"\n              ",["<","var(--ch-4)"],["th","var(--ch-6)"],"\n                ",["scope","var(--ch-2)"],["=","var(--ch-7)"],["\"col\"","var(--ch-8)"],"\n                ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"hidden px-3 py-3.5 text-right text-sm font-semibold text-gray-900 sm:table-cell\"","var(--ch-8)"],"\n              ",[">","var(--ch-4)"],"\n                ",["Hours","var(--ch-4)"],"\n              ",["</","var(--ch-4)"],["th","var(--ch-6)"],[">","var(--ch-4)"],"\n              ",["<","var(--ch-4)"],["th","var(--ch-6)"],"\n                ",["scope","var(--ch-2)"],["=","var(--ch-7)"],["\"col\"","var(--ch-8)"],"\n                ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"hidden px-3 py-3.5 text-right text-sm font-semibold text-gray-900 sm:table-cell\"","var(--ch-8)"],"\n              ",[">","var(--ch-4)"],"\n                ",["Rate","var(--ch-4)"],"\n              ",["</","var(--ch-4)"],["th","var(--ch-6)"],[">","var(--ch-4)"],"\n              ",["<","var(--ch-4)"],["th","var(--ch-6)"]," ",["scope","var(--ch-2)"],["=","var(--ch-7)"],["\"col\"","var(--ch-8)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"py-3.5 pl-3 pr-4 text-right text-sm font-semibold text-gray-900 sm:pr-0\"","var(--ch-8)"],[">","var(--ch-4)"],"\n                ",["Price","var(--ch-4)"],"\n              ",["</","var(--ch-4)"],["th","var(--ch-6)"],[">","var(--ch-4)"],"\n            ",["</","var(--ch-4)"],["tr","var(--ch-6)"],[">","var(--ch-4)"],"\n          ",["</","var(--ch-4)"],["thead","var(--ch-6)"],[">","var(--ch-4)"],"\n          ",["<","var(--ch-4)"],["tbody","var(--ch-6)"],[">","var(--ch-4)"],"\n            ",["{","var(--ch-7)"],["revenues.","var(--ch-4)"],["map","var(--ch-5)"],["((","var(--ch-4)"],["project","var(--ch-3)"],[")","var(--ch-4)"]," ",["=>","var(--ch-7)"]," ",["(","var(--ch-4)"],"\n              ",["<","var(--ch-4)"],["tr","var(--ch-6)"]," ",["key","var(--ch-2)"],["={","var(--ch-7)"],["project.id","var(--ch-4)"],["}","var(--ch-7)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"border-b border-gray-200\"","var(--ch-8)"],[">","var(--ch-4)"],"\n                ",["<","var(--ch-4)"],["td","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"max-w-0 py-5 pl-4 pr-3 text-sm sm:pl-0\"","var(--ch-8)"],[">","var(--ch-4)"],"\n                  ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"font-medium text-gray-900\"","var(--ch-8)"],[">","var(--ch-4)"],["{","var(--ch-7)"],["project.name","var(--ch-4)"],["}","var(--ch-7)"],["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n                  ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"mt-1 truncate text-gray-500\"","var(--ch-8)"],[">","var(--ch-4)"],["{","var(--ch-7)"],["project.desc","var(--ch-4)"],["}","var(--ch-7)"],["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n                ",["</","var(--ch-4)"],["td","var(--ch-6)"],[">","var(--ch-4)"],"\n                ",["<","var(--ch-4)"],["td","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"hidden px-3 py-5 text-right text-sm text-gray-500 sm:table-cell\"","var(--ch-8)"],[">","var(--ch-4)"],["{","var(--ch-7)"],["project.hours","var(--ch-4)"],["}","var(--ch-7)"],["</","var(--ch-4)"],["td","var(--ch-6)"],[">","var(--ch-4)"],"\n                ",["<","var(--ch-4)"],["td","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"hidden px-3 py-5 text-right text-sm text-gray-500 sm:table-cell\"","var(--ch-8)"],[">$","var(--ch-4)"],["{","var(--ch-7)"],["project.rate","var(--ch-4)"],["}","var(--ch-7)"],["</","var(--ch-4)"],["td","var(--ch-6)"],[">","var(--ch-4)"],"\n                ",["<","var(--ch-4)"],["td","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"py-5 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-0\"","var(--ch-8)"],[">$","var(--ch-4)"],["{","var(--ch-7)"],["project.hours","var(--ch-4)"]," ",["*","var(--ch-7)"]," ",["project.rate","var(--ch-4)"],["}","var(--ch-7)"],["</","var(--ch-4)"],["td","var(--ch-6)"],[">","var(--ch-4)"],"\n              ",["</","var(--ch-4)"],["tr","var(--ch-6)"],[">","var(--ch-4)"],"\n            ",["))","var(--ch-4)"],["}","var(--ch-7)"],"\n          ",["</","var(--ch-4)"],["tbody","var(--ch-6)"],[">","var(--ch-4)"],"\n          ",["<","var(--ch-4)"],["tfoot","var(--ch-6)"],[">","var(--ch-4)"],"\n            ",["<","var(--ch-4)"],["tr","var(--ch-6)"],[">","var(--ch-4)"],"\n              ",["<","var(--ch-4)"],["th","var(--ch-6)"],"\n                ",["scope","var(--ch-2)"],["=","var(--ch-7)"],["\"row\"","var(--ch-8)"],"\n                ",["colSpan","var(--ch-2)"],["={","var(--ch-7)"],["3","var(--ch-2)"],["}","var(--ch-7)"],"\n                ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"hidden sm:table-cell pl-4 pr-3 pt-6 text-right text-sm font-normal text-gray-500 sm:pl-0\"","var(--ch-8)"],"\n              ",[">","var(--ch-4)"],"\n                ",["Subtotal","var(--ch-4)"],"\n              ",["</","var(--ch-4)"],["th","var(--ch-6)"],[">","var(--ch-4)"],"\n              ",["<","var(--ch-4)"],["th","var(--ch-6)"]," ",["scope","var(--ch-2)"],["=","var(--ch-7)"],["\"row\"","var(--ch-8)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"pl-4 pr-3 pt-6 text-left text-sm font-normal text-gray-500 sm:hidden\"","var(--ch-8)"],[">","var(--ch-4)"],"\n                ",["Subtotal","var(--ch-4)"],"\n              ",["</","var(--ch-4)"],["th","var(--ch-6)"],[">","var(--ch-4)"],"\n              ",["<","var(--ch-4)"],["td","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"pl-3 pr-4 pt-6 text-right text-sm text-gray-500 sm:pr-0\"","var(--ch-8)"],[">$","var(--ch-4)"],["{","var(--ch-7)"],["subtotal","var(--ch-4)"],["}","var(--ch-7)"],["</","var(--ch-4)"],["td","var(--ch-6)"],[">","var(--ch-4)"],"\n            ",["</","var(--ch-4)"],["tr","var(--ch-6)"],[">","var(--ch-4)"],"\n            ",["<","var(--ch-4)"],["tr","var(--ch-6)"],[">","var(--ch-4)"],"\n              ",["<","var(--ch-4)"],["th","var(--ch-6)"],"\n                ",["scope","var(--ch-2)"],["=","var(--ch-7)"],["\"row\"","var(--ch-8)"],"\n                ",["colSpan","var(--ch-2)"],["={","var(--ch-7)"],["3","var(--ch-2)"],["}","var(--ch-7)"],"\n                ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"hidden pl-4 pr-3 pt-4 text-right text-sm font-normal text-gray-500 sm:table-cell sm:pl-0\"","var(--ch-8)"],"\n              ",[">","var(--ch-4)"],"\n                ",["Tax","var(--ch-4)"],"\n              ",["</","var(--ch-4)"],["th","var(--ch-6)"],[">","var(--ch-4)"],"\n              ",["<","var(--ch-4)"],["th","var(--ch-6)"]," ",["scope","var(--ch-2)"],["=","var(--ch-7)"],["\"row\"","var(--ch-8)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"pl-4 pr-3 pt-4 text-left text-sm font-normal text-gray-500 sm:hidden\"","var(--ch-8)"],[">","var(--ch-4)"],"\n                ",["Tax","var(--ch-4)"],"\n              ",["</","var(--ch-4)"],["th","var(--ch-6)"],[">","var(--ch-4)"],"\n              ",["<","var(--ch-4)"],["td","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"pl-3 pr-4 pt-4 text-right text-sm text-gray-500 sm:pr-0\"","var(--ch-8)"],[">$1760.00</","var(--ch-4)"],["td","var(--ch-6)"],[">","var(--ch-4)"],"\n            ",["</","var(--ch-4)"],["tr","var(--ch-6)"],[">","var(--ch-4)"],"\n            ",["<","var(--ch-4)"],["tr","var(--ch-6)"],[">","var(--ch-4)"],"\n              ",["<","var(--ch-4)"],["th","var(--ch-6)"],"\n                ",["scope","var(--ch-2)"],["=","var(--ch-7)"],["\"row\"","var(--ch-8)"],"\n                ",["colSpan","var(--ch-2)"],["={","var(--ch-7)"],["3","var(--ch-2)"],["}","var(--ch-7)"],"\n                ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"hidden pl-4 pr-3 pt-4 text-right text-sm font-semibold text-gray-900 sm:table-cell sm:pl-0\"","var(--ch-8)"],"\n              ",[">","var(--ch-4)"],"\n                ",["Total","var(--ch-4)"],"\n              ",["</","var(--ch-4)"],["th","var(--ch-6)"],[">","var(--ch-4)"],"\n              ",["<","var(--ch-4)"],["th","var(--ch-6)"]," ",["scope","var(--ch-2)"],["=","var(--ch-7)"],["\"row\"","var(--ch-8)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"pl-4 pr-3 pt-4 text-left text-sm font-semibold text-gray-900 sm:hidden\"","var(--ch-8)"],[">","var(--ch-4)"],"\n                ",["Total","var(--ch-4)"],"\n              ",["</","var(--ch-4)"],["th","var(--ch-6)"],[">","var(--ch-4)"],"\n              ",["<","var(--ch-4)"],["td","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"pl-3 pr-4 pt-4 text-right text-sm font-semibold text-gray-900 sm:pr-0\"","var(--ch-8)"],[">$","var(--ch-4)"],["{","var(--ch-7)"],["subtotal","var(--ch-4)"]," ",["-","var(--ch-7)"]," ",["1760","var(--ch-2)"],["}","var(--ch-7)"],["</","var(--ch-4)"],["td","var(--ch-6)"],[">","var(--ch-4)"],"\n            ",["</","var(--ch-4)"],["tr","var(--ch-6)"],[">","var(--ch-4)"],"\n          ",["</","var(--ch-4)"],["tfoot","var(--ch-6)"],[">","var(--ch-4)"],"\n        ",["</","var(--ch-4)"],["table","var(--ch-6)"],[">","var(--ch-4)"],"\n      ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n    ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n  ",[")","var(--ch-4)"],"\n",["}","var(--ch-4)"],"\n"],"annotations":[],"themeName":"github-from-css","style":{"color":"var(--ch-4)","background":"var(--ch-16)","colorScheme":"var(--ch-0)"}},{"meta":"modal.tsx -c","value":"$1e","lang":"jsx","code":"$1f","tokens":[["import","var(--ch-7)"]," ",["{ RefObject }","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'react'","var(--ch-8)"],"\n",["import","var(--ch-7)"]," ",["Dialog, { DialogRef }","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'components/ui/dialog'","var(--ch-8)"],"\n",["import","var(--ch-7)"]," ",["Input","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'components/ui/Input'","var(--ch-8)"],"\n",["import","var(--ch-7)"]," ",["{ uuid }","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'@/utils'","var(--ch-8)"],"\n\n",["export default function","var(--ch-7)"]," ",["Modal","var(--ch-5)"],["(props","var(--ch-3)"],[":","var(--ch-7)"]," ",["{","var(--ch-3)"],"\n  ",["ref","var(--ch-3)"],[":","var(--ch-7)"]," ",["RefObject<DialogRef>,","var(--ch-3)"],"\n  ",["onChange","var(--ch-5)"],[":","var(--ch-7)"]," ",["(item","var(--ch-3)"],[":","var(--ch-7)"]," ",["any","var(--ch-2)"],[")","var(--ch-3)"]," ",["=>","var(--ch-7)"]," ",["any","var(--ch-2)"],"\n",["})","var(--ch-3)"]," ",["{","var(--ch-4)"],"\n  ",["const","var(--ch-7)"]," ",["{","var(--ch-4)"]," ",["ref","var(--ch-2)"],[",","var(--ch-4)"]," ",["onChange","var(--ch-2)"]," ",["}","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["props","var(--ch-4)"],"\n\n  ",["function","var(--ch-7)"]," ",["action","var(--ch-5)"],["(","var(--ch-4)"],["f","var(--ch-3)"],[":","var(--ch-7)"]," ",["FormData","var(--ch-3)"],[") {","var(--ch-4)"],"\n    ",["const","var(--ch-7)"]," ",["item","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["{","var(--ch-4)"],"\n      ",["id:","var(--ch-4)"]," ",["uuid","var(--ch-5)"],["(),","var(--ch-4)"],"\n      ",["name: f.","var(--ch-4)"],["get","var(--ch-5)"],["(","var(--ch-4)"],["'name'","var(--ch-8)"],["),","var(--ch-4)"],"\n      ",["desc: f.","var(--ch-4)"],["get","var(--ch-5)"],["(","var(--ch-4)"],["'desc'","var(--ch-8)"],["),","var(--ch-4)"],"\n      ",["hours: f.","var(--ch-4)"],["get","var(--ch-5)"],["(","var(--ch-4)"],["'hours'","var(--ch-8)"],["),","var(--ch-4)"],"\n      ",["rate: f.","var(--ch-4)"],["get","var(--ch-5)"],["(","var(--ch-4)"],["'rate'","var(--ch-8)"],["),","var(--ch-4)"],"\n      ",["price: f.","var(--ch-4)"],["get","var(--ch-5)"],["(","var(--ch-4)"],["'price'","var(--ch-8)"],["),","var(--ch-4)"],"\n    ",["}","var(--ch-4)"],"\n    ",["ref.current.","var(--ch-4)"],["close","var(--ch-5)"],["()","var(--ch-4)"],"\n    ",["onChange","var(--ch-4)"]," ",["&&","var(--ch-7)"]," ",["onChange","var(--ch-5)"],["(item)","var(--ch-4)"],"\n  ",["}","var(--ch-4)"],"\n\n  ",["return","var(--ch-7)"]," ",["(","var(--ch-4)"],"\n    ",["<","var(--ch-4)"],["Dialog","var(--ch-6)"]," ",["title","var(--ch-2)"],["=","var(--ch-7)"],["'Editor'","var(--ch-8)"]," ",["ref","var(--ch-2)"],["={","var(--ch-7)"],["ref","var(--ch-4)"],["}","var(--ch-7)"]," ",["footer","var(--ch-2)"],[">","var(--ch-4)"],"\n      ",["<","var(--ch-4)"],["form","var(--ch-6)"]," ",["action","var(--ch-2)"],["={","var(--ch-7)"],["action","var(--ch-4)"],["}","var(--ch-7)"],[">","var(--ch-4)"],"\n        ",["<","var(--ch-4)"],["Input","var(--ch-6)"]," ",["label","var(--ch-2)"],["=","var(--ch-7)"],["'Name'","var(--ch-8)"]," ",["name","var(--ch-2)"],["=","var(--ch-7)"],["'name'","var(--ch-8)"]," ",["placeholder","var(--ch-2)"],["=","var(--ch-7)"],["'Plase input your project name.'","var(--ch-8)"]," ",["required","var(--ch-2)"]," ",["/>","var(--ch-4)"],"\n        ",["<","var(--ch-4)"],["Input","var(--ch-6)"]," ",["label","var(--ch-2)"],["=","var(--ch-7)"],["'Desc'","var(--ch-8)"]," ",["name","var(--ch-2)"],["=","var(--ch-7)"],["'desc'","var(--ch-8)"]," ",["placeholder","var(--ch-2)"],["=","var(--ch-7)"],["'please input your project description.'","var(--ch-8)"]," ",["required","var(--ch-2)"]," ",["/>","var(--ch-4)"],"\n        ",["<","var(--ch-4)"],["Input","var(--ch-6)"]," ",["label","var(--ch-2)"],["=","var(--ch-7)"],["'Hours'","var(--ch-8)"]," ",["name","var(--ch-2)"],["=","var(--ch-7)"],["'hours'","var(--ch-8)"]," ",["type","var(--ch-2)"],["=","var(--ch-7)"],["'number'","var(--ch-8)"]," ",["placeholder","var(--ch-2)"],["=","var(--ch-7)"],["'please input hours.'","var(--ch-8)"]," ",["required","var(--ch-2)"]," ",["/>","var(--ch-4)"],"\n        ",["<","var(--ch-4)"],["Input","var(--ch-6)"]," ",["label","var(--ch-2)"],["=","var(--ch-7)"],["'Rate'","var(--ch-8)"]," ",["name","var(--ch-2)"],["=","var(--ch-7)"],["'rate'","var(--ch-8)"]," ",["type","var(--ch-2)"],["=","var(--ch-7)"],["'number'","var(--ch-8)"]," ",["placeholder","var(--ch-2)"],["=","var(--ch-7)"],["'please input rate.'","var(--ch-8)"]," ",["required","var(--ch-2)"]," ",["/>","var(--ch-4)"],"\n\n        ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["'flex justify-end'","var(--ch-8)"],[">","var(--ch-4)"],"\n          ",["<","var(--ch-4)"],["button","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["'button'","var(--ch-8)"]," ",["type","var(--ch-2)"],["=","var(--ch-7)"],["'submit'","var(--ch-8)"],[">Submit</","var(--ch-4)"],["button","var(--ch-6)"],[">","var(--ch-4)"],"\n        ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n      ",["</","var(--ch-4)"],["form","var(--ch-6)"],[">","var(--ch-4)"],"\n    ",["</","var(--ch-4)"],["Dialog","var(--ch-6)"],[">","var(--ch-4)"],"\n  ",[")","var(--ch-4)"],"\n",["}","var(--ch-4)"],"\n"],"annotations":[],"themeName":"github-from-css","style":{"color":"var(--ch-4)","background":"var(--ch-16)","colorScheme":"var(--ch-0)"}}]}]]}]}]
 15:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
 13:[["$","meta","0",{"charSet":"utf-8"}],["$","title","1",{"children":"usehook - 前端顶级精英俱乐部"}],["$","meta","2",{"name":"description","content":"最好的前端学习网站, react, react19, react hooks, zustand"}],["$","meta","3",{"name":"author","content":"这波能反杀"}],["$","meta","4",{"name":"keywords","content":"react, react19, react hooks, zustand"}],["$","link","5",{"rel":"icon","href":"/favicon.ico","type":"image/x-icon","sizes":"16x16"}]]
 11:null
-17:I[34034,["7525","static/chunks/7525-411280bffc37a107.js","4320","static/chunks/4320-eb0b4108191194bc.js","5926","static/chunks/5926-2f921190ce1e6581.js","2794","static/chunks/2794-e7741df2722cee1f.js","287","static/chunks/287-f0d30836025bc816.js","1196","static/chunks/app/r19base/(5.formaction)/31.action/page-bbde2b5195bf6c6d.js"],"default"]
-18:I[65470,["7525","static/chunks/7525-411280bffc37a107.js","4320","static/chunks/4320-eb0b4108191194bc.js","5926","static/chunks/5926-2f921190ce1e6581.js","2794","static/chunks/2794-e7741df2722cee1f.js","287","static/chunks/287-f0d30836025bc816.js","1196","static/chunks/app/r19base/(5.formaction)/31.action/page-bbde2b5195bf6c6d.js"],"CodeTabHeader"]
-19:I[65703,["7525","static/chunks/7525-411280bffc37a107.js","4320","static/chunks/4320-eb0b4108191194bc.js","5926","static/chunks/5926-2f921190ce1e6581.js","2794","static/chunks/2794-e7741df2722cee1f.js","287","static/chunks/287-f0d30836025bc816.js","1196","static/chunks/app/r19base/(5.formaction)/31.action/page-bbde2b5195bf6c6d.js"],"CodeTabsInner"]
-c:["$","div",null,{"className":"code-wrapper border my-4 border-gray-200 rounded overflow-hidden","children":[null,["$","div",null,{"className":"code-base javascript","children":[false,["$","pre",null,{"data-theme":"github-from-css","data-lang":"javascript","ref":"$undefined","data-ch":true,"children":["$","div",null,{"style":{"minWidth":"fit-content"},"children":[["$","div","1,1",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[1,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":[["$","span","0",{"style":{"color":"var(--ch-4)"},"children":"<"}],["$","span","1",{"style":{"color":"var(--ch-6)"},"children":"form"}],["$","span","2",{"style":{"color":"var(--ch-4)"},"children":">"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","2,2",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[2,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":["  ",["$","span","1",{"style":{"color":"var(--ch-4)"},"children":"..."}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","3,3",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[3,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":["  ",["$","span","1",{"style":{"color":"var(--ch-4)"},"children":"<"}],["$","span","2",{"style":{"color":"var(--ch-6)"},"children":"button"}]," ",["$","span","4",{"style":{"color":"var(--ch-2)"},"children":"formAction"}],["$","span","5",{"style":{"color":"var(--ch-7)"},"children":"={"}],["$","span","6",{"style":{"color":"var(--ch-4)"},"children":"__formAction"}],["$","span","7",{"style":{"color":"var(--ch-7)"},"children":"}"}]," ",["$","span","9",{"style":{"color":"var(--ch-2)"},"children":"type"}],["$","span","10",{"style":{"color":"var(--ch-7)"},"children":"="}],["$","span","11",{"style":{"color":"var(--ch-8)"},"children":"'submit'"}],["$","span","12",{"style":{"color":"var(--ch-4)"},"children":">提交</"}],["$","span","13",{"style":{"color":"var(--ch-6)"},"children":"button"}],["$","span","14",{"style":{"color":"var(--ch-4)"},"children":">"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","4,4",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[4,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":[["$","span","0",{"style":{"color":"var(--ch-4)"},"children":"</"}],["$","span","1",{"style":{"color":"var(--ch-6)"},"children":"form"}],["$","span","2",{"style":{"color":"var(--ch-4)"},"children":">"}]],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}]]}]}]]}]]}]
-d:["$","div",null,{"className":"code-wrapper border my-4 border-gray-200 rounded overflow-hidden","children":[null,["$","div",null,{"className":"code-base javascript","children":[false,["$","pre",null,{"data-theme":"github-from-css","data-lang":"javascript","ref":"$undefined","data-ch":true,"children":["$","div",null,{"style":{"minWidth":"fit-content"},"children":[["$","div","1,1",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[1,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":[["$","span","0",{"style":{"color":"var(--ch-7)"},"children":"function"}]," ",["$","span","2",{"style":{"color":"var(--ch-5)"},"children":"__onSubmit"}],["$","span","3",{"style":{"color":"var(--ch-4)"},"children":"("}],["$","span","4",{"style":{"color":"var(--ch-3)"},"children":"e"}],["$","span","5",{"style":{"color":"var(--ch-4)"},"children":") {"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","2,2",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[2,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":["  ",["$","span","1",{"style":{"color":"var(--ch-4)"},"children":"e."}],["$","span","2",{"style":{"color":"var(--ch-5)"},"children":"preventDefault"}],["$","span","3",{"style":{"color":"var(--ch-4)"},"children":"()"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","3,3",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[3,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":["  ",["$","span","1",{"style":{"color":"var(--ch-7)"},"children":"..."}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","4,4",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[4,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":[["$","span","0",{"style":{"color":"var(--ch-4)"},"children":"}"}]],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}]]}]}]]}]]}]
-b:["$","div",null,{"className":"code-tabs border rounded border-gray-200 overflow-hidden my-5","children":["$","$L17",null,{"children":[["$","$L18",null,{"tabs":[{"meta":"index.tsx -c","value":"export default function Demo01() {\n  function __formAction(formData: FormData) {\n    const fname = formData.get('fname')\n    const lname = formData.get('lname')\n    alert(`输入内容：FirstName: ${fname}, LastName: ${lname}`)\n  }\n  return (\n    <form action={__formAction} className='space-y-3'>\n      <div className='flex items-center'>\n        <label className='w-[100px]'>First name: </label>\n        <input type=\"text\" defaultValue=\"Jake\" name=\"fname\" />\n      </div>\n      <div className='flex items-center'>\n        <label className='w-[100px]'>Last name: </label>\n        <input type=\"text\" defaultValue=\"Ma\" name=\"lname\" />\n      </div>\n      <div className='flex justify-end'>\n        <button type='submit'>提交</button>\n      </div>\n    </form>\n  )\n}\n","lang":"jsx"}]}],["$","$L19",null,{"highlighteds":[{"meta":"index.tsx -c","value":"export default function Demo01() {\n  function __formAction(formData: FormData) {\n    const fname = formData.get('fname')\n    const lname = formData.get('lname')\n    alert(`输入内容：FirstName: ${fname}, LastName: ${lname}`)\n  }\n  return (\n    <form action={__formAction} className='space-y-3'>\n      <div className='flex items-center'>\n        <label className='w-[100px]'>First name: </label>\n        <input type=\"text\" defaultValue=\"Jake\" name=\"fname\" />\n      </div>\n      <div className='flex items-center'>\n        <label className='w-[100px]'>Last name: </label>\n        <input type=\"text\" defaultValue=\"Ma\" name=\"lname\" />\n      </div>\n      <div className='flex justify-end'>\n        <button type='submit'>提交</button>\n      </div>\n    </form>\n  )\n}\n","lang":"jsx","code":"export default function Demo01() {\n  function __formAction(formData: FormData) {\n    const fname = formData.get('fname')\n    const lname = formData.get('lname')\n    alert(`输入内容：FirstName: ${fname}, LastName: ${lname}`)\n  }\n  return (\n    <form action={__formAction} className='space-y-3'>\n      <div className='flex items-center'>\n        <label className='w-[100px]'>First name: </label>\n        <input type=\"text\" defaultValue=\"Jake\" name=\"fname\" />\n      </div>\n      <div className='flex items-center'>\n        <label className='w-[100px]'>Last name: </label>\n        <input type=\"text\" defaultValue=\"Ma\" name=\"lname\" />\n      </div>\n      <div className='flex justify-end'>\n        <button type='submit'>提交</button>\n      </div>\n    </form>\n  )\n}\n","tokens":[["export default function","var(--ch-7)"]," ",["Demo01","var(--ch-5)"],["()","var(--ch-3)"]," ",["{","var(--ch-4)"],"\n  ",["function","var(--ch-7)"]," ",["__formAction","var(--ch-5)"],["(","var(--ch-4)"],["formData","var(--ch-3)"],[":","var(--ch-7)"]," ",["FormData","var(--ch-3)"],[") {","var(--ch-4)"],"\n    ",["const","var(--ch-7)"]," ",["fname","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["formData.","var(--ch-4)"],["get","var(--ch-5)"],["(","var(--ch-4)"],["'fname'","var(--ch-8)"],[")","var(--ch-4)"],"\n    ",["const","var(--ch-7)"]," ",["lname","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["formData.","var(--ch-4)"],["get","var(--ch-5)"],["(","var(--ch-4)"],["'lname'","var(--ch-8)"],[")","var(--ch-4)"],"\n    ",["alert","var(--ch-5)"],["(","var(--ch-4)"],["`输入内容：FirstName: ${","var(--ch-8)"],["fname","var(--ch-4)"],["}, LastName: ${","var(--ch-8)"],["lname","var(--ch-4)"],["}`","var(--ch-8)"],[")","var(--ch-4)"],"\n  ",["}","var(--ch-4)"],"\n  ",["return","var(--ch-7)"]," ",["(","var(--ch-4)"],"\n    ",["<","var(--ch-4)"],["form","var(--ch-6)"]," ",["action","var(--ch-2)"],["={","var(--ch-7)"],["__formAction","var(--ch-4)"],["}","var(--ch-7)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["'space-y-3'","var(--ch-8)"],[">","var(--ch-4)"],"\n      ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["'flex items-center'","var(--ch-8)"],[">","var(--ch-4)"],"\n        ",["<","var(--ch-4)"],["label","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["'w-[100px]'","var(--ch-8)"],[">First name: </","var(--ch-4)"],["label","var(--ch-6)"],[">","var(--ch-4)"],"\n        ",["<","var(--ch-4)"],["input","var(--ch-6)"]," ",["type","var(--ch-2)"],["=","var(--ch-7)"],["\"text\"","var(--ch-8)"]," ",["defaultValue","var(--ch-2)"],["=","var(--ch-7)"],["\"Jake\"","var(--ch-8)"]," ",["name","var(--ch-2)"],["=","var(--ch-7)"],["\"fname\"","var(--ch-8)"]," ",["/>","var(--ch-4)"],"\n      ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n      ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["'flex items-center'","var(--ch-8)"],[">","var(--ch-4)"],"\n        ",["<","var(--ch-4)"],["label","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["'w-[100px]'","var(--ch-8)"],[">Last name: </","var(--ch-4)"],["label","var(--ch-6)"],[">","var(--ch-4)"],"\n        ",["<","var(--ch-4)"],["input","var(--ch-6)"]," ",["type","var(--ch-2)"],["=","var(--ch-7)"],["\"text\"","var(--ch-8)"]," ",["defaultValue","var(--ch-2)"],["=","var(--ch-7)"],["\"Ma\"","var(--ch-8)"]," ",["name","var(--ch-2)"],["=","var(--ch-7)"],["\"lname\"","var(--ch-8)"]," ",["/>","var(--ch-4)"],"\n      ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n      ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["'flex justify-end'","var(--ch-8)"],[">","var(--ch-4)"],"\n        ",["<","var(--ch-4)"],["button","var(--ch-6)"]," ",["type","var(--ch-2)"],["=","var(--ch-7)"],["'submit'","var(--ch-8)"],[">提交</","var(--ch-4)"],["button","var(--ch-6)"],[">","var(--ch-4)"],"\n      ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n    ",["</","var(--ch-4)"],["form","var(--ch-6)"],[">","var(--ch-4)"],"\n  ",[")","var(--ch-4)"],"\n",["}","var(--ch-4)"],"\n"],"annotations":[],"themeName":"github-from-css","style":{"color":"var(--ch-4)","background":"var(--ch-16)","colorScheme":"var(--ch-0)"}}]}]]}]}]
-1a:T134b,import { useState, useRef } from 'react'
-import Modal from './modal'
-import { uuid } from '@/utils'
-
-const def = {
-  id: uuid(),
-  name: 'Logo redesign',
-  desc: 'New logo and digital asset playbook.',
-  hours: 20.0,
-  rate: 100.00,
-}
-
-export default function Table() {
-  const modal = useRef<any>(null)
-
-  const [revenues, setRevenues] = useState([def])
-
-  function __onChange(data: typeof def) {
-    setRevenues([...revenues, data])
-  }
-
-  const subtotal = revenues.reduce((pre, cur) => {
-    return pre + cur.hours * cur.rate
-  }, 0)
-
-  return (
-    <div className="px-4 sm:px-6 lg:px-8">
-      <div className="sm:flex sm:items-center">
-        <div className="sm:flex-auto">
-          <h1 className="text-base font-semibold leading-6 text-gray-900">Invoice</h1>
-          <p className="mt-2 text-sm text-gray-700">
-            For work completed from <time dateTime="2022-08-01">August 1, 2022</time> to{' '}
-            <time dateTime="2022-08-31">August 31, 2022</time>.
-          </p>
-        </div>
-        <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-          <button className='primary' onClick={() => modal.current.show()}>Add</button>
-        </div>
-      </div>
-      <Modal ref={modal} onChange={__onChange} />
-
-      <div className="-mx-4 mt-8 flow-root sm:mx-0">
-        <table className="min-w-full">
-          <colgroup>
-            <col className="w-full sm:w-1/2" />
-            <col className="sm:w-1/6" />
-            <col className="sm:w-1/6" />
-            <col className="sm:w-1/6" />
-          </colgroup>
-          <thead className="border-b border-gray-300 text-gray-900">
-            <tr>
-              <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
-                Project
-              </th>
-              <th
-                scope="col"
-                className="hidden px-3 py-3.5 text-right text-sm font-semibold text-gray-900 sm:table-cell"
-              >
-                Hours
-              </th>
-              <th
-                scope="col"
-                className="hidden px-3 py-3.5 text-right text-sm font-semibold text-gray-900 sm:table-cell"
-              >
-                Rate
-              </th>
-              <th scope="col" className="py-3.5 pl-3 pr-4 text-right text-sm font-semibold text-gray-900 sm:pr-0">
-                Price
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {revenues.map((project) => (
-              <tr key={project.id} className="border-b border-gray-200">
-                <td className="max-w-0 py-5 pl-4 pr-3 text-sm sm:pl-0">
-                  <div className="font-medium text-gray-900">{project.name}</div>
-                  <div className="mt-1 truncate text-gray-500">{project.desc}</div>
-                </td>
-                <td className="hidden px-3 py-5 text-right text-sm text-gray-500 sm:table-cell">{project.hours}</td>
-                <td className="hidden px-3 py-5 text-right text-sm text-gray-500 sm:table-cell">${project.rate}</td>
-                <td className="py-5 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-0">${project.hours * project.rate}</td>
-              </tr>
-            ))}
-          </tbody>
-          <tfoot>
-            <tr>
-              <th
-                scope="row"
-                colSpan={3}
-                className="hidden sm:table-cell pl-4 pr-3 pt-6 text-right text-sm font-normal text-gray-500 sm:pl-0"
-              >
-                Subtotal
-              </th>
-              <th scope="row" className="pl-4 pr-3 pt-6 text-left text-sm font-normal text-gray-500 sm:hidden">
-                Subtotal
-              </th>
-              <td className="pl-3 pr-4 pt-6 text-right text-sm text-gray-500 sm:pr-0">${subtotal}</td>
-            </tr>
-            <tr>
-              <th
-                scope="row"
-                colSpan={3}
-                className="hidden pl-4 pr-3 pt-4 text-right text-sm font-normal text-gray-500 sm:table-cell sm:pl-0"
-              >
-                Tax
-              </th>
-              <th scope="row" className="pl-4 pr-3 pt-4 text-left text-sm font-normal text-gray-500 sm:hidden">
-                Tax
-              </th>
-              <td className="pl-3 pr-4 pt-4 text-right text-sm text-gray-500 sm:pr-0">$1760.00</td>
-            </tr>
-            <tr>
-              <th
-                scope="row"
-                colSpan={3}
-                className="hidden pl-4 pr-3 pt-4 text-right text-sm font-semibold text-gray-900 sm:table-cell sm:pl-0"
-              >
-                Total
-              </th>
-              <th scope="row" className="pl-4 pr-3 pt-4 text-left text-sm font-semibold text-gray-900 sm:hidden">
-                Total
-              </th>
-              <td className="pl-3 pr-4 pt-4 text-right text-sm font-semibold text-gray-900 sm:pr-0">${subtotal - 1760}</td>
-            </tr>
-          </tfoot>
-        </table>
-      </div>
-    </div>
-  )
-}
-1b:T4b6,import { RefObject } from 'react'
-import Dialog, { DialogRef } from 'components/ui/dialog'
-import Input from 'components/ui/Input'
-import { uuid } from '@/utils'
-
-export default function Modal(props: {
-  ref: RefObject<DialogRef>,
-  onChange: (item: any) => any
-}) {
-  const { ref, onChange } = props
-
-  function action(f: FormData) {
-    const item = {
-      id: uuid(),
-      name: f.get('name'),
-      desc: f.get('desc'),
-      hours: f.get('hours'),
-      rate: f.get('rate'),
-      price: f.get('price'),
-    }
-    ref.current.close()
-    onChange && onChange(item)
-  }
-
-  return (
-    <Dialog title='Editor' ref={ref} footer>
-      <form action={action}>
-        <Input label='Name' name='name' placeholder='Plase input your project name.' required />
-        <Input label='Desc' name='desc' placeholder='please input your project description.' required />
-        <Input label='Hours' name='hours' type='number' placeholder='please input hours.' required />
-        <Input label='Rate' name='rate' type='number' placeholder='please input rate.' required />
-
-        <div className='flex justify-end'>
-          <button type='submit'>Submit</button>
-        </div>
-      </form>
-    </Dialog>
-  )
-}
-1c:T134b,import { useState, useRef } from 'react'
-import Modal from './modal'
-import { uuid } from '@/utils'
-
-const def = {
-  id: uuid(),
-  name: 'Logo redesign',
-  desc: 'New logo and digital asset playbook.',
-  hours: 20.0,
-  rate: 100.00,
-}
-
-export default function Table() {
-  const modal = useRef<any>(null)
-
-  const [revenues, setRevenues] = useState([def])
-
-  function __onChange(data: typeof def) {
-    setRevenues([...revenues, data])
-  }
-
-  const subtotal = revenues.reduce((pre, cur) => {
-    return pre + cur.hours * cur.rate
-  }, 0)
-
-  return (
-    <div className="px-4 sm:px-6 lg:px-8">
-      <div className="sm:flex sm:items-center">
-        <div className="sm:flex-auto">
-          <h1 className="text-base font-semibold leading-6 text-gray-900">Invoice</h1>
-          <p className="mt-2 text-sm text-gray-700">
-            For work completed from <time dateTime="2022-08-01">August 1, 2022</time> to{' '}
-            <time dateTime="2022-08-31">August 31, 2022</time>.
-          </p>
-        </div>
-        <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-          <button className='primary' onClick={() => modal.current.show()}>Add</button>
-        </div>
-      </div>
-      <Modal ref={modal} onChange={__onChange} />
-
-      <div className="-mx-4 mt-8 flow-root sm:mx-0">
-        <table className="min-w-full">
-          <colgroup>
-            <col className="w-full sm:w-1/2" />
-            <col className="sm:w-1/6" />
-            <col className="sm:w-1/6" />
-            <col className="sm:w-1/6" />
-          </colgroup>
-          <thead className="border-b border-gray-300 text-gray-900">
-            <tr>
-              <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
-                Project
-              </th>
-              <th
-                scope="col"
-                className="hidden px-3 py-3.5 text-right text-sm font-semibold text-gray-900 sm:table-cell"
-              >
-                Hours
-              </th>
-              <th
-                scope="col"
-                className="hidden px-3 py-3.5 text-right text-sm font-semibold text-gray-900 sm:table-cell"
-              >
-                Rate
-              </th>
-              <th scope="col" className="py-3.5 pl-3 pr-4 text-right text-sm font-semibold text-gray-900 sm:pr-0">
-                Price
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {revenues.map((project) => (
-              <tr key={project.id} className="border-b border-gray-200">
-                <td className="max-w-0 py-5 pl-4 pr-3 text-sm sm:pl-0">
-                  <div className="font-medium text-gray-900">{project.name}</div>
-                  <div className="mt-1 truncate text-gray-500">{project.desc}</div>
-                </td>
-                <td className="hidden px-3 py-5 text-right text-sm text-gray-500 sm:table-cell">{project.hours}</td>
-                <td className="hidden px-3 py-5 text-right text-sm text-gray-500 sm:table-cell">${project.rate}</td>
-                <td className="py-5 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-0">${project.hours * project.rate}</td>
-              </tr>
-            ))}
-          </tbody>
-          <tfoot>
-            <tr>
-              <th
-                scope="row"
-                colSpan={3}
-                className="hidden sm:table-cell pl-4 pr-3 pt-6 text-right text-sm font-normal text-gray-500 sm:pl-0"
-              >
-                Subtotal
-              </th>
-              <th scope="row" className="pl-4 pr-3 pt-6 text-left text-sm font-normal text-gray-500 sm:hidden">
-                Subtotal
-              </th>
-              <td className="pl-3 pr-4 pt-6 text-right text-sm text-gray-500 sm:pr-0">${subtotal}</td>
-            </tr>
-            <tr>
-              <th
-                scope="row"
-                colSpan={3}
-                className="hidden pl-4 pr-3 pt-4 text-right text-sm font-normal text-gray-500 sm:table-cell sm:pl-0"
-              >
-                Tax
-              </th>
-              <th scope="row" className="pl-4 pr-3 pt-4 text-left text-sm font-normal text-gray-500 sm:hidden">
-                Tax
-              </th>
-              <td className="pl-3 pr-4 pt-4 text-right text-sm text-gray-500 sm:pr-0">$1760.00</td>
-            </tr>
-            <tr>
-              <th
-                scope="row"
-                colSpan={3}
-                className="hidden pl-4 pr-3 pt-4 text-right text-sm font-semibold text-gray-900 sm:table-cell sm:pl-0"
-              >
-                Total
-              </th>
-              <th scope="row" className="pl-4 pr-3 pt-4 text-left text-sm font-semibold text-gray-900 sm:hidden">
-                Total
-              </th>
-              <td className="pl-3 pr-4 pt-4 text-right text-sm font-semibold text-gray-900 sm:pr-0">${subtotal - 1760}</td>
-            </tr>
-          </tfoot>
-        </table>
-      </div>
-    </div>
-  )
-}
-1d:T134b,import { useState, useRef } from 'react'
-import Modal from './modal'
-import { uuid } from '@/utils'
-
-const def = {
-  id: uuid(),
-  name: 'Logo redesign',
-  desc: 'New logo and digital asset playbook.',
-  hours: 20.0,
-  rate: 100.00,
-}
-
-export default function Table() {
-  const modal = useRef<any>(null)
-
-  const [revenues, setRevenues] = useState([def])
-
-  function __onChange(data: typeof def) {
-    setRevenues([...revenues, data])
-  }
-
-  const subtotal = revenues.reduce((pre, cur) => {
-    return pre + cur.hours * cur.rate
-  }, 0)
-
-  return (
-    <div className="px-4 sm:px-6 lg:px-8">
-      <div className="sm:flex sm:items-center">
-        <div className="sm:flex-auto">
-          <h1 className="text-base font-semibold leading-6 text-gray-900">Invoice</h1>
-          <p className="mt-2 text-sm text-gray-700">
-            For work completed from <time dateTime="2022-08-01">August 1, 2022</time> to{' '}
-            <time dateTime="2022-08-31">August 31, 2022</time>.
-          </p>
-        </div>
-        <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-          <button className='primary' onClick={() => modal.current.show()}>Add</button>
-        </div>
-      </div>
-      <Modal ref={modal} onChange={__onChange} />
-
-      <div className="-mx-4 mt-8 flow-root sm:mx-0">
-        <table className="min-w-full">
-          <colgroup>
-            <col className="w-full sm:w-1/2" />
-            <col className="sm:w-1/6" />
-            <col className="sm:w-1/6" />
-            <col className="sm:w-1/6" />
-          </colgroup>
-          <thead className="border-b border-gray-300 text-gray-900">
-            <tr>
-              <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
-                Project
-              </th>
-              <th
-                scope="col"
-                className="hidden px-3 py-3.5 text-right text-sm font-semibold text-gray-900 sm:table-cell"
-              >
-                Hours
-              </th>
-              <th
-                scope="col"
-                className="hidden px-3 py-3.5 text-right text-sm font-semibold text-gray-900 sm:table-cell"
-              >
-                Rate
-              </th>
-              <th scope="col" className="py-3.5 pl-3 pr-4 text-right text-sm font-semibold text-gray-900 sm:pr-0">
-                Price
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {revenues.map((project) => (
-              <tr key={project.id} className="border-b border-gray-200">
-                <td className="max-w-0 py-5 pl-4 pr-3 text-sm sm:pl-0">
-                  <div className="font-medium text-gray-900">{project.name}</div>
-                  <div className="mt-1 truncate text-gray-500">{project.desc}</div>
-                </td>
-                <td className="hidden px-3 py-5 text-right text-sm text-gray-500 sm:table-cell">{project.hours}</td>
-                <td className="hidden px-3 py-5 text-right text-sm text-gray-500 sm:table-cell">${project.rate}</td>
-                <td className="py-5 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-0">${project.hours * project.rate}</td>
-              </tr>
-            ))}
-          </tbody>
-          <tfoot>
-            <tr>
-              <th
-                scope="row"
-                colSpan={3}
-                className="hidden sm:table-cell pl-4 pr-3 pt-6 text-right text-sm font-normal text-gray-500 sm:pl-0"
-              >
-                Subtotal
-              </th>
-              <th scope="row" className="pl-4 pr-3 pt-6 text-left text-sm font-normal text-gray-500 sm:hidden">
-                Subtotal
-              </th>
-              <td className="pl-3 pr-4 pt-6 text-right text-sm text-gray-500 sm:pr-0">${subtotal}</td>
-            </tr>
-            <tr>
-              <th
-                scope="row"
-                colSpan={3}
-                className="hidden pl-4 pr-3 pt-4 text-right text-sm font-normal text-gray-500 sm:table-cell sm:pl-0"
-              >
-                Tax
-              </th>
-              <th scope="row" className="pl-4 pr-3 pt-4 text-left text-sm font-normal text-gray-500 sm:hidden">
-                Tax
-              </th>
-              <td className="pl-3 pr-4 pt-4 text-right text-sm text-gray-500 sm:pr-0">$1760.00</td>
-            </tr>
-            <tr>
-              <th
-                scope="row"
-                colSpan={3}
-                className="hidden pl-4 pr-3 pt-4 text-right text-sm font-semibold text-gray-900 sm:table-cell sm:pl-0"
-              >
-                Total
-              </th>
-              <th scope="row" className="pl-4 pr-3 pt-4 text-left text-sm font-semibold text-gray-900 sm:hidden">
-                Total
-              </th>
-              <td className="pl-3 pr-4 pt-4 text-right text-sm font-semibold text-gray-900 sm:pr-0">${subtotal - 1760}</td>
-            </tr>
-          </tfoot>
-        </table>
-      </div>
-    </div>
-  )
-}
-1e:T4b6,import { RefObject } from 'react'
-import Dialog, { DialogRef } from 'components/ui/dialog'
-import Input from 'components/ui/Input'
-import { uuid } from '@/utils'
-
-export default function Modal(props: {
-  ref: RefObject<DialogRef>,
-  onChange: (item: any) => any
-}) {
-  const { ref, onChange } = props
-
-  function action(f: FormData) {
-    const item = {
-      id: uuid(),
-      name: f.get('name'),
-      desc: f.get('desc'),
-      hours: f.get('hours'),
-      rate: f.get('rate'),
-      price: f.get('price'),
-    }
-    ref.current.close()
-    onChange && onChange(item)
-  }
-
-  return (
-    <Dialog title='Editor' ref={ref} footer>
-      <form action={action}>
-        <Input label='Name' name='name' placeholder='Plase input your project name.' required />
-        <Input label='Desc' name='desc' placeholder='please input your project description.' required />
-        <Input label='Hours' name='hours' type='number' placeholder='please input hours.' required />
-        <Input label='Rate' name='rate' type='number' placeholder='please input rate.' required />
-
-        <div className='flex justify-end'>
-          <button type='submit'>Submit</button>
-        </div>
-      </form>
-    </Dialog>
-  )
-}
-1f:T4b6,import { RefObject } from 'react'
-import Dialog, { DialogRef } from 'components/ui/dialog'
-import Input from 'components/ui/Input'
-import { uuid } from '@/utils'
-
-export default function Modal(props: {
-  ref: RefObject<DialogRef>,
-  onChange: (item: any) => any
-}) {
-  const { ref, onChange } = props
-
-  function action(f: FormData) {
-    const item = {
-      id: uuid(),
-      name: f.get('name'),
-      desc: f.get('desc'),
-      hours: f.get('hours'),
-      rate: f.get('rate'),
-      price: f.get('price'),
-    }
-    ref.current.close()
-    onChange && onChange(item)
-  }
-
-  return (
-    <Dialog title='Editor' ref={ref} footer>
-      <form action={action}>
-        <Input label='Name' name='name' placeholder='Plase input your project name.' required />
-        <Input label='Desc' name='desc' placeholder='please input your project description.' required />
-        <Input label='Hours' name='hours' type='number' placeholder='please input hours.' required />
-        <Input label='Rate' name='rate' type='number' placeholder='please input rate.' required />
-
-        <div className='flex justify-end'>
-          <button type='submit'>Submit</button>
-        </div>
-      </form>
-    </Dialog>
-  )
-}
-f:["$","div",null,{"className":"code-tabs border rounded border-gray-200 overflow-hidden my-5","children":["$","$L17",null,{"children":[["$","$L18",null,{"tabs":[{"meta":"index.tsx -c","value":"$1a","lang":"jsx"},{"meta":"modal.tsx -c","value":"$1b","lang":"jsx"}]}],["$","$L19",null,{"highlighteds":[{"meta":"index.tsx -c","value":"$1c","lang":"jsx","code":"$1d","tokens":[["import","var(--ch-7)"]," ",["{ useState, useRef }","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'react'","var(--ch-8)"],"\n",["import","var(--ch-7)"]," ",["Modal","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'./modal'","var(--ch-8)"],"\n",["import","var(--ch-7)"]," ",["{ uuid }","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'@/utils'","var(--ch-8)"],"\n\n",["const","var(--ch-7)"]," ",["def","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["{","var(--ch-4)"],"\n  ",["id:","var(--ch-4)"]," ",["uuid","var(--ch-5)"],["(),","var(--ch-4)"],"\n  ",["name:","var(--ch-4)"]," ",["'Logo redesign'","var(--ch-8)"],[",","var(--ch-4)"],"\n  ",["desc:","var(--ch-4)"]," ",["'New logo and digital asset playbook.'","var(--ch-8)"],[",","var(--ch-4)"],"\n  ",["hours:","var(--ch-4)"]," ",["20.0","var(--ch-2)"],[",","var(--ch-4)"],"\n  ",["rate:","var(--ch-4)"]," ",["100.00","var(--ch-2)"],[",","var(--ch-4)"],"\n",["}","var(--ch-4)"],"\n\n",["export default function","var(--ch-7)"]," ",["Table","var(--ch-5)"],["()","var(--ch-3)"]," ",["{","var(--ch-4)"],"\n  ",["const","var(--ch-7)"]," ",["modal","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["useRef","var(--ch-5)"],["<","var(--ch-4)"],["any","var(--ch-2)"],[">(","var(--ch-4)"],["null","var(--ch-2)"],[")","var(--ch-4)"],"\n\n  ",["const","var(--ch-7)"]," ",["[","var(--ch-4)"],["revenues","var(--ch-2)"],[",","var(--ch-4)"]," ",["setRevenues","var(--ch-2)"],["]","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["useState","var(--ch-5)"],["([def])","var(--ch-4)"],"\n\n  ",["function","var(--ch-7)"]," ",["__onChange","var(--ch-5)"],["(","var(--ch-4)"],["data","var(--ch-3)"],[": typeof","var(--ch-7)"]," ",["def) {","var(--ch-4)"],"\n    ",["setRevenues","var(--ch-5)"],["([","var(--ch-4)"],["...","var(--ch-7)"],["revenues, data])","var(--ch-4)"],"\n  ",["}","var(--ch-4)"],"\n\n  ",["const","var(--ch-7)"]," ",["subtotal","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["revenues.","var(--ch-4)"],["reduce","var(--ch-5)"],["((","var(--ch-4)"],["pre","var(--ch-3)"],[",","var(--ch-4)"]," ",["cur","var(--ch-3)"],[")","var(--ch-4)"]," ",["=>","var(--ch-7)"]," ",["{","var(--ch-4)"],"\n    ",["return","var(--ch-7)"]," ",["pre","var(--ch-4)"]," ",["+","var(--ch-7)"]," ",["cur.hours","var(--ch-4)"]," ",["*","var(--ch-7)"]," ",["cur.rate","var(--ch-4)"],"\n  ",["},","var(--ch-4)"]," ",["0","var(--ch-2)"],[")","var(--ch-4)"],"\n\n  ",["return","var(--ch-7)"]," ",["(","var(--ch-4)"],"\n    ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"px-4 sm:px-6 lg:px-8\"","var(--ch-8)"],[">","var(--ch-4)"],"\n      ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"sm:flex sm:items-center\"","var(--ch-8)"],[">","var(--ch-4)"],"\n        ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"sm:flex-auto\"","var(--ch-8)"],[">","var(--ch-4)"],"\n          ",["<","var(--ch-4)"],["h1","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"text-base font-semibold leading-6 text-gray-900\"","var(--ch-8)"],[">Invoice</","var(--ch-4)"],["h1","var(--ch-6)"],[">","var(--ch-4)"],"\n          ",["<","var(--ch-4)"],["p","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"mt-2 text-sm text-gray-700\"","var(--ch-8)"],[">","var(--ch-4)"],"\n            ",["For work completed from <","var(--ch-4)"],["time","var(--ch-6)"]," ",["dateTime","var(--ch-2)"],["=","var(--ch-7)"],["\"2022-08-01\"","var(--ch-8)"],[">August 1, 2022</","var(--ch-4)"],["time","var(--ch-6)"],["> to","var(--ch-4)"],["{","var(--ch-7)"],["' '","var(--ch-8)"],["}","var(--ch-7)"],"\n            ",["<","var(--ch-4)"],["time","var(--ch-6)"]," ",["dateTime","var(--ch-2)"],["=","var(--ch-7)"],["\"2022-08-31\"","var(--ch-8)"],[">August 31, 2022</","var(--ch-4)"],["time","var(--ch-6)"],[">.","var(--ch-4)"],"\n          ",["</","var(--ch-4)"],["p","var(--ch-6)"],[">","var(--ch-4)"],"\n        ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n        ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"mt-4 sm:ml-16 sm:mt-0 sm:flex-none\"","var(--ch-8)"],[">","var(--ch-4)"],"\n          ",["<","var(--ch-4)"],["button","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["'primary'","var(--ch-8)"]," ",["onClick","var(--ch-2)"],["={","var(--ch-7)"],["()","var(--ch-4)"]," ",["=>","var(--ch-7)"]," ",["modal.current.","var(--ch-4)"],["show","var(--ch-5)"],["()","var(--ch-4)"],["}","var(--ch-7)"],[">Add</","var(--ch-4)"],["button","var(--ch-6)"],[">","var(--ch-4)"],"\n        ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n      ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n      ",["<","var(--ch-4)"],["Modal","var(--ch-6)"]," ",["ref","var(--ch-2)"],["={","var(--ch-7)"],["modal","var(--ch-4)"],["}","var(--ch-7)"]," ",["onChange","var(--ch-2)"],["={","var(--ch-7)"],["__onChange","var(--ch-4)"],["}","var(--ch-7)"]," ",["/>","var(--ch-4)"],"\n\n      ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"-mx-4 mt-8 flow-root sm:mx-0\"","var(--ch-8)"],[">","var(--ch-4)"],"\n        ",["<","var(--ch-4)"],["table","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"min-w-full\"","var(--ch-8)"],[">","var(--ch-4)"],"\n          ",["<","var(--ch-4)"],["colgroup","var(--ch-6)"],[">","var(--ch-4)"],"\n            ",["<","var(--ch-4)"],["col","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"w-full sm:w-1/2\"","var(--ch-8)"]," ",["/>","var(--ch-4)"],"\n            ",["<","var(--ch-4)"],["col","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"sm:w-1/6\"","var(--ch-8)"]," ",["/>","var(--ch-4)"],"\n            ",["<","var(--ch-4)"],["col","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"sm:w-1/6\"","var(--ch-8)"]," ",["/>","var(--ch-4)"],"\n            ",["<","var(--ch-4)"],["col","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"sm:w-1/6\"","var(--ch-8)"]," ",["/>","var(--ch-4)"],"\n          ",["</","var(--ch-4)"],["colgroup","var(--ch-6)"],[">","var(--ch-4)"],"\n          ",["<","var(--ch-4)"],["thead","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"border-b border-gray-300 text-gray-900\"","var(--ch-8)"],[">","var(--ch-4)"],"\n            ",["<","var(--ch-4)"],["tr","var(--ch-6)"],[">","var(--ch-4)"],"\n              ",["<","var(--ch-4)"],["th","var(--ch-6)"]," ",["scope","var(--ch-2)"],["=","var(--ch-7)"],["\"col\"","var(--ch-8)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0\"","var(--ch-8)"],[">","var(--ch-4)"],"\n                ",["Project","var(--ch-4)"],"\n              ",["</","var(--ch-4)"],["th","var(--ch-6)"],[">","var(--ch-4)"],"\n              ",["<","var(--ch-4)"],["th","var(--ch-6)"],"\n                ",["scope","var(--ch-2)"],["=","var(--ch-7)"],["\"col\"","var(--ch-8)"],"\n                ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"hidden px-3 py-3.5 text-right text-sm font-semibold text-gray-900 sm:table-cell\"","var(--ch-8)"],"\n              ",[">","var(--ch-4)"],"\n                ",["Hours","var(--ch-4)"],"\n              ",["</","var(--ch-4)"],["th","var(--ch-6)"],[">","var(--ch-4)"],"\n              ",["<","var(--ch-4)"],["th","var(--ch-6)"],"\n                ",["scope","var(--ch-2)"],["=","var(--ch-7)"],["\"col\"","var(--ch-8)"],"\n                ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"hidden px-3 py-3.5 text-right text-sm font-semibold text-gray-900 sm:table-cell\"","var(--ch-8)"],"\n              ",[">","var(--ch-4)"],"\n                ",["Rate","var(--ch-4)"],"\n              ",["</","var(--ch-4)"],["th","var(--ch-6)"],[">","var(--ch-4)"],"\n              ",["<","var(--ch-4)"],["th","var(--ch-6)"]," ",["scope","var(--ch-2)"],["=","var(--ch-7)"],["\"col\"","var(--ch-8)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"py-3.5 pl-3 pr-4 text-right text-sm font-semibold text-gray-900 sm:pr-0\"","var(--ch-8)"],[">","var(--ch-4)"],"\n                ",["Price","var(--ch-4)"],"\n              ",["</","var(--ch-4)"],["th","var(--ch-6)"],[">","var(--ch-4)"],"\n            ",["</","var(--ch-4)"],["tr","var(--ch-6)"],[">","var(--ch-4)"],"\n          ",["</","var(--ch-4)"],["thead","var(--ch-6)"],[">","var(--ch-4)"],"\n          ",["<","var(--ch-4)"],["tbody","var(--ch-6)"],[">","var(--ch-4)"],"\n            ",["{","var(--ch-7)"],["revenues.","var(--ch-4)"],["map","var(--ch-5)"],["((","var(--ch-4)"],["project","var(--ch-3)"],[")","var(--ch-4)"]," ",["=>","var(--ch-7)"]," ",["(","var(--ch-4)"],"\n              ",["<","var(--ch-4)"],["tr","var(--ch-6)"]," ",["key","var(--ch-2)"],["={","var(--ch-7)"],["project.id","var(--ch-4)"],["}","var(--ch-7)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"border-b border-gray-200\"","var(--ch-8)"],[">","var(--ch-4)"],"\n                ",["<","var(--ch-4)"],["td","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"max-w-0 py-5 pl-4 pr-3 text-sm sm:pl-0\"","var(--ch-8)"],[">","var(--ch-4)"],"\n                  ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"font-medium text-gray-900\"","var(--ch-8)"],[">","var(--ch-4)"],["{","var(--ch-7)"],["project.name","var(--ch-4)"],["}","var(--ch-7)"],["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n                  ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"mt-1 truncate text-gray-500\"","var(--ch-8)"],[">","var(--ch-4)"],["{","var(--ch-7)"],["project.desc","var(--ch-4)"],["}","var(--ch-7)"],["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n                ",["</","var(--ch-4)"],["td","var(--ch-6)"],[">","var(--ch-4)"],"\n                ",["<","var(--ch-4)"],["td","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"hidden px-3 py-5 text-right text-sm text-gray-500 sm:table-cell\"","var(--ch-8)"],[">","var(--ch-4)"],["{","var(--ch-7)"],["project.hours","var(--ch-4)"],["}","var(--ch-7)"],["</","var(--ch-4)"],["td","var(--ch-6)"],[">","var(--ch-4)"],"\n                ",["<","var(--ch-4)"],["td","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"hidden px-3 py-5 text-right text-sm text-gray-500 sm:table-cell\"","var(--ch-8)"],[">$","var(--ch-4)"],["{","var(--ch-7)"],["project.rate","var(--ch-4)"],["}","var(--ch-7)"],["</","var(--ch-4)"],["td","var(--ch-6)"],[">","var(--ch-4)"],"\n                ",["<","var(--ch-4)"],["td","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"py-5 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-0\"","var(--ch-8)"],[">$","var(--ch-4)"],["{","var(--ch-7)"],["project.hours","var(--ch-4)"]," ",["*","var(--ch-7)"]," ",["project.rate","var(--ch-4)"],["}","var(--ch-7)"],["</","var(--ch-4)"],["td","var(--ch-6)"],[">","var(--ch-4)"],"\n              ",["</","var(--ch-4)"],["tr","var(--ch-6)"],[">","var(--ch-4)"],"\n            ",["))","var(--ch-4)"],["}","var(--ch-7)"],"\n          ",["</","var(--ch-4)"],["tbody","var(--ch-6)"],[">","var(--ch-4)"],"\n          ",["<","var(--ch-4)"],["tfoot","var(--ch-6)"],[">","var(--ch-4)"],"\n            ",["<","var(--ch-4)"],["tr","var(--ch-6)"],[">","var(--ch-4)"],"\n              ",["<","var(--ch-4)"],["th","var(--ch-6)"],"\n                ",["scope","var(--ch-2)"],["=","var(--ch-7)"],["\"row\"","var(--ch-8)"],"\n                ",["colSpan","var(--ch-2)"],["={","var(--ch-7)"],["3","var(--ch-2)"],["}","var(--ch-7)"],"\n                ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"hidden sm:table-cell pl-4 pr-3 pt-6 text-right text-sm font-normal text-gray-500 sm:pl-0\"","var(--ch-8)"],"\n              ",[">","var(--ch-4)"],"\n                ",["Subtotal","var(--ch-4)"],"\n              ",["</","var(--ch-4)"],["th","var(--ch-6)"],[">","var(--ch-4)"],"\n              ",["<","var(--ch-4)"],["th","var(--ch-6)"]," ",["scope","var(--ch-2)"],["=","var(--ch-7)"],["\"row\"","var(--ch-8)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"pl-4 pr-3 pt-6 text-left text-sm font-normal text-gray-500 sm:hidden\"","var(--ch-8)"],[">","var(--ch-4)"],"\n                ",["Subtotal","var(--ch-4)"],"\n              ",["</","var(--ch-4)"],["th","var(--ch-6)"],[">","var(--ch-4)"],"\n              ",["<","var(--ch-4)"],["td","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"pl-3 pr-4 pt-6 text-right text-sm text-gray-500 sm:pr-0\"","var(--ch-8)"],[">$","var(--ch-4)"],["{","var(--ch-7)"],["subtotal","var(--ch-4)"],["}","var(--ch-7)"],["</","var(--ch-4)"],["td","var(--ch-6)"],[">","var(--ch-4)"],"\n            ",["</","var(--ch-4)"],["tr","var(--ch-6)"],[">","var(--ch-4)"],"\n            ",["<","var(--ch-4)"],["tr","var(--ch-6)"],[">","var(--ch-4)"],"\n              ",["<","var(--ch-4)"],["th","var(--ch-6)"],"\n                ",["scope","var(--ch-2)"],["=","var(--ch-7)"],["\"row\"","var(--ch-8)"],"\n                ",["colSpan","var(--ch-2)"],["={","var(--ch-7)"],["3","var(--ch-2)"],["}","var(--ch-7)"],"\n                ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"hidden pl-4 pr-3 pt-4 text-right text-sm font-normal text-gray-500 sm:table-cell sm:pl-0\"","var(--ch-8)"],"\n              ",[">","var(--ch-4)"],"\n                ",["Tax","var(--ch-4)"],"\n              ",["</","var(--ch-4)"],["th","var(--ch-6)"],[">","var(--ch-4)"],"\n              ",["<","var(--ch-4)"],["th","var(--ch-6)"]," ",["scope","var(--ch-2)"],["=","var(--ch-7)"],["\"row\"","var(--ch-8)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"pl-4 pr-3 pt-4 text-left text-sm font-normal text-gray-500 sm:hidden\"","var(--ch-8)"],[">","var(--ch-4)"],"\n                ",["Tax","var(--ch-4)"],"\n              ",["</","var(--ch-4)"],["th","var(--ch-6)"],[">","var(--ch-4)"],"\n              ",["<","var(--ch-4)"],["td","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"pl-3 pr-4 pt-4 text-right text-sm text-gray-500 sm:pr-0\"","var(--ch-8)"],[">$1760.00</","var(--ch-4)"],["td","var(--ch-6)"],[">","var(--ch-4)"],"\n            ",["</","var(--ch-4)"],["tr","var(--ch-6)"],[">","var(--ch-4)"],"\n            ",["<","var(--ch-4)"],["tr","var(--ch-6)"],[">","var(--ch-4)"],"\n              ",["<","var(--ch-4)"],["th","var(--ch-6)"],"\n                ",["scope","var(--ch-2)"],["=","var(--ch-7)"],["\"row\"","var(--ch-8)"],"\n                ",["colSpan","var(--ch-2)"],["={","var(--ch-7)"],["3","var(--ch-2)"],["}","var(--ch-7)"],"\n                ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"hidden pl-4 pr-3 pt-4 text-right text-sm font-semibold text-gray-900 sm:table-cell sm:pl-0\"","var(--ch-8)"],"\n              ",[">","var(--ch-4)"],"\n                ",["Total","var(--ch-4)"],"\n              ",["</","var(--ch-4)"],["th","var(--ch-6)"],[">","var(--ch-4)"],"\n              ",["<","var(--ch-4)"],["th","var(--ch-6)"]," ",["scope","var(--ch-2)"],["=","var(--ch-7)"],["\"row\"","var(--ch-8)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"pl-4 pr-3 pt-4 text-left text-sm font-semibold text-gray-900 sm:hidden\"","var(--ch-8)"],[">","var(--ch-4)"],"\n                ",["Total","var(--ch-4)"],"\n              ",["</","var(--ch-4)"],["th","var(--ch-6)"],[">","var(--ch-4)"],"\n              ",["<","var(--ch-4)"],["td","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"pl-3 pr-4 pt-4 text-right text-sm font-semibold text-gray-900 sm:pr-0\"","var(--ch-8)"],[">$","var(--ch-4)"],["{","var(--ch-7)"],["subtotal","var(--ch-4)"]," ",["-","var(--ch-7)"]," ",["1760","var(--ch-2)"],["}","var(--ch-7)"],["</","var(--ch-4)"],["td","var(--ch-6)"],[">","var(--ch-4)"],"\n            ",["</","var(--ch-4)"],["tr","var(--ch-6)"],[">","var(--ch-4)"],"\n          ",["</","var(--ch-4)"],["tfoot","var(--ch-6)"],[">","var(--ch-4)"],"\n        ",["</","var(--ch-4)"],["table","var(--ch-6)"],[">","var(--ch-4)"],"\n      ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n    ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n  ",[")","var(--ch-4)"],"\n",["}","var(--ch-4)"],"\n"],"annotations":[],"themeName":"github-from-css","style":{"color":"var(--ch-4)","background":"var(--ch-16)","colorScheme":"var(--ch-0)"}},{"meta":"modal.tsx -c","value":"$1e","lang":"jsx","code":"$1f","tokens":[["import","var(--ch-7)"]," ",["{ RefObject }","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'react'","var(--ch-8)"],"\n",["import","var(--ch-7)"]," ",["Dialog, { DialogRef }","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'components/ui/dialog'","var(--ch-8)"],"\n",["import","var(--ch-7)"]," ",["Input","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'components/ui/Input'","var(--ch-8)"],"\n",["import","var(--ch-7)"]," ",["{ uuid }","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'@/utils'","var(--ch-8)"],"\n\n",["export default function","var(--ch-7)"]," ",["Modal","var(--ch-5)"],["(props","var(--ch-3)"],[":","var(--ch-7)"]," ",["{","var(--ch-3)"],"\n  ",["ref","var(--ch-3)"],[":","var(--ch-7)"]," ",["RefObject<DialogRef>,","var(--ch-3)"],"\n  ",["onChange","var(--ch-5)"],[":","var(--ch-7)"]," ",["(item","var(--ch-3)"],[":","var(--ch-7)"]," ",["any","var(--ch-2)"],[")","var(--ch-3)"]," ",["=>","var(--ch-7)"]," ",["any","var(--ch-2)"],"\n",["})","var(--ch-3)"]," ",["{","var(--ch-4)"],"\n  ",["const","var(--ch-7)"]," ",["{","var(--ch-4)"]," ",["ref","var(--ch-2)"],[",","var(--ch-4)"]," ",["onChange","var(--ch-2)"]," ",["}","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["props","var(--ch-4)"],"\n\n  ",["function","var(--ch-7)"]," ",["action","var(--ch-5)"],["(","var(--ch-4)"],["f","var(--ch-3)"],[":","var(--ch-7)"]," ",["FormData","var(--ch-3)"],[") {","var(--ch-4)"],"\n    ",["const","var(--ch-7)"]," ",["item","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["{","var(--ch-4)"],"\n      ",["id:","var(--ch-4)"]," ",["uuid","var(--ch-5)"],["(),","var(--ch-4)"],"\n      ",["name: f.","var(--ch-4)"],["get","var(--ch-5)"],["(","var(--ch-4)"],["'name'","var(--ch-8)"],["),","var(--ch-4)"],"\n      ",["desc: f.","var(--ch-4)"],["get","var(--ch-5)"],["(","var(--ch-4)"],["'desc'","var(--ch-8)"],["),","var(--ch-4)"],"\n      ",["hours: f.","var(--ch-4)"],["get","var(--ch-5)"],["(","var(--ch-4)"],["'hours'","var(--ch-8)"],["),","var(--ch-4)"],"\n      ",["rate: f.","var(--ch-4)"],["get","var(--ch-5)"],["(","var(--ch-4)"],["'rate'","var(--ch-8)"],["),","var(--ch-4)"],"\n      ",["price: f.","var(--ch-4)"],["get","var(--ch-5)"],["(","var(--ch-4)"],["'price'","var(--ch-8)"],["),","var(--ch-4)"],"\n    ",["}","var(--ch-4)"],"\n    ",["ref.current.","var(--ch-4)"],["close","var(--ch-5)"],["()","var(--ch-4)"],"\n    ",["onChange","var(--ch-4)"]," ",["&&","var(--ch-7)"]," ",["onChange","var(--ch-5)"],["(item)","var(--ch-4)"],"\n  ",["}","var(--ch-4)"],"\n\n  ",["return","var(--ch-7)"]," ",["(","var(--ch-4)"],"\n    ",["<","var(--ch-4)"],["Dialog","var(--ch-6)"]," ",["title","var(--ch-2)"],["=","var(--ch-7)"],["'Editor'","var(--ch-8)"]," ",["ref","var(--ch-2)"],["={","var(--ch-7)"],["ref","var(--ch-4)"],["}","var(--ch-7)"]," ",["footer","var(--ch-2)"],[">","var(--ch-4)"],"\n      ",["<","var(--ch-4)"],["form","var(--ch-6)"]," ",["action","var(--ch-2)"],["={","var(--ch-7)"],["action","var(--ch-4)"],["}","var(--ch-7)"],[">","var(--ch-4)"],"\n        ",["<","var(--ch-4)"],["Input","var(--ch-6)"]," ",["label","var(--ch-2)"],["=","var(--ch-7)"],["'Name'","var(--ch-8)"]," ",["name","var(--ch-2)"],["=","var(--ch-7)"],["'name'","var(--ch-8)"]," ",["placeholder","var(--ch-2)"],["=","var(--ch-7)"],["'Plase input your project name.'","var(--ch-8)"]," ",["required","var(--ch-2)"]," ",["/>","var(--ch-4)"],"\n        ",["<","var(--ch-4)"],["Input","var(--ch-6)"]," ",["label","var(--ch-2)"],["=","var(--ch-7)"],["'Desc'","var(--ch-8)"]," ",["name","var(--ch-2)"],["=","var(--ch-7)"],["'desc'","var(--ch-8)"]," ",["placeholder","var(--ch-2)"],["=","var(--ch-7)"],["'please input your project description.'","var(--ch-8)"]," ",["required","var(--ch-2)"]," ",["/>","var(--ch-4)"],"\n        ",["<","var(--ch-4)"],["Input","var(--ch-6)"]," ",["label","var(--ch-2)"],["=","var(--ch-7)"],["'Hours'","var(--ch-8)"]," ",["name","var(--ch-2)"],["=","var(--ch-7)"],["'hours'","var(--ch-8)"]," ",["type","var(--ch-2)"],["=","var(--ch-7)"],["'number'","var(--ch-8)"]," ",["placeholder","var(--ch-2)"],["=","var(--ch-7)"],["'please input hours.'","var(--ch-8)"]," ",["required","var(--ch-2)"]," ",["/>","var(--ch-4)"],"\n        ",["<","var(--ch-4)"],["Input","var(--ch-6)"]," ",["label","var(--ch-2)"],["=","var(--ch-7)"],["'Rate'","var(--ch-8)"]," ",["name","var(--ch-2)"],["=","var(--ch-7)"],["'rate'","var(--ch-8)"]," ",["type","var(--ch-2)"],["=","var(--ch-7)"],["'number'","var(--ch-8)"]," ",["placeholder","var(--ch-2)"],["=","var(--ch-7)"],["'please input rate.'","var(--ch-8)"]," ",["required","var(--ch-2)"]," ",["/>","var(--ch-4)"],"\n\n        ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["'flex justify-end'","var(--ch-8)"],[">","var(--ch-4)"],"\n          ",["<","var(--ch-4)"],["button","var(--ch-6)"]," ",["type","var(--ch-2)"],["=","var(--ch-7)"],["'submit'","var(--ch-8)"],[">Submit</","var(--ch-4)"],["button","var(--ch-6)"],[">","var(--ch-4)"],"\n        ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n      ",["</","var(--ch-4)"],["form","var(--ch-6)"],[">","var(--ch-4)"],"\n    ",["</","var(--ch-4)"],["Dialog","var(--ch-6)"],[">","var(--ch-4)"],"\n  ",[")","var(--ch-4)"],"\n",["}","var(--ch-4)"],"\n"],"annotations":[],"themeName":"github-from-css","style":{"color":"var(--ch-4)","background":"var(--ch-16)","colorScheme":"var(--ch-0)"}}]}]]}]}]
