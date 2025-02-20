@@ -49,6 +49,7 @@ const store = {
   isLogin: false,
   userinfo: {} as UserInfo,
   subscrible: {
+    'reactprinciple': 0,
     'r19base': 0,
     'r19plus': 0,
     'zustand': 0,
@@ -58,7 +59,7 @@ const store = {
   }
 }
 
-export type ColumnKey = 'r19base' | 'r19plus' | 'r19lightning' | 'zustand' | 'reactzm' | 'supercss'
+export type ColumnKey = 'r19base' | 'r19plus' | 'r19lightning' | 'zustand' | 'reactzm' | 'supercss' | 'reactprinciple'
 
 export const useLoginStore = create(() => store)
 

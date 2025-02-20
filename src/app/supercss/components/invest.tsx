@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { PartyPopper } from 'lucide-react'
-import { column_url } from 'app/supercss/config'
+import { column_url } from '../config'
 import Button from '@/components/ui/button'
 
 export default function SuitableFor() {

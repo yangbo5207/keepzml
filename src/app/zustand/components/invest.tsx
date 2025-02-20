@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { PartyPopper } from 'lucide-react'
-import { column_url } from 'app/supercss/config'
+import { column_url } from '../config'
 import Button from '@/components/ui/button'
 
 export default function SuitableFor() {
@@ -15,7 +15,7 @@ export default function SuitableFor() {
 
       <div className='text-right'>
         <Link href={column_url} target='_blank'>
-          <Button signal>200 元 . 超前投资</Button>
+          <Button signal>9.9 元 . 超前投资</Button>
         </Link>
       </div>
     </div>

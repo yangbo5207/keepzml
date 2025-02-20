@@ -13,6 +13,13 @@ export default function SectionCourse() {
 
         <div className='mt-12 space-y-6'>
           <Block
+            title='爆锤面试官之 React 原理面试'
+            desc='冲大厂！'
+            path='reactprinciple'
+            delay={0}
+            className='flex-1'
+          />
+          <Block
             title='React 知命境'
             desc='本专栏是沉淀了四年的诚意之作。为了帮助广大开发者轻松掌握 React 的学习，我们从基础知识出发，循序渐进，逐渐深入，是学习 React 的最佳最佳选择'
             path='reactzm'

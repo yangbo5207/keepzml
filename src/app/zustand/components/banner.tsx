@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { start_path, column_url } from 'app/zustand/config'
+import { start_path, column_url } from '../config'
 import { ArrowRight } from 'lucide-react'
 import Cover from './cover750x1000.jpg'
 import Button from '@/components/ui/button'

@@ -6,6 +6,7 @@ import { Tent } from 'lucide-react'
 import { useLoginStore, ColumnKey } from 'app/service'
 import { getAuthURL } from 'utils/http'
 import { PropsWithChildren } from 'react'
+import * as reactprinciple_config from 'app/reactprinciple/config'
 import * as r19base_config from 'app/r19base/config'
 import * as r19plus_config from 'app/r19plus/config'
 import * as zustand_config from 'app/zustand/config'
@@ -14,6 +15,7 @@ import * as reactzm_config from 'app/reactzm/config'
 import * as supercss_config from 'app/supercss/config'
 
 const config = {
+  reactprinciple: reactprinciple_config,
   r19base: r19base_config,
   r19plus: r19plus_config,
   zustand: zustand_config,

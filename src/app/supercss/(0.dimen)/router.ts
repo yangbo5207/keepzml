@@ -11,14 +11,16 @@ export const r0 = [
   },
   {
     path: '2.pxp',
-    name: '2、像素在实践中的细节事项',
-    label: '试读',
-    type: 'warning'
+    name: '2、像素在实践中的细节考虑',
   },
   {
     path: '3.em',
     name: '3、em',
     label: '试读',
     type: 'warning'
+  },
+  {
+    path: '4.emp',
+    name: '4、em 实践应用运用思考',
   }
 ]
