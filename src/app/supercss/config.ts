@@ -7,4 +7,6 @@ export const reactversion = 'CSS 3.x'
 
 export const user_ids: string[] = [
   '1813145181655089152', // 这波能反杀
+  '1823968445075886080', // little
+  '1825360982176694272', // 安静
 ]

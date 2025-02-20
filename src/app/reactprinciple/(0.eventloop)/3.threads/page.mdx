@@ -1,5 +1,109 @@
-import CodeTabs from 'components/codehike/code-tabs'
+在前面一章中我们知道，在单线程中，按照函数调用栈的顺序依次执行，称为同步。
 
-import Demo01 from './demo01/preview'
+而**异步**，则是在多个线程协作的情况之下的任务执行。事件循环机制，就是异步任务代码执行顺序的解决方案。
 
-更新中...
+因此，在此之前，我们要学习在浏览器中，到底有哪些常见的异步事件。以及他们各自有什么特点。
+
+
+### *1、* GUI 渲染线程
+
+GUI 渲染线程，是多个线程的统称。其中
+
++ **renderer Thread** 负责页面布局（Layout）
++ **Compositor Thread** 合成线程、负责图层的合并，提升滚动、动画等性能，独立于主线程与渲染线程
++ **Raster Thread** 光栅化线程，负责将绘制指令转换为位图，通常在 GPU 上执行。可能由多个线程并行处理。
+
+渲染是一个比较复杂的流程，中间有多个线程参与，通常情况下，会在一帧的时间节点里，按照如下流程执行
+
+```
+Render Tree -> Layout Tree -> Layer Tree -> Paint -> 页面
+```
+
+并且，和常规的认知不同的是，DOM 的渲染过程，是一个异步的过程。
+
+
+用一个简单的例子来验证这个结论。
+
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>DOM 渲染是否异步</title>
+</head>
+
+<body>
+  <div id="d">默认文本</div>
+  <script>
+    d.onclick = function () {
+      console.log('开始更改DOM')
+      this.innerHTML = "往div里添加的新文本";//更改一个节点
+      console.log('DOM 更改完毕')
+      document.body.appendChild(document.createElement("input"));//插入一个节点
+      for (var i = 0; i < 10000000000; i++);
+      console.log('xxxx')
+    }
+  </script>
+</body>
+</html>
+```
+
+执行结果为
+
+```ts
+1. 打印 开始更改DOM
+2. 打印 DOM 更改完毕
+3. 循环
+4. 打印 xxxx
+
+// DOM 的渲染，实际上最后才执行
+5. 修改 div 的文本内容为 "往div里添加的新文本"
+6. 插入新的 input 节点
+```
+
+
+div 的文本内容修改，是同步修改 DOM 的结构，但是 DOM 结构修改之后，并没有立刻渲染到页面中，这里是两个步骤。
+
+这里涉及到的更深层的问题，是对 DOM 的理解。DOM 本质是一个 JS 对象。因此操作 DOM 和渲染 DOM 是不同的。操作 DOM 本质上是操作 JavaScript 对象，这是同步的过程。渲染 DOM，是 GUI 线程来完成的工作，这是异步的。
+
+### *2、* JavaScript 引擎线程
+
+浏览器并不能直接运行 JavaScript 代码。需要在浏览器中植入内核，为 JavaScript 的运行提供环境。chrome 中，这个内核就是 V8。
+
+每一个网页进程，浏览器只会启动一个 JavaScript 引擎实例来配合完成网页的交互。
+
+
+### *3、* 定时器线程
+
+setTimeout、setInterval 的逻辑是由专门的定时器线程在负责。
+
+写入定时器回调函数中的逻辑并不会立刻执行，即使我们将时间设置为 0.
+
+```ts
+setTimeout(() => {
+  console.log('定时器的回调逻辑')
+}, 0)
+console.log('代码的最后位置')
+
+
+// 执行结果
+// 代码的最后位置
+// 定时器的回调逻辑
+```
+
+我们会在后文中详细介绍定时器的实现原理，这里主要是要明确一个结论：`setTimeout` 的第二个参数的时间，指的并不是精确的时间。具体的细节我们后面会进行分析，这一个问题在面试中会经常考察。
+
+
+### *4、* I/O 事件线程
+
+当我们鼠标点击、滑动，键盘输入等都会触发一些事件。而这些事件的触发逻辑的处理，就是依靠事件触发线程来完成。
+
+与上面的线程一样，该线程会把事件的逻辑放入队列之中，等待 JavaScript 引擎处理。
+
+
+### *5、* http 线程
+
+http线程的主要作用，是使用无状态短连接的 http 请求，在应用层基于 http 协议的基础之上，达到与服务端进行通信的目的「在服务端，也会有专门的 http 线程来处理通信过程」。
+
+当然，该线程的触发逻辑，事件监听等也不是在 JS 引擎线程中，这个过程仍然是异步的。

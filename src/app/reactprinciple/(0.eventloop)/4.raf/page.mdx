@@ -1,0 +1,137 @@
+import CodeTabs from 'components/codehike/code-tabs'
+
+import Demo01 from './demo01/preview'
+import Demo02 from './demo02/preview'
+
+刷新率（Refresh Rate）是指显示器每秒更新屏幕内容的次数，单位为赫兹（Hz）。
+
+对于前端开发而言，我们需要重点关注刷新率的原因是因为它与动画与页面渲染息息相关。页面渲染并不一定是 JavaScript 代码执行完毕之后就一定会立即渲染。而是按照刷新率的频率一帧一帧的渲染。
+
+对于大多数显示器而言，能够支持的刷新率是 `60Hz`。也就是说，一秒钟能刷新 60 次。
+
+此时，一帧的时间为 `1000 / 60 = 16.67ms`
+
+为了确保我们的页面不会卡顿，流畅刷新，我们应该尽量确保在一帧的时间内执行完所有的 JavaScript 逻辑。如果 JavaScript 逻辑执行时间太长，就会造成页面卡顿。
+
+渲染线程提供了两个与刷新率有关的事件触发的时机，分别是 `requestAnimationFrame` 和 `requestIdleCallback`。
+
+
+### *1、* requestAnimationFrame
+
+`requestAnimationFrame` 是渲染线程提供的一个生命周期函数，它的回调函数会在浏览器的下一帧渲染之前执行。
+
+```ts
+requestAnimationFrame(() => {
+  console.log('requestAnimationFrame')
+})
+```
+
+也就意味着，我们可以利用它来实现与浏览器刷新率保持一致的流畅动画。
+
+### *2、* requestIdleCallback
+
+渲染线程提供的另外一个生命周期函数是 `requestIdleCallback`，它的回调函数会在浏览器的空闲时间执行。
+
+因此，我们可以把一些**耗时的任务**放到 `requestIdleCallback` 中执行，从而保证页面的流畅渲染。
+
+```ts
+requestIdleCallback(callback)
+```
+
+这里需要特别注意的是，每一帧的结尾都有一次执行 `requestIdleCallback` 回调的机会，但是我们可以在回调中判断剩余时间是否足够我们执行一个任务。如果剩余时间不够，我们可以把任务放到下一帧去执行。
+
+### *3、* 执行队列
+
+这里有一个比较好玩的情况，如下例所示，当我们点击按钮之后，会定义两个 `requestAnimationFrame` 任务。此时，底层的处理机制是什么样的呢？
+
+我们先来观察一下演示效果与代码
+
+<Demo01 />
+
+<CodeTabs>
+```tsx !!tabs index.tsx -c
+!from ./demo01/index.tsx
+```
+</CodeTabs>
+
+我们会发现，当我们点击按钮之后，会依次执行两个 `requestAnimationFrame` 任务。这里的疑问是，底层是如何做到的呢？
+
+这里就需要引入一个执行队列的概念。 我们可以用如下的方式来模拟 `requestAnimationFrame` 的原理。
+
+```ts
+const taskQueue = []
+
+// requestAnimationFrame 执行时，将定义好的任务放入队列中
+function requestAnimationFrame(callback) {
+  taskQueue.push(callback)
+}
+```
+
+最后由主线程来控制依次执行队列中的任务。由于这是一个队列，因此按照**先进先出**的方式来执行任务。
+
+```ts
+let task
+
+while (task = taskQueue.shift()) {
+  task()
+}
+```
+
+
+### *3、* 复杂一点的例子
+
+我们接着来看一个复杂一点的例子。
+
+我们依然定义两个 `requestAnimationFrame` 任务。第一个任务中，我们嵌套了一个新的 `requestAnimationFrame` 任务。我们需要考虑的是，它的执行时机是什么时候。
+
+在第二个任务中，我们使用 while 循环来模拟一个耗时的任务。将主线程卡住。观察一下最终的执行结果。
+
+<Demo02 />
+<CodeTabs>
+```tsx !!tabs index.tsx -c
+!from ./demo02/index.tsx
+```
+</CodeTabs>
+
+
+执行结果为
+
+1. 首先快速执行了 `raf_1` 和 `raf_2` 
+2. 然后卡顿了 1 秒钟
+3. 最后执行了 `raf_1_3`
+
+那么它的底层机制是什么样子的呢？
+
+在每一轮事件循环中，会把当前执行队列中的所有任务全部执行完毕。但是，如果在执行这些任务的过程中，产生了新的 `raf 任务`，则会丢入到下一轮的执行队列中去，等待下一轮执行。而不是直接在当前这一轮执行。
+
+具体的代码演示如下所示
+
+```ts
+let nextQueue = []
+let taskQueue = nextQueue
+let loop = true // 循环标记，表示正在执行队列
+
+function requestAnimationFrame(callback) {
+  if (loop) {
+    return nextQueue.push(callback)
+  }
+  taskQueue.push(callback)
+}
+```
+
+循环执行该任务队列结束后，标记设置为 false。
+
+```ts
+let task
+
+while (task = taskQueue.shift()) {
+  task()
+}
+
+// 循环结束，标记设置为 false
+loop = false
+```
+
+### *4、* 总结
+
+执行队列的运行机制，是事件循环中非常重要的一部分。其他的异步队列如果我没有做特别的讲解也会是类似的逻辑。因此一定要彻底消化掌握。

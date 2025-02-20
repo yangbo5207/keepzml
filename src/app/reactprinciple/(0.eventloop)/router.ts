@@ -20,19 +20,23 @@ export const r0 = [
     name: '3、线程介绍',
   },
   {
-    path: '4.setTimeout',
-    name: '4、setTimeout 原理详解',
+    path: '4.raf',
+    name: '4、刷新率与执行队列',
   },
   {
-    path: '5.promise',
-    name: '5、Promise 机制详解',
+    path: '5.setTimeout',
+    name: '5、setTimeout 原理详解',
   },
   {
-    path: '6.eventloop',
-    name: '6、完整的事件循环机制详解',
+    path: '6.promise',
+    name: '6、Promise 机制详解',
   },
   {
-    path: '7.priority',
-    name: '7、优先级队列',
+    path: '7.eventloop',
+    name: '7、完整的事件循环机制详解',
+  },
+  {
+    path: '8.priority',
+    name: '8、优先级队列',
   }
 ]
