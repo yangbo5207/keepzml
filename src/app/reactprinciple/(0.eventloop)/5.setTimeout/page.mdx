@@ -68,7 +68,9 @@ function setTimeout(cb, timeout) {
 }
 ```
 
-timerQueue 实际上是一个优先级队列，因此，进入队列之后，会按照优先级进行排序，最终呈现的数据结构是一个小顶堆。**我们会按照 `expirationTime` 的时间通过排序的方式来确保堆顶的元素是应该被最先执行的**，具体的优先级队列技术细节我们后面会详细介绍。
+> 本文的案例仅仅从执行顺序的角度来简化实现原理的代码展示，还有一些其他的逻辑没有加入，例如每一个任务还应该有一个字段用来记录当前任务的状态，用于取消任务的执行
+
+timerQueue 是一个优先级队列，任务进入队列之后，会按照优先级进行排序，最终呈现的数据结构是一个小顶堆。**我们会按照 `expirationTime` 的时间通过排序的方式来确保堆顶的元素是应该被最先执行的**，具体的优先级队列技术细节我们后面会详细介绍。
 
 我们这篇文章要注意的就是对于时间的细节把握。每一个任务我们会根据传入的 `timeout` 和当前时间来计算任务可执行的时间节点。
 
@@ -84,7 +86,7 @@ let timer = timerQueue.peek()
 
 while(timer !== null) {
   // 表示当前时间大于等于任务执行时间，说明任务执行时机已到
-  if (timer.expirationTime <= currentTime>) {
+  if (timer.expirationTime <= currentTime) {
     // 推入执行队列
     taskQueue.push(timer)
   } else {

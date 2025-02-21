@@ -1,3 +1,5 @@
+import {svip} from 'app/svip'
+
 export const column_id = '1876449089626005504'
 export const column_url = `https://xinyuzone.cn/column/${column_id}`
 export const column_key = 'r19base'
@@ -9,4 +11,5 @@ export const user_ids: string[] = [
   '1876539126241779712', // Z
   '1874636777894313984', // HTML-6
   '1889381002569383936', // 小天
-]
+  '1843582181168160768', // sj
+].concat(svip)

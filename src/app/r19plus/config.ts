@@ -1,3 +1,5 @@
+import { svip } from '@/app/svip'
+
 // 尊享版
 export const column_id = '1876560978079080448'
 export const column_url = `https://xinyuzone.cn/column/${column_id}`
@@ -19,4 +21,4 @@ export const user_ids: string[] = [
   '1876539126241779712', // Z
   '1889381002569383936', // 小天
   '1876603137427726336', // 文世豪
-]
+].concat(svip)

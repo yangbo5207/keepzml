@@ -1,4 +1,6 @@
-// zustand
+import {svip} from 'app/svip'
+
+// reactprinciple
 export const column_id = '1877242199536902144'
 export const column_url = `https://xinyuzone.cn/column/${column_id}`
 export const column_key = 'reactprinciple'
@@ -12,4 +14,7 @@ export const user_ids: string[] = [
   '1876473278160396288', // 回到过去
   '1876461934652645376', // 落幕
   '1874636334774484992', // 昂
-]
+  '1876458676324360192', // 刘弘毅
+  '1843293842095513600', // 睡觉
+  '1844190120425857024', // 李春雷
+].concat(svip)

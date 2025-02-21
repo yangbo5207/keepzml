@@ -1,6 +1,209 @@
 import CodeTabs from 'components/codehike/code-tabs'
 
 import Demo01 from './demo01/preview'
-import Demo02 from './demo02/preview'
 
-待续...
+### **1、** Promise
+
+解释 Promise 是一件很麻烦的事情。因为我们很难明确的说 Promise 到底是什么。大多数情况下我们都是在稀里糊涂的用他来解决一些异步的逻辑，也不会去深究它到底应该怎么去定义。
+
+最蛋疼的是，讲 Promise 的原理、或者手写 Promise 对象的实现，还成为了一个高频面试题。
+
+
+首先，Promise 肯定是一个对象。我们可以通过 __`new Promise()`__ 来创建一个 Promise 的实例。Promise 的实现和使用，都应该严格遵循 `Promise/A+` 规范。所以 Promise 的实现方式就可以不用那么固定。
+
+也由于遵循了 `Promise/A+` ，我们也可以称 Promise 是一个简化版的有限状态机制。每一个 Promise 实例中都会维护一个状态，对应三个值
+
++ **pending**：表示正在等待请求结果
++ **fulfilled**：通常是有了理想的结果，表示同意
++ **rejected**：通常是有了不理想的结果，表示拒绝
+
+状态只能从 `pending` 切换到两个结果态，而不能反过来。有了结果就表示请求结束，任务完成。因此，我们通常将 Promise 用于一个请求只包含两种结果的场景。例如
+
++ http 请求  -> 请求成功、请求失败
++ 弹窗按钮 -> 确认、取消
+
+
+### **2、** Promise 运行机制
+
+在 ECMASCript 中，提供了一个用于存储 Promise 任务的执行队列 PromiseJobs。并针对两个不同的结果提供了两个临时队列
+
++ `[[PromiseFulfillReactions]]`
++ `[[PromiseRejectReactions]]`
+
+
+当我们在代码中执行 `.then` 方法时，就会创建一个 `job`，并优先考虑进入到临时队列中。当 jobs 的状态，有了结果 `resolve() / reject()` 之后，则会推送到执行队列中，等待执行。
+
+
+执行队列 PromiseJobs，滞后于函数调用栈执行，具体的执行顺序为
+
++ 1、函数调用栈
++ 2、promiseJobs 队列
++ 3、`requestAnimationFrame` `setTimeout` 等其他异步任务队列
+
+
+之所以是这个顺序是由于 PromiseJobs 队列是 JavaScript 自己维护的，因此它作为一个内部队列会被优先执行。
+
+promiseJobs 队列的清空逻辑与之前的执行队列。他的逻辑用该代码演示如下所示。
+
+```ts
+const PromiseJobs = []
+
+let job
+// 将先进入队列的 job 移出队列，并执行
+while (job = PromiseJobs.shift()) {
+  job()
+}
+```
+
+但是这里有一个很不一样的地方，就是任务进入执行队列的时机。如果我们在执行 `job` 的过程中，产生了新的 `job`，或者在临时队列中，有 `job` 的**状态有了结果**，该任务依然会推入到正在循环的执行队列中去执行，直到 `PromiseJobs` 被清空为止。
+
+
+用代码来演示这个过程，先看完整案例。这里我按照 `Promise/A+` 规范，手写实现了一个自定义的 `XPromise` ，大家可以仔细看一下代码
+
+<Demo01 />
+<CodeTabs>
+```tsx !!tabs index.tsx -c
+!from ./demo01/index.tsx
+```
+
+```tsx !!tabs promise.ts -c
+!from ./demo01/promise.ts
+```
+</CodeTabs>
+
+
+### **3、** 代码解读
+
+首先，我们知道 Promise 的状态有两种情况，一种是有结果，一种是等待结果，因此，我们应该将等待中的任务，放入临时队列，将有结果的任务，放入执行队列，所以这个时候，我们需要在内部维护三个队列，其中两个临时队列，一个执行队列
+
+```ts
+// 执行队列
+const promiseJobs: any[] = []
+
+// 临时队列
+let PromiseFulfillReactions: {key: any, callback: any}[] = []
+let PromiseRejectReactions: {key: any, callback: any}[] = []
+```
+
+需要注意的是，这几个队列并不属于某一个特定的 Promise 对象，它们是管理所有的 Promise 任务。因此我们在模块的全局中维护他们。
+
+进入到临时队列，表示该任务还不能被执行，还需要等待条件满足之后才能执行。进入到执行队列，则表示任务已经满足了执行条件，只需要在符合规定的时机执行即可。
+
+由于执行队列需要滞后于函数调用栈执行，因此，我们这里选择使用 `setTimeout` 来模拟滞后执行的时机。我们把执行队列的执行称为 `workLoop`
+
+但是这里需要考虑的是，执行队列循环什么时候开始呢？理论上来说，应该是第一个 `resolve` 执行时，而第二个 `resolve` 时，则不需要重复启动 `workLoop`，因此，我们需要管理一个全局的上下文变量 `loopRunning` ，来记录 `workLoop` 是否正在执行过程中
+
+```ts
+// 记录 workLoop 是否已经启动
+let loopRunning = false
+```
+
+每个 Promise 都有两个内部值，一个表示状态，一个表示 Promise 的值
+
+```ts
+export default class XPromise {
+  private PromiseState: 'pending' | 'fulfilled' | 'rejected'
+  private PromiseResult: any
+  constructor(executor: (
+    resolve: (value: any) => void, 
+    reject: (reason?: any) => void
+  ) => void) {
+    this.PromiseResult = undefined
+    this.PromiseState = pending
+
+    executor(this.resolve.bind(this), this.resolve.bind(this))
+  }
+}
+```
+
+构造函数传入的第一个参数中，支持 `resolve` 与 `reject` 作为参数。我们需要在内部单独处理他们。规则是：当 `resolve/reject` 执行时，Promise 状态切换为结果态，并且将任务从对应的临时队列移除，并推送到执行队列，结合我们前面的逻辑，代码如下
+
+```ts
+resolve = (value: any) => {
+  // 推送到执行队列，或者启动执行队列的循环
+  this.PromiseResult = value
+  this.PromiseState = fulfilled
+
+  const job = PromiseFulfillReactions.find((item) => item.key === this)
+  if (job) {
+    PromiseFulfillReactions = PromiseFulfillReactions.filter(item => item.key !== this)
+    promiseJobs.push(job.callback)
+  }
+  // 如果 workLoop 没有启动，则启动 workLoop
+  if (loopRunning === false) {
+    loopRunning = true
+    this.workLoop()
+  }
+}
+```
+
+`workLoop` 的逻辑比较简单，我们只需利用 setTimeout 来滞后队列的循环，然后按照先进先出的逻辑清空队列即可。队列清空循环结束之后，需要将 `loopRunning` 重置为 `false`
+
+```ts
+workLoop = () => {
+  setTimeout(() => {
+    let cb
+    while(cb = promiseJobs.shift()) {
+      cb()
+    }
+    loopRunning = false
+  }, 0)
+}
+```
+
+__`.then(() => {})`__  将任务推送到临时队列的逻辑稍微复杂一点。由于这里需要支持返回一个新的 Promise 对象，从而支持链式调用，并且还要将值传递给新 Promise 对象。因此，我们需要对传入的任务函数进行一层额外的包装。
+
+```ts
+const _resolved = () => {
+  const value = this.PromiseResult
+  try {
+    if (!isFunction(onResolved)) {
+      resolveNext(value)
+    } else {
+      const res = onResolved(value)
+      if (res instanceof XPromise) {
+        res.then(resolveNext, rejectNext)
+      } else {
+        resolveNext(res)
+      }  
+    }
+  } catch (err) {
+    rejectNext(err)
+  }
+}
+```
+
+包装后的 `_resolved` 作为真实的任务推送到临时队列中去，而我们在使用时定义的回调函数 `onResolved` 则在 `_resolved` 内部执行。并将其执行结果作为新 Promise 对象的 `resolve` 参数传入。从而满足语法。
+
+正常情况下定义好的任务应该推送到临时队列中去
+
+不过有一种情况是在定义回调函数 `onResolved` 时， Promise 就已经有了状态，因此，这种情况下，我们要进行判断，将其直接推入到执行队列。
+
+```ts
+switch(this.PromiseState) {
+  // 状态为 pending 时，收集回调
+  case pending: 
+    PromiseFulfillReactions.push({
+      key: this,
+      callback: _resolved
+    })
+    PromiseRejectReactions.push({
+      key: this,
+      callback: _rejected
+    })
+    break
+  // 状态已经改变了，就直接执行回调
+  case fulfilled:
+    promiseJobs.push(_resolved)
+    break
+  case rejected:
+    promiseJobs.push(_rejected)
+    break
+}
+```
+
+### **4、** 总结
+
+整个代码还是比较清晰易懂，核心的逻辑就是如何管理不同状态的任务，并且明确好任务推送进对应队列的时机，就很容易理解清楚了。这里的关键是我们利用 `loopRunning` 记录了 `workLoop` 的执行过程，从而让整个执行流程变得非常巧妙。
+
+相对而言，Promise 的逻辑会比前面 `setTimeout` 的逻辑要复杂一点，大家可以多读几遍认真感受。

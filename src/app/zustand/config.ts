@@ -1,3 +1,5 @@
+import { svip } from '@/app/svip'
+
 // zustand
 export const column_id = '1881981249548120064'
 export const column_url = `https://xinyuzone.cn/column/${column_id}`
@@ -7,4 +9,4 @@ export const reactversion = 'zustand@5.0.3'
 
 export const user_ids: string[] = [
   '1876458676324360192', // 刘弘毅
-]
+].concat(svip)
