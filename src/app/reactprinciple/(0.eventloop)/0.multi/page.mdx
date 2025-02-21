@@ -14,7 +14,7 @@
 
 ### *2*、渲染进程
 
-在 Chromium 多进程架构中，有一个主线程用于运行 UI 并且管理其他进程，称之为 Browser process 或者 Browser.
+在 Chromium 多进程架构中，有一个主进程用于运行 UI 并且管理其他进程，称之为 Browser process 或者 Browser.
 
 大多数情况下，浏览器的渲染进程是由 `Browser process` 启动。当用户在浏览器中打开一个新的页面时，Browser 会启动一个新的渲染进程。**通俗来说，一个网页就是一个渲染进程：renderer process**
 

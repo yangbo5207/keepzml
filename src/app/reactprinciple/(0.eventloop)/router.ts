@@ -29,11 +29,11 @@ export const r0 = [
   },
   {
     path: '6.promise',
-    name: '6、Promise 机制详解',
+    name: '6、Promise 原理详解',
   },
   {
     path: '7.eventloop',
-    name: '7、完整的事件循环机制详解',
+    name: '7、事件循环机制',
   },
   {
     path: '8.priority',
