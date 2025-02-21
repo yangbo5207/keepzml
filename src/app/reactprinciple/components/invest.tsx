@@ -1,9 +1,14 @@
+'use client'
+
 import Link from 'next/link'
 import { PartyPopper } from 'lucide-react'
 import { column_url } from '../config'
 import Button from '@/components/ui/button'
+import { useLoginStore } from '@/app/service'
 
 export default function SuitableFor() {
+  const subscrible = useLoginStore((state) => state.subscrible)
+  if (subscrible.reactprinciple === 1) return null
   return (
     <div className='p-4 md:p-8 border-gray-200 border rounded keep'>
       <header className='font-bold'>超前投资，火热开启</header>

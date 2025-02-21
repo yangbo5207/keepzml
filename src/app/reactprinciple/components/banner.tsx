@@ -6,8 +6,11 @@ import { start_path, column_url } from '../config'
 import { ArrowRight, User, Star, ShoppingCart } from 'lucide-react'
 import Cover from './cover750x1000.jpg'
 import Button from '@/components/ui/button'
+import { useLoginStore } from 'app/service'
 
 export default function Banner() {
+  const subscrible = useLoginStore((state) => state.subscrible)
+  console.log(subscrible)
   return (
     <div className='p-4 md:p-8 flex border-gray-200 border rounded gap-10'>
       <div className=''>
@@ -30,10 +33,17 @@ export default function Banner() {
 
           <div> · </div>
 
-          <Link href={column_url} className='text-sm flex items-center gap-1 text-pink-600'>
-            <ShoppingCart size={16} />
-            <span>200元 . 立即订阅</span>
-          </Link>
+          {subscrible.reactprinciple === 1 ? (
+            <Link href={column_url} className='text-sm flex items-center gap-1 text-pink-600'>
+              <ShoppingCart size={16} />
+              <span>已订阅</span>
+            </Link>
+          ) : (
+            <Link href={column_url} className='text-sm flex items-center gap-1 text-pink-600'>
+              <ShoppingCart size={16} />
+              <span>200元 . 立即订阅</span>
+            </Link>
+          )}
 
         </div>
 

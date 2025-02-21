@@ -9,7 +9,7 @@ import Button from 'components/ui/button'
 import { LOGO } from 'app/components/nav-header'
 import { getSubscribe } from 'app/service/api'
 import { setSubscribe, ColumnKey, useLoginStore } from 'app/service/index'
-import { reactversion, column_id } from './config'
+import { reactversion, column_id, user_ids } from './config'
 import { routers } from './router'
 
 export default function ColumnLayout({ children }: any) {
@@ -18,9 +18,14 @@ export default function ColumnLayout({ children }: any) {
   const drawer = useRef<any>(null)
 
   const isLogin = useLoginStore(s => s.isLogin)
+  const userinfo = useLoginStore(s => s.userinfo)
 
   useEffect(() => {
     if (!isLogin) return
+    let vip = user_ids.includes(userinfo.user_id)
+    if (vip) {
+      return setSubscribe(column_key, 1)
+    }
     getSubscribe(column_id).then(res => {
       setSubscribe(column_key, res.status)
     })

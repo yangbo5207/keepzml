@@ -1,4 +1,5 @@
 import {r0} from './(0.eventloop)/router'
+import {r1} from './(1.concurrent)/router'
 
 interface RouteItem {
   type?: string,
@@ -10,6 +11,7 @@ interface RouteItem {
 
 export const routers: RouteItem[] = [
   ...r0,
+  ...r1
 ].map(item => {
   if (item.path) {
     item.path = `/reactprinciple/${item.path}`

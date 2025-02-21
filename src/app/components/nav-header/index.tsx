@@ -6,19 +6,20 @@ import ActiveLink from 'components/active-link'
 import ChatButton from './chat-button'
 import Profile from './profile'
 import MobileHeader from './mobile'
-import { Ghost, BellDot, BellElectric, Squirrel, Zap } from 'lucide-react'
+import { Ghost, BellDot, BellElectric, Squirrel, Zap, SwatchBook } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 import clsx from 'clsx'
 import './index.css'
 
 export const links = [
   { path: '/reactprinciple', text: 'React 原理面试', icon: Ghost },
-  { path: '/reactzm', text: 'React 知命境', icon: Ghost },
+  // { path: '/reactzm', text: 'React 知命境', icon: Ghost },
   { path: '/r19base', text: 'React 19 . 基础', icon: BellDot },
   { path: '/r19plus', text: 'React 19 . 尊享', icon: BellElectric },
-  { path: '/zustand', text: 'zustand', icon: Squirrel },
+  // { path: '/zustand', text: 'zustand', icon: Squirrel },
   // { path: '/r19lightning', text: 'React 速成宝典 . 上', icon: Zap },
   { path: '/supercss', text: '超级 CSS', icon: Zap },
+  // { path: '', text: '更多', icon: SwatchBook },
 ]
 
 export default function NavHeader() {
