@@ -1,0 +1,156 @@
+import CodeTabs from 'components/codehike/code-tabs'
+
+
+在 React 的任务循环中，中断条件是 `shouldYield()` 函数返回 `true`。`shouldYield()` 函数的实现取决于具体的调度器。这篇文章将深入探讨 `shouldYield()` 函数的实现细节。
+
+**这是一个面试常考点。**
+
+```ts
+function workLoopConcurrent() {
+  // Perform work until Scheduler asks us to yield
+  while (workInProgress !== null && !shouldYield()) {
+    // $FlowFixMe[incompatible-call] found when upgrading Flow
+    performUnitOfWork(workInProgress);
+  }
+}
+```
+
+```ts Scheduler.js
+export const shouldYield = Scheduler.unstable_shouldYield;
+```
+
+其源代码在 `scheduler/src/forks/Scheduler.js` 中
+
+```ts
+let startTime = -1;
+
+function shouldYieldToHost(): boolean {
+  const timeElapsed = getCurrentTime() - startTime;
+  if (timeElapsed < frameInterval) {
+    // The main thread has only been blocked for a really short amount of time;
+    // smaller than a single frame. Don't yield yet.
+    return false;
+  }
+  // Yield now.
+  return true;
+}
+```
+
+这里我们首先从 `getCurrentTime()` 开始解读。
+
+从代码中我们看出，`getCurrentTime()` 其实对应的就是 `performance.now()`。所以它指的是：从文档加载开始到当前时间经过的毫秒数。这个时间不受到系统时间的影响。然后后面是使用 `Date.now()`  做了一个兼容兜底处理。
+
+```ts
+let getCurrentTime: () => number | DOMHighResTimeStamp;
+const hasPerformanceNow =
+  // $FlowFixMe[method-unbinding]
+  typeof performance === 'object' && typeof performance.now === 'function';
+
+if (hasPerformanceNow) {
+  const localPerformance = performance;
+  getCurrentTime = () => localPerformance.now();
+} else {
+  const localDate = Date;
+  const initialTime = localDate.now();
+  getCurrentTime = () => localDate.now() - initialTime;
+}
+```
+
+在源码中，这里理解起来比较困难的是 `startTime` 变量。
+
+`startTime` 是一个模块全局上下文变量，会在多个地方被赋值修改。**它表达的是，React 内部维护的任务队列开始循环的时间。** 也就是一轮 `workLoop` 开始执行的时间。
+
+```ts
+// 启动一轮循环
+function requestHostCallback() {
+  if (!isMessageLoopRunning) {
+    isMessageLoopRunning = true;
+    schedulePerformWorkUntilDeadline();
+  }
+}
+```
+
+`schedulePerformWorkUntilDeadline` 可以简单理解为对定时器的封装，这里的目的是为了在批处理的过程中，让队列的执行后置于同步逻辑之后。类似于我们前面模仿 `PromiseJobs` 的执行时机。
+
+```ts
+schedulePerformWorkUntilDeadline = () => {
+  // $FlowFixMe[not-a-function] nullable value
+  localSetTimeout(performWorkUntilDeadline, 0);
+};
+```
+
+`performWorkUntilDeadline` 作为定时器的回调函数，这里是一个递归调用。当它开始执行时，记录时间，并启动 `flushwork -> workloop` 循环。
+
+```ts
+const performWorkUntilDeadline = () => {
+  if (isMessageLoopRunning) {
+    const currentTime = getCurrentTime();
+    // !mark
+    startTime = currentTime;
+
+    // If a scheduler task throws, exit the current browser task so the
+    // error can be observed.
+    //
+    // Intentionally not using a try-catch, since that makes some debugging
+    // techniques harder. Instead, if `flushWork` errors, then `hasMoreWork` will
+    // remain true, and we'll continue the work loop.
+    let hasMoreWork = true;
+    try {
+      hasMoreWork = flushWork(currentTime);
+    } finally {
+      if (hasMoreWork) {
+        // If there's more work, schedule the next message event at the end
+        // of the preceding one.
+        schedulePerformWorkUntilDeadline();
+      } else {
+        isMessageLoopRunning = false;
+      }
+    }
+  }
+};
+```
+
+我们会在后续的 `任务循环启动章节` 更加完整的讲解源码，这里先从结论的角度开始理解。
+
+如下代码则展示了 `frameInterval`  的赋值
+
+```ts SchedulerFeatureFlags.js
+export const enableSchedulerDebugging = false;
+export const enableProfiling = false;
+// !mark
+export const frameYieldMs = 5;
+
+export const userBlockingPriorityTimeout = 250;
+export const normalPriorityTimeout = 5000;
+export const lowPriorityTimeout = 10000;
+```
+
+```ts Scheduler.js
+...
+let frameInterval = frameYieldMs;
+...
+```
+
+OK，每个变量都明确清楚了之后，现在我们再来看 `shouldYieldToHost()` 的函数实现，就非常简单了。
+
++ `getCurrentTime()` 表示当前时间
++ `startTime` 表示一轮任务循环开始的时间
++ `timeElapsed` 表示当前时间和一轮任务循环开始的时间的差值
++ `frameInterval` 表示一个时间切片，默认为 5ms
+
+那么 `shouldYieldToHost()` 的执行结果为 false 时，表示当前时间切片还有富余时间，还可以继续循环。结果为 `true` 时，则表示当前时间切片已经用完，此时应该中断循环。
+
+```ts
+function shouldYieldToHost(): boolean {
+  const timeElapsed = getCurrentTime() - startTime;
+  if (timeElapsed < frameInterval) {
+    // The main thread has only been blocked for a really short amount of time;
+    // smaller than a single frame. Don't yield yet.
+    return false;
+  }
+  // Yield now.
+  return true;
+}
+```
+
+中断循环之后，则表示释放了执行资源，浏览器可以有机会响应其他任务和交互，或者推送新的任务进入队列。

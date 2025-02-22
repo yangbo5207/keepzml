@@ -20,6 +20,10 @@ export const r1 = [
     name: '4、插队的影响、与中断的区别',
   },
   {
+    path: '5.shouldYield',
+    name: '5、中断条件：shouldYield',
+  },
+  {
     path: '5.task',
     name: '5、React中的任务与队列',
   },
