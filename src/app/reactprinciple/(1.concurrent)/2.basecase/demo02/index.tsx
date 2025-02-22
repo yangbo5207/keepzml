@@ -4,29 +4,30 @@ import { useRef, useState } from 'react'
 export default function Counter() {
   const container = useRef<any>(null)
   const [loopRunning, setLoop] = useState(false)
-  const queue = useRef(Array.from({ length: 100000 }, () => task))
+  const queue = useRef(Array.from({ length: 100000 }, () => performWorkUnit))
 
   function __click() {
     setLoop(true)
-    requestIdleCallback(performWorkUnit)
+    requestIdleCallback(workLoop)
   }
 
-  function task() {
+  function performWorkUnit() {
     let span = document.createElement('span')
     span.innerText = '1'
     container.current.appendChild(span)
   }
 
-  function performWorkUnit() {
+  function workLoop() {
     if (queue.current.length === 0) {
       return setLoop(false)
     }
     requestIdleCallback(deadline => {
-      let task: any;
-      while ((task = queue.current.pop()) && !deadline.didTimeout && deadline.timeRemaining() > 0) {
-        task()
+      let performWorkUnit: any;
+      // 中断条件：没有剩余时间了
+      while ((performWorkUnit = queue.current.pop()) && !deadline.didTimeout && deadline.timeRemaining() > 0) {
+        performWorkUnit()
       }
-      performWorkUnit()
+      workLoop()
     })
   }
 

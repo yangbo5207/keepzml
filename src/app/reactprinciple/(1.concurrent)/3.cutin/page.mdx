@@ -8,7 +8,7 @@ import Demo02 from './demo02/preview'
 上文的案例更偏向于实践的解决方案，但是不利于观察任务的拆分执行。为了能够更直观的观察小任务依次执行，我这里讲单个元素的插入任务阻塞 `1ms`
 
 ```ts task.
-function task() {
+function performWorkUnit() {
   const startTime = performance.now()
   let span = document.createElement('span')
   span.innerText = '1'

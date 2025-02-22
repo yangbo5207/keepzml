@@ -12,7 +12,7 @@ export default function Counter() {
     // 初始时移入 3000 个任务节点
     for (let i = 0; i < 3000; i++) {
       const node = {
-        callback: task,
+        callback: performWorkUnit,
         id: i,
         sortIndex: 100
       }
@@ -23,19 +23,20 @@ export default function Counter() {
 
   function __click() {
     setLoop(true)
-    requestIdleCallback(performWorkUnit)
+    requestIdleCallback(workLoop)
   }
 
   function __cutinClick() {
     const node = {
-      callback: highPriorityTask,
+      callback: performWorkHighPriorityUnit,
       id: 0,
       sortIndex: 1
     }
     push(queue.current, node)
   }
 
-  function task() {
+  // 普通单个任务
+  function performWorkUnit() {
     const startTime = performance.now()
     let span = document.createElement('span')
     span.innerText = '1'
@@ -45,7 +46,8 @@ export default function Counter() {
     container.current.appendChild(span)
   }
 
-  function highPriorityTask() {
+  // 高优先级单个任务
+  function performWorkHighPriorityUnit() {
     const startTime = performance.now()
     let span = document.createElement('span')
     span.style.color = 'red'
@@ -57,7 +59,7 @@ export default function Counter() {
     container.current.appendChild(span)
   }
 
-  function performWorkUnit() {
+  function workLoop() {
     if (queue.current.length === 0) {
       return setLoop(false)
     }
@@ -67,7 +69,7 @@ export default function Counter() {
       while ((node = pop(queue.current)) && !deadline.didTimeout && deadline.timeRemaining() > 0) {
         node.callback()
       }
-      performWorkUnit()
+      workLoop()
     })
   }
 

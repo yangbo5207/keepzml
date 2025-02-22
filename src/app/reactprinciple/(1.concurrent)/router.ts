@@ -32,7 +32,7 @@ export const r1 = [
     name: '7、lane 模型',
   },
   {
-    path: '8.priority',
+    path: '8.prioritylevel',
     name: '8、React 中的优先级设计',
   },
   {

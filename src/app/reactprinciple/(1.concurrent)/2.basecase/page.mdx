@@ -27,7 +27,7 @@ import Image01 from './image01/preview'
 为了优化这个问题。我们需要将任务进行拆分。把**渲染十万个节点**这个大的任务，拆分成**十万个渲染一个节点**的小任务
 
 ```ts
-function task() {
+function performWorkUnit() {
   let span = document.createElement('span')
   span.innerText = '1'
   container.current.appendChild(span)
@@ -37,7 +37,7 @@ function task() {
 然后将这个十万个任务，放入一个执行队列中执行
 
 ```ts
-const queue = Array.from({length: 100000}, task)
+const queue = Array.from({length: 100000}, () => performWorkUnit)
 ```
 
 然后结合浏览器的刷新率，分批次的去执行这些被拆分的任务。
@@ -47,8 +47,6 @@ const queue = Array.from({length: 100000}, task)
 <Image01 />
 
 我们可以利用浏览器一帧渲染任务完成之后的空余时间来执行被拆分的 JS 任务。完整的代码如下
-
-
 
 <Demo02 />
 <CodeTabs>

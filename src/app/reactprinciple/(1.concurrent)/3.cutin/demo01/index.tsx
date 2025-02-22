@@ -4,14 +4,14 @@ import { useRef, useState } from 'react'
 export default function Counter() {
   const container = useRef<any>(null)
   const [loopRunning, setLoop] = useState(false)
-  const queue = useRef(Array.from({ length: 3000 }, () => task))
+  const queue = useRef(Array.from({ length: 3000 }, () => performWorkUnit))
 
   function __click() {
     setLoop(true)
-    requestIdleCallback(performWorkUnit)
+    requestIdleCallback(workLoop)
   }
 
-  function task() {
+  function performWorkUnit() {
     const startTime = performance.now()
     let span = document.createElement('span')
     span.innerText = '1'
@@ -21,7 +21,7 @@ export default function Counter() {
     container.current.appendChild(span)
   }
 
-  function performWorkUnit() {
+  function workLoop() {
     if (queue.current.length === 0) {
       return setLoop(false)
     }
@@ -30,7 +30,7 @@ export default function Counter() {
       while ((task = queue.current.pop()) && !deadline.didTimeout && deadline.timeRemaining() > 0) {
         task()
       }
-      performWorkUnit()
+      workLoop()
     })
   }
 

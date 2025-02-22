@@ -3,4 +3,99 @@ import CodeTabs from 'components/codehike/code-tabs'
 import Demo01 from './demo01/preview'
 import Demo02 from './demo02/preview'
 
-待续...
+### *1*、插队会造成什么影响
+
+上面一章中，我们使用一个具体的案例演示了高优先级的任务插队的现象。由于我们安排恰当，整体的表现没有明显的卡顿，高优先级的任务也顺利完成。但是他具体会造成什么影响，我们还需要进一步进行分析。
+
+这对我们在实践中使用并发模式有非常重要的指导意义。
+
+假设我们的队列中，有如下 10 个普通的任务。
+
+```ts
+// 数字代表了优先级
+// 第一个数字代表队头
+const queue = [3, 3, 3, 4, 5, 6, 6, 6, 6, 6]
+```
+
+假如我们再不停的点击按钮，不断的往队列中插入优先级更高的任务 `2`。我们来分析优先级为 `5` 的执行情况。
+
+刚开始执行时，执行了第一个普通任务 `3`，然后点击插入了一个优先级为 `2` 的任务。
+
+执行队列的变化情况为
+
+```ts
+queue = [3, 3, 4, 5, 6, 6, 6, 6, 6]
+queue = [2, 3, 3, 4, 5, 6, 6, 6, 6, 6]
+```
+
+此时，`5` 往前走了一步，但是又因为被插队而后退了一步。
+
+然后又依次快速执行了 `2`、`3`、`3`，但是这个时候由于连续点击又插入了一个 `2`，导致 `5` 又被插队了。
+
+此时队列的变化情况为
+
+```ts
+queue = [4, 5, 6, 6, 6, 6, 6]
+queue = [2, 4, 5, 6, 6, 6, 6, 6]
+```
+
+此时我们发现，任务 5 虽然又被插队了，但是它的执行时机却是呈现一个靠前的趋势发展。
+
+再然后又一次执行了 `2`、`4`，再被插队
+
+```ts
+queue = [5, 6, 6, 6, 6, 6]
+queue = [2, 5, 6, 6, 6, 6, 6]
+```
+
+此时我们发现 `5` 已经快要被执行了。在任务队列中处于非常靠前的位置。
+
+
+在实践中，通常情况下，高优先级的任务，都是执行时间非常短的任务。
+
+**因此，我们可以得出结论：连续的插队虽然会推迟某一个任务的执行，但是该任务总是会得到一个执行时机。** 并发模型的优势就在于此。它可以很好的兼顾性能强悍的设备与性能一般的设备。性能强悍的设备中，任务执行速度快，普通任务会快速被执行，插队可能都来不及普通任务自己就执行完了，那么这个时候，就不会造成什么影响。性能普通的设备中，任务执行速度慢，普通任务会被慢慢执行，插队可能会造成普通任务的执行时间被拉长，但是这个时候，它总是会得到一个执行时机。而不造成卡顿。
+
+这一个结论非常重要，大家要反复读懂。要理解到并发模式是一个兼容性很强的方案。
+
+
+### *1*、任务中断
+
+任务中断是大家都比较容易理解错的一个概念。因为我们要注意的是，从语法上来说，如果一个任务使用函数来创建，在现有的 JS 机制中，普通函数的执行，是不可以被中断的。因此，**任务也不可以被中断。**
+
+**那如果我想要做到一个任务可以中断，那应该怎么办呢？很简单，那就是将一个函数中执行的任务，拆分到多个函数中去执行。然后通过中断循环过程的方式，中断任务的执行**
+
+因此，在 React 中，必须将深度优先遍历的递归函数，转化为链表结构，然后通过循环链表的执行的方式，来做到中断任务的执行。Fiber 架构的理论基础。
+
+React 中的循环源码如下所示
+
+```ts
+/** @noinline */
+function workLoopConcurrent() {
+  // 循环中断的条件
+  while (workInProgress !== null && !shouldYield()) {
+    // $FlowFixMe[incompatible-call] found when upgrading Flow
+    performUnitOfWork(workInProgress);
+  }
+}
+```
+
+单个任务的执行
+
+```ts
+function performUnitOfWork(unitOfWork: Fiber): void {
+  // The current, flushed, state of this fiber is the alternate. Ideally
+  // nothing should rely on this, but relying on it here means that we don't
+  // need an additional field on the work in progress.
+  const current = unitOfWork.alternate;
+
+  let next;
+  next = beginWork(current, unitOfWork, entangledRenderLanes);
+    
+  unitOfWork.memoizedProps = unitOfWork.pendingProps;
+  if (next === null) {
+    completeUnitOfWork(unitOfWork);
+  } else {
+    workInProgress = next;
+  }
+}
+```
