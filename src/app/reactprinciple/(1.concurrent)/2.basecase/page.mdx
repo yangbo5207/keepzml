@@ -1,0 +1,62 @@
+import CodeTabs from 'components/codehike/code-tabs'
+
+import Demo01 from './demo01/preview'
+import Demo02 from './demo02/preview'
+import Image01 from './image01/preview'
+
+### 1、基础案例
+
+现在，我有一个任务，是往父元素中插入十万个子节点 `<span>1</span>`。普通的思考逻辑下，我们可以随便写这样一个函数来完成这个逻辑
+
+<Demo01 />
+<CodeTabs>
+```tsx !!tabs index.tsx -c
+!from ./demo01/index.tsx
+```
+</CodeTabs>
+
+大家点击按钮演示观察一下。
+
+我们发现，当我们点击之后，页面上并不会立即显示插入的内容，而是会卡顿一会儿才会显示。
+
+原因是因为我们在同步逻辑中发布了 `插入十万个节点` 的任务，**长时间的 JavaScript 逻辑执行**是造成卡顿的主要原因，除此之外，这样写的逻辑，浏览器会在一帧的时间内将这么多节点全部渲染完成，也会造成一点耗时。
+
+### 1、优化思路
+
+
+为了优化这个问题。我们需要将任务进行拆分。把**渲染十万个节点**这个大的任务，拆分成**十万个渲染一个节点**的小任务
+
+```ts
+function task() {
+  let span = document.createElement('span')
+  span.innerText = '1'
+  container.current.appendChild(span)
+}
+```
+
+然后将这个十万个任务，放入一个执行队列中执行
+
+```ts
+const queue = Array.from({length: 100000}, task)
+```
+
+然后结合浏览器的刷新率，分批次的去执行这些被拆分的任务。
+
+理想的结果就是，JS 执行一部分，然后渲染引擎渲染一部分。完成之后，JS 再继续执行，渲染引擎再渲染。通过这样时间分片的间隔执行方式，让用户感知不到卡顿的存在。
+
+<Image01 />
+
+我们可以利用浏览器一帧渲染任务完成之后的空余时间来执行被拆分的 JS 任务。完整的代码如下
+
+
+
+<Demo02 />
+<CodeTabs>
+```tsx !!tabs index.tsx -c
+!from ./demo02/index.tsx
+```
+</CodeTabs>
+
+尝试演示效果，我们发现，一点击按钮，马上就有内容渲染出来。卡顿消失了。
+
+我们额外在代码中记录了一个循环状态，用于展示整个大任务的渲染耗时。大家可以结合代码多多感受一下。

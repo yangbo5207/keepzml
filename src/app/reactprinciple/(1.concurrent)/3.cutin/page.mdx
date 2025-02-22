@@ -1,0 +1,53 @@
+import CodeTabs from 'components/codehike/code-tabs'
+
+import Demo01 from './demo01/preview'
+import Demo02 from './demo02/preview'
+
+### 1、案例改造
+
+上文的案例更偏向于实践的解决方案，但是不利于观察任务的拆分执行。为了能够更直观的观察小任务依次执行，我这里讲单个元素的插入任务阻塞 `1ms`
+
+```ts task.
+function task() {
+  const startTime = performance.now()
+  let span = document.createElement('span')
+  span.innerText = '1'
+  // !mark(1:3)
+  while (performance.now() - startTime < 1) {
+    // 阻塞 1 ms
+  }
+  container.current.appendChild(span)
+}
+```
+
+然后把总任务减少到 `3000` 个。我们重新看一下演示效果。
+
+<Demo01 />
+<CodeTabs>
+```tsx !!tabs index.tsx -c
+!from ./demo01/index.tsx
+```
+</CodeTabs>
+
+
+### 2、插队：优先级队列的运用
+
+优先级队列的知识与封装我们已经在前面分享过，React 的底层源码中，也几乎用同样的理念封装了一个小顶堆。我们直接使用即可。
+
+为了实现插队效果，我们需要将之前的任务队列，转换成为一个优先级队列。入队与出队都按照优先级队列的方式来实现。这样，每次执行出队任务时，优先级更高的就总能得到更快的执行时机。
+
+我们新增一个按钮，用于向默认队列中，添加高优先级的任务。
+
+完整代码与演示如下.
+
+操作方式：**先点击红色按钮，然后快速多次点击绿色按钮。重置点击刷新按钮。**
+
+<Demo02 />
+<CodeTabs>
+```tsx !!tabs index.tsx -c
+!from ./demo02/index.tsx
+```
+```ts !!tabs schedulerMinHeap.ts -c
+!from ./demo02/schedulerMinHeap.ts
+```
+</CodeTabs>
