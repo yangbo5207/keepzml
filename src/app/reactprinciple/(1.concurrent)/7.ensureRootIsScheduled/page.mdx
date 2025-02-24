@@ -1,0 +1,94 @@
+import CodeTabs from 'components/codehike/code-tabs'
+
+
+重新回顾一下，我们上一篇文章中，找到的从 `setCounter` 触发的更新的链路：
+
++ `dispatchSetState` ->
++ `dispatchSetStateInternal` ->
++ `scheduleUpdateOnFiber` ->
++ `ensureRootIsScheduled` ->
++ `scheduleImmediateTask` ->
++ `processRootScheduleInMicrotask` ->
++ `scheduleTaskForRootDuringMicrotask` ->
++ **`scheduleCallback(schedulerPriorityLevel, schedulerPriorityLevel, performWorkOnRootViaSchedulerTask.bind(null, root))`** ->
++ `performWorkOnRoot` ->
++ `renderRootSync -> workLoopSync` / `renderRootConcurrent -> workLoopConcurrent`
+
+我们注意观察这里有一个其他源码文章中高频出现的函数 `scheduleUpdateOnFiber`，它的主要作用有两个，一个是在根节点上标记存在一个等待中的更新，并保存本次更新的优先级
+
+```ts
+// Mark that the root has a pending update.
+markRootUpdated(root, lane);
+```
+
+另外一个就是调用 `ensureRootIsScheduled`，
+
+```ts
+ensureRootIsScheduled(root);
+```
+
+这个函数在源码中出现的频次就非常高了。
+
+```ts
+scheduleUpdateOnFiber -> ensureRootIsScheduled
+scheduleInitialHydrationOnRoot -> ensureRootIsScheduled
+performWorkOnRoot -> ensureRootIsScheduled
+flushRoot -> ensureRootIsScheduled
+renderRootConcurrent -> ensureRootIsScheduled
+commitRootImpl -> ensureRootIsScheduled
+...
+
+// 其他触发到 scheduleUpdateOnFiber 的地方
+dispatchSetState -> dispatchSetStateInternal -> scheduleUpdateOnFiber
+updateContainer -> updateContainerImpl -> scheduleUpdateOnFiber
+```
+
+它在语义上的意思是确保根节点的更新任务被调度。但在实现上，实际上在底层触发的一个 promise 任务。那这里我们考虑的问题是，为什么这里需要触发一个 promise 任务呢？
+
+
+其实就是为了**合并**在同一轮函数调用栈中，可能会多次触发的更新任务。俗称**批处理**。
+
+例如，我们在点击事件回调中，调用多次 `set` 方法
+
+```ts
+const [counter1, setCounter1] = useState(0)
+const [counter2, setCounter2] = useState(0)
+
+function __click() {
+  setCounter1(counter1 + 1)
+  setCounter1(counter2 + 4)
+}
+
+...
+```
+
+我们知道，每一个 `setCounter` 最终对应的是一次自顶向下的完整的 diff 更新过程。如果我们这里不做处理，那么多次调用 `setCounter`，就会触发多次完整的更新。在性能上是一次巨大的浪费。因此，在进入 `taskQueue` 之前，我们还需要做一次合并处理。
+
+`taskQueue` 的循环，是在宏任务队列中被启动。
+
+> 关于这个结论，我们前面有简单提到，后续还会专门在源码中学习
+
+而要在 `taskQueue` 循环启动之前，合并多次 `setCounter`，最适合的时间节点，就是微任务队列。
+
+> 要合并多个 `setCounter`，则需要合并逻辑尽量在最后一个 `setCounter` 之后。前面都是进入队列进行收集等待。但是因为我们并不知道在一轮函数调用栈中，最后一个 `setCounter` 到底是哪一个。但是我们可以非常确定的知道，在事件循环中，微任务队列是在函数调用栈清空之后才开始执行的，所以这里是一个非常适合的时机。
+
+执行顺序完美的符合了前后的要求。
+
+```ts
+setCounter()
+setCounter()
+setCounter()
+setCounter()
+
+---
+
+微任务队列执行
+
+---
+
+宏任务队列 taskQueue 执行
+```
+
+当然，更更准确的说法，是合并多个 `ensureRootIsScheduled` 的执行。
+
+那么具体的合并是怎么做的呢，接下来一张我们继续学习。

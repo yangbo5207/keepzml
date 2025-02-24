@@ -24,23 +24,39 @@ export const r1 = [
     name: '5、中断条件：shouldYield',
   },
   {
-    path: '5.task',
-    name: '5、React中的任务与队列',
+    path: '6.task',
+    name: '6、React 中的任务与队列',
   },
   {
-    path: '6.timeslicing',
-    name: '6、时间切片是如何实现的',
+    path: '7.ensureRootIsScheduled',
+    name: '7、ensureRootIsScheduled',
+    type: 'newer',
+    label: 'n'
   },
   {
-    path: '7.lane',
-    name: '7、lane 模型',
-  },
-  {
-    path: '8.prioritylevel',
-    name: '8、React 中的优先级设计',
+    path: '8.mergeupdate',
+    name: '8、合并多个更新触发',
+    type: 'newer',
+    label: 'n'
   },
   {
     path: '9.loopse',
-    name: '9、任务队列循环的启动与结束',
+    name: '9、taskQueue 队列循环的启动与结束',
+  },
+  {
+    path: '10.timeslicing',
+    name: '10、时间切片是如何实现的',
+  },
+  {
+    path: '11.workLoop',
+    name: '11、workLoop 循环完整逻辑',
+  },
+  {
+    path: '12.prioritylevel',
+    name: '12、React 中的优先级设计',
+  },
+  {
+    path: '13.lane',
+    name: '13、lane 模型',
   },
 ]

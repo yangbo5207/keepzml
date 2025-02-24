@@ -1,0 +1,77 @@
+import CodeTabs from 'components/codehike/code-tabs'
+
+
+重新回顾一下，我们上一篇文章中，找到的从 `setCounter` 触发的更新的链路：
+
++ `dispatchSetState` ->
++ `dispatchSetStateInternal` ->
++ `scheduleUpdateOnFiber` ->
++ `ensureRootIsScheduled` ->
++ `scheduleImmediateTask` ->
++ `processRootScheduleInMicrotask` ->
++ `scheduleTaskForRootDuringMicrotask` ->
++ **`scheduleCallback(schedulerPriorityLevel, schedulerPriorityLevel, performWorkOnRootViaSchedulerTask.bind(null, root))`** ->
++ `performWorkOnRoot` ->
++ `renderRootSync -> workLoopSync` / `renderRootConcurrent -> workLoopConcurrent`
+
+
+首先，我们需要在 `ReactFiberConfigDOM.js` 中，配置如下两个变量，表示当前环境支持微任务队列，并使用 `Promise.resolve().then(callback)` 来推送任务进入队列。
+
+```ts ReactFiberConfigDOM.js
+const localPromise = typeof Promise === 'function' ? Promise : undefined;
+
+export const supportsMicrotasks = true;
+export const scheduleMicrotask: any =
+  typeof queueMicrotask === 'function'
+    ? queueMicrotask
+    : typeof localPromise !== 'undefined'
+      ? callback =>
+          localPromise.resolve(null).then(callback).catch(handleErrorInNextTick)
+      : scheduleTimeout; // TODO: Determine the best fallback here.
+```
+
+每次更新在执行 `dispatchSetStateInternal` 时，我们会把更新的内容，组装成为一个 `update` 对象节点，挂载到 fiber 节点上，这里详细的细节我们后面会学习。我们在此时可以简单理解为，在节点上保存了更新的数据。
+
+只要我们保存了数据，当 diff 更新发生时，我们就可以知道如何处理这些数据。因此，批处理的核心就是，多次保存更新的数据，这些更新数据会组成一个链表，然后一次性统一处理。而我们不需要执行多次 diff 更新。因此到通知根节点开始更新的环节，我们只需要在第一次 `ensureRootIsScheduled` 时，通知根节点有一个更新产生，而后续再同一轮函数调用栈就不需要重复通知了。
+
+为了实现这个效果。React 在对应的模块全局创建了一个全局上下文变量 `didScheduleMicrotask`，表示是否已经通知了根节点有更新。
+
+```ts
+// Used to prevent redundant mircotasks from being scheduled.
+let didScheduleMicrotask: boolean = false;
+```
+
+因此在 `ensureRootIsScheduled` 的内部实现中，我们可以看到，如果 `didScheduleMicrotask` 为 `false` 时，我们才会调用 `scheduleImmediateTask` 来通知根节点有更新。如果通知过一次，则直接把 `didScheduleMicrotask` 设置为 `true`
+
+```ts
+if (!didScheduleMicrotask) {
+  didScheduleMicrotask = true;
+  scheduleImmediateTask(processRootScheduleInMicrotask);
+}
+```
+
+
+这里的 `scheduleImmediateTask` 是一个兼容写法，如果支持微任务队列，则使用 `scheduleMicrotask` 来推送任务，如果不支持，则使用宏任务队列 `Scheduler_scheduleCallback`。但是为了确保该任务的前置执行，需要传入超高的优先级。
+
+```ts
+function scheduleImmediateTask(cb: () => mixed) {
+  if (supportsMicrotasks) {
+    scheduleMicrotask(() => {
+      ...
+      cb();
+    });
+  } else {
+    // If microtasks are not supported, use Scheduler.
+    Scheduler_scheduleCallback(ImmediateSchedulerPriority, cb);
+  }
+}
+```
+
+`processRootScheduleInMicrotask` 是在微任务队列中执行的任务。
+
+该任务会调用 `scheduleTaskForRootDuringMicrotask -> scheduleCallback` 将本轮函数调用栈中触发的更新任务推入宏任务队列中 `taskQueue/timerQueue` 
+
+
+### 总结
+
+react 中，依赖于事件循环机制，也分别定义了自己的宏任务队列与微任务队列。利用微任务队列合并多次 `ensureRootIsScheduled` 的通知，从而减少了多次 diff 更新。宏任务队列则是启动更新任务，其对应的是整个 diff 更新的渲染过程。
