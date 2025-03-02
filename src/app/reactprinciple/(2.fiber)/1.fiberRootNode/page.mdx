@@ -1,0 +1,140 @@
+
+### FiberRootNode
+
+在 React 19 中，我们通过调用 `createRoot` 以在浏览器 DOM 元素中创建根节点显示内容。
+
+```ts
+import { createRoot } from 'react-dom/client';
+
+const domNode = document.getElementById('root');
+const root = createRoot(domNode);
+```
+
+React 将会为 domNode 创建一个根节点，并控制其中的 DOM。在已经创建根节点之后，需要调用 root.render 来显示 React 组件：
+
+```ts
+root.render(<App />);
+```
+
+这里的 `createRoot` 是我们创建 Fiber Tree 的入口。通过调用路径我们发现，他最终会调用 `createFiberRoot` 来创建 Fiber Tree 的顶层根节点 `FiberRootNode`
+
+```ts
+createRoot(root, App) ->
+createContainer(root, App) ->
+createFiberRoot(root, App) ->
+root = new FiberRootNode(root, App)
+```
+
+我们来看一下 `FiberRootNode` 这个类的定义。然后我们通过注释来解释每个属性的作用。在后续的文章中，可能会用到其中的某些注释，如果记不住含义，可以回过头来重新看看。
+
+```ts
+function FiberRootNode(
+  this: $FlowFixMe,
+  containerInfo: any,
+  // $FlowFixMe[missing-local-annot]
+  tag,
+  hydrate: any,
+  identifierPrefix: any,
+  onUncaughtError: any,
+  onCaughtError: any,
+  onRecoverableError: any,
+  formState: ReactFormState<any, any> | null,
+) {
+  // 并发模式标记
+  this.tag = disableLegacyMode ? ConcurrentRoot : tag;
+
+  // 这个字段存储了与 React 应用挂载的 DOM 容器相关的信息。通常，containerInfo 是一个 DOM 元素，表示 React 应用的根容器。通常为 root DOM 节点
+  this.containerInfo = containerInfo;
+
+  // 这个字段存储了待处理的子节点。通常在 React 的并发模式下使用，用于暂存尚未处理的子节点。
+  this.pendingChildren = null;
+
+  // 指向当前的 Fiber 树。Fiber 树是 React 用于描述组件树结构的数据结构。
+  this.current = null;
+
+  // 这个字段用于缓存 ping 操作的结果。ping 操作通常用于检测某个任务是否已经完成。
+  this.pingCache = null;
+
+  // 这个字段指向已经完成的 Fiber 树。在渲染过程中，React 会构建一个新的 Fiber 树，完成后会将其赋值给 finishedWork
+  this.finishedWork = null;
+
+  // 这个字段存储了当前任务的超时句柄。noTimeout 表示没有超时
+  this.timeoutHandle = noTimeout;
+
+  // 这个字段用于取消待提交的更新。通常在并发模式下使用。
+  this.cancelPendingCommit = null;
+
+  // 这个字段存储了当前的上下文（Context）信息。
+  this.context = null;
+
+  // 这个字段存储了待处理的上下文信息。
+  this.pendingContext = null;
+
+  // 这个字段用于指向下一个 FiberRootNode。通常在多个根节点的情况下使用
+  this.next = null;
+
+  // 这个字段存储了当前调度的回调节点。通常是一个任务（Task）或回调函数
+  this.callbackNode = null;
+
+  // 这个字段存储了当前回调的优先级。NoLane 表示没有优先级。
+  this.callbackPriority = NoLane;
+
+  // 这个字段存储了各个优先级通道（Lane）的过期时间。createLaneMap 是一个用于创建优先级通道映射的函数。
+  this.expirationTimes = createLaneMap(NoTimestamp);
+
+  // 这个字段存储了待处理的优先级通道。NoLanes 表示没有待处理的通道。
+  this.pendingLanes = NoLanes;
+
+  // 这个字段存储了被挂起的优先级 Lane
+  this.suspendedLanes = NoLanes;
+
+  //  这个字段存储了被 ping 的优先级通道。
+  this.pingedLanes = NoLanes;
+
+  // 这个字段存储了“预热”中的优先级通道。
+  this.warmLanes = NoLanes;
+
+  // 这个字段存储了已过期的优先级通道。
+  this.expiredLanes = NoLanes;
+
+  // 这个字段存储了已完成的优先级通道
+  this.finishedLanes = NoLanes;
+
+  // 禁用错误恢复的优先级通道
+  this.errorRecoveryDisabledLanes = NoLanes;
+
+  // 这个字段用于计数挂起的 shell（外壳）任务
+  this.shellSuspendCounter = 0;
+
+  // 用于管理有依赖关系的任务，存储了“纠缠”的优先级通道。纠缠的通道表示它们之间有依赖关系
+  this.entangledLanes = NoLanes;
+
+  // 这个字段存储了各个优先级通道的纠缠关系
+  this.entanglements = createLaneMap(NoLanes);
+
+  // 这个字段存储了隐藏的更新。隐藏的更新通常是指那些尚未提交的更新。
+  this.hiddenUpdates = createLaneMap(null);
+
+  // 这个字段存储了标识符前缀。通常用于生成唯一的标识符
+  this.identifierPrefix = identifierPrefix;
+  this.onUncaughtError = onUncaughtError; // 处理未捕获错误的回调函数
+  this.onCaughtError = onCaughtError; // 处理已捕获错误的回调函数
+  this.onRecoverableError = onRecoverableError; // 处理可恢复错误的回调函数
+}
+```
+
+其他需要额外了解的内容
+
+### this.tag
+
+```ts
+export const disableLegacyMode = true;
+
+this.tag = disableLegacyMode ? ConcurrentRoot : tag;
+```
+
+FiberRootNode 的类型，有两种，一种是 LegacyRoot，一种是 ConcurrentRoot。LegacyRoot 是 React 16 之前的版本，ConcurrentRoot 是 React 16 之后的版本，disableLegacyMode 表示是否禁用之前的遗漏模式，如果禁用则为 true，那么就会使用 ConcurrentRoot，否则就根据传入的 tag 值来决定
+
+由于跨平台的考虑，`disableLegacyMode` 默认值并不是在所有平台都是 true。不过我们常用的 React DOM 则必然为 true.
+
+

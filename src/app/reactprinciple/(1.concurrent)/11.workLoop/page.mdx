@@ -1,114 +1,174 @@
 import CodeTabs from 'components/codehike/code-tabs'
 
-### *1、* schedulePerformWorkUntilDeadline
 
-`schedulePerformWorkUntilDeadline` 是一个兼容性写法，用于表达就近启动一个宏任务队列。如果你不理解这是什么意思，可以通过把他当成是 `setTimeout(callbak, 0)` 来理解。只不过 React 底层为了能够在更前置的宏任务中启动 `taskQueue` 循环，做了一些额外的兼容处理
 
-他的兼容处理代码如下
+### *1*、 flushWork
 
-```ts 
-let schedulePerformWorkUntilDeadline;
-if (typeof localSetImmediate === 'function') {
-  // Node.js 或者 老版本的 IE
-  schedulePerformWorkUntilDeadline = () => {
-    localSetImmediate(performWorkUntilDeadline);
-  };
-} else if (typeof MessageChannel !== 'undefined') {
-  // DOM and Worker environments.
-  // We prefer MessageChannel because of the 4ms setTimeout clamping.
-  const channel = new MessageChannel();
-  const port = channel.port2;
-  channel.port1.onmessage = performWorkUntilDeadline;
-  schedulePerformWorkUntilDeadline = () => {
-    port.postMessage(null);
-  };
+源码中，区分了两个阶段，一个是任务调度阶段，一个是循环执行阶段。
+
+其中，分别使用了 `isHostCallbackScheduled` `isHostTimeoutScheduled` 来记录执行队列 `taskQueue` 的调度过程和延迟队列 `timerQueue` 的调度过程. 
+
+用 `isPerformingWork` 来记录任务的执行过程。
+
+```ts
+// Pausing the scheduler is useful for debugging.
+var isSchedulerPaused = false;
+
+var currentTask = null;
+var currentPriorityLevel = NormalPriority;
+
+// This is set while performing work, to prevent re-entrance.
+var isPerformingWork = false;
+// !mark(1:2)
+var isHostCallbackScheduled = false;
+var isHostTimeoutScheduled = false;
+```
+
+因此，在 `flushWork` 执行时，会首先将调度停止。如果还有延迟任务，则直接取消并停止。并开启任务执行
+
+```ts
+function flushWork(initialTime: number) {
+  if (enableProfiling) {
+    markSchedulerUnsuspended(initialTime);
+  }
+
+  // We'll need a host callback the next time work is scheduled.
+  isHostCallbackScheduled = false;
+  if (isHostTimeoutScheduled) {
+    // We scheduled a timeout but it's no longer needed. Cancel it.
+    isHostTimeoutScheduled = false;
+    cancelHostTimeout();
+  }
+
+  isPerformingWork = true;
+
+  ...
+```
+
+前置状态改完之后，就直接执行 `workLoop` 开始循环。
+
+```ts
+return workLoop(initialTime);
+```
+
+
+
+### *2*、 workLoop
+
+workLoop 函数的第一个步骤，就是先去检查临时队列 `timerQueue` 中是否存在满足了执行条件都任务。如果满足了，则把任务推送到 `taskQueue` 中
+
+```ts
+function workLoop(initialTime: number) {
+  let currentTime = initialTime;
+  // !mark
+  advanceTimers(currentTime);
+  ...
+```
+
+`advanceTimers` 会使用 while 遍历 `timerQueue`，一方面是清理掉被取消的延迟任务，另外一方面是将符合执行条件的任务换个优先级队列 `timerQueue -> taskQueue`
+
+```ts
+function advanceTimers(currentTime: number) {
+  // Check for tasks that are no longer delayed and add them to the queue.
+  let timer = peek(timerQueue);
+  while (timer !== null) {
+    if (timer.callback === null) {
+      // Timer was cancelled.
+      pop(timerQueue);
+    } else if (timer.startTime <= currentTime) {
+      // Timer fired. Transfer to the task queue.
+      // !mark(1:3)
+      pop(timerQueue);
+      timer.sortIndex = timer.expirationTime;
+      push(taskQueue, timer);
+      if (enableProfiling) {
+        markTaskStart(timer, currentTime);
+        timer.isQueued = true;
+      }
+    } else {
+      // Remaining timers are pending.
+      return;
+    }
+    timer = peek(timerQueue);
+  }
+}
+```
+
+临时队列的任务迁移完成之后，workLoop 就会开启 while 循环。
+
+循环执行任务节点 `callback`，具体的执行细节在上一篇文章中我们已经分享过。主要就是执行 fiber 节点的遍历更新，如果没执行完，则保存起来，让任务不出队列，等到下一轮事件循环再开始执行
+
+并且在执行完一个任务之后，会再次判断临时队列 `timerQueue` 中是否存在可执行的任务。
+
+```ts
+const callback = currentTask.callback;
+if (typeof callback === 'function') {
+  currentTask.callback = null;
+  currentPriorityLevel = currentTask.priorityLevel;
+  const didUserCallbackTimeout = currentTask.expirationTime <= currentTime;
+  
+  const continuationCallback = callback(didUserCallbackTimeout);
+  currentTime = getCurrentTime();
+  if (typeof continuationCallback === 'function') {
+    currentTask.callback = continuationCallback;
+    advanceTimers(currentTime);
+    return true;
+  } else {
+    if (currentTask === peek(taskQueue)) {
+      pop(taskQueue);
+    }
+    // !mark
+    advanceTimers(currentTime);
+  }
 } else {
-  schedulePerformWorkUntilDeadline = () => {
-    localSetTimeout(performWorkUntilDeadline, 0);
-  };
+  pop(taskQueue);
 }
 ```
 
-这里之所以优先选择 `MessageChannel` 来作为宏任务对象，原因是 `setTimeout` 在许多版本的实现中存在 `4ms` 的强制延迟，这个现象的关键提示词是 `the 4ms setTimeout clamping`，在中文互联网上被提及的情况非常少，因此大多数人都不知道使用 `MessageChannel` 的真实原因。
 
-这一点对于更新而言影响非常大。特别是频繁更新的场景。
-
-从代码中我们可以看出，它将 `performWorkUntilDeadline` 作为任务参数传入了队列。
-
-`performWorkUntilDeadline` 的内部实现是一个使用递归的方式来实现循环的调用。
+这里有一个小细节就是取消宏任务的实现。是将人物节点的回调函数设置为 `null`
 
 ```ts
-const performWorkUntilDeadline = () => {
-  if (isMessageLoopRunning) {
-    const currentTime = getCurrentTime();
-    startTime = currentTime;
-    let hasMoreWork = true;
-    try {
-      hasMoreWork = flushWork(currentTime);
-    } finally {
-      if (hasMoreWork) {
-        schedulePerformWorkUntilDeadline();
-      } else {
-        isMessageLoopRunning = false;
-      }
+function unstable_cancelCallback(task: Task) {
+  if (enableProfiling) {
+    if (task.isQueued) {
+      const currentTime = getCurrentTime();
+      markTaskCanceled(task, currentTime);
+      task.isQueued = false;
     }
   }
-};
-```
 
-此时我们关注一个模块全局上下文变量 `isMessageLoopRunning`。这个变量是咋回事呢？我们已经遇到了多种类似的场景。由于 `unstable_scheduleCallback` 的目的是添加一个任务到 `taskQueue`，当有多个 `unstable_scheduleCallback` 执行时，此时我们会有多个任务 `push` 到 `taskQueue`。但是，哪一个是最后一个呢？
-
-我们不知道。我需要知道谁是最后一个了，然后开始循环队列执行任务。如果不知道的话，那就麻烦了。啥时候开始循环？
-
-因此，我们的解决办法是，引入一个后置的宏任务来启动循环的执行。既然我们不知道最后一个是谁，但是我们可以在每一个 `unstable_scheduleCallback` 执行的时候都去尝试启动一次。然后设计一个全局上下文变量，来记录启动状态。如果已经启动了宏任务，那么后续的就不用启动了。
-
-
-因此，我们声明了一个变量 `isMessageLoopRunning` 表示宏任务是否已经启动
-
-在 `unstable_scheduleCallback` 函数的执行中，会专门调用一个方法用于尝试启动宏任务。如下所示。
-
-```ts
-// 定义在模块全局
-let isMessageLoopRunning = false;
-```
-
-启动一次之后，就马上设置为 `true`，那么后续的 `unstable_scheduleCallback -> requestHostCallback` 就无法再次重复执行 **schedulePerformWorkUntilDeadline**
-
-```ts
-function requestHostCallback() {
-  if (!isMessageLoopRunning) {
-    isMessageLoopRunning = true;
-    schedulePerformWorkUntilDeadline();
-  }
+  // Null out the callback to indicate the task has been canceled. (Can't
+  // remove from the queue because you can't remove arbitrary nodes from an
+  // array based heap, only the first one.)
+  // !mark
+  task.callback = null;
 }
 ```
 
-到这里，就跟我们开篇讲的 `schedulePerformWorkUntilDeadline` 对上了。
 
-
-在 performWorkUntilDeadline 中，递归的过程会调用 `flushWork -> workLoop` 启动循环。
+因此在 taskQueue 执行任务的逻辑中，需要清理掉这种被取消的任务
 
 ```ts
-const performWorkUntilDeadline = () => {
-  if (isMessageLoopRunning) {
-    const currentTime = getCurrentTime();
-    startTime = currentTime;
-    let hasMoreWork = true;
-    try {
-      hasMoreWork = flushWork(currentTime);
-    } finally {
-      if (hasMoreWork) {
-        schedulePerformWorkUntilDeadline();
-      } else {
-        isMessageLoopRunning = false;
-      }
-    }
-  }
-};
+const callback = currentTask.callback;
+if (typeof callback === 'function') {
+  ...
+} else {
+  pop(taskQueue);
+}
 ```
 
-由于 `workLoop` 在循环的过程中，会 5ms 中断一次，让出执行资源，因此，最终有可能还有剩余的任务没有执行完成。在 `performWorkUntilDeadline` 中会判断 `hasMoreWork` 是否存在任务，如果还有，则递归的再次调用 `schedulePerformWorkUntilDeadline` 来启动宏任务，等到下一轮事件循环继续执行。
+最后，向外返回当前队列中是否还存在任务，还记得我们之前使用过的 `hasMoreWork = flushWork(currentTime)` 吗，这个 `hasMoreWork` 就是这里判断的
 
-如果没有，则结束循环，设置 `isMessageLoopRunning = false`
-
-> 在这个方法中，还出现了我们之前介绍的 startTime：表示一轮循环的启动时间，该时间会在 `shouldYieldToHost` 中被用到来判断当前任务的执行时刻，是否超出了 `5ms`
+```ts
+// Return whether there's additional work
+if (currentTask !== null) {
+  return true;
+} else {
+  const firstTimer = peek(timerQueue);
+  if (firstTimer !== null) {
+    requestHostTimeout(handleTimeout, firstTimer.startTime - currentTime);
+  }
+  return false;
+}
+```

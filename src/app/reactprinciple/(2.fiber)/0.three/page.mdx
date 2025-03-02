@@ -1,0 +1,120 @@
+在 React 中，存在三种不同的节点对象，ReactElement、Fiber、DOM。
+
+### 1、ReactElement
+
+在 React 中，所有采用 `jsx/tsx` 语法书写的标签代码，都会被编译器转化为由 `React.createElement` 创建的 `ReactElement` 实例。
+
+该实例是一个静态内容
+
+```ts
+export function createElement(type, config, children) {
+
+  let propName;
+  let type;
+  // Reserved names are extracted
+  const props = {};
+
+  let key = null;
+  let ref = null;
+
+  // 各种处理赋值过程
+  ...
+
+  const childrenLength = arguments.length - 2;
+  
+  ...
+  
+
+  return ReactElement(
+    type,
+    key,
+    ref,
+    undefined,
+    undefined,
+    getOwner(),
+    props,
+  );
+}
+```
+
+ReactElement 会返回一个类似于如下结构的元素对象。
+
+```ts
+element = {
+  // This tag allows us to uniquely identify this as a React Element
+  $$typeof: REACT_ELEMENT_TYPE,
+
+  // Built-in properties that belong on the element
+  type,
+  key,
+  ref,
+
+  props,
+
+  // Record the component responsible for creating this element.
+  _owner: owner,
+};
+```
+
+我们可以看出，ReactElement 是一个仅包含静态属性的元素对象。
+
+### 2、Fiber
+
+Fiber 节点对象是在 **ReactElement** 的基础之上创建而来的。和 `ReactElement` 不同的是，Fiber 节点中，还包含了大量的动态内容，用于记录状态、更新、以及各种链表结构。Fiber 的内容会在更新的过程中不断发生变化。
+
+```ts
+const fiber: Fiber = {
+  // Instance
+  // tag, key - defined at the bottom as dynamic properties
+  elementType: null,
+  type: null,
+  stateNode: null,
+
+  // 记录 Fiber tree 的树状结构
+  return: null,
+  child: null,
+  sibling: null,
+  index: 0,
+
+  ref: null,
+  refCleanup: null,
+
+  // pendingProps - defined at the bottom as dynamic properties
+  // 记录状态与更新
+  memoizedProps: null,
+  updateQueue: null,
+  memoizedState: null,
+  dependencies: null,
+
+  // Effects
+  flags: NoFlags,
+  subtreeFlags: NoFlags,
+  deletions: null,
+
+  lanes: NoLanes,
+  childLanes: NoLanes,
+
+  alternate: null,
+
+  // dynamic properties at the end for more efficient hermes bytecode
+  tag,
+  key,
+  pendingProps,
+  mode,
+};
+```
+
+Fiber 节点相关的内容非常多，我们会在后续的章节中详细讲解。这里就先做一个简单的铺垫。
+
+### 2、DOM 对象
+
+DOM 对象就是要真实渲染到页面的 DOM，在代码中，我们可以通过 `ref` 访问。整个 Fiber 架构的目标就是在数据更新的时候，找到对应需要修改的 DOM 节点。
+
+这里需要特别注意的是，DOM 对象由 React 创建，但是创建的 DOM Tree 并不是直接加入到 HTML 节点中去，而是会在内存中创建，然后在流程的最后，一次性的加入到 HTML 节点中，然后才开始渲染页面。
+
+他们之间的转换关系如下
+
+```ts
+// 开发者通过控制 JSX 驱动 Fiber tree 发生变化，然后再驱动 DOM 发生变化。
+JSX -> ReactElement -> Fiber -> DOM
+```

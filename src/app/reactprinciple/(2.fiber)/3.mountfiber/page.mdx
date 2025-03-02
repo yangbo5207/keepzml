@@ -1,0 +1,324 @@
+
+### 第一次构建过程
+
+初始化时，我们通过如下代码创建一个 React 应用。
+
+```ts
+import { createRoot } from 'react-dom/client';
+
+const domNode = document.getElementById('root');
+const root = createRoot(domNode);
+root.render(<App />);
+```
+
+其中，构建整个 Fiber tree 的函数调用流程如下，该流程对应 `<App />` 的执行过程。这些调用流程用于帮助大家在翻看源码是快速定位对应的代码，获取更多的逻辑与流程。
+
+```ts
+createRoot -> 
+createContainer ->
+createFiberRoot -> 
+createHostRootFiber ->
+createFiber
+
+const root = createContainer(
+  container,
+  ConcurrentRoot,
+  null,
+  isStrictMode,
+  concurrentUpdatesByDefaultOverride,
+  identifierPrefix,
+  onUncaughtError,
+  onCaughtError,
+  onRecoverableError,
+  transitionCallbacks,
+);
+
+return new ReactDOMRoot(root);
+```
+
+执行 `createRoot` 时，React 会首先创建顶层根节点 `FiberRootNode`，并使用 `.current` 指向 Fiber Tree 的根节点 `rootFiber`
+
+此时，内存中的情况为
+
+![](/images/reactprinciple/fiber/mountfiber/1.jpg)
+
+然后 render 的调用流程大概如下
+
+```ts
+return new ReactDOMRoot(root)
+ReactDOMRoot.prototype.render ->
+updateContainer(children, root, null, null); -> 
+updateContainerImpl -> 
+scheduleUpdateOnFiber ->
+ensureRootIsScheduled ->
+scheduleImmediateTask(processRootScheduleInMicrotask) ->
+scheduleTaskForRootDuringMicrotask ->
+
+// 进入到 taskQueue
+scheduleCallback(
+  schedulerPriorityLevel,
+  performWorkOnRootViaSchedulerTask.bind(null, root),
+);
+
+performWorkOnRoot ->
+renderRootConcurrent ->
+
+// 开发环境下会使用同步渲染 workLoopSync，生产环境使用并发渲染
+workLoopConcurrent ->
+performUnitOfWork -> // 循环执行
+beginWork/completeWork // 交替执行
+```
+
+
+在 render 的执行过程中，`workInProgress` 会首次基于 `root.current` 创建
+
+> 具体的位置在 `scheduleUpdateOnFiber -> prepareFreshStack` 中执行
+
+```ts 
+// prepareFreshStack()
+workInProgressRoot = root;
+const rootWorkInProgress = createWorkInProgress(root.current, null);
+workInProgress = rootWorkInProgress;
+```
+
+此时内存中的情况如下。
+
+![](/images/reactprinciple/fiber/mountfiber/2.jpg)
+
+为了区分，我们这里将当前已经存在的 `Fiber Tree` 称为 `current`，正在构建中的 Fiber Tree 成为 `workInProgress`。
+
+由于 Fiber Tree 的遍历过程是一个深度优先遍历，因此虽然执行的方式不一样，但是其构建顺序与递归的顺序是一致的。也就是和调用栈的执行顺序一致。因此这里设计的两个全局指针可以用栈的概念来理解
+
++ `workInProgressRoot` 表示栈底，只要栈底不为空，就表示栈中还有元素
++ `workInProgress` 表示栈顶，栈顶元素表示当前正在执行的 Fiber，它的位置会随着遍历的过程不断变化
+
+
+接下来进入 Fiber 的循环执行阶段，`performUnitOfWork` 第一次执行，此时传入的 `workInProgress` 为 `rootWorkInProgress`。
+
+```ts
+/** @noinline */
+function workLoopConcurrent() {
+  // Perform work until Scheduler asks us to yield
+  while (workInProgress !== null && !shouldYield()) {
+    // $FlowFixMe[incompatible-call] found when upgrading Flow
+    performUnitOfWork(workInProgress);
+  }
+}
+```
+
+在 `performUnitOfWork` 中，会首先执行 `beginWork`。在 beginWork 的执行中，会根据我们上一章学到的 `Fiber` 树结构按照**深度优先遍历**的方式放下执行，并根据判断是否存在下一个节点，来决定是继续执行 `beginWork` 还是 `completeWork`。
+
+判断的依据就是当前节点的 `child` 是否为 `null`。如果 `fiber.child !== null`，则继续执行 `beginWork`，如果 `fiber.child === null`，则执行 `completeWork`。
+
+```ts
+function performUnitOfWork(unitOfWork: Fiber): void {
+  const current = unitOfWork.alternate;
+
+  let next;
+
+  ...  
+
+  next = beginWork(current, unitOfWork, entangledRenderLanes);
+  
+  ...
+
+  unitOfWork.memoizedProps = unitOfWork.pendingProps;
+  if (next === null) {
+    completeUnitOfWork(unitOfWork);
+  } else {
+    workInProgress = next;
+  }
+}
+```
+
+如果 在 `beginWork` 中判断的结果是还存在 `next` 节点，则会重置 `workInProgress` 为 `next`，并继续执行 `performUnitOfWork -> beginWork`。
+
+`performUnitOfWork` **第一次**会直接执行 `beginWork`, 传入 `rootFiber` 作为入参
+
+
+```ts
+// !focus
+performUnitOfWork(rootFiber)
+
+function performUnitOfWork(unitOfWork: Fiber): void {
+  const current = unitOfWork.alternate;
+  let next = beginWork(current, unitOfWork, entangledRenderLanes);
+
+  unitOfWork.memoizedProps = unitOfWork.pendingProps;
+  if (next === null) {
+    // If this doesn't spawn new work, complete the current work.
+    completeUnitOfWork(unitOfWork);
+  } else {
+    workInProgress = next;
+  }
+}
+```
+
+此时会根据类型判断调用 `updateHostRoot`，并在后续 `reconcileChildren` 执行时, 向下构造次级子节点 fiber：`<App/>`, 同时设置子节点的 `flags`
+
+```ts
+// 表示该节点需要插入/移动
+fiber.flags = Placement
+```
+次级 `fiber(<App />)` 节点构建完成之后，返回该节点，并移动 `workInProgress` 指向 `App`
+
+内存中的情况变化为
+
+![](/images/reactprinciple/fiber/mountfiber/3.jpg)
+
+`performUnitOfWork` **第二次**执行，会直接执行 `beginWork`，传入 `App` 作为入参
+
+```ts
+// !focus
+performUnitOfWork(<App />)
+
+function performUnitOfWork(unitOfWork: Fiber): void {
+  const current = unitOfWork.alternate;
+  let next = beginWork(current, unitOfWork, entangledRenderLanes);
+
+  unitOfWork.memoizedProps = unitOfWork.pendingProps;
+  if (next === null) {
+    // If this doesn't spawn new work, complete the current work.
+    completeUnitOfWork(unitOfWork);
+  } else {
+    workInProgress = next;
+  }
+}
+```
+
+由于是初次构建，所以 `current` 为 `null`。`beginWork` 执行过程中会向下构建，发现还有 `child` 元素，为一个 `div`，因此 `workInProgress = next` 继续向下移动
+
+![](/images/reactprinciple/fiber/mountfiber/4.jpg)
+
+`performUnitOfWork` **第三次**执行，会直接执行 `beginWork`，传入 `div` 作为入参
+
+```ts
+// !focus
+performUnitOfWork(div)
+
+function performUnitOfWork(unitOfWork: Fiber): void {
+  const current = unitOfWork.alternate;
+  let next = beginWork(current, unitOfWork, entangledRenderLanes);
+
+  unitOfWork.memoizedProps = unitOfWork.pendingProps;
+  if (next === null) {
+    // If this doesn't spawn new work, complete the current work.
+    completeUnitOfWork(unitOfWork);
+  } else {
+    workInProgress = next;
+  }
+}
+```
+
+此时 `current` 依然为 `null`，`beginWork` 会向下构建多个子元素，此时 `child` 指向第一个子元素 `p`，`workInProgress = next` 继续向下移动，指向 `p` 元素
+
+![](/images/reactprinciple/fiber/mountfiber/5.jpg)
+
+`performUnitOfWork` **第四次**执行，会直接执行 `beginWork`，传入 `p` 作为入参。但是在 `beginWork` 执行的过程中，发现 `p.child` 为 null 了。因此，这个时候，会紧接着执行 `completeUnitOfWork`
+
+`completeUnitOfWork` 的执行会创建对应的 DOM 实例，`fiber.stateNode` 指向该 DOM 实例。并且会判断 p 节点是否存在兄弟节点，`sibling`，如果存在，则会将 `workInProgress` 指向 `sibling`，然后结束执行
+
+```ts
+const siblingFiber = completedWork.sibling;
+if (siblingFiber !== null) {
+  // If there is more work to do in this returnFiber, do that next.
+  workInProgress = siblingFiber;
+  return;
+}
+```
+
+如果不存在，则会将 `workInProgress` 指向父节点 `returnFiber`
+
+```ts
+completedWork = returnFiber;
+// Update the next thing we're working on in case something throws.
+workInProgress = completedWork;
+```
+
+由于此时，是存在兄弟节点的，因此，这一次执行后的内存变化为
+
+![](/images/reactprinciple/fiber/mountfiber/6.jpg)
+
+`performUnitOfWork` **第五次**执行，情况与第四次一样，会直接执行 `beginWork`，传入 `p` 作为入参，然后执行 `completeUnitOfWork`，执行完之后，内存情况变化为
+
+![](/images/reactprinciple/fiber/mountfiber/7.jpg)
+
+`performUnitOfWork` **第六次**执行会发生一些变化，首先直接执行 `beginWork`，传入 `p` 作为入参，发现 `p.child === null`，然后执行 `completeUnitOfWork`，但是在执行 `completeUnitOfWork` 的过程中，会发现 `p.sibling === null`，因此，会将 `workInProgress` 指向 `p.return`，也就是 `div`
+
+此时内存变化如下
+
+![](/images/reactprinciple/fiber/mountfiber/8.jpg)
+
+这里需要特别注意的是，`completeUnitOfWork` 的执行是一个循环过程。此时，如果当前节点，不存在兄弟节点，则会继续基于父节点执行 `completeWork`
+
+```ts
+function completeUnitOfWork(unitOfWork: Fiber): void {
+  let completedWork: Fiber = unitOfWork;
+  do {
+    const current = completedWork.alternate;
+    const returnFiber = completedWork.return;
+
+    let next = completeWork(current, completedWork, entangledRenderLanes);
+    
+    if (next !== null) {
+      workInProgress = next;
+      return;
+    }
+
+    const siblingFiber = completedWork.sibling;
+    if (siblingFiber !== null) {
+      workInProgress = siblingFiber;
+      return;
+    }
+    // !mark(1:4)
+    // 指向父节点
+    completedWork = returnFiber;
+    workInProgress = completedWork;
+  } while (completedWork !== null);
+
+  if (workInProgressRootExitStatus === RootInProgress) {
+    workInProgressRootExitStatus = RootCompleted;
+  }
+}
+```
+
+这个时候的 `workInProgress` 指向 `div`，则会基于 `div` 执行 `completeWork`，此时会创建 `div` 的 DOM 节点，并将子节点的 DOM 对象加入到 DOM(div) 中
+
++ 创建 `div` 的 DOM 对象
++ 将三个之前已经创建好的 `DOM(p)` 对象加入到 `DOM(div)` 中，构成一棵树
+
+执行完之后，内存情况变化为
+
+![](/images/reactprinciple/fiber/mountfiber/9.jpg)
+
+`workInProgress` 继续上移，由于此时 `App` 已经是一个更新操作，因此这里会产生一个副作用任务进入到副作用队列。副作用队列中的任务通过 `.next` 连接。副作用产生的父 fiber 节点的 `firstEffect` 指向副作用队列的第一个任务，`lastEffect` 指向最后一个任务。
+
+由于本案例中，只有一个副作用任务，两个指针会指向同一个任务。因此为了模拟副作用队列的真实情况，我们在图例中虚拟了一个 `otherEffect` 作为初始任务节点，具体情况看图了解
+
+![](/images/reactprinciple/fiber/mountfiber/10.jpg)
+
+最后，`rootFiber` 不存在 `.return` 属性，因此此时回溯的过程就结束了。`workInProgress = null`，退出 `completeUnitOfWork` 中的循环。
+
+> 需要特别注意，completeUnitOfWork 中的回溯循环是一个同步的过程，并不会被中断
+
+![](/images/reactprinciple/fiber/mountfiber/11.jpg)
+
+到这里，整个 Fiber Tree 就已经构建成功了，并且准备好了副作用队列。只需要在后续的渲染阶段直接执行即可。
+
+最后，在构建完成之后，会将 `fiberRootNode.finishedWork` 指向构建好的 Fiber Tree，并重置相关的全局上下文变量
+
+![](/images/reactprinciple/fiber/mountfiber/12.jpg)
+
+
+### 总结
+
+我们使用图示分析了初次创建 fiber 树的全部过程, 跟踪了创建过程中内存引用的变化情况. fiber 树构造循环负责构造新的 fiber 树, 构造过程中同时标记 `fiber.flags`, 最终把所有被标记的 fiber 节点收集到一个副作用队列中, 这个副作用队列被挂载到根节点上 (rootFiber.alternate.firstEffect).  此时的 fiber 树和与之对应的 DOM 节点都还在内存当中, 等待 commitRoot 阶段进行渲染.
+
+这里，我使用
+
++ 红色背景的圆表示 `beginWork` 的执行
++ 黄色背景的圆表示 `completeWork` 的执行
+
+整体的执行顺序标记如下
+
+![](/images/reactprinciple/fiber/mountfiber/13.jpg)

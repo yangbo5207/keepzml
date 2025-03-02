@@ -1,0 +1,56 @@
+由于整个构建过程涉及到了许多细节的知识。因此在上一篇文章中虽然偶有提及，但是解释得不够详细。因此，后面几篇文章会继续针对这个过程中，所涉及到的一些重要知识做解释说明。
+
+当调度器 `scheduler` 开始执行 `taskQueue` 中的调度任务时，每一个任务对应的要做的事情，就是执行 `workLoopConcurrent`. 
+
+这是一个 Fiber Tree 循环构建的过程，其代码如下所示
+
+```ts
+/** @noinline */
+function workLoopConcurrent() {
+  // Perform work until Scheduler asks us to yield
+  while (workInProgress !== null && !shouldYield()) {
+    // $FlowFixMe[incompatible-call] found when upgrading Flow
+    performUnitOfWork(workInProgress);
+  }
+}
+```
+
+该函数内部执行一个 `while` 循环。循环有两个中断条件。
+
+**workInProgress === null**
+
+在循环过程中，`workInProgress` 会按照深度优先遍历的方式，不断发生变化，指向下一个节点，具体的变化方式我们上一章的流程中有提到过，在下一章中，我们还会进行总结性的讲解。直到最后 `workInProgress === null` 循环中断。
+
+
+`shouldYield()` 我们在前面详细介绍过。这里整个更新任务，通过 Fiber 架构的设计，被拆分成多个小任务 `performUnitOfWork`。小任务的执行会积累耗时，如果耗时超过了 `5ms`，则会在这里中断循环。
+
+React 的整个更新机制中，有两处需要使用到该方法来进行中断，一处是针对 `taskQueue` 任务的循环，一处就是这里针对 Fiber 节点的循环。
+
+![](/images/reactprinciple/fiber/workLoopConcurrent/1.jpg)
+
+由于在 shouldYield 的实现中，是基于模块全局变量 `startTime` 来计算当前执行耗时，因此，只要有一处判断结果耗时已经超出了 5ms，那么另外一个地方的判断结果也会保持一致，所以任意一次中断，整个循环过程都会停下来。
+
+
+除此之外，React 源码中还提供了一种同步遍历 Fiber 节点的方式。他们的唯一区别就是，是否有 `shouldYield()` 来作为条件中断 Fiber 的遍历过程。
+
+```ts
+// The work loop is an extremely hot path. Tell Closure not to inline it.
+/** @noinline */
+function workLoopSync() {
+  // Perform work without checking if we need to yield between fiber.
+  while (workInProgress !== null) {
+    performUnitOfWork(workInProgress);
+  }
+}
+```
+
+如果无法中断，那么潜在的风险就是如果 `Fiber` 构建的过程比较长的话，超过了浏览器刷新率一帧的时间，`16.7ms`，那么，就有卡顿的可能性。
+
+不过，如果能够在 diff 的过程中做好优化，同步更新的执行耗时几乎都能在预期的时间内完成。只有在一些复杂场景下存在高频率更新、高耗时运算时，才会造成明显的影响。因此，如果你的项目仍然还在使用低版本的同步模式，也不用过于担心性能的问题。
+
+目前，在 React 19 的版本中，虽然项目的入口文件仅支持并发模式，不过在某些特定的场景中依然会使用到同步更新，例如开发环境、单元测试代码等。
+
+
+高频面试题：**React 同步更新模式与异步更新模式的区别**
+
+同步模式中，不会对任务进行优先级的设计与调度，有一个任务产生就会直接执行，不会按照时间切片中断任务的执行，因此有阻塞页面渲染的风险，可能会造成页面卡顿。

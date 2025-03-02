@@ -3,4 +3,297 @@ import CodeTabs from 'components/codehike/code-tabs'
 import Demo01 from './demo01/preview'
 import Demo02 from './demo02/preview'
 
-待续...
+> 优先级策略的在不同的版本中，会有少许的变动，本文详解的是最新版本的方案
+
+React 底层源码中设计了多种机制来实现各种复杂场景的优先级管理。我们一种一种来学习。
+
+### *1、* 优先级等级  PriorityLevel
+
+如下所示，在该文件中，定义了几个常量表示优先级等级。数字越小，表示优先级越高。
+
+```ts SchedulerPriorities.js
+export type PriorityLevel = 0 | 1 | 2 | 3 | 4 | 5;
+
+// TODO: Use symbols?
+export const NoPriority = 0;
+// 立即执行，优先级提前、可用于模拟微任务的执行时机
+export const ImmediatePriority = 1;
+// 通常指输入、用户点击等影响用户体验的响应事件触发的更新，优先级较高
+export const UserBlockingPriority = 2;
+// 普通更新优先级，大多数的状态更新都是这个级别
+export const NormalPriority = 3;
+// 低优先级
+export const LowPriority = 4;
+// 空闲优先级，优先级最低，startTransition 会使用这个优先级
+export const IdlePriority = 5;
+```
+
+其中他们的含义我在注释中已经说明。
+
+新的任务通过 `unstable_scheduleCallback` 调度进入任务队列中。此时会携带一个优先级等级作为参数传入。
+
+<CodeTabs>
+
+```ts !!tabs unstable_scheduleCallback
+function unstable_scheduleCallback(
+  priorityLevel: PriorityLevel,
+  callback: Callback,
+  options?: {delay: number},
+): Task {
+  // ...
+}
+```
+```ts !!tabs useEffect
+// useEffect 的更新
+scheduleCallback(NormalSchedulerPriority, () => {
+  flushPassiveEffects(true);
+  // This render triggered passive effects: release the root cache pool
+  // *after* passive effects fire to avoid freeing a cache pool that may
+  // be referenced by a node in the tree (HostRoot, Cache boundary etc)
+  return null;
+});
+```
+
+```ts !!tabs scheduleImmediateTask
+// 兜底微任务
+function scheduleImmediateTask(cb: () => mixed) {
+  if (supportsMicrotasks) {
+    scheduleMicrotask(() => {
+      const executionContext = getExecutionContext();
+      if ((executionContext & (RenderContext | CommitContext)) !== NoContext) {
+        Scheduler_scheduleCallback(ImmediateSchedulerPriority, cb);
+        return;
+      }
+      cb();
+    });
+  } else {
+    // If microtasks are not supported, use Scheduler.
+    Scheduler_scheduleCallback(ImmediateSchedulerPriority, cb);
+  }
+}
+```
+
+```ts !!tabs startTransition
+// startTransition
+if (prevPendingTransitionCallbacks !== null) {
+  currentPendingTransitionCallbacks = null;
+  scheduleCallback(IdleSchedulerPriority, () => {
+    processTransitionCallbacks(
+      prevPendingTransitionCallbacks,
+      endTime,
+      prevRootTransitionCallbacks,
+    );
+  });
+}
+```
+</CodeTabs>
+
+在新的任务进入 `taskQueue` 时，对应的优先级等级会转化为固定的延迟时间用于计算最终的任务到期时间。
+
+```ts
+// function unstable_scheduleCallback
+var timeout;
+switch (priorityLevel) {
+  case ImmediatePriority:
+    // Times out immediately
+    timeout = -1;
+    break;
+  case UserBlockingPriority: // 
+    // Eventually times out
+    timeout = userBlockingPriorityTimeout; // 250
+    break;
+  case IdlePriority:
+    // Never times out
+    timeout = maxSigned31BitInt; // 1073741823
+    break;
+  case LowPriority:
+    // Eventually times out
+    timeout = lowPriorityTimeout; // 10000
+    break;
+  case NormalPriority:
+  default:
+    // Eventually times out
+    timeout = normalPriorityTimeout; // 5000
+    break;
+}
+
+// !mark
+var expirationTime = startTime + timeout;
+
+var newTask: Task = {
+  id: taskIdCounter++,
+  callback,
+  priorityLevel,
+  startTime,
+  expirationTime,
+  sortIndex: -1,
+};
+```
+
+这些延迟时间对应的数值在下面的文件中，被定义为固定的常量
+
+```ts SchedulerFeatureFlags.js
+export const userBlockingPriorityTimeout = 250;
+export const normalPriorityTimeout = 5000;
+export const lowPriorityTimeout = 10000;
+```
+
+`expirationTime` 这个时间在 `taskQueue` 中的任务排序和执行时都会被使用。
+
+
+### *2、* 时间优先级  
+
+在任务节点 Task  的格式中，里面会保存几个时间有关的字段
+
+```ts
+var newTask: Task = {
+  id: taskIdCounter++,
+  callback,
+  priorityLevel,
+  startTime,
+  expirationTime,
+  sortIndex: -1,
+};
+```
+
+这里我们要关注 `startTime`、`expirationTime`、`sortIndex`
+
+**sortIndex** 是比较优先级的核心字段，在小顶堆的实现中，他的比较方式如下
+
+```ts
+function compare(a: Node, b: Node) {
+  const diff = a.sortIndex - b.sortIndex;
+  return diff !== 0 ? diff : a.id - b.id;
+}
+```
+
+两个任务之间，先比较 `sortIndex` 的大小，数值更小的表示执行时间更早，优先级更高。如果数值刚好一样大，则比较 `id`，根据 id 的递增赋值，数值越小的更早创建，优先级更高。
+
+sortIndex 的默认值为 `-1`，会在后面的逻辑中根据 `startTime` 和 `expirationTime` 来重新计算赋值。
+
+**startTime**
+
+`startTime` 表示任务开始执行的理想时间。类似于 `setTimeout(() => {}, delay)` 中的第二参数所表达的含义。由于异步队列的逻辑，**真实的执行时间会比理想时间要晚一些**。
+
+例如，理想情况下是：刚一进入队列就应该执行，默认情况是传入的参数中 `delay = 0`，但是具体执行的时候，还要看队列中的其他任务的执行情况。
+
+```ts
+function unstable_scheduleCallback(
+  priorityLevel: PriorityLevel,
+  callback: Callback,
+  options?: {delay: number},
+): Task {
+  // !mark(1:3)
+  var currentTime = getCurrentTime();
+
+  var startTime;
+  if (typeof options === 'object' && options !== null) {
+    var delay = options.delay;
+    if (typeof delay === 'number' && delay > 0) {
+      startTime = currentTime + delay;
+    } else {
+      startTime = currentTime;
+    }
+  } else {
+    startTime = currentTime;
+  }
+  ...
+}
+```
+
+**expirationTime**
+
+该时间表示任务的最长延迟执行的时间。`timeout` 是根据优先级等级计算出来的。
+
+```ts
+// function unstable_scheduleCallback
+var expirationTime = startTime + timeout;
+```
+
+后续的逻辑中，我们会使用 `startTime` 和 `expirationTime` 来计算 `sortIndex`。
+
+第一种情况，delay 传入了大于零的数值。说明这是一个延迟任务。该任务进入 `timerQueue` 临时队列。此时 __`newTask.sortIndex = startTime;`__
+
+第二中情况，delay 没有传值或者传入了 0. 说明这是一个立即执行的任务。该任务进入 `taskQueue` 正式队列。此时 __`newTask.sortIndex = expirationTime;`__
+
+```ts
+if (startTime > currentTime) {
+  // This is a delayed task.
+  newTask.sortIndex = startTime;
+  push(timerQueue, newTask);
+  // 后续的逻辑是如果此时执行队列为空，则启动临时队列的循环
+  ...
+} else {
+  newTask.sortIndex = expirationTime;
+  push(taskQueue, newTask);
+}
+```
+
+由于 `expirationTime` 是根据优先级等级算出来的，所以它的大小可以代表优先级进行比较。不过这里我们要小心的是，并不是优先级等级越高，就一定越先执行。因为，`expirationTime` 也跟任务进入队列的时间有关系。进入队列得越早，那么执行的优先级也会越高。
+
+**这是一个很重要的面试考点**
+
+```ts
+// function unstable_scheduleCallback
+var expirationTime = startTime + timeout;
+```
+
+### *3、* Lane 优先级模型
+
+Lane 专门用来管理 Fiber 节点的优先级。Fiber 节点任务比较细，所以我们需要一种机制来管理这些**细粒度的优先级**。我们会专门花一个章节来讲解 `Lane` 模型的细节。
+
+在任务触发 `scheduleCallback` 调度之前，Lane 模型会转化为 由 Lane 提炼出来的 `EventPriority`，并通过 switch 映射转化为前面我们学到的 `PriorityLevel`
+
+源码如下
+
+```ts
+// 转换优先级
+function scheduleTaskForRootDuringMicrotask(
+  root: FiberRoot,
+  currentTime: number,
+): Lane {
+  ...
+  const nextLanes = getNextLanes(
+    root,
+    root === workInProgressRoot ? workInProgressRootRenderLanes : NoLanes,
+  );
+
+  // !mark(1:18)
+  let schedulerPriorityLevel;
+  switch (lanesToEventPriority(nextLanes)) {
+    case DiscreteEventPriority:
+      schedulerPriorityLevel = ImmediateSchedulerPriority;
+      break;
+    case ContinuousEventPriority:
+      schedulerPriorityLevel = UserBlockingSchedulerPriority;
+      break;
+    case DefaultEventPriority:
+      schedulerPriorityLevel = NormalSchedulerPriority;
+      break;
+    case IdleEventPriority:
+      schedulerPriorityLevel = IdleSchedulerPriority;
+      break;
+    default:
+      schedulerPriorityLevel = NormalSchedulerPriority;
+      break;
+  }
+
+  const newCallbackNode = scheduleCallback(
+    schedulerPriorityLevel,
+    performWorkOnRootViaSchedulerTask.bind(null, root),
+  );
+
+  root.callbackPriority = newCallbackPriority;
+  root.callbackNode = newCallbackNode;
+  return newCallbackPriority;
+}
+```
+
+因此，优先级的转化关系如下
+
+```
+Lane -> EventPriority -> PriorityLevel -> expirationTime -> sortIndex
+
+Lane、EventPriority 都是 Lane
+expirationTime、sortIndex 都是时间
+```

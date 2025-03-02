@@ -1,0 +1,89 @@
+
+### Fiber Tree
+
+为了避免忘记，我们再来重复一下上一中的这个流程
+
+初始化时，我们通过如下代码创建一个 React 应用。
+
+```ts
+import { createRoot } from 'react-dom/client';
+
+const domNode = document.getElementById('root');
+const root = createRoot(domNode);
+root.render(<App />);
+```
+
+此时，我们以 `createRoot` 作为一个入口，后续在源码的调用顺序如下所示
+
+```ts
+createRoot ->
+createContainer ->
+createFiberRoot
+```
+
+在 `createFiberRoot` 中，我们会创建一个 `FiberRootNode` 实例`
+
+```ts
+// 创建 FiberRootNode 实例
+root = new FiberRootNode(...)
+```
+
+Fiber tree 以 上文我们介绍的 `FiberRootNode` 作为最顶层的根节点，并通过 `root.current` 指向 Fiber Tree 的根节点。
+
+然后使用 `createHostRootFiber` 开始创建一棵 Fiber Tree，`root.current` 指向这棵 Fiber Tree。
+
+```ts
+const uninitializedFiber = createHostRootFiber(tag, isStrictMode);
+root.current = uninitializedFiber;
+
+// 访问 FiberRootNode，获得更新状态
+uninitializedFiber.stateNode = root;
+```
+
+```ts
+export function createHostRootFiber(
+  tag: RootTag,
+  isStrictMode: boolean,
+): Fiber {
+  let mode;
+  ...
+
+  return createFiber(HostRoot, null, null, mode);
+}
+```
+
+每个 Fiber 节点在创建时，都会设置如下三个字段，这三个字段构成了 Fiber Tree 的树状结构。
+
+```ts
+const fiber: Fiber = {
+  ...
+
+  // 记录 Fiber tree 的树状结构
+  return: null,  // 指向父节点
+  child: null,   // 指向第一个子节点
+  sibling: null, // 指向下一个兄弟节点
+  // index: 0,
+
+  ...
+}
+```
+
+例如我们有如下代码
+
+```ts
+<App>
+  <div>
+    <p></p>
+    <p></p>
+    <p></p>
+  </div>
+</App>
+```
+
+对应的 Fiber Tree 结构如下
+
+![](/images/reactprinciple/fiber/fibertree/1.jpg)
+
+这里需要注意的是，为了能够模拟链表的循环，父节点的设计是仅指向子节点中的第一个子节点。而不是指向所有子节点列表。然后通过 `sibling` 指针，指向下一个兄弟节点。每一个子节点，都有 `return` 指向父节点
+
+
