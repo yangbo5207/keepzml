@@ -1,0 +1,233 @@
+import CodeTabs from 'components/codehike/code-tabs'
+
+在构建流程开始的时候，`render lanes` 会按照如下的执行顺序传入到 Fiber 节点的创建
+
+```ts
+// performWorkOnRootViaSchedulerTask
+// 1. 获取 render lanes
+const lanes = getNextLanes(
+  root,
+  root === workInProgressRoot ? workInProgressRootRenderLanes : NoLanes,
+);
+
+// 2. 执行 render
+performWorkOnRoot(root, lanes, forceSync);
+
+// 3. 从根节点开始执行并发渲染
+renderRootConcurrent(root, lanes)
+
+// 4. 刷新栈帧
+prepareFreshStack(root, lanes);
+
+// 5. 在 prepareFreshStack 中，使用全局上下文变量记录相关的优先级
+workInProgressRootRenderLanes = lanes;
+workInProgressRootIsPrerendering = checkIfRootIsPrerendering(root, lanes);
+// 纠缠优先级 一个状态的更新、依赖于另外一个状态时，会产生纠缠的优先级。此时，需要将纠缠的优先级也记录下来，确保两个状态的更新会被一起处理。也就是说，如果一个低优先级的更新被高优先级的更新依赖，React 会将其优先级提升到与高优先级更新相同的车道
+entangledRenderLanes = getEntangledLanes(root, lanes); 
+
+// 6. 启动 Fiber 循环
+workLoopConcurrent()
+
+// 7. 循环中执行 performUnitOfWork，入参 workInProgress 是一个全局变量
+while (workInProgress !== null && !shouldYield()) {
+  // $FlowFixMe[incompatible-call] found when upgrading Flow
+  performUnitOfWork(workInProgress);
+}
+
+
+// 8. performUnitOfWork 中执行 beginWork, 此时，传入我们刚才标记的纠缠优先级
+next = beginWork(current, unitOfWork, entangledRenderLanes);
+
+```
+
+此时，beginWork 的第三个参数的形参为 `renderLanes`，对应调用时传入的实惨 `entangledRenderLanes`
+
+```ts
+function beginWork(
+  current: Fiber | null,
+  workInProgress: Fiber,
+  renderLanes: Lanes,
+): Fiber | null {
+  ...
+}
+```
+
+在 beginWork 中，会判断 `props` 与 `context` 是否发生了变化，如果发生了变化，会将 `didReceiveUpdate` 标记为 `true`，表示需要执行 `update` 逻辑。此时会重新创建 Fiber 节点。
+
+
+```ts
+if (
+  oldProps !== newProps || // 比较 props 是否发生了变化
+  hasLegacyContextChanged() || // 判断 context 是否发生了变化
+  // 开发环境下
+  (__DEV__ ? workInProgress.type !== current.type : false)
+) {
+  // Props 或者 context 发生了变化，标记为 true
+  didReceiveUpdate = true;
+} else {
+  // 接着继续传入 renderLanes 判断是否有挂起的 update 或者 context
+  const hasScheduledUpdateOrContext = checkScheduledUpdateOrContext(
+    current,
+    renderLanes,
+  );
+  if (
+    !hasScheduledUpdateOrContext &&
+    // 如果是包含了错误更新，或者 suspense 边界更新, 可能没有进入调度机制，因此，这里需要再单独判断一下是否捕获到了错误，flags 中包含 DidCapture 表示捕获到了错误
+    (workInProgress.flags & DidCapture) === NoFlags
+  ) {
+    // No pending updates or context. Bail out now.
+    didReceiveUpdate = false;
+    // 复用节点
+    return attemptEarlyBailoutIfNoScheduledUpdate(
+      current,
+      workInProgress,
+      renderLanes,
+    );
+  }
+}
+```
+
+我们可以观察，这里是一段 diff 的逻辑，参与的比较顺序如下所示
+
++ props 是否发生了变化
++ context 是否发生了变化
++ 继续判断是否有挂起的 update 或者 context
++ 继续判断是否存在捕获到的错误标记
+
+这些都没有发生之后，才会最终决定复用节点，否则就会重新创建节点。
+
+这里使用如下逻辑来判断当前节点是否存在一个挂起并等待执行的 update 或者 context 任务
+
+```ts
+function checkScheduledUpdateOrContext(
+  current: Fiber,
+  renderLanes: Lanes,
+): boolean {
+  // 从 current 中获取 updateLanes
+  const updateLanes = current.lanes;
+  // 这是一个二进制运算操作，判断 updateLanes 中是否包含 renderLanes 中的任何一个 lane
+  if (includesSomeLane(updateLanes, renderLanes)) {
+    return true;
+  }
+  // 如果存在 context，判断 context 是否发生了变化
+  // 该变量用于判断是否开启了懒传播机制，具体的细节再本文末尾有解释说明
+  if (enableLazyContextPropagation) {
+    const dependencies = current.dependencies;
+    if (dependencies !== null && checkIfContextChanged(dependencies)) {
+      return true;
+    }
+  }
+  return false;
+}
+```
+
+在后续的过程中，`renderLanes` 会传入到多个创建节点的方法中，比如 `updateFunctionComponent`、`updateClassComponent`、`updateHostComponent` 等方法，我们这里以创建函数节点为例，来分析一下 `renderLanes` 是如何传入的。
+
+```ts
+// 表示我们声明的函数组件 function Component() {}
+const Component = workInProgress.type;
+
+return updateFunctionComponent(
+  current,
+  workInProgress,
+  Component,
+  nextProps,
+  renderLanes,
+);
+```
+
+在该函数中，基于刚才比较的结果 `didReceiveUpdate` 来决定复用节点还是重新创建节点。
+
+```ts
+if (current !== null && !didReceiveUpdate) {
+  // 复用 hooks
+  bailoutHooks(current, workInProgress, renderLanes);
+  // 复用 fiber 节点
+  return bailoutOnAlreadyFinishedWork(current, workInProgress, renderLanes);
+}
+```
+
+如果不能复用，则调用如下方法构建 workInProgress 的子节点
+
+```ts
+// 构建子节点
+reconcileChildren(current, workInProgress, nextChildren, renderLanes);
+// 构建好之后返回
+return workInProgress.child;
+```
+
+`reconcileChildren` 内部会调用 `reconcileChildFibers` 方法来构建子节点
+
+```ts
+workInProgress.child = reconcileChildFibers(
+  workInProgress,
+  current.child,
+  nextChildren,
+  renderLanes,
+);
+
+export const reconcileChildFibers: ChildReconciler =
+  createChildReconciler(true);
+```
+
+后续再源码中这里的链路有点长，我们就不一一分析，主要是针对不同的节点类型调用不同的创建函数，比如单节点、多节点、Fragment 节点、Suspense 节点、Profiler 节点、Text 节点等等。
+
+此时，会明确 fiber 树所需要的指向关系，例如
+
+```ts
+child = child.sibling;
+created.return = returnFiber;
+newChild.return = workInProgress;
+```
+
+最后，会调用 `createFiber` 创建 Fiber，并将一路辛苦传下来的 `renderLanes` 赋值给 `fiber.lanes`。
+
+```ts
+const fiber = createFiber(fiberTag, pendingProps, key, mode);
+fiber.elementType = type;
+fiber.type = resolvedType;
+fiber.lanes = lanes;
+```
+
+### 总结
+
+在源码中梳理 `renderLanes` 到 `fiber.lanes` 的传递过程，是一个枯燥乏味的过程。底层源码对于不同的逻辑存在过度封装的嫌疑，因此阅读起来比较繁琐。不过按照我们上文的过程逐步往下阅读，可以极大的简化 React 源码的阅读难度。并且有助于帮助我们更好的理解 React 的渲染机制和节点对比机制。
+
+----
+
+额外说明：
+
+`enableLazyContextPropagation` 是 `React` 源码中的一个特性标志（feature flag），用于控制 React 的 Context 值的懒传播（Lazy Context Propagation）行为。它是 React 优化 Context 性能的一部分，特别是在并发模式（Concurrent Mode）下
+
+### 背景：React Context 的性能问题
+React 的 Context 是一种用于跨组件树传递数据的机制。当一个 Context 的值发生变化时，React 会通知所有订阅了该 Context 的组件重新渲染。然而，这种机制在某些情况下可能会导致性能问题：
+
+不必要的渲染：即使某个组件并不直接使用 Context 的值，只要它的父组件订阅了 Context，它也会被重新渲染。
+
+高频更新：如果 Context 的值频繁变化，可能会导致大量组件重新渲染，影响性能。
+
+为了解决这些问题，React 引入了 懒传播机制。
+
+### 懒传播（Lazy Context Propagation）
+
+懒传播的核心思想是：只有当组件真正使用了 Context 的值时，才通知它重新渲染。这样可以避免不必要的渲染，提高性能。
+
+**默认行为（非懒传播）：**
+
+当 Context 的值发生变化时，React 会立即通知所有订阅了该 Context 的组件重新渲染，无论它们是否真正使用了 Context 的值。
+
+**懒传播行为：**
+
+当 Context 的值发生变化时，React 不会立即通知所有订阅组件。
+
+相反，React 会等到组件实际读取 Context 的值时，才决定是否需要重新渲染。
+
+因此，该行为可以
+
++ 优化 Context 的性能，减少不必要的渲染。
++ 在并发模式下更好地支持高频更新和复杂依赖关系。
++ 提供更细粒度的更新控制。
+
+**目前，React 19 中，默认支持了懒传播机制。**
+
+> 目前该机制仅是从源码中解读出来的方案，但是该机制的具体细节表现我还没有写案例具体验证过优化效果与表现如何，大家有兴趣的可以自行验证。

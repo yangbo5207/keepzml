@@ -1,0 +1,227 @@
+import CodeTabs from 'components/codehike/code-tabs'
+
+### update lanes
+
+每一个 `setState` 都会对应一个更新，这个更新在 React 源码中，使用 `Update` 来表示。其格式如下所示
+
+```ts
+export type Update<State> = {
+  lane: Lane,
+
+  tag: 0 | 1 | 2 | 3,
+  payload: any,
+  callback: (() => mixed) | null,
+  // 构成一个链表结构
+  next: Update<State> | null,
+};
+```
+
+其中，tag 有 4 种类型，分别是
+
+```ts
+export const UpdateState = 0;    // 普通的 setState 更新
+export const ReplaceState = 1;   // replaceState 更新，完全替换状态
+export const ForceUpdate = 2;    // forceUpdate 强制更新
+export const CaptureUpdate = 3;  // 错误边界捕获的更新
+```
+
+通常情况下，都是使用 `setState` 来更新状态，tag 值 为 `0`
+
+这里有一个关键字段，就是 `lane`，表示当前更新的优先级。通常有如下几种情况
+
+```ts
+export const UpdateLanes: Lanes =
+  SyncLane | InputContinuousLane | DefaultLane | TransitionLanes;
+```
+
+在 React 源码中，根据方法 `requestUpdateLane` 来获取当前更新的的优先级
+
+然后根据方法 `createUpdate` 来创建一个对应的 `Update` 对象。
+
+```ts
+function createFiberRoot(...) {
+  // ...
+  const current = root.current;
+  const lane = requestUpdateLane(current);
+  const update = createUpdate(lane);
+  ...
+}
+```
+
+这里我们要重点学习 `requestUpdateLane`
+
+```ts
+export function requestUpdateLane(fiber: Fiber): Lane {
+  const mode = fiber.mode;
+  // 检查是否是 Legacy 模式，如果是，则返回同步优先级: SyncLane
+  if (!disableLegacyMode && (mode & ConcurrentMode) === NoMode) {
+    return (SyncLane: Lane);
+  } else if (
+    // 这里是并发模式
+    // 根据上下文判断当前是否处于渲染阶段
+    (executionContext & RenderContext) !== NoContext &&
+    workInProgressRootRenderLanes !== NoLanes
+  ) {
+    // 从当前渲染的优先级中，获取一个优先级
+    return pickArbitraryLane(workInProgressRootRenderLanes);
+  }
+
+  // 检查是否是 `transition` 优先级
+  const transition = requestCurrentTransition();
+  if (transition !== null) {
+    // 检查是否处于异步 action 中，如果是则复用之前的优先级，如果不是，则从空闲的 `transition lane` 中获取一个 lane，如果都被占用，则使用最高优先级
+    const actionScopeLane = peekEntangledActionLane();
+    return actionScopeLane !== NoLane
+      ? actionScopeLane : requestTransitionLane(transition);
+  }
+  // 最终会获取当前正在执行更新的任务优先级
+  return eventPriorityToLane(resolveUpdatePriority());
+}
+```
+
+
+```ts
+export function eventPriorityToLane(updatePriority: EventPriority): Lane {
+  return updatePriority;
+}
+```
+
+`resolveUpdatePriority` 方法返回在不同客户端中配置的默认优先级
+
+<CodeTabs>
+```ts !!tabs ReactDOMUpdatePriority.js
+export function resolveUpdatePriority(): EventPriority {
+  const updatePriority = ReactDOMSharedInternals.p; /* ReactDOMCurrentUpdatePriority */
+  if (updatePriority !== NoEventPriority) {
+    return updatePriority;
+  }
+  // 如果当前的优先级为 NoEventPriority，则根据当前的事件类型，获取对应的优先级
+  const currentEvent = window.event;
+  if (currentEvent === undefined) {
+    return DefaultEventPriority;
+  }
+  // 根据 DOM 中传来的事件类型，获取对应的 lane 优先级
+  // 该函数代码在旁边的 tab 中
+  return getEventPriority(currentEvent.type);
+}
+```
+```ts !!tabs ReactDOMEventListender.js
+export function getEventPriority(domEventName: DOMEventName): EventPriority {
+  switch (domEventName) {
+    // Used by SimpleEventPlugin:
+    case 'beforetoggle':
+    case 'cancel':
+    case 'click':
+    case 'close':
+    case 'contextmenu':
+    case 'copy':
+    case 'cut':
+    case 'auxclick':
+    case 'dblclick':
+    case 'dragend':
+    case 'dragstart':
+    case 'drop':
+    case 'focusin':
+    case 'focusout':
+    case 'input':
+    case 'invalid':
+    case 'keydown':
+    case 'keypress':
+    case 'keyup':
+    case 'mousedown':
+    case 'mouseup':
+    case 'paste':
+    case 'pause':
+    case 'play':
+    case 'pointercancel':
+    case 'pointerdown':
+    case 'pointerup':
+    case 'ratechange':
+    case 'reset':
+    case 'resize':
+    case 'seeked':
+    case 'submit':
+    case 'toggle':
+    case 'touchcancel':
+    case 'touchend':
+    case 'touchstart':
+    case 'volumechange':
+    // Used by polyfills: (fall through)
+    case 'change':
+    case 'selectionchange':
+    case 'textInput':
+    case 'compositionstart':
+    case 'compositionend':
+    case 'compositionupdate':
+    // Only enableCreateEventHandleAPI: (fall through)
+    case 'beforeblur':
+    case 'afterblur':
+    // Not used by React but could be by user code: (fall through)
+    case 'beforeinput':
+    case 'blur':
+    case 'fullscreenchange':
+    case 'focus':
+    case 'hashchange':
+    case 'popstate':
+    case 'select':
+    case 'selectstart':
+      return DiscreteEventPriority;
+    case 'drag':
+    case 'dragenter':
+    case 'dragexit':
+    case 'dragleave':
+    case 'dragover':
+    case 'mousemove':
+    case 'mouseout':
+    case 'mouseover':
+    case 'pointermove':
+    case 'pointerout':
+    case 'pointerover':
+    case 'scroll':
+    case 'touchmove':
+    case 'wheel':
+    // Not used by React but could be by user code: (fall through)
+    case 'mouseenter':
+    case 'mouseleave':
+    case 'pointerenter':
+    case 'pointerleave':
+      return ContinuousEventPriority;
+    case 'message': {
+      // We might be in the Scheduler callback.
+      // Eventually this mechanism will be replaced by a check
+      // of the current priority on the native scheduler.
+      const schedulerPriority = getCurrentSchedulerPriorityLevel();
+      switch (schedulerPriority) {
+        case ImmediateSchedulerPriority:
+          return DiscreteEventPriority;
+        case UserBlockingSchedulerPriority:
+          return ContinuousEventPriority;
+        case NormalSchedulerPriority:
+        case LowSchedulerPriority:
+          // TODO: Handle LowSchedulerPriority, somehow. Maybe the same lane as hydration.
+          return DefaultEventPriority;
+        case IdleSchedulerPriority:
+          return IdleEventPriority;
+        default:
+          return DefaultEventPriority;
+      }
+    }
+    default:
+      return DefaultEventPriority;
+  }
+}
+```
+
+</CodeTabs>
+
+或者在其他没有事件机制的渲染中，会直接简单返回 `DefaultEventPriority`
+
+```ts
+let currentUpdatePriority: EventPriority = NoEventPriority;
+// ...
+export function resolveUpdatePriority(): EventPriority {
+  return currentUpdatePriority || DefaultEventPriority;
+}
+```
+
+然后，`scheduleUpdateOnFiber` 会携带 `update.lane` 进入到后续的调度流程

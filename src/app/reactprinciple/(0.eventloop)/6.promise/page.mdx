@@ -111,7 +111,7 @@ export default class XPromise {
     this.PromiseResult = undefined
     this.PromiseState = pending
 
-    executor(this.resolve.bind(this), this.resolve.bind(this))
+    executor(this.resolve.bind(this), this.reject.bind(this))
   }
 }
 ```

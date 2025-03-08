@@ -1,0 +1,94 @@
+
+前面我们提到过，`workInProgress` 与 `workInProgressRoot` 作为模块全局变量，在 Fiber 的循环过程中，构建了一个栈的数据结构管理。其中
+
++ `workInProgressRoot` 表示栈底，始终指向 `FiberRootNode`
++ `workInProgress` 表示栈顶，始终指向当前正在构建的 Fiber，它的指向会在 Fiber 的构建过程中不断发生变化，直到构建完成。
++ `workInProgressRootRenderLanes` 表示当前正在处理的根节点的渲染任务的优先级集合，在恢复中断执行时，会根据 `workInProgressRootRenderLanes` 来判断是否需要恢复中断的执行。
+
+![](/images/reactprinciple/fiber/workInProgress/1.jpg)
+
+Fiber 节点按照**深度优先**的顺序进行构建，因此，`workInProgress` 的指向变化顺序，是一个严格的栈变化顺序。每一次执行 `beginWork` 时，Fiber 节点入栈，执行 `completeWork` 时，Fiber 节点出栈。
+
+
+### 恢复中断的执行
+
+当 Fiber 节点的遍历过程，由于时间切片的原因被中断执行时，`workInProgress` 指向的 Fiber 节点，就是中断时执行的 Fiber 节点。此时的栈帧环境 `workInProgress` `workInProgressRoot` 、 `workInProgressRootRenderLanes`  的指向会被保留下来。
+
+当下次执行发生时，就可以直接从上一次被保存下来的 `workInProgress` 指向的 Fiber 节点开始执行。
+
+
+```ts
+// 上一次中断时的 workInProgress
+workInProgress = Fiber(List)
+
+/** @noinline */
+function workLoopConcurrent() {
+  while (workInProgress !== null && !shouldYield()) {
+    // 直接从上次中断的 workInProgress 开始执行
+    performUnitOfWork(workInProgress);
+  }
+}
+```
+
+### 重置栈结构
+
+每一次执行 `workLoopConcurrent` 之前，都会对栈帧环境进行判断。如果新的 `workInProgressRoot` 与 `workInProgressRootRenderLanes` 发生了变化，那么，就需要重置栈帧环境。
+
+```ts
+function renderRootConcurrent(root: FiberRoot, lanes: Lanes) {
+  //...
+  if (workInProgressRoot !== root || workInProgressRootRenderLanes !== lanes) {
+    // Reset the stack.
+    
+    resetRenderTimer();
+    // 传入新的根节点与优先级、重置栈结构
+    prepareFreshStack(root, lanes);
+  }
+  // ...
+}
+```
+
+```ts
+function prepareFreshStack(root: FiberRoot, lanes: Lanes): Fiber {
+  // ...
+  root.finishedWork = null;
+  root.finishedLanes = NoLanes;
+
+  // ...
+
+  resetWorkInProgressStack();
+  workInProgressRoot = root;
+  const rootWorkInProgress = createWorkInProgress(root.current, null);
+  workInProgress = rootWorkInProgress;
+  workInProgressRootRenderLanes = lanes;
+  workInProgressSuspendedReason = NotSuspended;
+  workInProgressThrownValue = null;
+  workInProgressRootDidSkipSuspendedSiblings = false;
+  workInProgressRootIsPrerendering = checkIfRootIsPrerendering(root, lanes);
+  workInProgressRootDidAttachPingListener = false;
+  workInProgressRootExitStatus = RootInProgress;
+  workInProgressRootSkippedLanes = NoLanes;
+  workInProgressRootInterleavedUpdatedLanes = NoLanes;
+  workInProgressRootRenderPhaseUpdatedLanes = NoLanes;
+  workInProgressRootPingedLanes = NoLanes;
+  workInProgressDeferredLane = NoLane;
+  workInProgressSuspendedRetryLanes = NoLanes;
+  workInProgressRootConcurrentErrors = null;
+  workInProgressRootRecoverableErrors = null;
+  workInProgressRootDidIncludeRecursiveRenderUpdate = false;
+
+  // ...
+
+  return rootWorkInProgress;
+}
+```
+
+例如，针对一个列表的的渲染，上一次渲染对应的 `state` 值是 `0`，此时由于列表内容过多，导致了时间片的中断。但是，下一次渲染时，`state` 值发生了变化，变成了 `1`。
+
+这个时候，上一次保留的渲染过程就变成了无效渲染，因此此时就需要重置栈帧环境，重新构建 Fiber 树。
+
+```ts
+function List() {
+  const [count, setCount] = useState(0)
+}
+```

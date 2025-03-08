@@ -24,11 +24,31 @@ export const r2 = [
     name: '5、workLoopConcurrent',
   },
   {
-    path: '4.keydiff',
-    name: '5、数组对比方案',
+    path: '5.workInProgress',
+    name: '6、栈结构 与 workInProgress',
   },
   {
-    path: '5.flags',
-    name: '6、flags',
+    path: '6.executionContext',
+    name: '7、执行上下文 executionContext',
+  },
+  {
+    path: '7.updatelanes',
+    name: '8、update lanes',
+  },
+  {
+    path: '8.renderlanes',
+    name: '9、render lanes',
+  },
+  {
+    path: '9.fiberlanes',
+    name: '9、fiber lanes',
+  },
+  {
+    path: 's.keydiff',
+    name: '附录：数组对比方案',
+  },
+  {
+    path: 't.flags',
+    name: '附录：flags',
   }
 ]
