@@ -1,0 +1,114 @@
+在 React 中，存在三种不同的节点对象，ReactElement、Fiber、DOM。
+
+### 1、Hook 与闭包
+
+在 class 组件中，状态与组件紧密关联，我们可以将状态作为组件的一部分，在底层的实现就会变得非常简单。当然，这种底层实现的简单，也导致了我们无法随便将状态单独抽离出来，从而导致了之前我们在复用组件逻辑时所产生的痛点。
+
+既然了解了 Class 组件在状态共享上的痛点，那么，我们就应该知道，在新的 hooks 方案中，如何处理状态与组件之间的关系，就变得非常重要，fiber 与 hook 之间，既要能够各自独立，又要能够相互关联。而要做到这个事情，我们可以利用**闭包**来实现。
+
+> 我们可以把 fiber 理解为组件的实例
+
+在 `ReactFiberHooks.js` 模块中，React 定义了许多**模块全局变量**来保存闭包的引用。
+
+在每个组件 fiber 中，可能存在多个 hook，多个 hook 以链表的形式，存储在 `fiber.memoizedState` 字段中，我们可以通过全局变量 root 节点或者 `workInProgressRoot` 访问到整棵 fiber 树。因此，我们也能够通过 `fiber.memoizedState` 访问到每一个 hook
+
+如下代码的结构可以用图示来表示
+
+```ts
+function Counter() {
+  const [] = useState()
+  useEffect(() => {
+
+  }, [])
+  const [] = useState()
+  const [] = useState()
+
+  useEffect(() => {
+
+  }, [])
+}
+```
+
+![](/images/reactprinciple/hook/hookwithclosure/1.jpg)
+
+
+
+除此之外，在之前的学习中，我们知道，React 还定义了许多其他的模块全局变量来保存不同的引用。
+
+例如当前渲染的优先级 `renderLanes`
+
+```ts
+// These are set right before calling the component.
+let renderLanes: Lanes = NoLanes;
+```
+
+还定义了几个与 hook 有关的模块全局变量
+
+```ts
+// The work-in-progress fiber. I've named it differently to distinguish it from
+// the work-in-progress hook.
+// 与 workInProgress 指向一致，这里只是为了区分 workInProgressHook
+let currentlyRenderingFiber: Fiber = (null: any);
+```
+
+
+之前我们知道，`current` 表示当前已经存在的节点，`currentHook` 为 `current.memoizedState`
+
+`workInProgress` 表示构建中的节点，`workInProgressHook` 为 `workInProgress.memoizedState`
+
+这两个是非常重要的变量，含义与 `current/workInProgress` 类似，这里不多做赘述。
+
+```ts
+// currentHook = current.memoizedState
+let currentHook: Hook | null = null;
+
+// workInProgressHook = workInProgress.memoizedState
+let workInProgressHook: Hook | null = null;
+```
+
+除此之外，还有 **didScheduleRenderPhaseUpdate**
+
+这个变量用于跟踪在整个渲染阶段是否有调度了任何更新。可以在发生错误抛出后，帮助 React 决定是否需要清除渲染阶段的更新
+
+```ts
+// 这个变量用于跟踪在整个渲染阶段是否有调度了任何更新，只有 function 被完全执行之后才会重置
+let didScheduleRenderPhaseUpdate: boolean = false;
+
+// 在本次 function 的执行过程中, 是否再次发起了更新. 每一次调用 function 都会被重置
+let didScheduleRenderPhaseUpdateDuringThisPass: boolean = false;
+```
+
+注意区分后面这个变量，有点类似。
+
+他是记录当前 function 组件执行的过程中，是否发起了更新。它的特点是：
+
+- 每次渲染尝试后都会被重置
+- 作用范围仅限于当前的渲染传递
+- 用于处理单次渲染过程中的状态更新
+
+这两个变量的主要区别：
+
+- 作用范围不同：一个跟踪整个渲染阶段，一个只跟踪当前渲染传递
+- 重置时机不同：一个在组件完全评估完成后重置，一个在每次渲染尝试后就重置
+- 使用场景不同：一个用于错误处理优化，一个用于处理渲染过程中的状态更新
+
+
+这两个变量共同帮助 React：
+
+1. 追踪和管理渲染阶段的更新
+2. 优化错误处理流程
+3. 确保状态更新的正确性
+4. 维护渲染过程的稳定性
+
+OK，本文主要基于闭包介绍了模块全局变量，以及 fiber 与 hook 之间的关系，这些前置知识铺垫是完整理解 Hook 原理的重要内容。
+
+常见的考题：为什么不能把 Hook 写在条件渲染中。这是因为我们在函数运行过程中，访问 hook 是通过 `current.memoizedState` 访问，其对应的是 `hook` 链表，然后通过 `currentHook.next` 来访问下一个 hook
+
+如果我们将 `hook` 放入条件判断中，那么在不满足条件时，该 `hook` 对象就不会在链表中存在，从而导致两次访问到的 hook 不一致，从而造成**取值错误**
+
+
+![](/images/reactprinciple/hook/hookwithclosure/2.jpg)
+
+如图所示，如果我们把第三个 hook 放到条件判断中，本意是希望第三个 hook 消失。但是，当我们通过链表的方式依次访问下来发现，
+
+依然可以访问到第三个 hook，实际上是访问到了原来的第四个 hook. 而消失的是第四个 hook，从而造成访问异常。

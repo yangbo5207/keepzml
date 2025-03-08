@@ -1,0 +1,106 @@
+在 React 中，存在三种不同的节点对象，ReactElement、Fiber、DOM。
+
+### 1、Hook 的分类
+
+在源码中，一共定义了如下 20 种 hook
+
+```ts
+export type HookType =
+  | 'useState'
+  | 'useReducer'
+  | 'useContext'
+  | 'useRef'
+  | 'useEffect'
+  | 'useEffectEvent'
+  | 'useInsertionEffect'
+  | 'useLayoutEffect'
+  | 'useCallback'
+  | 'useMemo'
+  | 'useImperativeHandle'
+  | 'useDebugValue'
+  | 'useDeferredValue'
+  | 'useTransition'
+  | 'useSyncExternalStore'
+  | 'useId'
+  | 'useCacheRefresh'
+  | 'useOptimistic'
+  | 'useFormState'
+  | 'useActionState';
+```
+
+从 Fiber 的字段中我们可以将这些 hook 分为两个类别，一种是表示存储状态的 `state hook`，另一种是表示副作用的 `effect hook`
+
+```ts
+type Fiber = {
+  // ...
+  // 记录状态与更新
+  memoizedProps: null,
+  memoizedState: null,
+  dependencies: null,
+
+  // 存储副作用的更新链表
+  updateQueue: null,
+
+  // 记录副作用类型
+  flags: NoFlags,
+}
+```
+
+### 状态 hook
+
+通常情况下，`useState、useReducer` 是最标准的状态 hook。因为我们在 React 的使用过程中，只会把能够**驱动 UI 发生变化的数据**称之为**状态**
+
+> 由于 useState 底层是基于 useReducer 来实现的，因此，在后续的源码分析中，我们将只分析 useState
+
+不过，从底层源码的角度而言，在函数式的实现过程中，由于 React 的更新会导致组件函数重新执行，因此**数据持久化**是我们关注的一个重点，从这个角度而言，能够实现数据持久化的 hook，我们都可以称之为状态 hook，例如，useRef、useMemo、useCallback、等。
+
+这些 hook 都充分利用了闭包的特性来做到数据的缓存。我们后文中会进一步分析。
+
+
+### 副作用 hook
+
+副作用 hook 在语义上与状态 hook 完全不同。state hook 表达的语义是支持组件更新。而副作用 hook 则表达的是，组件更新之后，还要做点什么。
+
+因此，`useEffect` 就是最标准的副作用 hook
+
+```ts
+useEffect(() => {
+  console.log('组件更新之后，还要做点什么');
+}, []);
+```
+
+那么也就意味着，副作用逻辑不能在更新阶段处理，只能更新阶段记录，因此，在底层实现和字段的处理上，他们都完全不同。
+
+
+### 自定义 hook
+
+除了这两种基础的 hook 之外，我们还可以基于他们创建一些更复杂的**自定义 hook**。这也是 React hooks 的核心精髓所在，我们可以单独将状态和副作用从函数组件中，移出来，封装到一个函数中，从而做到状态逻辑的复用
+
+```ts
+// 单独声明自定义hook
+function useFetch(api) {
+  const [data, setData] = useState({})
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    api().then(res => {
+      setData(res.result)
+      setLoading(false)
+    })
+  }, [])
+
+  return {data, loading}
+}
+
+// 单独声明组件
+function Page() {
+  // !mark
+  const {data, loading} = useFetch(listApi)
+
+  return (
+    <List loading={loading} data={data} />
+  )
+}
+```
+
+由于自定义 hook 通常是由状态 hook 与 effect hook 组合而成，因此我们在源码学习时，则不会额外关注自定义 hook 的逻辑，他是应用层面的重要概念。

@@ -1,0 +1,141 @@
+在 React 中，存在三种不同的节点对象，ReactElement、Fiber、DOM。
+
+### React Hooks 方案的背景
+
+> 这一个点经常在面试中被问到，询问的方式也非常多，比如，你为什么不用类组件，类组件和函数组件有什么区别？函数组件就一定更好吗？函数组件的性能更好吗？等等
+
+在 React Hooks 之前的版本中，组件是通过类来定义的
+
+```ts
+class MyComponent extends React.Component {
+  state = {
+    count: 0
+  };
+  handleClick = () => {
+    this.setState({ count: this.state.count + 1 });
+  };
+  render() {
+    return (
+      <div>
+        <p>Count: {this.state.count}</p>
+        <button onClick={this.handleClick}>Increment</button>
+      </div>
+    );
+  }
+}
+```
+
+类组件的开发方式非常直观和易于理解。不过，它核心的问题在于，状态与组件是紧密结合在一起的，因此，**如果我们仅仅只是想要复用一段包含状态的逻辑，就变得非常困难**。在过往的解决方案中，我们通常会使用高阶组件（HOC）或者 render props 来解决这个问题。
+
+由于状态无法与组件分开，因此，如果想要复用一段包含状态的逻辑，我们必须**也同时创建一个组件**。
+
+```ts
+// 高阶组件复用状态
+function withCounter(Component) {
+  return class extends React.Component {
+    state = {
+      count: 0
+    };
+    handleClick = () => {
+      this.setState({ count: this.state.count + 1 });
+    };
+    render() {
+      return (
+        <Component
+          count={this.state.count}
+          handleClick={this.handleClick}
+          {...this.props}
+        />
+      );
+    }
+  };
+}
+
+// 使用高阶组件定义当前组件
+const MyComponent = withCounter(({ count, handleClick }) => (
+  <div>
+    <p>Count: {count}</p>
+    <button onClick={handleClick}>Increment</button>
+  </div>
+));
+```
+
+这样做会产生几个问题
+
+**1、代码冗余不简洁，可读性低**
+
+在类组件年代，**高阶组件**可以说是 React 上手困难的主要原因之一。许多新手小伙伴需要花上很长时间才能理解高阶组件的用法，尤其是一些基于高阶组件来实现的状态管理库，例如 redux，学习和使用难度都非常高，从而导致了 React 一直被认为是一门比较难上手的技术。
+
+同样的代码，我们可以通过函数组件来实现，肉眼可见的变得更加简洁
+
+```ts
+function useCounter() {
+  const [count, setCount] = useState(0);
+  const handleClick = () => {
+    setCount(count + 1);
+  };
+  return { count, handleClick };
+}
+
+function MyComponent() {
+  const { count, handleClick } = useCounter();
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={handleClick}>Increment</button>
+    </div>
+  );
+}
+```
+
+**2、远超预期的组件嵌套层级**
+
+由于我们需要通过高阶组件来复用一段包含状态的逻辑，但是由于状态与组件无法分开，因此，在复用一段状态逻辑时，实际上也表示创建了一个新的父组件。而实际上这个父组件是没有任何实际的节点意义的，因此，在组件嵌套层级上，**类组件的嵌套层级往往会比函数组件的嵌套层级要高得多**。
+
+这不仅会造成更高的渲染成本，在开发和维护上也会带来更多的麻烦。
+
+**3、复用多段状态逻辑时，无法在组件中区分来源，并且同名的状态会冲突**
+
+在创建高阶组件时，状态是通过 `this.props` 传入子组件的。因此，在子组件中，如果我们需要复用多段状态逻辑时，就使用 `this.props` 去获取高阶组件传入的状态。
+
+```ts
+const MyComponent = () => {
+  // mark
+  const { count, handleClick } = this.props;
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={handleClick}>Increment</button>
+    </div>
+  );
+};
+
+export default withCounter(MyComponent);
+```
+
+但是如果这个时候，当我们定义该组件时，需要复用多个逻辑时，我们也只能从 `this.props` 中获取状态
+
+```ts
+const MyComponent = () => {
+  // !mark
+  const { count, handleClick, history } = this.props;
+  return (
+    ...
+  );
+};
+// !mark
+export default withRouter(withCounter(MyComponent));
+```
+
+可以很明显的看出来，在定义组件时，我们并不知道有哪些状态传入了进来，这会造成代码的可读性和可维护性变得很差。并且，如果两个高阶组件传入的名字相同时，还会出现覆盖的问题，从而导致代码的不可预测性。
+
+事实上，这些问题，在任何以 class 为核心的框架中，都是很难避免的。React 类组件发展演变了多种方案，都没有找到一个很理想的方案来同时解决这些问题。因此，**把视线最终转向函数式，是一种必然。**
+
+
+### 现状
+
+到目前为止，React 函数式组件，利用自定义 hooks 的方式，**有效的把状态逻辑从组件中抽离了出来*，上面的这些困扰了整个行业很多年的问题，**迅速得到了解决**。
+
+即使在后续新出的 UI 编程框架，也几乎全部都借鉴和沿用了 React hooks 的方案。例如我们熟知的 `Vue3、Solid.js、Svelte`，以及其他语言方向的 `Leptos` 等，甚至在 Flutter 中，也蹩脚的强行引入了 `hooks` 来支持状态复用。新出的 Android 开发框架 `Compose` 也引入了 `hooks` 来支持状态复用。
+
+所以在面试中，我们要把类组件的这个几个痛点都了然于心，这些痛点，是 React hooks 出现的主要原因。在后续的学习过程中，我们一点点来了解 React 中是如何在函数式组件中做到把状态，与组件分离开的。
