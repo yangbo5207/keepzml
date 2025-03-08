@@ -1,5 +1,103 @@
 在 React 中，存在三种不同的节点对象，ReactElement、Fiber、DOM。
 
-### 1、Hook 与闭包
+### Hook 与 fiber
 
-待续...
+在前面的介绍中，我们已经多多少少的呈现过了 Hook 与 Fiber 的关系。
+
+在我们编码时，使用函数创建一个组件，该组件执行时，会创建一个 fiber 实例
+
+```ts
+function Counter() {
+
+}
+```
+
+组件函数在执行的过程中，会执行 `hook` ，例如 `useState` 等
+
+此时，会创建 Hook 对象，并与当前的 Fiber 产生关联。
+
+```ts
+function Counter() {
+  const [] = useState()
+}
+```
+
+如果该函数中，存在多个 Hook，那么，最终会形成一个链表结构，挂载到 fiber 节点的 `memoizedState` 上。
+
+![](/images/reactprinciple/hook/hookwithclosure/1.jpg)
+
+Hook 的类型定义如下所示
+
+```ts
+export type Hook = {
+  memoizedState: any,
+  baseState: any,
+  baseQueue: Update<any, any> | null,
+  queue: any,
+  next: Hook | null,
+};
+```
+
+这里主要以 `useState` 创建的 Hook 来举例，每个字段的含义如下
+
++ `memoizedState` 表示当前 Hook 的状态值，`[] = useState(0)`，那么此时 `hook.memoizedState = 0`
++ `baseState` 为基准值，例如我们进行多次更新，会创建多个 update，那么 `baseState` 会存储每一次更新的结果，然后用 当前的 `baseState` 与下一个 `update` 中的值进行计算，最后得出的值会赋值给 `hook.memoizedState = hook.baseState`
++ `baseQueue`: 存储 `update` 环形链表，只包含高于本次渲染的 `update` 对象
++ `queue`：存储 `update` 环形链表，包含所有优先级的 `update` 对象
++ `next`: 指向下一个 `hook`
+
+
+当 Hook 为副作用 Hook 时，`hook.memoizedState` 指向一个 `Effect` 对象。
+
+它的类型定义如下所示
+
+```ts
+type EffectInstance = {
+  destroy: void | (() => void),
+};
+
+export type Effect = {
+  tag: HookFlags,
+  create: () => (() => void) | void,
+  inst: EffectInstance,
+  deps: Array<mixed> | null,
+  next: Effect,
+};
+```
+
+其中，`tag` 表示 effect 的类型，有如下几种
+
+```ts
+export type HookFlags = number;
+// 使用二进制位来定义不同的标记
+export const NoFlags = /*   */ 0b0000;
+
+// 表示 effect 是否需要执行,通常与其他标记组合使用
+export const HasEffect = /* */ 0b0001;
+
+// 后面几个表示 effect（非清理函数）在哪个阶段执行
+
+// 在 DOM 插入时执行
+export const Insertion = /* */ 0b0010;
+// 在 DOM 变更后同步执行（如 useLayoutEffect）
+export const Layout = /*    */ 0b0100;
+// 在渲染后异步执行（如 useEffect）
+export const Passive = /*   */ 0b1000;
+```
+
+```ts
+useEffect(create, deps)
+```
+
+`create` 是在使用 `useEffect(create, deps)` 时，传入的回调函数
+
+`inst` 表示 cerate 中，返回的清理函数
+
+`deps` 表示传入的依赖项
+
+`next` 指向下一个 `effect`
+
+我们可以用下图来进一步表示 hook 与 fiber 之间的关系
+
+
+![](/images/reactprinciple/hook/hookwithfiber/1.jpg)
