@@ -19,4 +19,16 @@ export const r3 = [
     path: '3.hookwithfiber',
     name: '3、hook 与 fiber',
   },
+  {
+    path: '4.renderwithhooks',
+    name: '4、renderWithHooks',
+  },
+  {
+    path: '5.mountState',
+    name: '5、初始化 State Hook',
+  },
+  {
+    path: '6.mountEffect',
+    name: '6、初始化 effect Hook',
+  },
 ]

@@ -1,0 +1,138 @@
+
+我们来看一下 `useState` 的源码
+
+```ts
+export function useState<S>(
+  initialState: (() => S) | S,
+): [S, Dispatch<BasicStateAction<S>>] {
+  const dispatcher = resolveDispatcher();
+  return dispatcher.useState(initialState);
+}
+```
+
+这里调用了 resolveDispatcher，这个函数的作用是根据当前的环境，返回一个 dispatcher。他的代码如下所示
+
+```ts
+function resolveDispatcher() {
+  const dispatcher = ReactSharedInternals.H;
+  return ((dispatcher: any): Dispatcher);
+}
+```
+
+由于我们之前在 `renderWithHooks` 中，已经判断了 `ReactSharedInternals.H` 的值
+
+```ts
+ReactSharedInternals.H =
+    current === null || current.memoizedState === null
+      ? HooksDispatcherOnMount
+      : HooksDispatcherOnUpdate;
+```
+
+由于在初始化阶段，所以rce 为 null，所以这里返回的是 HooksDispatcherOnMount，这个函数的代码如下所示
+
+```ts
+const HooksDispatcherOnMount: Dispatcher = {
+  readContext,
+  use,
+  useCallback: mountCallback,
+  useContext: readContext,
+  useEffect: mountEffect,
+  useImperativeHandle: mountImperativeHandle,
+  useLayoutEffect: mountLayoutEffect,
+  useInsertionEffect: mountInsertionEffect,
+  useMemo: mountMemo,
+  useReducer: mountReducer,
+  useRef: mountRef,
+  useState: mountState,
+  useDebugValue: mountDebugValue,
+  useDeferredValue: mountDeferredValue,
+  useTransition: mountTransition,
+  useSyncExternalStore: mountSyncExternalStore,
+  useId: mountId,
+};
+```
+
+因此，当我们初始化时执行 `useState` 时，实际上执行的是 `mountState` 函数，这个函数的代码如下所示
+
+
+```ts
+function mountState<S>(
+  initialState: (() => S) | S,
+): [S, Dispatch<BasicStateAction<S>>] {
+  // !mark
+  const hook = mountStateImpl(initialState);
+  const queue = hook.queue;
+  const dispatch: Dispatch<BasicStateAction<S>> = (dispatchSetState.bind(
+    null,
+    currentlyRenderingFiber,
+    queue,
+  ): any);
+  queue.dispatch = dispatch;
+  return [hook.memoizedState, dispatch];
+}
+```
+
+我们看到，`hook` 是由 `mountStateImpl` 函数创建的，代码如下
+
+```ts
+function mountStateImpl<S>(initialState: (() => S) | S): Hook {
+  // 创建 hook
+  const hook = mountWorkInProgressHook();
+  if (typeof initialState === 'function') {
+    const initialStateInitializer = initialState;
+    // $FlowFixMe[incompatible-use]: Flow doesn't like mixed types
+    initialState = initialStateInitializer();
+    if (shouldDoubleInvokeUserFnsInHooksDEV) {
+      setIsStrictModeForDevtools(true);
+      try {
+        // $FlowFixMe[incompatible-use]: Flow doesn't like mixed types
+        initialStateInitializer();
+      } finally {
+        setIsStrictModeForDevtools(false);
+      }
+    }
+  }
+  // 使用传入的默认值初始化 hook.memoizedState 和 hook.baseState
+  hook.memoizedState = hook.baseState = initialState;
+
+  // 创建一个 queue，并将其赋值给 hook.queue
+  const queue: UpdateQueue<S, BasicStateAction<S>> = {
+    pending: null,
+    lanes: NoLanes,
+    dispatch: null,
+    lastRenderedReducer: basicStateReducer,
+    lastRenderedState: (initialState: any),
+  };
+  hook.queue = queue;
+  return hook;
+}
+```
+
+```ts
+function mountWorkInProgressHook(): Hook {
+  // 创建一个 hook
+  const hook: Hook = {
+    memoizedState: null,
+
+    baseState: null,
+    baseQueue: null,
+    queue: null,
+
+    next: null,
+  };
+
+  // 构建 hook 链表，符合条件表示是当前 fiber 的第一个 hook
+  if (workInProgressHook === null) {
+    // This is the first hook in the list
+    currentlyRenderingFiber.memoizedState = workInProgressHook = hook;
+  } else {
+    // Append to the end of the list
+    workInProgressHook = workInProgressHook.next = hook;
+  }
+  return workInProgressHook;
+}
+```
+
+因此，当我们第一次执行玩 `const [count, setCount] = useState(0)` 之后，fiber 上的 hook 图示如下所示
+
+![](/images/reactprinciple/hook/mountState/1.jpg)

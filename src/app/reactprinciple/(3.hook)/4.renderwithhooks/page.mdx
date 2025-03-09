@@ -1,0 +1,215 @@
+接下来，我们要在代码中来分析 hook 的创建和更新过程。
+
+在 Hook 创建之前，需要先创建 fiber，对于 fiber 节点而言，fiber 的创建过程发生在 `beginWork` 中。
+
+在 `beginWork` 的执行中，会根据 `tag` 来创建不同的 fiber 节点。
+
+`tag` 的声明情况如下所以，不同类型的组件对应不同的 tag 值
+
+```ts
+export type WorkTag =
+  | 0
+  | 1
+  | 2
+  | 3
+  | 4
+  | 5
+  | 6
+  | 7
+  | 8
+  | 9
+  | 10
+  | 11
+  | 12
+  | 13
+  | 14
+  | 15
+  | 16
+  | 17
+  | 18
+  | 19
+  | 20
+  | 21
+  | 22
+  | 23
+  | 24
+  | 25
+  | 26
+  | 27
+  | 28
+  | 29;
+
+export const FunctionComponent = 0;
+export const ClassComponent = 1;
+export const HostRoot = 3; // Root of a host tree. Could be nested inside another node.
+export const HostPortal = 4; // A subtree. Could be an entry point to a different renderer.
+export const HostComponent = 5;
+export const HostText = 6;
+export const Fragment = 7;
+export const Mode = 8;
+export const ContextConsumer = 9;
+export const ContextProvider = 10;
+export const ForwardRef = 11;
+export const Profiler = 12;
+export const SuspenseComponent = 13;
+export const MemoComponent = 14;
+export const SimpleMemoComponent = 15;
+export const LazyComponent = 16;
+export const IncompleteClassComponent = 17;
+export const DehydratedFragment = 18;
+export const SuspenseListComponent = 19;
+export const ScopeComponent = 21;
+export const OffscreenComponent = 22;
+export const LegacyHiddenComponent = 23;
+export const CacheComponent = 24;
+export const TracingMarkerComponent = 25;
+export const HostHoistable = 26;
+export const HostSingleton = 27;
+export const IncompleteFunctionComponent = 28;
+export const Throw = 29;
+```
+
+同样，在 `beginWork` 中，也会根据 `tag` 的类型来调用不同组件的创建函数，其中，函数组件对应的是 `FunctionComponent`，执行 `updateFunctionComponent`
+
+```ts
+// function beginWork() {...}
+// 前置逻辑在判断是否需要重新创建 fiber，后续则是根据 tag 来调用不同的组件函数来创建 fiber 节点
+workInProgress.lanes = NoLanes;
+switch (workInProgress.tag) {
+  case LazyComponent: {
+    return mountLazyComponent();
+  }
+  
+  case FunctionComponent: {
+    const Component = workInProgress.type;
+    const unresolvedProps = workInProgress.pendingProps;
+    const resolvedProps =
+      disableDefaultPropsExceptForClasses ||
+      workInProgress.elementType === Component
+        ? unresolvedProps
+        : resolveDefaultPropsOnNonClassComponent(Component, unresolvedProps);
+    // !mark
+    return updateFunctionComponent(
+      current,
+      workInProgress,
+      Component,
+      resolvedProps,
+      renderLanes,
+    );
+  }
+  // ...
+```
+
+在 `updateFunctionComponent` 函数中，会调用 `renderWithHooks` 来执行组件函数
+
+```ts
+function updateFunctionComponent(
+  current: null | Fiber,
+  workInProgress: Fiber,
+  Component: any,
+  nextProps: any,
+  renderLanes: Lanes,
+) {
+  let context;
+  if (!disableLegacyContext && !disableLegacyContextForFunctionComponents) {
+    const unmaskedContext = getUnmaskedContext(workInProgress, Component, true);
+    context = getMaskedContext(workInProgress, unmaskedContext);
+  }
+
+  let nextChildren;
+  let hasId;
+  prepareToReadContext(workInProgress, renderLanes);
+
+  // !mark(1:8)
+  nextChildren = renderWithHooks(
+    current,
+    workInProgress,
+    Component,
+    nextProps,
+    context,
+    renderLanes,
+  );
+
+  // 根据在 beginWork 中的判断结果复用 fiber 与 hook
+  if (current !== null && !didReceiveUpdate) {
+    bailoutHooks(current, workInProgress, renderLanes);
+    return bailoutOnAlreadyFinishedWork(current, workInProgress, renderLanes);
+  }
+
+  // 无法复用，则向下创建新的 fiber
+  workInProgress.flags |= PerformedWork;
+  reconcileChildren(current, workInProgress, nextChildren, renderLanes);
+  return workInProgress.child;
+}
+```
+
+### renderWithHooks
+
+我把 `renderWithHooks` 函数中的关键代码进行了简化，剪出了无关的冗余逻辑，然后进行了注释，方便大家理解。代码如下所示
+
+
+```ts
+export function renderWithHooks<Props, SecondArg>(
+  current: Fiber | null,
+  workInProgress: Fiber,
+  Component: (p: Props, arg: SecondArg) => any,
+  props: Props,
+  secondArg: SecondArg,
+  nextRenderLanes: Lanes,
+): any {
+  // 设置相关的全局变量
+  renderLanes = nextRenderLanes;
+  currentlyRenderingFiber = workInProgress;
+
+  // 重置当前 fiber 的关键属性
+  workInProgress.memoizedState = null;
+  workInProgress.updateQueue = null;
+  workInProgress.lanes = NoLanes;
+
+  // 判断是初始化还是更新
+  ReactSharedInternals.H =
+    current === null || current.memoizedState === null
+      ? HooksDispatcherOnMount
+      : HooksDispatcherOnUpdate;
+
+  // !mark(1:2)
+  // 执行组件函数
+  let children = Component(props, secondArg);
+
+  // 如果在渲染过程中，发生了新的更新，则重新执行组件函数
+  if (didScheduleRenderPhaseUpdateDuringThisPass) {
+    // Keep rendering until the component stabilizes (there are no more render
+    // phase updates).
+    children = renderWithHooksAgain(
+      workInProgress,
+      Component,
+      props,
+      secondArg,
+    );
+  }
+  // 执行完成之后，重置全局变量
+  finishRenderingHooks(current, workInProgress, Component);
+  return children;
+}
+```
+
+`renderWithHooks` 函数中，比较重要的就是根据 `current` 的值来判断当前是初始化还是更新，然后执行组件函数。
+
+组件函数就是我们写代码时创建的那个函数，比如
+
+```ts
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>Click me</button>
+    </div>
+  );
+}
+```
+
+此时，执行的 `Component(props)` 就是 `Counter(props)`，`Counter` 在执行的过程中，会执行 `useState`，从而创建对应的 hook。
+
+在 useState 的执行逻辑中，React 使用 `mountState` 来初始化 hook，在接下来的一章我们，我们具体分析 `mountState` 的执行过程。

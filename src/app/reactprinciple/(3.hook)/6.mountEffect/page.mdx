@@ -1,0 +1,150 @@
+我们来看一下 `useEffect` 的源码，我们发现，与 `useState` 如出一撤
+
+```ts
+export function useEffect(
+  create: () => (() => void) | void,
+  deps: Array<mixed> | void | null,
+): void {
+  const dispatcher = resolveDispatcher();
+  return dispatcher.useEffect(create, deps);
+}
+```
+
+因此，根据如下这个对象，我们可以知道，useEffect 在初始化时，调用的是 `mountEffect` 函数
+
+```ts
+const HooksDispatcherOnMount: Dispatcher = {
+  readContext,
+  use,
+  useCallback: mountCallback,
+  useContext: readContext,
+  useEffect: mountEffect,
+  useImperativeHandle: mountImperativeHandle,
+  useLayoutEffect: mountLayoutEffect,
+  useInsertionEffect: mountInsertionEffect,
+  useMemo: mountMemo,
+  useReducer: mountReducer,
+  useRef: mountRef,
+  useState: mountState,
+  useDebugValue: mountDebugValue,
+  useDeferredValue: mountDeferredValue,
+  useTransition: mountTransition,
+  useSyncExternalStore: mountSyncExternalStore,
+  useId: mountId,
+};
+```
+
+mountEffect 函数的源码如下
+
+```ts
+function mountEffect(
+  create: () => (() => void) | void,
+  deps: Array<mixed> | void | null,
+): void {
+  mountEffectImpl(
+    PassiveEffect | PassiveStaticEffect,
+    HookPassive,
+    create,
+    deps,
+  );
+}
+```
+
+我们看到，`hook` 是由 `mountEffectImpl` 函数创建的，代码如下
+
+```ts
+function mountEffectImpl(
+  fiberFlags: Flags,
+  hookFlags: HookFlags,
+  create: () => (() => void) | void,
+  deps: Array<mixed> | void | null,
+): void {
+  // 构建 hook
+  const hook = mountWorkInProgressHook();
+  const nextDeps = deps === undefined ? null : deps;
+  currentlyRenderingFiber.flags |= fiberFlags;
+  // 构建副作用 effect 链表，并返回当前 effect 实例
+  hook.memoizedState = pushEffect(
+    HookHasEffect | hookFlags,
+    create,
+    createEffectInstance(),
+    nextDeps,
+  );
+}
+```
+
+hook 链表与 effect 链表是同时存在的，并且相互关联的。这里面的关系有点复杂，我们稍后用图示来表示，我们先来看一下 `mountWorkInProgressHook` 和 `pushEffect` 这两个关键函数的源码
+
+```ts
+function mountWorkInProgressHook(): Hook {
+  // 创建一个 hook
+  const hook: Hook = {
+    memoizedState: null,
+    baseState: null,
+    baseQueue: null,
+    queue: null,
+
+    next: null,
+  };
+
+  // 构建 hook 链表，符合条件表示是当前 fiber 的第一个 hook
+  if (workInProgressHook === null) {
+    // This is the first hook in the list
+    currentlyRenderingFiber.memoizedState = workInProgressHook = hook;
+  } else {
+    // Append to the end of the list
+    workInProgressHook = workInProgressHook.next = hook;
+  }
+  return workInProgressHook;
+}
+```
+
+`pushEffect` 需要构建一个挂在到 `fiber.updateQueue` 上的 `effect` 环形链表，代码如下
+
+```ts
+function pushEffect(
+  tag: HookFlags,
+  create: () => (() => void) | void,
+  inst: EffectInstance,
+  deps: Array<mixed> | null,
+): Effect {
+  const effect: Effect = {
+    tag,
+    create,
+    inst,
+    deps,
+    // Circular
+    next: (null: any),
+  };
+  // 获取 fiber.updateQueue，注意：currentlyRenderingFiber 表示 `workInProgress`
+  let componentUpdateQueue: null | FunctionComponentUpdateQueue =
+    (currentlyRenderingFiber.updateQueue: any);
+  if (componentUpdateQueue === null) {
+    componentUpdateQueue = createFunctionComponentUpdateQueue();
+    currentlyRenderingFiber.updateQueue = (componentUpdateQueue: any);
+  }
+  // 构建环形链表
+  const lastEffect = componentUpdateQueue.lastEffect;
+  if (lastEffect === null) {
+    componentUpdateQueue.lastEffect = effect.next = effect;
+  } else {
+    // 环形链表，最后一个指向第一个
+    const firstEffect = lastEffect.next;
+    // 之前存在的最后一个指向新的 effect，此时，新的 effect 成为了最后一个
+    lastEffect.next = effect;
+    // 新的最后一个，指向之前的第一个，构建新的环形
+    effect.next = firstEffect;
+    // lastEffect 指向新的最后一个
+    componentUpdateQueue.lastEffect = effect;
+  }
+  return effect;
+}
+```
+
+假如我们在一个组件函数中，调用了 3 次 `useEffect`，那么，我们可以得到如下的 `hook` 链表和 `effect` 链表
+
+这里需要注意，和之前的关系相比，我们新增了 effect 环形链表的展示
+
+![](/images/reactprinciple/hook/mountEffect/1.jpg)
+
+这里指针的指向关系，需要结合代码和图示多理解几遍，有点绕。

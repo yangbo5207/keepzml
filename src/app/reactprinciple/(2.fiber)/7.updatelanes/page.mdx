@@ -62,7 +62,7 @@ export function requestUpdateLane(fiber: Fiber): Lane {
     (executionContext & RenderContext) !== NoContext &&
     workInProgressRootRenderLanes !== NoLanes
   ) {
-    // 从当前渲染的优先级中，获取一个优先级
+    // 从当前渲染的优先级中，获取一个最高优先级
     return pickArbitraryLane(workInProgressRootRenderLanes);
   }
 
