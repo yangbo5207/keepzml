@@ -1,0 +1,48 @@
+### 环形链表
+
+在 React 中，环形链表是一个重要的概念，他在多处都被使用。不过这玩意儿理解起来有点绕，因此专门开一章单独讲解它。在后续的文章中，我们还会遇到环形链表，就不会冗余赘述。
+
+我们直接用图示来进一步表达上文中 `effect` 环形链表的概念
+
+![](/images/reactprinciple/hook/circularLinkedList/1.jpg)
+
+这种图示可能不是很好理解，新增的节点是放到链表的最后一个，只不过链表的入口也是指向最后一个，所以就变成了这个样子。
+
+```ts
+// 入口指针
+const updateQueue = fiber.updateQueue
+
+// 最后一个节点
+const lastEffect = updateQueue.lastEffect
+
+// 第一个节点
+const firstEffect = lastEffect.next
+```
+
+因此，我们在新增时，是增加到最后一个节点的，所以我们要改变最后一个节点的指向。代码表现如下
+
+```ts
+// 新创建一个 effect
+const effect = {}
+
+// 缓存旧的最后一个节点
+const oldLastEffect = updateQueue.lastEffect
+
+// 获取第一个节点
+const firstEffect = oldLastEffect.next
+
+// 新节点成为最后一个节点
+oldLastEffect.next = effect
+
+// 末尾节点指向第一个节点，形成新的环形
+effect.next = firstEffect
+
+// 更新 updateQueue 的指向
+updateQueue.lastEffect = effect
+```
+
+我们可以换一种更直观的图示来表达这种关系
+
+![](/images/reactprinciple/hook/circularLinkedList/2.jpg)
+
+如果我们在其他场景中，提到环形链表，那就就跟我们这里的情况是一致的。

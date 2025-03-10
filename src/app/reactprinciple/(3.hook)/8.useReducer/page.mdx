@@ -1,0 +1,112 @@
+我这里把相关源码都进行了整理，然后一起来对比一下 `useState` 与 `useReducer` 之间的区别。
+
+`useState` 在初始化时，底层调用的是 `mountState`
+
+`useReducer` 在初始化时，底层调用的是 `mountReducer`
+
+我们先来对比一下
+
+`mountState` 的源码解析如下
+
+首先，直接在内部单独定义一个 reducer，后续会将该 `reducer` 赋值给 `queue.lastRenderedReducer`
+
+```ts
+// 内部单独定义的 reducer
+function basicStateReducer<S>(state: S, action: BasicStateAction<S>): S {
+  // $FlowFixMe[incompatible-use]: Flow doesn't like mixed types
+  return typeof action === 'function' ? action(state) : action;
+}
+```
+
+```ts
+function mountState<S>(
+  initialState: (() => S) | S,
+): [S, Dispatch<BasicStateAction<S>>] {
+  // 构建 hook
+  const hook = mountWorkInProgressHook();
+  if (typeof initialState === 'function') {
+    const initialStateInitializer = initialState;
+    // $FlowFixMe[incompatible-use]: Flow doesn't like mixed types
+    initialState = initialStateInitializer();
+  }
+  // 初始化 hook 的关键字段
+  hook.memoizedState = hook.baseState = initialState;
+  const queue: UpdateQueue<S, BasicStateAction<S>> = {
+    pending: null,
+    lanes: NoLanes,
+    dispatch: null,
+    // 内部单独定义的 reducer
+    lastRenderedReducer: basicStateReducer,
+    lastRenderedState: (initialState: any),
+  };
+  hook.queue = queue;
+  const dispatch: Dispatch<BasicStateAction<S>> = (dispatchSetState.bind(
+    null,
+    currentlyRenderingFiber,
+    queue,
+  ): any);
+  queue.dispatch = dispatch;
+  return [hook.memoizedState, dispatch];
+}
+```
+
+`mountReducer` 的源码解析如下
+
+```ts
+function mountReducer<S, I, A>(
+  reducer: (S, A) => S,
+  initialArg: I,
+  init?: I => S,
+): [S, Dispatch<A>] {
+  // 构建 hook
+  const hook = mountWorkInProgressHook();
+  let initialState;
+  if (init !== undefined) {
+    initialState = init(initialArg);
+  } else {
+    initialState = ((initialArg: any): S);
+  }
+  // 初始化 hook 的关键字段
+  hook.memoizedState = hook.baseState = initialState;
+  const queue: UpdateQueue<S, A> = {
+    pending: null,
+    lanes: NoLanes,
+    dispatch: null,
+    // 外部传入的 reducer，这是与 useState 最主要的区别
+    lastRenderedReducer: reducer,
+    lastRenderedState: (initialState: any),
+  };
+  hook.queue = queue;
+  const dispatch: Dispatch<A> = (queue.dispatch = (dispatchReducerAction.bind(
+    null,
+    currentlyRenderingFiber,
+    queue,
+  ): any));
+  return [hook.memoizedState, dispatch];
+}
+```
+
+通过源码我们可以看出，`useReducer` 与 `useState` 唯一区别在于 `hook.queue.lastRenderedReducer` 的赋值 `reducer` 定义位置不同。
+
+ `useState` 是源码内部定义了一个 `basicStateReducer`，而 `useReducer` 则是外部传入的。
+
+ 因此，我们可以得出结论：`useState` 是 `useReducer` 的一种简单情况。他们本质上都是 `useReducer`
+
+因此在使用时，下面两种写法是等价的
+
+```ts
+const [state, dispatch] = useState({ count: 0 });
+```
+
+```ts
+const [state, dispatch] = useReducer(
+  function basicStateReducer(state, action) {
+    return typeof action === 'function' ? action(state) : action;
+  },
+  { count: 0 },
+);
+```
+
+当我们需要更新时，会调用 `dispatch` 方法，此时就会用到 `reducer`。
+
+这个问题在面试中偶尔会被提到，要很好的回答这个问题，除了本文提到的区别之外，最好还需要对 `reducer` 和 `action` 等概念有一个比较清晰的认知。

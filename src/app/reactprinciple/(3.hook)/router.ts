@@ -31,4 +31,12 @@ export const r3 = [
     path: '6.mountEffect',
     name: '6、初始化 effect Hook',
   },
+  {
+    path: '7.circularLinkedList',
+    name: '7、环形链表详解',
+  },
+  {
+    path: '8.useReducer',
+    name: '8、useReducer 与 useState 的区别',
+  },
 ]
