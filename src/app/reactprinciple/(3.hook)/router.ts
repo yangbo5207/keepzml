@@ -39,4 +39,8 @@ export const r3 = [
     path: '8.useReducer',
     name: '8、useReducer 与 useState 的区别',
   },
+  {
+    path: '9.update',
+    name: '9、状态更新',
+  },
 ]
