@@ -9,14 +9,14 @@ import { useState, useEffect } from 'react'
 interface TimeLeft {
   days: number;
   hours: number;
-  minutes: number;
+  minutes: number; 
   seconds: number;
 }
 
 interface TimeLeftMap {
   [key: string]: TimeLeft;
 }
-
+ 
 interface Course {
   id: string;
   title: string;
@@ -164,7 +164,7 @@ function CourseCard({ course, timeLeft, isUrgent, isHighlighted, index }: Course
           </span>
           <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
             <FileText size={14} className="mr-1" />
-            <span>文章: {course.articles}篇</span>
+            <span>已完成文章: {course.articles}篇</span>
           </div>
         </div>
       </div>
@@ -205,34 +205,34 @@ function CourseCard({ course, timeLeft, isUrgent, isHighlighted, index }: Course
 const upcomingCourses = [
   {
     id: 'nextjs-master',
-    title: 'Next.js 全栈开发实战',
+    title: '爆锤面试官之 React 原理面试',
     releaseDate: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], // 5天后
     progress: 75,
-    articles: 12,
-    originalPrice: 399,
-    promoPrice: 299,
+    articles: 54,
+    originalPrice: 2000,
+    promoPrice: 400,
     promoEndsAt: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000).toISOString().replace('Z', ''),
   },
   {
+    id: 'react-native-app',
+    title: 'React 19 架构 . 尊享版',
+    releaseDate: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], // 15天后
+    progress: 99,
+    articles: 32,
+    originalPrice: 1000,
+    promoPrice: 400,
+    promoEndsAt: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString().replace('Z', ''),
+  },
+  {
     id: 'typescript-pro',
-    title: 'TypeScript 高级进阶',
+    title: '超级 CSS',
     releaseDate: new Date(Date.now() + 10 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], // 10天后
     progress: 60,
     articles: 8,
-    originalPrice: 349,
-    promoPrice: 249,
+    originalPrice: 1000,
+    promoPrice: 200,
     promoEndsAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().replace('Z', ''),
   },
-  {
-    id: 'react-native-app',
-    title: 'React Native 移动应用开发',
-    releaseDate: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], // 15天后
-    progress: 40,
-    articles: 5,
-    originalPrice: 399,
-    promoPrice: 299,
-    promoEndsAt: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString().replace('Z', ''),
-  }
 ]
 
 export default function UpcomingCoursesBanner() {
@@ -254,7 +254,7 @@ export default function UpcomingCoursesBanner() {
                 className="text-2xl font-bold text-gray-800 dark:text-white"
                 {...variants(0.1)}
               >
-                即将上线的课程
+                正在开发中的课程
               </motion.h2>
             </div>
             
@@ -262,7 +262,7 @@ export default function UpcomingCoursesBanner() {
               className="text-gray-600 dark:text-gray-300 mb-8"
               {...variants(0.2)}
             >
-              以下课程正在紧张开发中，敬请期待！预约即可获得上线优惠通知。
+              以下课程正在紧张开发中，开发阶段购买将会获得超值优惠！不要错过哦！
             </motion.p>
             
             <div className="space-y-6">

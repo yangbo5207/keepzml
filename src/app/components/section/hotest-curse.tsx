@@ -61,28 +61,28 @@ export default function HotestCurse() {
   const hotCourses = [
     {
       id: "react-fullstack",
-      title: "React 全栈开发",
-      description: "从零开始学习 React 并构建现代化 Web 应用",
-      originalPrice: 399,
-      discountPrice: 199,
+      title: "React 19 . 基础",
+      description: "React19 为开发者带来了新的开发理念，在开发体验有大幅度提升",
+      originalPrice: 100,
+      discountPrice: 40,
       imageUrl: "/images/courses/react.jpg",
       badge: "热门"
     },
     {
       id: "python-data",
-      title: "Python 数据分析",
+      title: "JavaScript 核心进阶",
       description: "掌握 Python 数据分析与可视化技能",
-      originalPrice: 499,
-      discountPrice: 299,
+      originalPrice: 149,
+      discountPrice: 89,
       imageUrl: "/images/courses/python.jpg",
       badge: "促销"
     },
     {
       id: "uiux-design",
-      title: "UI/UX 设计基础",
-      description: "学习用户界面与用户体验设计原则",
-      originalPrice: 349,
-      discountPrice: 249,
+      title: "NextJS 启动",
+      description: "掌握独特的 NextJS 开发方式",
+      originalPrice: 1000,
+      discountPrice: 648,
       imageUrl: "/images/courses/design.jpg"
     }
   ]
