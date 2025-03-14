@@ -61,7 +61,7 @@ export default function Banner() {
     title: 'React 19 全解',
     description: '掌握React 19的新特性和最佳实践，提升开发效率和应用性能',
     releaseDate: new Date().toISOString().split('T')[0], // 今天
-    originalPrice: 199,
+    originalPrice: 999,
     promoPrice: 40,
     promoEndsAt: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000).toISOString(), // 3天后
     isNew: true
@@ -71,7 +71,7 @@ export default function Banner() {
   const discount = Math.round(100 - (latestCourse.promoPrice / latestCourse.originalPrice * 100));
 
   return (
-    <section className="py-10">
+    <section className="py-30">
       <div className="container mx-auto px-4">
         <motion.div
           className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-xl shadow-lg overflow-hidden border border-blue-100 dark:border-blue-800"
