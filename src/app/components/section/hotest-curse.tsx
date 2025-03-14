@@ -10,16 +10,16 @@ interface CourseCardProps {
   description: string
   originalPrice: number
   discountPrice: number
-  imageUrl: string
   badge?: string
   id: string
+  url?: string
 }
 
-const CourseCard = ({ title, description, originalPrice, discountPrice, imageUrl, badge, id }: CourseCardProps) => {
+const CourseCard = ({ title, description, originalPrice, discountPrice, url = '', badge, id }: CourseCardProps) => {
   // 生成随机颜色
   const getRandomColor = () => {
     const colors = [
-      'bg-blue-500', 'bg-green-500', 'bg-yellow-500', 
+      'bg-blue-500', 'bg-green-500', 'bg-yellow-500',
       'bg-purple-500', 'bg-pink-500', 'bg-indigo-500',
       'bg-red-400', 'bg-teal-500', 'bg-orange-500'
     ];
@@ -29,8 +29,8 @@ const CourseCard = ({ title, description, originalPrice, discountPrice, imageUrl
   const bgColor = getRandomColor();
 
   return (
-    <Link href={`/courses/${id}`}>
-      <motion.div 
+    <Link href={url || `/${id}`}>
+      <motion.div
         className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
         {...variants(0.2)}
       >
@@ -57,40 +57,40 @@ const CourseCard = ({ title, description, originalPrice, discountPrice, imageUrl
   )
 }
 
-export default function HotestCurse() {
-  const hotCourses = [
-    {
-      id: "react-fullstack",
-      title: "React 19 . 基础",
-      description: "React19 为开发者带来了新的开发理念，在开发体验有大幅度提升",
-      originalPrice: 100,
-      discountPrice: 40,
-      imageUrl: "/images/courses/react.jpg",
-      badge: "热门"
-    },
-    {
-      id: "python-data",
-      title: "JavaScript 核心进阶",
-      description: "掌握 Python 数据分析与可视化技能",
-      originalPrice: 149,
-      discountPrice: 89,
-      imageUrl: "/images/courses/python.jpg",
-      badge: "促销"
-    },
-    {
-      id: "uiux-design",
-      title: "NextJS 启动",
-      description: "掌握独特的 NextJS 开发方式",
-      originalPrice: 1000,
-      discountPrice: 648,
-      imageUrl: "/images/courses/design.jpg"
-    }
-  ]
 
+const hotCourses = [
+  {
+    id: "",
+    url: 'https://xinyuzone.cn/column/1818097927437131776',
+    title: "JavaScript 核心进阶",
+    description: "只给你地道的前端进阶思维",
+    originalPrice: 149,
+    discountPrice: 89,
+    badge: "Hot"
+  },
+  {
+    id: "r19base",
+    title: "React 19 . 基础",
+    description: "React19 为开发者带来了新的开发理念",
+    originalPrice: 100,
+    discountPrice: 40,
+    badge: "Hot"
+  },
+  {
+    id: "r19plus",
+    title: "React 19 架构 . 尊享",
+    description: "掌握一套高阶代码架构",
+    originalPrice: 1000,
+    discountPrice: 648,
+    badge: "Hot"
+  }
+]
+
+export default function HotestCurse() {
   return (
-    <section className="py-12 bg-gray-50">
+    <section className="py-10 md:py-20 bg-white">
       <div className="container mx-auto px-4">
-        <motion.h2 
+        <motion.h2
           className="text-3xl font-bold text-center mb-8"
           {...variants(0)}
         >
@@ -98,14 +98,14 @@ export default function HotestCurse() {
         </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {hotCourses.map((course, index) => (
-            <CourseCard 
+            <CourseCard
               key={index}
               id={course.id}
+              url={course.url}
               title={course.title}
               description={course.description}
               originalPrice={course.originalPrice}
               discountPrice={course.discountPrice}
-              imageUrl={course.imageUrl}
               badge={course.badge}
             />
           ))}
