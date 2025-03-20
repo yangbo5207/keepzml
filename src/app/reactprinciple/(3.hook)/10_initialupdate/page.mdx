@@ -220,3 +220,100 @@ useEffect(() => {
   setCount(count + 2)
 }, [])
 ```
+
+然后，合并之后的 `update` 方法，会最终通过 `enqueueUpdate` 保存在全局上下文变量 `concurrentQueues` 中
+
+```ts
+const root = enqueueConcurrentHookUpdate(fiber, queue, update, lane);
+```
+
+```ts
+export function enqueueConcurrentHookUpdate<S, A>(
+  fiber: Fiber,
+  queue: HookQueue<S, A>,
+  update: HookUpdate<S, A>,
+  lane: Lane,
+): FiberRoot | null {
+  const concurrentQueue: ConcurrentQueue = (queue: any);
+  const concurrentUpdate: ConcurrentUpdate = (update: any);
+  enqueueUpdate(fiber, concurrentQueue, concurrentUpdate, lane);
+  return getRootForUpdatedFiber(fiber);
+}
+```
+
+```ts
+function enqueueUpdate(
+  fiber: Fiber,
+  queue: ConcurrentQueue | null,
+  update: ConcurrentUpdate | null,
+  lane: Lane,
+) {
+  concurrentQueues[concurrentQueuesIndex++] = fiber;
+  concurrentQueues[concurrentQueuesIndex++] = queue;
+  concurrentQueues[concurrentQueuesIndex++] = update;
+  concurrentQueues[concurrentQueuesIndex++] = lane;
+
+  concurrentlyUpdatedLanes = mergeLanes(concurrentlyUpdatedLanes, lane);
+
+  fiber.lanes = mergeLanes(fiber.lanes, lane);
+  const alternate = fiber.alternate;
+  if (alternate !== null) {
+    alternate.lanes = mergeLanes(alternate.lanes, lane);
+  }
+}
+```
+
+在进入渲染流程之前，会调用 `finishQueueingConcurrentUpdates` 方法，把所有存储在全局变量 `concurrentQueues` 的 `update` 移入到对应的 `hook.queue` 中去构建 `update` 环形链表。构建的过程与上图展示的方式是一致的。
+
+```ts
+export function finishQueueingConcurrentUpdates(): void {
+  const endIndex = concurrentQueuesIndex;
+  concurrentQueuesIndex = 0;
+
+  concurrentlyUpdatedLanes = NoLanes;
+
+  let i = 0;
+  while (i < endIndex) {
+    const fiber: Fiber = concurrentQueues[i];
+    concurrentQueues[i++] = null;
+    const queue: ConcurrentQueue = concurrentQueues[i];
+    concurrentQueues[i++] = null;
+    const update: ConcurrentUpdate = concurrentQueues[i];
+    concurrentQueues[i++] = null;
+    const lane: Lane = concurrentQueues[i];
+    concurrentQueues[i++] = null;
+
+    if (queue !== null && update !== null) {
+      const pending = queue.pending;
+      if (pending === null) {
+        // This is the first update. Create a circular list.
+        update.next = update;
+      } else {
+        update.next = pending.next;
+        pending.next = update;
+      }
+      queue.pending = update;
+    }
+
+    if (lane !== NoLane) {
+      markUpdateLaneFromFiberToRoot(fiber, update, lane);
+    }
+  }
+}
+```
+
+这种处理方式主要是为了应对在多个 `useEffect` 中修改了同一个 hook 的情况
+
+```ts
+useEffect(() => {
+  // 同一个 useEffect 中修改多次，使用 eagerState 来合并
+  setCount(count + 1)
+  setCount(count + 1)
+  setCount(count + 1)
+}, [])
+
+useEffect(() => {
+  // 多个 useEffect 中创建不同的 update，则构建 update 环形链表
+  setCount(count + 2)
+}, [])
+```
