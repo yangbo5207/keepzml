@@ -40,7 +40,11 @@ export const r3 = [
     name: '8、useReducer 与 useState 的区别',
   },
   {
-    path: '9.update',
-    name: '9、状态更新',
+    path: '9_update',
+    name: '9、update 链表',
+  },
+  {
+    path: '10_initialupdate',
+    name: '10、初始阶段的状态更新',
   },
 ]

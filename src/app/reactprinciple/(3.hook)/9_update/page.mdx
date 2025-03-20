@@ -1,0 +1,101 @@
+每一个 `dispatch` 都会创建一个新的 `update` 对象。当我们在执行的过程中，调用多个 `dispatch` 时，会将这些 `update` 串联起来，形成一个 `update` 链表。
+
+
+单个 `update` 对象的类型声明如下所示
+
+```ts
+export type Update<S, A> = {
+  lane: Lane,
+  revertLane: Lane,
+  action: A,
+  hasEagerState: boolean,
+  eagerState: S | null,
+  next: Update<S, A>,
+};
+```
+
+其中
+
++ `lane` 表示更新的优先级
++ `revertLane` 有的时候需要回滚更新，这个字段表示回滚更新的优先级
++ `action` 表示本次更新的动作，与 `useReducer` 中的 action 含义一致
++ `hasEagerState` 表示是否已经预先计算了状态。如果为 true，表示 React 已经预先计算了 eagerState，可以避免重复计算
++ `eagerState` 表示预先计算的状态
++ `next` 表示下一个 `update` 对象
+
+由 `update` 对象组成的环形链表，会挂载到 `hook` 的 `queue` 字段中。环形链表的字段如下所示
+
+```ts
+export type UpdateQueue<S, A> = {
+  pending: Update<S, A> | null,
+  lanes: Lanes,
+  dispatch: (A => mixed) | null,
+  lastRenderedReducer: ((S, A) => S) | null,
+  lastRenderedState: S | null,
+};
+```
+
+环形链表的结构如下图所示
+
+![](/images/reactprinciple/hook/update/1.jpg)
+
+因此，`UpdateQueue` 中的字段分别表示
+
++ `pending` 指向 `update` 链表的最后一个节点
++ `lanes` 表示当前 `update` 链表中所有 `update` 的优先级
++ `dispatch` 一个用于触发更新的函数。通常与 useReducer 相关联，dispatch 是 useReducer 返回的第二个值（即 dispatch 函数）。React 会调用这个函数来将新的更新加入到 `update` 链表中
++ `lastRenderedReducer` 上一次渲染时使用的 reducer 函数，与 `useReducer` 的 reducer 函数含义一致
++ `lastRenderedState` 上一次渲染时的状态
+
+
+当我们通过点击、请求、setTimeout 等方式触发更新时，React 会调用 dispatch 函数，将新的更新加入到 `update` 链表中。
+
+每一次调用 `dispatch` 都会创建一个新的 `update` 对象，并且都会尝试调用 `scheduleUpdateOnFiber` 将更新加入到调度器中处理。在同一轮函数调用栈中，多次 `dispatch` 的执行，只会执行一次渲染
+
+在 Fiber 的构建过程中，会再次执行 `useState` 方法，此时由于已经是更新阶段，因此，`useState`  在源码中将会对应 **updateReducer**
+
+判断结果：更新阶段对应 `HooksDispatcherOnUpdate`
+
+```ts
+ReactSharedInternals.H =
+    current === null || current.memoizedState === null
+      ? HooksDispatcherOnMount
+      : HooksDispatcherOnUpdate;
+```
+
+```ts
+const HooksDispatcherOnUpdate: Dispatcher = {
+  readContext,
+
+  use,
+  useCallback: updateCallback,
+  useContext: readContext,
+  useEffect: updateEffect,
+  useImperativeHandle: updateImperativeHandle,
+  useInsertionEffect: updateInsertionEffect,
+  useLayoutEffect: updateLayoutEffect,
+  useMemo: updateMemo,
+  // !mark
+  useReducer: updateReducer,
+  useRef: updateRef,
+  // !mark
+  useState: updateState,
+  useDebugValue: updateDebugValue,
+  useDeferredValue: updateDeferredValue,
+  useTransition: updateTransition,
+  useSyncExternalStore: updateSyncExternalStore,
+  useId: updateId,
+};
+```
+
+```ts
+function updateState<S>(
+  initialState: (() => S) | S,
+): [S, Dispatch<BasicStateAction<S>>] {
+  return updateReducer(basicStateReducer, initialState);
+}
+```
+
+在 `updateReducer` 中，会遍历 `update` 链表，将链表中的 `update` 依次执行，最终得到最新的状态。
+
+> 在日常的使用过程中，大多数情况下，单个 hook 每次更新最好仅有一次 `dispatch`，以获得更合理的逻辑和更好的性能。此处 update 环形链表的设计实际意义更多的是为了兜底语法滥用的情况

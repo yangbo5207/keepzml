@@ -1,0 +1,222 @@
+import Demo01 from './demo01/preview'
+import CodeTabs from 'components/codehike/code-tabs'
+
+```ts
+ReactSharedInternals.H =
+    current === null || current.memoizedState === null
+      ? HooksDispatcherOnMount
+      : HooksDispatcherOnUpdate;
+```
+
+从前面的判断我们可以得知，Fiber 的执行分为两个阶段
+
++ mount 阶段，表示初始化、或者挂载
++ update 阶段，表示更新阶段
+
+这两个阶段都有可能会导致更新的产生。因此，React 在内部分别处理了这两种情况。
+
+这里比较难以理解的是初始化阶段为啥会导致更新任务的产生，我们可以用一个例子来理解一下
+
+第一个例子
+
+```ts
+function App(){
+  const [count, setCount] = useState(0);
+  
+  if(count === 0){
+    setCount(2);
+  }
+  ...
+}
+```
+> 这是反面案例，我们在开发中不应该这样使用，但是底层原理需要对此进行兜底
+
+
+第二个例子
+
+<Demo01 />
+<CodeTabs>
+```ts !!tabs index.tsx
+!from ./demo01/index.tsx
+```
+</CodeTabs>
+
+
+
+这一章，我们就来学习一下，源码中是如何处理在初始化阶段产生的更新任务。
+
+注意看，我们在 useState 初始化时，所执行的 `mountState` 专门单独返回了一个 `dispatch`
+
+```ts
+function mountState<S>(
+  initialState: (() => S) | S,
+): [S, Dispatch<BasicStateAction<S>>] {
+  const hook = mountStateImpl(initialState);
+  const queue = hook.queue;
+  // !mark(1:7)
+  const dispatch: Dispatch<BasicStateAction<S>> = (dispatchSetState.bind(
+    null,
+    currentlyRenderingFiber,
+    queue,
+  ): any);
+  queue.dispatch = dispatch;
+  return [hook.memoizedState, dispatch];
+}
+```
+
+需要特别注意的是，这个 dispatch 与在更新阶段，所返回的 `dispatch` 是不同的。更新阶段返回的 `dispatch`  我们后面详细学习。
+
+我们来从源码的角度学习一下这里的 `dispatch` 是如何工作的。
+
+```ts
+function dispatchSetState<S, A>(
+  fiber: Fiber,
+  queue: UpdateQueue<S, A>,
+  action: A,
+): void {
+  // 获取更新的优先级
+  const lane = requestUpdateLane(fiber);
+  // 调用内部函数 dispatchSetStateInternal 来实际处理状态更新，并返回是否成功调度了更新
+  const didScheduleUpdate = dispatchSetStateInternal(
+    fiber,
+    queue,
+    action,
+    lane,
+  );
+  if (didScheduleUpdate) {
+    // 如果成功调度了更新，启动对应优先级的更新计时器，用于性能分析。
+    startUpdateTimerByLane(lane);
+  }
+}
+```
+
+内部的 `dispatchSetStateInternal`  函数
+
+```ts
+function dispatchSetStateInternal<S, A>(
+  fiber: Fiber,
+  queue: UpdateQueue<S, A>,
+  action: A,
+  lane: Lane,
+): boolean {
+  // 创建 update
+  const update: Update<S, A> = {
+    lane,
+    revertLane: NoLane,
+    action,
+    hasEagerState: false,
+    eagerState: null,
+    next: (null: any),
+  };
+
+  // 判断是否是在渲染阶段更新，如果是，则触发特殊更新流程 -> 对应 案例一
+  if (isRenderPhaseUpdate(fiber)) {
+    // 触发特殊更新流程
+    enqueueRenderPhaseUpdate(queue, update);
+  } else {
+    // 正常更新流程 -> 对应 案例二
+    const alternate = fiber.alternate;
+    if ( // 判断是否有待处理的更新
+      fiber.lanes === NoLanes &&
+      (alternate === null || alternate.lanes === NoLanes)
+    ) {
+      // The queue is currently empty, which means we can eagerly compute the
+      // next state before entering the render phase. If the new state is the
+      // same as the current state, we may be able to bail out entirely.
+      // 进入到渲染阶段之前，可以提前计算新的 state
+      const lastRenderedReducer = queue.lastRenderedReducer;
+      if (lastRenderedReducer !== null) {
+        let prevDispatcher = null;
+        try {
+          // 获取上一次 update 计算的后的 state 值
+          const currentState: S = (queue.lastRenderedState: any);
+          // 调用 reducer 计算新的 state
+          const eagerState = lastRenderedReducer(currentState, action);
+          // Stash the eagerly computed state, and the reducer used to compute
+          // it, on the update object. If the reducer hasn't changed by the
+          // time we enter the render phase, then the eager state can be used
+          // without calling the reducer again.
+          update.hasEagerState = true; // 标记为 eager state，表示已经计算过了
+          update.eagerState = eagerState;
+          // 如果计算的新的 state 与当前 state 相同，则可以直接跳过渲染阶段，直接返回 false
+          if (is(eagerState, currentState)) {
+            // Fast path. We can bail out without scheduling React to re-render.
+            // It's still possible that we'll need to rebase this update later,
+            // if the component re-renders for a different reason and by that
+            // time the reducer has changed.
+            // TODO: Do we still need to entangle transitions in this case?
+            enqueueConcurrentHookUpdateAndEagerlyBailout(fiber, queue, update);
+            return false;
+          }
+        } catch (error) {
+          // Suppress the error. It will throw again in the render phase.
+        } finally {
+          // ...
+        }
+      }
+    }
+    
+    // 从当前节点开始，向上找到根节点返回，并沿途所有的节点都标记上更新的优先级
+    const root = enqueueConcurrentHookUpdate(fiber, queue, update, lane);
+    if (root !== null) {
+      // 进入调度
+      scheduleUpdateOnFiber(root, fiber, lane);
+      entangleTransitionUpdate(root, queue, lane);
+      return true;
+    }
+  }
+  return false;
+}
+```
+
+在上面会分别判断是属于哪一种更新进行不同的处理。如果是第一种，则表示是在渲染阶段（也就是 Fiber 的执行阶段），则直接调用 `enqueueRenderPhaseUpdate` 函数
+
+该函数的逻辑非常简单，就是构建我们上一章提到过的 `update` 链表。
+
+```ts
+function enqueueRenderPhaseUpdate<S, A>(
+  queue: UpdateQueue<S, A>,
+  update: Update<S, A>,
+): void {
+  // This is a render phase update. Stash it in a lazily-created map of
+  // queue -> linked list of updates. After this render pass, we'll restart
+  // and apply the stashed updates on top of the work-in-progress hook.
+  didScheduleRenderPhaseUpdateDuringThisPass = didScheduleRenderPhaseUpdate =
+    true;
+  const pending = queue.pending;
+  if (pending === null) {
+    // This is the first update. Create a circular list.
+    update.next = update;
+  } else {
+    update.next = pending.next;
+    pending.next = update;
+  }
+  queue.pending = update;
+}
+```
+
+新增节点的方式可以参考如下这个图
+
+![](/images/reactprinciple/hook/initialupdate/1.jpg)
+
+如果是第二种情况，那么此时的更新就会在 Fiber 逻辑执行之前进行处理。每创建一个 `update`，就会提前计算新的 `state`，并将计算结果保存在 `eagerState` 上
+
+```ts
+// 调用 reducer 计算新的 state
+const eagerState = lastRenderedReducer(currentState, action);
+update.hasEagerState = true; // 标记为 eager state，表示已经计算过了
+update.eagerState = eagerState;
+```
+
+如果前后两次的计算结果是一致的，则会跳过，例如这种情况，由于 `count` 的值都是相同的，因此执行结果是相同的，因此后面两次会跳过执行。
+
+```ts
+useEffect(() => {
+  // 第一次执行之后，eagerState 为 2
+  setCount(count + 2)
+  // 第二次执行之后，发现计算之后的结果与上一次是相同的，则跳过执行
+  setCount(count + 2)
+  // 第三次执行之后，发现计算之后的结果与上一次是相同的，则跳过执行
+  setCount(count + 2)
+}, [])
+```

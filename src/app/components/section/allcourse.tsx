@@ -20,8 +20,8 @@ const AllCourses: React.FC = () => {
       id: 'r19base',
       title: 'React19 . 基础版',
       description: '新的 React 开发思维',
-      currentPrice: 99,
-      originalPrice: 40,
+      currentPrice: 40,
+      originalPrice: 99,
       tags: ['热门', '最新'],
       updatedAt: '2025-01-20'
     },
@@ -29,8 +29,8 @@ const AllCourses: React.FC = () => {
       id: 'r19plus',
       title: 'React19 . 尊享版',
       description: '掌握一套成熟的代码架构',
-      currentPrice: 1000,
-      originalPrice: 400,
+      currentPrice: 400,
+      originalPrice: 1000,
       tags: ['热门'],
       updatedAt: '2025-02-18'
     },
@@ -38,8 +38,8 @@ const AllCourses: React.FC = () => {
       id: 'zustand',
       title: 'Zustand',
       description: 'React状态管理库',
-      currentPrice: 200,
-      originalPrice: 9.9,
+      currentPrice: 9.9,
+      originalPrice: 200,
       tags: ['普通'],
       updatedAt: '2025-01-15'
     },
@@ -47,8 +47,8 @@ const AllCourses: React.FC = () => {
       id: 'reactzm',
       title: 'React 知命境',
       description: '最好的 React 入门方式',
-      currentPrice: 299,
-      originalPrice: 90,
+      currentPrice: 90,
+      originalPrice: 299,
       tags: ['促销', '热门'],
       updatedAt: '2025-01-12'
     },
@@ -56,8 +56,8 @@ const AllCourses: React.FC = () => {
       id: 'supercss',
       title: '超级 CSS',
       description: 'CSS 在实践中的运用',
-      currentPrice: 1000,
-      originalPrice: 200,
+      currentPrice: 200,
+      originalPrice: 1000,
       tags: ['活动'],
       updatedAt: '2025-01-10'
     },
@@ -65,8 +65,8 @@ const AllCourses: React.FC = () => {
       id: 'r19lightning',
       title: 'React 19 速成法',
       description: '短期内快速学会 React 19',
-      currentPrice: 1000,
-      originalPrice: 200,
+      currentPrice: 200,
+      originalPrice: 1000,
       tags: ['活动'],
       updatedAt: '2025-01-10'
     }
@@ -75,7 +75,7 @@ const AllCourses: React.FC = () => {
     <div className='bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20'>
       <div className="container mx-auto px-4 py-10 md:py-20">
         <h2 className="text-2xl font-bold mb-6">全部课程</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
           {courses.map(course => (
             <Link href={`/${course.id}`} key={course.id} className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="relative h-48 flex items-center justify-center">

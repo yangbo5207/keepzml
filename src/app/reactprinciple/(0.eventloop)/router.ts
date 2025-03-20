@@ -1,6 +1,14 @@
 export const r0 = [
   {
     type: 'tip',
+    name: '直播回放',
+  },
+  {
+    path: 'live_01',
+    name: '1、场景解析、Promise、AI、答疑',
+  },
+  {
+    type: 'tip',
     name: '事件循环体系'
   },
   {
