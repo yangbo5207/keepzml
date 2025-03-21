@@ -1,0 +1,310 @@
+1:"$Sreact.fragment"
+2:I[51790,["7525","static/chunks/7525-411280bffc37a107.js","8173","static/chunks/8173-1aab990e083a60ce.js","5926","static/chunks/5926-2f921190ce1e6581.js","3974","static/chunks/3974-a1a1a9aca3315bf5.js","7177","static/chunks/app/layout-42df43a67d50e5c7.js"],"default"]
+3:I[73974,["7525","static/chunks/7525-411280bffc37a107.js","8173","static/chunks/8173-1aab990e083a60ce.js","5926","static/chunks/5926-2f921190ce1e6581.js","3974","static/chunks/3974-a1a1a9aca3315bf5.js","7177","static/chunks/app/layout-42df43a67d50e5c7.js"],"default"]
+4:I[15244,[],""]
+5:I[43866,[],""]
+6:I[14547,[],"ClientSegmentRoot"]
+7:I[65525,["7525","static/chunks/7525-411280bffc37a107.js","8173","static/chunks/8173-1aab990e083a60ce.js","5926","static/chunks/5926-2f921190ce1e6581.js","3974","static/chunks/3974-a1a1a9aca3315bf5.js","2882","static/chunks/app/r19plus/layout-397d8e21663ea081.js"],"default"]
+9:I[98087,["8150","static/chunks/7cfd557f-0718c923d48595ad.js","7525","static/chunks/7525-411280bffc37a107.js","4320","static/chunks/4320-eb0b4108191194bc.js","8173","static/chunks/8173-1aab990e083a60ce.js","3152","static/chunks/3152-e813ba8dd61cd947.js","8993","static/chunks/8993-3cce8e75b5e6a7b1.js","3264","static/chunks/app/r19plus/(3.source)/10.pagination/layout-a719fb7eafdbb7ad.js"],"default"]
+b:I[86213,[],"OutletBoundary"]
+d:I[86213,[],"MetadataBoundary"]
+f:I[86213,[],"ViewportBoundary"]
+11:I[34835,[],""]
+:HL["/_next/static/media/569ce4b8f30dc480-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/93f479601ee12b01-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/d498c84e4ab246b3.css","style"]
+:HL["/_next/static/css/0a9e87861d5bb349.css","style"]
+:HL["/_next/static/css/738174a5e4c964fb.css","style"]
+:HL["/_next/static/css/99a14b80c12a58f7.css","style"]
+:HL["/_next/static/css/b55814aba7c65cf0.css","style"]
+0:{"P":null,"b":"BpGXy7hMnRV6RxDxJIHl9","p":"","c":["","r19plus","10.pagination"],"i":false,"f":[[["",{"children":["r19plus",{"children":["(3.source)",{"children":["10.pagination",{"children":["__PAGE__",{}]}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/d498c84e4ab246b3.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/css/0a9e87861d5bb349.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","2",{"rel":"stylesheet","href":"/_next/static/css/738174a5e4c964fb.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","3",{"rel":"stylesheet","href":"/_next/static/css/99a14b80c12a58f7.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"zh","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","meta",null,{"charSet":"UTF-8"}],["$","link",null,{"href":"https://framerusercontent.com/images/YRd2KCq4G2aXNg15aHvl7AtcGQ.png","rel":"icon","media":"(prefers-color-scheme: light)"}],["$","link",null,{"rel":"stylesheet","href":"https://rsms.me/inter/inter.css"}],["$","link",null,{"rel":"stylesheet","href":"https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css","integrity":"sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV","crossOrigin":"anonymous"}],["$","meta",null,{"name":"viewport","content":"width=device-width, initial-scale=1.0 maximum-scale=1, user-scalable=no"}],["$","meta",null,{"name":"mobile-web-app-capable","content":"yes"}],["$","meta",null,{"name":"apple-mobile-web-app-status-bar-style","content":"black-translucent"}]]}],["$","body",null,{"className":"__variable_4d318d __variable_ea5f4b antialiased","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[],[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]]],"forbidden":"$undefined","unauthorized":"$undefined"}]]}]}]]}]]}],{"children":["r19plus",["$","$1","c",{"children":[null,["$","$L6",null,{"Component":"$7","slots":{"children":["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children","r19plus","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]},"params":{},"promise":"$@8"}]]}],{"children":["(3.source)",["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children","r19plus","children","(3.source)","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["10.pagination",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/b55814aba7c65cf0.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L9",null,{"children":["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children","r19plus","children","(3.source)","children","10.pagination","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$La",null,["$","$Lb",null,{"children":"$Lc"}]]}],{},null,false]},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","NKPM-9aeMF55bcrg_hoo9",{"children":[["$","$Ld",null,{"children":"$Le"}],["$","$Lf",null,{"children":"$L10"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]]}],false]],"m":"$undefined","G":["$11","$undefined"],"s":false,"S":true}
+8:{}
+12:I[34034,["7525","static/chunks/7525-411280bffc37a107.js","4320","static/chunks/4320-eb0b4108191194bc.js","5926","static/chunks/5926-2f921190ce1e6581.js","5495","static/chunks/5495-c9afbde98032192a.js","2756","static/chunks/2756-7b2130b3332992d3.js","6791","static/chunks/app/r19plus/(3.source)/10.pagination/page-1939f514009bdc59.js"],"default"]
+13:I[65470,["7525","static/chunks/7525-411280bffc37a107.js","4320","static/chunks/4320-eb0b4108191194bc.js","5926","static/chunks/5926-2f921190ce1e6581.js","5495","static/chunks/5495-c9afbde98032192a.js","2756","static/chunks/2756-7b2130b3332992d3.js","6791","static/chunks/app/r19plus/(3.source)/10.pagination/page-1939f514009bdc59.js"],"CodeTabHeader"]
+15:I[65703,["7525","static/chunks/7525-411280bffc37a107.js","4320","static/chunks/4320-eb0b4108191194bc.js","5926","static/chunks/5926-2f921190ce1e6581.js","5495","static/chunks/5495-c9afbde98032192a.js","2756","static/chunks/2756-7b2130b3332992d3.js","6791","static/chunks/app/r19plus/(3.source)/10.pagination/page-1939f514009bdc59.js"],"CodeTabsInner"]
+14:Ta6b,import { useRef, useState } from 'react'
+import clsx from 'clsx'
+import Button from './button'
+
+export default function Pagination(props: {
+  total: number,
+  current?: number,
+  onChange: (i: number) => any
+}) {
+  const pageSize = 8
+  const { total = 8, current = 1, onChange } = props
+  const curPage = useRef(Math.ceil(current / pageSize))
+  const pageIndex = useRef(current)
+  const [index, setIndex] = useState((current - 1) % pageSize)
+
+  const showArr = []
+  const max = curPage.current === Math.ceil(total / pageSize)
+    ? total % pageSize === 0 ? pageSize : total % pageSize
+    : pageSize
+
+  for (let i = 0; i < max; i++) {
+    showArr.push(pageSize * (curPage.current - 1) + i + 1)
+  }
+
+  const active = 'border border-blue-600'
+
+  function onClickHnadler(i: number) {
+    setIndex(i)
+    pageIndex.current = pageSize * (curPage.current - 1) + i + 1
+    onChange && onChange(pageIndex.current)
+  }
+
+  function next() {
+    let _index = index + 1
+    pageIndex.current += 1
+
+    if (_index >= pageSize) {
+      _index = 0
+      curPage.current += 1
+    }
+    setIndex(_index)
+    onChange && onChange(pageIndex.current)
+  }
+
+  function prev() {
+    let _index = index - 1
+    pageIndex.current -= 1
+
+    if (_index < 0) {
+      _index = pageSize - 1
+      curPage.current -= 1
+    }
+    setIndex(_index)
+    onChange && onChange(pageIndex.current)
+  }
+
+  const isLeftEnd = pageIndex.current === 1
+  const isRightEnd = pageIndex.current === total
+
+  const base = 'flex items-center justify-center'
+  const preCls = clsx(base, {
+    ['cursor-not-allowed']: isLeftEnd
+  })
+  const nexCls = clsx(base, {
+    ['cursor-not-allowed']: isRightEnd
+  })
+
+  return (
+    <div className='flex space-x-2'>
+      <Button disabled={isLeftEnd} rect className={preCls} onClick={prev}>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+        </svg>
+      </Button>
+      {showArr.map((item, i) => (
+        <Button
+          onClick={() => onClickHnadler(i)} key={item} ghost rect
+          className={clsx('w-10', { [active]: index === i })}>
+          {item}
+        </Button>
+      ))}
+      <Button
+        disabled={isRightEnd}
+        rect
+        className={nexCls}
+        onClick={next}
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+          <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+        </svg>
+      </Button>
+    </div>
+  )
+}
+16:Ta6b,import { useRef, useState } from 'react'
+import clsx from 'clsx'
+import Button from './button'
+
+export default function Pagination(props: {
+  total: number,
+  current?: number,
+  onChange: (i: number) => any
+}) {
+  const pageSize = 8
+  const { total = 8, current = 1, onChange } = props
+  const curPage = useRef(Math.ceil(current / pageSize))
+  const pageIndex = useRef(current)
+  const [index, setIndex] = useState((current - 1) % pageSize)
+
+  const showArr = []
+  const max = curPage.current === Math.ceil(total / pageSize)
+    ? total % pageSize === 0 ? pageSize : total % pageSize
+    : pageSize
+
+  for (let i = 0; i < max; i++) {
+    showArr.push(pageSize * (curPage.current - 1) + i + 1)
+  }
+
+  const active = 'border border-blue-600'
+
+  function onClickHnadler(i: number) {
+    setIndex(i)
+    pageIndex.current = pageSize * (curPage.current - 1) + i + 1
+    onChange && onChange(pageIndex.current)
+  }
+
+  function next() {
+    let _index = index + 1
+    pageIndex.current += 1
+
+    if (_index >= pageSize) {
+      _index = 0
+      curPage.current += 1
+    }
+    setIndex(_index)
+    onChange && onChange(pageIndex.current)
+  }
+
+  function prev() {
+    let _index = index - 1
+    pageIndex.current -= 1
+
+    if (_index < 0) {
+      _index = pageSize - 1
+      curPage.current -= 1
+    }
+    setIndex(_index)
+    onChange && onChange(pageIndex.current)
+  }
+
+  const isLeftEnd = pageIndex.current === 1
+  const isRightEnd = pageIndex.current === total
+
+  const base = 'flex items-center justify-center'
+  const preCls = clsx(base, {
+    ['cursor-not-allowed']: isLeftEnd
+  })
+  const nexCls = clsx(base, {
+    ['cursor-not-allowed']: isRightEnd
+  })
+
+  return (
+    <div className='flex space-x-2'>
+      <Button disabled={isLeftEnd} rect className={preCls} onClick={prev}>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+        </svg>
+      </Button>
+      {showArr.map((item, i) => (
+        <Button
+          onClick={() => onClickHnadler(i)} key={item} ghost rect
+          className={clsx('w-10', { [active]: index === i })}>
+          {item}
+        </Button>
+      ))}
+      <Button
+        disabled={isRightEnd}
+        rect
+        className={nexCls}
+        onClick={next}
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+          <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+        </svg>
+      </Button>
+    </div>
+  )
+}
+17:Ta6b,import { useRef, useState } from 'react'
+import clsx from 'clsx'
+import Button from './button'
+
+export default function Pagination(props: {
+  total: number,
+  current?: number,
+  onChange: (i: number) => any
+}) {
+  const pageSize = 8
+  const { total = 8, current = 1, onChange } = props
+  const curPage = useRef(Math.ceil(current / pageSize))
+  const pageIndex = useRef(current)
+  const [index, setIndex] = useState((current - 1) % pageSize)
+
+  const showArr = []
+  const max = curPage.current === Math.ceil(total / pageSize)
+    ? total % pageSize === 0 ? pageSize : total % pageSize
+    : pageSize
+
+  for (let i = 0; i < max; i++) {
+    showArr.push(pageSize * (curPage.current - 1) + i + 1)
+  }
+
+  const active = 'border border-blue-600'
+
+  function onClickHnadler(i: number) {
+    setIndex(i)
+    pageIndex.current = pageSize * (curPage.current - 1) + i + 1
+    onChange && onChange(pageIndex.current)
+  }
+
+  function next() {
+    let _index = index + 1
+    pageIndex.current += 1
+
+    if (_index >= pageSize) {
+      _index = 0
+      curPage.current += 1
+    }
+    setIndex(_index)
+    onChange && onChange(pageIndex.current)
+  }
+
+  function prev() {
+    let _index = index - 1
+    pageIndex.current -= 1
+
+    if (_index < 0) {
+      _index = pageSize - 1
+      curPage.current -= 1
+    }
+    setIndex(_index)
+    onChange && onChange(pageIndex.current)
+  }
+
+  const isLeftEnd = pageIndex.current === 1
+  const isRightEnd = pageIndex.current === total
+
+  const base = 'flex items-center justify-center'
+  const preCls = clsx(base, {
+    ['cursor-not-allowed']: isLeftEnd
+  })
+  const nexCls = clsx(base, {
+    ['cursor-not-allowed']: isRightEnd
+  })
+
+  return (
+    <div className='flex space-x-2'>
+      <Button disabled={isLeftEnd} rect className={preCls} onClick={prev}>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+        </svg>
+      </Button>
+      {showArr.map((item, i) => (
+        <Button
+          onClick={() => onClickHnadler(i)} key={item} ghost rect
+          className={clsx('w-10', { [active]: index === i })}>
+          {item}
+        </Button>
+      ))}
+      <Button
+        disabled={isRightEnd}
+        rect
+        className={nexCls}
+        onClick={next}
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+          <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+        </svg>
+      </Button>
+    </div>
+  )
+}
+a:["$","div",null,{"className":"code-tabs border rounded border-gray-200 overflow-hidden my-5","children":["$","$L12",null,{"children":[["$","$L13",null,{"tabs":[{"meta":"pagination.tsx -c","value":"$14","lang":"tsx"}]}],["$","$L15",null,{"highlighteds":[{"meta":"pagination.tsx -c","value":"$16","lang":"tsx","code":"$17","tokens":[["import","var(--ch-7)"]," ",["{ useRef, useState }","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'react'","var(--ch-8)"],"\n",["import","var(--ch-7)"]," ",["clsx","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'clsx'","var(--ch-8)"],"\n",["import","var(--ch-7)"]," ",["Button","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'./button'","var(--ch-8)"],"\n\n",["export default function","var(--ch-7)"]," ",["Pagination","var(--ch-5)"],["(props","var(--ch-3)"],[":","var(--ch-7)"]," ",["{","var(--ch-3)"],"\n  ",["total","var(--ch-3)"],[":","var(--ch-7)"]," ",["number","var(--ch-2)"],[",","var(--ch-3)"],"\n  ",["current","var(--ch-3)"],["?:","var(--ch-7)"]," ",["number","var(--ch-2)"],[",","var(--ch-3)"],"\n  ",["onChange","var(--ch-5)"],[":","var(--ch-7)"]," ",["(i","var(--ch-3)"],[":","var(--ch-7)"]," ",["number","var(--ch-2)"],[")","var(--ch-3)"]," ",["=>","var(--ch-7)"]," ",["any","var(--ch-2)"],"\n",["})","var(--ch-3)"]," ",["{","var(--ch-4)"],"\n  ",["const","var(--ch-7)"]," ",["pageSize","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["8","var(--ch-2)"],"\n  ",["const","var(--ch-7)"]," ",["{","var(--ch-4)"]," ",["total","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["8","var(--ch-2)"],[",","var(--ch-4)"]," ",["current","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["1","var(--ch-2)"],[",","var(--ch-4)"]," ",["onChange","var(--ch-2)"]," ",["}","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["props","var(--ch-4)"],"\n  ",["const","var(--ch-7)"]," ",["curPage","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["useRef","var(--ch-5)"],["(Math.","var(--ch-4)"],["ceil","var(--ch-5)"],["(current","var(--ch-4)"]," ",["/","var(--ch-7)"]," ",["pageSize))","var(--ch-4)"],"\n  ",["const","var(--ch-7)"]," ",["pageIndex","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["useRef","var(--ch-5)"],["(current)","var(--ch-4)"],"\n  ",["const","var(--ch-7)"]," ",["[","var(--ch-4)"],["index","var(--ch-2)"],[",","var(--ch-4)"]," ",["setIndex","var(--ch-2)"],["]","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["useState","var(--ch-5)"],["((current","var(--ch-4)"]," ",["-","var(--ch-7)"]," ",["1","var(--ch-2)"],[")","var(--ch-4)"]," ",["%","var(--ch-7)"]," ",["pageSize)","var(--ch-4)"],"\n\n  ",["const","var(--ch-7)"]," ",["showArr","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["[]","var(--ch-4)"],"\n  ",["const","var(--ch-7)"]," ",["max","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["curPage.current","var(--ch-4)"]," ",["===","var(--ch-7)"]," ",["Math.","var(--ch-4)"],["ceil","var(--ch-5)"],["(total","var(--ch-4)"]," ",["/","var(--ch-7)"]," ",["pageSize)","var(--ch-4)"],"\n    ",["?","var(--ch-7)"]," ",["total","var(--ch-4)"]," ",["%","var(--ch-7)"]," ",["pageSize","var(--ch-4)"]," ",["===","var(--ch-7)"]," ",["0","var(--ch-2)"]," ",["?","var(--ch-7)"]," ",["pageSize","var(--ch-4)"]," ",[":","var(--ch-7)"]," ",["total","var(--ch-4)"]," ",["%","var(--ch-7)"]," ",["pageSize","var(--ch-4)"],"\n    ",[":","var(--ch-7)"]," ",["pageSize","var(--ch-4)"],"\n\n  ",["for","var(--ch-7)"]," ",["(","var(--ch-4)"],["let","var(--ch-7)"]," ",["i","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["0","var(--ch-2)"],["; i","var(--ch-4)"]," ",["<","var(--ch-7)"]," ",["max; i","var(--ch-4)"],["++","var(--ch-7)"],[") {","var(--ch-4)"],"\n    ",["showArr.","var(--ch-4)"],["push","var(--ch-5)"],["(pageSize","var(--ch-4)"]," ",["*","var(--ch-7)"]," ",["(curPage.current","var(--ch-4)"]," ",["-","var(--ch-7)"]," ",["1","var(--ch-2)"],[")","var(--ch-4)"]," ",["+","var(--ch-7)"]," ",["i","var(--ch-4)"]," ",["+","var(--ch-7)"]," ",["1","var(--ch-2)"],[")","var(--ch-4)"],"\n  ",["}","var(--ch-4)"],"\n\n  ",["const","var(--ch-7)"]," ",["active","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["'border border-blue-600'","var(--ch-8)"],"\n\n  ",["function","var(--ch-7)"]," ",["onClickHnadler","var(--ch-5)"],["(","var(--ch-4)"],["i","var(--ch-3)"],[":","var(--ch-7)"]," ",["number","var(--ch-2)"],[") {","var(--ch-4)"],"\n    ",["setIndex","var(--ch-5)"],["(i)","var(--ch-4)"],"\n    ",["pageIndex.current","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["pageSize","var(--ch-4)"]," ",["*","var(--ch-7)"]," ",["(curPage.current","var(--ch-4)"]," ",["-","var(--ch-7)"]," ",["1","var(--ch-2)"],[")","var(--ch-4)"]," ",["+","var(--ch-7)"]," ",["i","var(--ch-4)"]," ",["+","var(--ch-7)"]," ",["1","var(--ch-2)"],"\n    ",["onChange","var(--ch-4)"]," ",["&&","var(--ch-7)"]," ",["onChange","var(--ch-5)"],["(pageIndex.current)","var(--ch-4)"],"\n  ",["}","var(--ch-4)"],"\n\n  ",["function","var(--ch-7)"]," ",["next","var(--ch-5)"],["() {","var(--ch-4)"],"\n    ",["let","var(--ch-7)"]," ",["_index","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["index","var(--ch-4)"]," ",["+","var(--ch-7)"]," ",["1","var(--ch-2)"],"\n    ",["pageIndex.current","var(--ch-4)"]," ",["+=","var(--ch-7)"]," ",["1","var(--ch-2)"],"\n\n    ",["if","var(--ch-7)"]," ",["(_index","var(--ch-4)"]," ",[">=","var(--ch-7)"]," ",["pageSize) {","var(--ch-4)"],"\n      ",["_index","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["0","var(--ch-2)"],"\n      ",["curPage.current","var(--ch-4)"]," ",["+=","var(--ch-7)"]," ",["1","var(--ch-2)"],"\n    ",["}","var(--ch-4)"],"\n    ",["setIndex","var(--ch-5)"],["(_index)","var(--ch-4)"],"\n    ",["onChange","var(--ch-4)"]," ",["&&","var(--ch-7)"]," ",["onChange","var(--ch-5)"],["(pageIndex.current)","var(--ch-4)"],"\n  ",["}","var(--ch-4)"],"\n\n  ",["function","var(--ch-7)"]," ",["prev","var(--ch-5)"],["() {","var(--ch-4)"],"\n    ",["let","var(--ch-7)"]," ",["_index","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["index","var(--ch-4)"]," ",["-","var(--ch-7)"]," ",["1","var(--ch-2)"],"\n    ",["pageIndex.current","var(--ch-4)"]," ",["-=","var(--ch-7)"]," ",["1","var(--ch-2)"],"\n\n    ",["if","var(--ch-7)"]," ",["(_index","var(--ch-4)"]," ",["<","var(--ch-7)"]," ",["0","var(--ch-2)"],[") {","var(--ch-4)"],"\n      ",["_index","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["pageSize","var(--ch-4)"]," ",["-","var(--ch-7)"]," ",["1","var(--ch-2)"],"\n      ",["curPage.current","var(--ch-4)"]," ",["-=","var(--ch-7)"]," ",["1","var(--ch-2)"],"\n    ",["}","var(--ch-4)"],"\n    ",["setIndex","var(--ch-5)"],["(_index)","var(--ch-4)"],"\n    ",["onChange","var(--ch-4)"]," ",["&&","var(--ch-7)"]," ",["onChange","var(--ch-5)"],["(pageIndex.current)","var(--ch-4)"],"\n  ",["}","var(--ch-4)"],"\n\n  ",["const","var(--ch-7)"]," ",["isLeftEnd","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["pageIndex.current","var(--ch-4)"]," ",["===","var(--ch-7)"]," ",["1","var(--ch-2)"],"\n  ",["const","var(--ch-7)"]," ",["isRightEnd","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["pageIndex.current","var(--ch-4)"]," ",["===","var(--ch-7)"]," ",["total","var(--ch-4)"],"\n\n  ",["const","var(--ch-7)"]," ",["base","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["'flex items-center justify-center'","var(--ch-8)"],"\n  ",["const","var(--ch-7)"]," ",["preCls","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["clsx","var(--ch-5)"],["(base, {","var(--ch-4)"],"\n    ",["[","var(--ch-4)"],["'cursor-not-allowed'","var(--ch-8)"],["]: isLeftEnd","var(--ch-4)"],"\n  ",["})","var(--ch-4)"],"\n  ",["const","var(--ch-7)"]," ",["nexCls","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["clsx","var(--ch-5)"],["(base, {","var(--ch-4)"],"\n    ",["[","var(--ch-4)"],["'cursor-not-allowed'","var(--ch-8)"],["]: isRightEnd","var(--ch-4)"],"\n  ",["})","var(--ch-4)"],"\n\n  ",["return","var(--ch-7)"]," ",["(","var(--ch-4)"],"\n    ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["'flex space-x-2'","var(--ch-8)"],[">","var(--ch-4)"],"\n      ",["<","var(--ch-4)"],["Button","var(--ch-6)"]," ",["disabled","var(--ch-2)"],["={","var(--ch-7)"],["isLeftEnd","var(--ch-4)"],["}","var(--ch-7)"]," ",["rect className","var(--ch-2)"],["={","var(--ch-7)"],["preCls","var(--ch-4)"],["}","var(--ch-7)"]," ",["onClick","var(--ch-2)"],["={","var(--ch-7)"],["prev","var(--ch-4)"],["}","var(--ch-7)"],[">","var(--ch-4)"],"\n        ",["<","var(--ch-4)"],["svg","var(--ch-6)"]," ",["xmlns","var(--ch-2)"],["=","var(--ch-7)"],["\"http://www.w3.org/2000/svg\"","var(--ch-8)"]," ",["fill","var(--ch-2)"],["=","var(--ch-7)"],["\"none\"","var(--ch-8)"]," ",["viewBox","var(--ch-2)"],["=","var(--ch-7)"],["\"0 0 24 24\"","var(--ch-8)"]," ",["strokeWidth","var(--ch-2)"],["={","var(--ch-7)"],["1.5","var(--ch-2)"],["}","var(--ch-7)"]," ",["stroke","var(--ch-2)"],["=","var(--ch-7)"],["\"currentColor\"","var(--ch-8)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"size-5\"","var(--ch-8)"],[">","var(--ch-4)"],"\n          ",["<","var(--ch-4)"],["path","var(--ch-6)"]," ",["strokeLinecap","var(--ch-2)"],["=","var(--ch-7)"],["\"round\"","var(--ch-8)"]," ",["strokeLinejoin","var(--ch-2)"],["=","var(--ch-7)"],["\"round\"","var(--ch-8)"]," ",["d","var(--ch-2)"],["=","var(--ch-7)"],["\"M15.75 19.5 8.25 12l7.5-7.5\"","var(--ch-8)"]," ",["/>","var(--ch-4)"],"\n        ",["</","var(--ch-4)"],["svg","var(--ch-6)"],[">","var(--ch-4)"],"\n      ",["</","var(--ch-4)"],["Button","var(--ch-6)"],[">","var(--ch-4)"],"\n      ",["{","var(--ch-7)"],["showArr.","var(--ch-4)"],["map","var(--ch-5)"],["((","var(--ch-4)"],["item","var(--ch-3)"],[",","var(--ch-4)"]," ",["i","var(--ch-3)"],[")","var(--ch-4)"]," ",["=>","var(--ch-7)"]," ",["(","var(--ch-4)"],"\n        ",["<","var(--ch-4)"],["Button","var(--ch-6)"],"\n          ",["onClick","var(--ch-2)"],["={","var(--ch-7)"],["()","var(--ch-4)"]," ",["=>","var(--ch-7)"]," ",["onClickHnadler","var(--ch-5)"],["(i)","var(--ch-4)"],["}","var(--ch-7)"]," ",["key","var(--ch-2)"],["={","var(--ch-7)"],["item","var(--ch-4)"],["}","var(--ch-7)"]," ",["ghost rect","var(--ch-2)"],"\n          ",["className","var(--ch-2)"],["={","var(--ch-7)"],["clsx","var(--ch-5)"],["(","var(--ch-4)"],["'w-10'","var(--ch-8)"],[", { [active]: index","var(--ch-4)"]," ",["===","var(--ch-7)"]," ",["i })","var(--ch-4)"],["}","var(--ch-7)"],[">","var(--ch-4)"],"\n          ",["{","var(--ch-7)"],["item","var(--ch-4)"],["}","var(--ch-7)"],"\n        ",["</","var(--ch-4)"],["Button","var(--ch-6)"],[">","var(--ch-4)"],"\n      ",["))","var(--ch-4)"],["}","var(--ch-7)"],"\n      ",["<","var(--ch-4)"],["Button","var(--ch-6)"],"\n        ",["disabled","var(--ch-2)"],["={","var(--ch-7)"],["isRightEnd","var(--ch-4)"],["}","var(--ch-7)"],"\n        ",["rect","var(--ch-2)"],"\n        ",["className","var(--ch-2)"],["={","var(--ch-7)"],["nexCls","var(--ch-4)"],["}","var(--ch-7)"],"\n        ",["onClick","var(--ch-2)"],["={","var(--ch-7)"],["next","var(--ch-4)"],["}","var(--ch-7)"],"\n      ",[">","var(--ch-4)"],"\n        ",["<","var(--ch-4)"],["svg","var(--ch-6)"]," ",["xmlns","var(--ch-2)"],["=","var(--ch-7)"],["\"http://www.w3.org/2000/svg\"","var(--ch-8)"]," ",["fill","var(--ch-2)"],["=","var(--ch-7)"],["\"none\"","var(--ch-8)"]," ",["viewBox","var(--ch-2)"],["=","var(--ch-7)"],["\"0 0 24 24\"","var(--ch-8)"]," ",["strokeWidth","var(--ch-2)"],["={","var(--ch-7)"],["1.5","var(--ch-2)"],["}","var(--ch-7)"]," ",["stroke","var(--ch-2)"],["=","var(--ch-7)"],["\"currentColor\"","var(--ch-8)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"size-5\"","var(--ch-8)"],[">","var(--ch-4)"],"\n          ",["<","var(--ch-4)"],["path","var(--ch-6)"]," ",["strokeLinecap","var(--ch-2)"],["=","var(--ch-7)"],["\"round\"","var(--ch-8)"]," ",["strokeLinejoin","var(--ch-2)"],["=","var(--ch-7)"],["\"round\"","var(--ch-8)"]," ",["d","var(--ch-2)"],["=","var(--ch-7)"],["\"m8.25 4.5 7.5 7.5-7.5 7.5\"","var(--ch-8)"]," ",["/>","var(--ch-4)"],"\n        ",["</","var(--ch-4)"],["svg","var(--ch-6)"],[">","var(--ch-4)"],"\n      ",["</","var(--ch-4)"],["Button","var(--ch-6)"],[">","var(--ch-4)"],"\n    ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n  ",[")","var(--ch-4)"],"\n",["}","var(--ch-4)"],"\n"],"annotations":[],"themeName":"github-from-css","style":{"color":"var(--ch-4)","background":"var(--ch-16)","colorScheme":"var(--ch-0)"}}]}]]}]}]
+10:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+e:[["$","meta","0",{"charSet":"utf-8"}],["$","title","1",{"children":"usehook - 前端顶级精英俱乐部"}],["$","meta","2",{"name":"description","content":"最好的前端学习网站, react, react19, react hooks, zustand"}],["$","meta","3",{"name":"author","content":"这波能反杀"}],["$","meta","4",{"name":"keywords","content":"react, react19, react hooks, zustand"}],["$","link","5",{"rel":"icon","href":"/favicon.ico","type":"image/x-icon","sizes":"16x16"}]]
+c:null

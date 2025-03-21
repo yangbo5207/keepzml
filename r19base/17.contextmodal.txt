@@ -1,0 +1,527 @@
+1:"$Sreact.fragment"
+2:I[51790,["7525","static/chunks/7525-411280bffc37a107.js","8173","static/chunks/8173-1aab990e083a60ce.js","5926","static/chunks/5926-2f921190ce1e6581.js","3974","static/chunks/3974-a1a1a9aca3315bf5.js","7177","static/chunks/app/layout-42df43a67d50e5c7.js"],"default"]
+3:I[73974,["7525","static/chunks/7525-411280bffc37a107.js","8173","static/chunks/8173-1aab990e083a60ce.js","5926","static/chunks/5926-2f921190ce1e6581.js","3974","static/chunks/3974-a1a1a9aca3315bf5.js","7177","static/chunks/app/layout-42df43a67d50e5c7.js"],"default"]
+4:I[15244,[],""]
+5:I[43866,[],""]
+6:I[14547,[],"ClientSegmentRoot"]
+7:I[34489,["7525","static/chunks/7525-411280bffc37a107.js","8173","static/chunks/8173-1aab990e083a60ce.js","5926","static/chunks/5926-2f921190ce1e6581.js","3974","static/chunks/3974-a1a1a9aca3315bf5.js","8083","static/chunks/app/r19base/layout-0f7ad02ad7834428.js"],"default"]
+9:I[98087,["8150","static/chunks/7cfd557f-0718c923d48595ad.js","7525","static/chunks/7525-411280bffc37a107.js","4320","static/chunks/4320-eb0b4108191194bc.js","8173","static/chunks/8173-1aab990e083a60ce.js","3152","static/chunks/3152-e813ba8dd61cd947.js","8993","static/chunks/8993-3cce8e75b5e6a7b1.js","703","static/chunks/app/r19base/(2.context)/17.contextmodal/layout-798f4bab60e84088.js"],"default"]
+a:I[51835,["7525","static/chunks/7525-411280bffc37a107.js","4320","static/chunks/4320-eb0b4108191194bc.js","5926","static/chunks/5926-2f921190ce1e6581.js","5495","static/chunks/5495-c9afbde98032192a.js","2756","static/chunks/2756-7b2130b3332992d3.js","2652","static/chunks/app/r19base/(2.context)/17.contextmodal/page-a85ce37371030133.js"],"default"]
+12:I[44204,["7525","static/chunks/7525-411280bffc37a107.js","4320","static/chunks/4320-eb0b4108191194bc.js","5926","static/chunks/5926-2f921190ce1e6581.js","5495","static/chunks/5495-c9afbde98032192a.js","2756","static/chunks/2756-7b2130b3332992d3.js","2652","static/chunks/app/r19base/(2.context)/17.contextmodal/page-a85ce37371030133.js"],"default"]
+15:I[86213,[],"OutletBoundary"]
+17:I[86213,[],"MetadataBoundary"]
+19:I[86213,[],"ViewportBoundary"]
+1b:I[34835,[],""]
+:HL["/_next/static/media/569ce4b8f30dc480-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/93f479601ee12b01-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/d498c84e4ab246b3.css","style"]
+:HL["/_next/static/css/0a9e87861d5bb349.css","style"]
+:HL["/_next/static/css/738174a5e4c964fb.css","style"]
+:HL["/_next/static/css/99a14b80c12a58f7.css","style"]
+:HL["/_next/static/css/b55814aba7c65cf0.css","style"]
+0:{"P":null,"b":"BpGXy7hMnRV6RxDxJIHl9","p":"","c":["","r19base","17.contextmodal"],"i":false,"f":[[["",{"children":["r19base",{"children":["(2.context)",{"children":["17.contextmodal",{"children":["__PAGE__",{}]}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/d498c84e4ab246b3.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/css/0a9e87861d5bb349.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","2",{"rel":"stylesheet","href":"/_next/static/css/738174a5e4c964fb.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","3",{"rel":"stylesheet","href":"/_next/static/css/99a14b80c12a58f7.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"zh","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","meta",null,{"charSet":"UTF-8"}],["$","link",null,{"href":"https://framerusercontent.com/images/YRd2KCq4G2aXNg15aHvl7AtcGQ.png","rel":"icon","media":"(prefers-color-scheme: light)"}],["$","link",null,{"rel":"stylesheet","href":"https://rsms.me/inter/inter.css"}],["$","link",null,{"rel":"stylesheet","href":"https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css","integrity":"sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV","crossOrigin":"anonymous"}],["$","meta",null,{"name":"viewport","content":"width=device-width, initial-scale=1.0 maximum-scale=1, user-scalable=no"}],["$","meta",null,{"name":"mobile-web-app-capable","content":"yes"}],["$","meta",null,{"name":"apple-mobile-web-app-status-bar-style","content":"black-translucent"}]]}],["$","body",null,{"className":"__variable_4d318d __variable_ea5f4b antialiased","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[],[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]]],"forbidden":"$undefined","unauthorized":"$undefined"}]]}]}]]}]]}],{"children":["r19base",["$","$1","c",{"children":[null,["$","$L6",null,{"Component":"$7","slots":{"children":["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children","r19base","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]},"params":{},"promise":"$@8"}]]}],{"children":["(2.context)",["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children","r19base","children","(2.context)","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["17.contextmodal",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/b55814aba7c65cf0.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L9",null,{"children":["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children","r19base","children","(2.context)","children","17.contextmodal","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}]]}],{"children":["__PAGE__",["$","$1","c",{"children":[[["$","blockquote",null,{"children":["\n",["$","p",null,{"children":["本章内容理解起来难度偏高，只需简单阅读，理解和感受 ref 的作用即可，",["$","strong",null,{"children":"无需掌握"}],"。"]}],"\n"]}],"\n",["$","h3",null,{"id":"1基于-ref-封装一个-madal-组件","children":["1、",["$","strong",null,{"children":"基于 ref 封装一个 Madal 组件"}]]}],"\n",["$","p",null,{"children":["我们的目标是封装一个 Modal 组件，但是我并不需要传入 ",["$","code",null,{"children":"show"}]," 等状态来控制 Modal 的显示与隐藏。而是使用 ref 来控制。目标代码如下"]}],"\n",["$","$La",null,{}],"\n","$Lb","\n",["$","p",null,{"children":["这里的核心是，当我想要让弹窗显示时，只需要调用 ",["$","code",null,{"children":"modal.current.show()"}]," 即可。这种方式可以有效避免在应用层组件中声明过多的状态来控制一切。"]}],"\n",["$","p",null,{"children":"对于刚接触 React 的新人来说，要实现这种带有动画的显示隐藏效果比较困难。我们这里就简单来拆解一下实现思路。"}],"\n",["$","p",null,{"children":["首先，基于数据驱动 UI 的思路，那么在弹窗组件内部，我们肯定要首先定义一个状态 ",["$","code",null,{"children":"show"}],"， 用于控制弹窗的显示与隐藏。"]}],"\n","$Lc","\n",["$","p",null,{"children":"接下来估计部分道友就比较懵了，因为如果只是靠 show 的话，如何与动画结合起来考虑呢？很显然，隐藏的时候，我们最终要删除节点，但是节点删除之后，动画就直接消失了。因此在这个逻辑里，我们要分成两个步骤来处理动画的执行与节点的删除。"}],"\n",["$","p",null,{"children":"首先，在弹窗显示时，应该是先将 DOM 节点加入进来，然后再执行入场动画"}],"\n",["$","p",null,{"children":"在弹窗消失时，应该是先执行退场动画，然后再将 DOM 节点删除。"}],"\n",["$","p",null,{"children":"因此，这个时候，我们还需要引入另外一个状态用于分别控制动画的执行。"}],"\n","$Ld","\n",["$","p",null,{"children":["由于 show 我们约定是用来控制动画的执行，因此，在 css 上，我们根据 ",["$","code",null,{"children":"show"}]," 的值来确定在 class 中加入入场动画还是退场动画"]}],"\n","$Le","\n",["$","p",null,{"children":"然后在入场时，首先要新增节点，并且立即执行动画"}],"\n","$Lf","\n",["$","p",null,{"children":"在退场时，首先要执行动画，并在动画执行结束之后，再执行删除节点的操作"}],"\n","$L10","\n",["$","p",null,{"children":"这样，把逻辑稍微再整理一下，就能够实现动画效果了。"}],"\n",["$","p",null,{"children":["当然，本次案例最核心的重点，还是使用 ",["$","code",null,{"children":"useImperativeHandle"}]," 把内部的操作提供给外部的控制器 ref"]}],"\n","$L11","\n",["$","h3",null,{"id":"2基于-modal-封装-dialog-组件","children":["2、",["$","strong",null,{"children":"基于 Modal 封装 Dialog 组件"}]]}],"\n",["$","p",null,{"children":"先来点击按钮感受一下演示效果。"}],"\n",["$","$L12",null,{}],"\n","$L13","\n",["$","p",null,{"children":"这个案例中，比较有难度的是我们记录了鼠标的点击位置，并基于该位置对内部元素进行放大显示。退场时，还要往这个位置进行缩小隐藏。原理并不复杂，只是如果自己实现的话，要稍微花点时间调一下位置的计算。大家在使用时可以直接 copy 这段代码就行，我在兼容性上也做了完整的处理。"}],"\n",["$","p",null,{"children":"动画是基于缩放 scale 来实现，这里我们只需要基于鼠标点击的位置和目标位置更改变换中心即可，具体的计算细节请看右侧代码。动画 css 代码如下所示。"}],"\n","$L14","\n",["$","p",null,{"children":["这里我们需要观察的是，ref 的多层传递和使用。在我们使用 ",["$","code",null,{"children":"Modal"}]," 时，并不需要特别关注 ref 在内部是如何处理的，只需要知道如何使用它即可。我们可以利用这种思维把类似的嵌套逻辑简化成单一逻辑。"]}]],null,["$","$L15",null,{"children":"$L16"}]]}],{},null,false]},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","QyWO0p7UQdcMW4HosEbt-",{"children":[["$","$L17",null,{"children":"$L18"}],["$","$L19",null,{"children":"$L1a"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]]}],false]],"m":"$undefined","G":["$1b","$undefined"],"s":false,"S":true}
+8:{}
+1a:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+18:[["$","meta","0",{"charSet":"utf-8"}],["$","title","1",{"children":"usehook - 前端顶级精英俱乐部"}],["$","meta","2",{"name":"description","content":"最好的前端学习网站, react, react19, react hooks, zustand"}],["$","meta","3",{"name":"author","content":"这波能反杀"}],["$","meta","4",{"name":"keywords","content":"react, react19, react hooks, zustand"}],["$","link","5",{"rel":"icon","href":"/favicon.ico","type":"image/x-icon","sizes":"16x16"}]]
+16:null
+1c:I[34034,["7525","static/chunks/7525-411280bffc37a107.js","4320","static/chunks/4320-eb0b4108191194bc.js","5926","static/chunks/5926-2f921190ce1e6581.js","5495","static/chunks/5495-c9afbde98032192a.js","2756","static/chunks/2756-7b2130b3332992d3.js","2652","static/chunks/app/r19base/(2.context)/17.contextmodal/page-a85ce37371030133.js"],"default"]
+1d:I[65470,["7525","static/chunks/7525-411280bffc37a107.js","4320","static/chunks/4320-eb0b4108191194bc.js","5926","static/chunks/5926-2f921190ce1e6581.js","5495","static/chunks/5495-c9afbde98032192a.js","2756","static/chunks/2756-7b2130b3332992d3.js","2652","static/chunks/app/r19base/(2.context)/17.contextmodal/page-a85ce37371030133.js"],"CodeTabHeader"]
+1e:I[65703,["7525","static/chunks/7525-411280bffc37a107.js","4320","static/chunks/4320-eb0b4108191194bc.js","5926","static/chunks/5926-2f921190ce1e6581.js","5495","static/chunks/5495-c9afbde98032192a.js","2756","static/chunks/2756-7b2130b3332992d3.js","2652","static/chunks/app/r19base/(2.context)/17.contextmodal/page-a85ce37371030133.js"],"CodeTabsInner"]
+c:["$","div",null,{"className":"code-wrapper border my-4 border-gray-200 rounded overflow-hidden","children":[null,["$","div",null,{"className":"code-base javascript","children":[false,["$","pre",null,{"data-theme":"github-from-css","data-lang":"javascript","ref":"$undefined","data-ch":true,"children":["$","div",null,{"style":{"minWidth":"fit-content"},"children":[["$","div","1,1",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[1,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":[["$","span","0",{"style":{"color":"var(--ch-7)"},"children":"function"}]," ",["$","span","2",{"style":{"color":"var(--ch-5)"},"children":"Modal"}],["$","span","3",{"style":{"color":"var(--ch-4)"},"children":"() {"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","2,2",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[2,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":["  ",["$","span","1",{"style":{"color":"var(--ch-7)"},"children":"const"}]," ",["$","span","3",{"style":{"color":"var(--ch-4)"},"children":"["}],["$","span","4",{"style":{"color":"var(--ch-2)"},"children":"show"}],["$","span","5",{"style":{"color":"var(--ch-4)"},"children":","}]," ",["$","span","7",{"style":{"color":"var(--ch-2)"},"children":"setShow"}],["$","span","8",{"style":{"color":"var(--ch-4)"},"children":"]"}]," ",["$","span","10",{"style":{"color":"var(--ch-7)"},"children":"="}]," ",["$","span","12",{"style":{"color":"var(--ch-5)"},"children":"useState"}],["$","span","13",{"style":{"color":"var(--ch-4)"},"children":"("}],["$","span","14",{"style":{"color":"var(--ch-2)"},"children":"false"}],["$","span","15",{"style":{"color":"var(--ch-4)"},"children":")"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","3,3",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[3,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":["  ",["$","span","1",{"style":{"color":"var(--ch-7)"},"children":"..."}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","4,4",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[4,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":[["$","span","0",{"style":{"color":"var(--ch-4)"},"children":"}"}]],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}]]}]}]]}]]}]
+d:["$","div",null,{"className":"code-wrapper border my-4 border-gray-200 rounded overflow-hidden","children":[null,["$","div",null,{"className":"code-base javascript","children":[false,["$","pre",null,{"data-theme":"github-from-css","data-lang":"javascript","ref":"$undefined","data-ch":true,"children":["$","div",null,{"style":{"minWidth":"fit-content"},"children":[["$","div","1,1",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[1,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":[["$","span","0",{"style":{"color":"var(--ch-7)"},"children":"function"}]," ",["$","span","2",{"style":{"color":"var(--ch-5)"},"children":"Modal"}],["$","span","3",{"style":{"color":"var(--ch-4)"},"children":"() {"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","2,2",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[2,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":["  ",["$","span","1",{"style":{"color":"var(--ch-1)"},"children":"// 控制动画的执行"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","3,3",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[3,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":["  ",["$","span","1",{"style":{"color":"var(--ch-7)"},"children":"const"}]," ",["$","span","3",{"style":{"color":"var(--ch-4)"},"children":"["}],["$","span","4",{"style":{"color":"var(--ch-2)"},"children":"show"}],["$","span","5",{"style":{"color":"var(--ch-4)"},"children":","}]," ",["$","span","7",{"style":{"color":"var(--ch-2)"},"children":"setShow"}],["$","span","8",{"style":{"color":"var(--ch-4)"},"children":"]"}]," ",["$","span","10",{"style":{"color":"var(--ch-7)"},"children":"="}]," ",["$","span","12",{"style":{"color":"var(--ch-5)"},"children":"useState"}],["$","span","13",{"style":{"color":"var(--ch-4)"},"children":"("}],["$","span","14",{"style":{"color":"var(--ch-2)"},"children":"false"}],["$","span","15",{"style":{"color":"var(--ch-4)"},"children":")"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","4,4",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[4,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":["  ",["$","span","1",{"style":{"color":"var(--ch-1)"},"children":"// 控制节点的增删"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","5,5",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[5,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":["  ",["$","span","1",{"style":{"color":"var(--ch-7)"},"children":"const"}]," ",["$","span","3",{"style":{"color":"var(--ch-4)"},"children":"["}],["$","span","4",{"style":{"color":"var(--ch-2)"},"children":"display"}],["$","span","5",{"style":{"color":"var(--ch-4)"},"children":","}]," ",["$","span","7",{"style":{"color":"var(--ch-2)"},"children":"setDisplay"}],["$","span","8",{"style":{"color":"var(--ch-4)"},"children":"]"}]," ",["$","span","10",{"style":{"color":"var(--ch-7)"},"children":"="}]," ",["$","span","12",{"style":{"color":"var(--ch-5)"},"children":"useState"}],["$","span","13",{"style":{"color":"var(--ch-4)"},"children":"("}],["$","span","14",{"style":{"color":"var(--ch-2)"},"children":"false"}],["$","span","15",{"style":{"color":"var(--ch-4)"},"children":")"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","6,6",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[6,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":["  ",["$","span","1",{"style":{"color":"var(--ch-7)"},"children":"..."}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","7,7",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[7,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":[["$","span","0",{"style":{"color":"var(--ch-4)"},"children":"}"}]],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}]]}]}]]}]]}]
+e:["$","div",null,{"className":"code-wrapper border my-4 border-gray-200 rounded overflow-hidden","children":[null,["$","div",null,{"className":"code-base javascript","children":[false,["$","pre",null,{"data-theme":"github-from-css","data-lang":"javascript","ref":"$undefined","data-ch":true,"children":["$","div",null,{"style":{"minWidth":"fit-content"},"children":[["$","div","1,1",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[1,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":[["$","span","0",{"style":{"color":"var(--ch-7)"},"children":"const"}]," ",["$","span","2",{"style":{"color":"var(--ch-2)"},"children":"cls"}]," ",["$","span","4",{"style":{"color":"var(--ch-7)"},"children":"="}]," ",["$","span","6",{"style":{"color":"var(--ch-5)"},"children":"clsx"}],["$","span","7",{"style":{"color":"var(--ch-4)"},"children":"("}],["$","span","8",{"style":{"color":"var(--ch-8)"},"children":"'modal'"}],["$","span","9",{"style":{"color":"var(--ch-4)"},"children":", {"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","2,2",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[2,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":["  ",["$","span","1",{"style":{"color":"var(--ch-8)"},"children":"'animation-in'"}],["$","span","2",{"style":{"color":"var(--ch-4)"},"children":": show,"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","3,3",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[3,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":["  ",["$","span","1",{"style":{"color":"var(--ch-8)"},"children":"'animation-out'"}],["$","span","2",{"style":{"color":"var(--ch-4)"},"children":":"}]," ",["$","span","4",{"style":{"color":"var(--ch-7)"},"children":"!"}],["$","span","5",{"style":{"color":"var(--ch-4)"},"children":"show"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","4,4",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[4,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":[["$","span","0",{"style":{"color":"var(--ch-4)"},"children":"})"}]],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}]]}]}]]}]]}]
+f:["$","div",null,{"className":"code-wrapper border my-4 border-gray-200 rounded overflow-hidden","children":[null,["$","div",null,{"className":"code-base javascript","children":[false,["$","pre",null,{"data-theme":"github-from-css","data-lang":"javascript","ref":"$undefined","data-ch":true,"children":["$","div",null,{"style":{"minWidth":"fit-content"},"children":[["$","div","1,1",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-terminal","children":[["$","polyline","akl6gq",{"points":"4 17 10 11 4 5"}],["$","line","q2wloq",{"x1":"12","x2":"20","y1":"19","y2":"19"}],"$undefined"]}]}],["$","div",null,{"children":[["$","span","0",{"style":{"color":"var(--ch-3)"},"children":"show"}],["$","span","1",{"style":{"color":"var(--ch-4)"},"children":": ()"}]," ",["$","span","3",{"style":{"color":"var(--ch-7)"},"children":"=>"}]," ",["$","span","5",{"style":{"color":"var(--ch-4)"},"children":"{"}]," ",["$","span","7",{"style":{"color":"var(--ch-5)"},"children":"setShow"}],["$","span","8",{"style":{"color":"var(--ch-4)"},"children":"("}],["$","span","9",{"style":{"color":"var(--ch-2)"},"children":"true"}],["$","span","10",{"style":{"color":"var(--ch-4)"},"children":");"}]," ",["$","span","12",{"style":{"color":"var(--ch-5)"},"children":"setDisplay"}],["$","span","13",{"style":{"color":"var(--ch-4)"},"children":"("}],["$","span","14",{"style":{"color":"var(--ch-2)"},"children":"true"}],["$","span","15",{"style":{"color":"var(--ch-4)"},"children":") }"}]],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}]]}]}]]}]]}]
+10:["$","div",null,{"className":"code-wrapper border my-4 border-gray-200 rounded overflow-hidden","children":[null,["$","div",null,{"className":"code-base javascript","children":[false,["$","pre",null,{"data-theme":"github-from-css","data-lang":"javascript","ref":"$undefined","data-ch":true,"children":["$","div",null,{"style":{"minWidth":"fit-content"},"children":[["$","div","1,1",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[1,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":[["$","span","0",{"style":{"color":"var(--ch-3)"},"children":"close"}],["$","span","1",{"style":{"color":"var(--ch-4)"},"children":": ()"}]," ",["$","span","3",{"style":{"color":"var(--ch-7)"},"children":"=>"}]," ",["$","span","5",{"style":{"color":"var(--ch-4)"},"children":"{"}]," ",["$","span","7",{"style":{"color":"var(--ch-5)"},"children":"setShow"}],["$","span","8",{"style":{"color":"var(--ch-4)"},"children":"("}],["$","span","9",{"style":{"color":"var(--ch-2)"},"children":"false"}],["$","span","10",{"style":{"color":"var(--ch-4)"},"children":") }"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","2,2",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[2,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":["\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","3,3",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[3,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":[["$","span","0",{"style":{"color":"var(--ch-7)"},"children":"..."}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","4,4",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[4,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":["\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","5,5",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[5,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":[["$","span","0",{"style":{"color":"var(--ch-7)"},"children":"function"}]," ",["$","span","2",{"style":{"color":"var(--ch-5)"},"children":"__animationendHandler"}],["$","span","3",{"style":{"color":"var(--ch-4)"},"children":"() {"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","6,6",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[6,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":["  ",["$","span","1",{"style":{"color":"var(--ch-7)"},"children":"if"}]," ",["$","span","3",{"style":{"color":"var(--ch-4)"},"children":"("}],["$","span","4",{"style":{"color":"var(--ch-7)"},"children":"!"}],["$","span","5",{"style":{"color":"var(--ch-4)"},"children":"show)"}]," ",["$","span","7",{"style":{"color":"var(--ch-5)"},"children":"setDisplay"}],["$","span","8",{"style":{"color":"var(--ch-4)"},"children":"("}],["$","span","9",{"style":{"color":"var(--ch-2)"},"children":"false"}],["$","span","10",{"style":{"color":"var(--ch-4)"},"children":")"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","7,7",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[7,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":[["$","span","0",{"style":{"color":"var(--ch-4)"},"children":"}"}]],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}]]}]}]]}]]}]
+11:["$","div",null,{"className":"code-wrapper border my-4 border-gray-200 rounded overflow-hidden","children":[null,["$","div",null,{"className":"code-base javascript","children":[false,["$","pre",null,{"data-theme":"github-from-css","data-lang":"javascript","ref":"$undefined","data-ch":true,"children":["$","div",null,{"style":{"minWidth":"fit-content"},"children":[["$","div","1,1",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[1,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":[["$","span","0",{"style":{"color":"var(--ch-5)"},"children":"useImperativeHandle"}],["$","span","1",{"style":{"color":"var(--ch-4)"},"children":"(ref, ()"}]," ",["$","span","3",{"style":{"color":"var(--ch-7)"},"children":"=>"}]," ",["$","span","5",{"style":{"color":"var(--ch-4)"},"children":"({"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","2,2",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[2,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":["  ",["$","span","1",{"style":{"color":"var(--ch-5)"},"children":"show"}],["$","span","2",{"style":{"color":"var(--ch-4)"},"children":": ()"}]," ",["$","span","4",{"style":{"color":"var(--ch-7)"},"children":"=>"}]," ",["$","span","6",{"style":{"color":"var(--ch-4)"},"children":"{"}]," ",["$","span","8",{"style":{"color":"var(--ch-5)"},"children":"setShow"}],["$","span","9",{"style":{"color":"var(--ch-4)"},"children":"("}],["$","span","10",{"style":{"color":"var(--ch-2)"},"children":"true"}],["$","span","11",{"style":{"color":"var(--ch-4)"},"children":");"}]," ",["$","span","13",{"style":{"color":"var(--ch-5)"},"children":"setDisplay"}],["$","span","14",{"style":{"color":"var(--ch-4)"},"children":"("}],["$","span","15",{"style":{"color":"var(--ch-2)"},"children":"true"}],["$","span","16",{"style":{"color":"var(--ch-4)"},"children":") },"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","3,3",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[3,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":["  ",["$","span","1",{"style":{"color":"var(--ch-5)"},"children":"close"}],["$","span","2",{"style":{"color":"var(--ch-4)"},"children":": ()"}]," ",["$","span","4",{"style":{"color":"var(--ch-7)"},"children":"=>"}]," ",["$","span","6",{"style":{"color":"var(--ch-4)"},"children":"{"}]," ",["$","span","8",{"style":{"color":"var(--ch-5)"},"children":"setShow"}],["$","span","9",{"style":{"color":"var(--ch-4)"},"children":"("}],["$","span","10",{"style":{"color":"var(--ch-2)"},"children":"false"}],["$","span","11",{"style":{"color":"var(--ch-4)"},"children":") }"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","4,4",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[4,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":[["$","span","0",{"style":{"color":"var(--ch-4)"},"children":"}))"}]],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}]]}]}]]}]]}]
+14:["$","div",null,{"className":"code-wrapper border my-4 border-gray-200 rounded overflow-hidden","children":[null,["$","div",null,{"className":"code-base css","children":[false,["$","pre",null,{"data-theme":"github-from-css","data-lang":"css","ref":"$undefined","data-ch":true,"children":["$","div",null,{"style":{"minWidth":"fit-content"},"children":[["$","div","1,1",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[1,["$","span",null,{"className":"invisible","children":"0"}]]}]}],["$","div",null,{"children":[["$","span","0",{"style":{"color":"var(--ch-2)"},"children":".dialog.in"}]," ",["$","span","2",{"style":{"color":"var(--ch-4)"},"children":"{"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","2,2",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[2,["$","span",null,{"className":"invisible","children":"0"}]]}]}],["$","div",null,{"children":["  ",["$","span","1",{"style":{"color":"var(--ch-2)"},"children":"animation-name"}],["$","span","2",{"style":{"color":"var(--ch-4)"},"children":": dialog-show;"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","3,3",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[3,["$","span",null,{"className":"invisible","children":"0"}]]}]}],["$","div",null,{"children":[["$","span","0",{"style":{"color":"var(--ch-4)"},"children":"}"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","4,4",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[4,["$","span",null,{"className":"invisible","children":"0"}]]}]}],["$","div",null,{"children":[["$","span","0",{"style":{"color":"var(--ch-2)"},"children":".dialog.out"}]," ",["$","span","2",{"style":{"color":"var(--ch-4)"},"children":"{"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","5,5",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[5,["$","span",null,{"className":"invisible","children":"0"}]]}]}],["$","div",null,{"children":["  ",["$","span","1",{"style":{"color":"var(--ch-2)"},"children":"animation-name"}],["$","span","2",{"style":{"color":"var(--ch-4)"},"children":": dialog-hide;"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","6,6",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[6,["$","span",null,{"className":"invisible","children":"0"}]]}]}],["$","div",null,{"children":[["$","span","0",{"style":{"color":"var(--ch-4)"},"children":"}"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","7,7",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[7,["$","span",null,{"className":"invisible","children":"0"}]]}]}],["$","div",null,{"children":["\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","8,8",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[8,["$","span",null,{"className":"invisible","children":"0"}]]}]}],["$","div",null,{"children":[["$","span","0",{"style":{"color":"var(--ch-7)"},"children":"@keyframes"}]," ",["$","span","2",{"style":{"color":"var(--ch-3)"},"children":"dialog-show"}]," ",["$","span","4",{"style":{"color":"var(--ch-4)"},"children":"{"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","9,9",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[9,["$","span",null,{"className":"invisible","children":"0"}]]}]}],["$","div",null,{"children":["  ",["$","span","1",{"style":{"color":"var(--ch-2)"},"children":"0%"}]," ",["$","span","3",{"style":{"color":"var(--ch-4)"},"children":"{"}],["$","span","4",{"style":{"color":"var(--ch-2)"},"children":"transform"}],["$","span","5",{"style":{"color":"var(--ch-4)"},"children":":"}]," ",["$","span","7",{"style":{"color":"var(--ch-2)"},"children":"scale"}],["$","span","8",{"style":{"color":"var(--ch-4)"},"children":"("}],["$","span","9",{"style":{"color":"var(--ch-2)"},"children":"1"}],["$","span","10",{"style":{"color":"var(--ch-4)"},"children":");"}]," ",["$","span","12",{"style":{"color":"var(--ch-2)"},"children":"opacity"}],["$","span","13",{"style":{"color":"var(--ch-4)"},"children":":"}]," ",["$","span","15",{"style":{"color":"var(--ch-2)"},"children":"0"}],["$","span","16",{"style":{"color":"var(--ch-4)"},"children":";}"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","10,10",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[10,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":["  ",["$","span","1",{"style":{"color":"var(--ch-2)"},"children":"1%"}]," ",["$","span","3",{"style":{"color":"var(--ch-4)"},"children":"{"}]," ",["$","span","5",{"style":{"color":"var(--ch-2)"},"children":"transform"}],["$","span","6",{"style":{"color":"var(--ch-4)"},"children":":"}]," ",["$","span","8",{"style":{"color":"var(--ch-2)"},"children":"scale"}],["$","span","9",{"style":{"color":"var(--ch-4)"},"children":"("}],["$","span","10",{"style":{"color":"var(--ch-2)"},"children":"0"}],["$","span","11",{"style":{"color":"var(--ch-4)"},"children":");}"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","11,11",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[11,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":["  ",["$","span","1",{"style":{"color":"var(--ch-2)"},"children":"100%"}]," ",["$","span","3",{"style":{"color":"var(--ch-4)"},"children":"{"}]," ",["$","span","5",{"style":{"color":"var(--ch-2)"},"children":"transform"}],["$","span","6",{"style":{"color":"var(--ch-4)"},"children":":"}]," ",["$","span","8",{"style":{"color":"var(--ch-2)"},"children":"scale"}],["$","span","9",{"style":{"color":"var(--ch-4)"},"children":"("}],["$","span","10",{"style":{"color":"var(--ch-2)"},"children":"1"}],["$","span","11",{"style":{"color":"var(--ch-4)"},"children":");"}]," ",["$","span","13",{"style":{"color":"var(--ch-2)"},"children":"opacity"}],["$","span","14",{"style":{"color":"var(--ch-4)"},"children":":"}]," ",["$","span","16",{"style":{"color":"var(--ch-2)"},"children":"1"}],["$","span","17",{"style":{"color":"var(--ch-4)"},"children":"; }"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","12,12",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[12,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":[["$","span","0",{"style":{"color":"var(--ch-4)"},"children":"}"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","13,13",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[13,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":[["$","span","0",{"style":{"color":"var(--ch-7)"},"children":"@keyframes"}]," ",["$","span","2",{"style":{"color":"var(--ch-3)"},"children":"dialog-hide"}]," ",["$","span","4",{"style":{"color":"var(--ch-4)"},"children":"{"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","14,14",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[14,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":["  ",["$","span","1",{"style":{"color":"var(--ch-2)"},"children":"0%"}]," ",["$","span","3",{"style":{"color":"var(--ch-4)"},"children":"{"}]," ",["$","span","5",{"style":{"color":"var(--ch-2)"},"children":"transform"}],["$","span","6",{"style":{"color":"var(--ch-4)"},"children":":"}]," ",["$","span","8",{"style":{"color":"var(--ch-2)"},"children":"scale"}],["$","span","9",{"style":{"color":"var(--ch-4)"},"children":"("}],["$","span","10",{"style":{"color":"var(--ch-2)"},"children":"1"}],["$","span","11",{"style":{"color":"var(--ch-4)"},"children":");"}]," ",["$","span","13",{"style":{"color":"var(--ch-2)"},"children":"opacity"}],["$","span","14",{"style":{"color":"var(--ch-4)"},"children":":"}]," ",["$","span","16",{"style":{"color":"var(--ch-2)"},"children":"1"}],["$","span","17",{"style":{"color":"var(--ch-4)"},"children":"; }"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","15,15",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[15,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":["  ",["$","span","1",{"style":{"color":"var(--ch-2)"},"children":"100%"}]," ",["$","span","3",{"style":{"color":"var(--ch-4)"},"children":"{"}]," ",["$","span","5",{"style":{"color":"var(--ch-2)"},"children":"transform"}],["$","span","6",{"style":{"color":"var(--ch-4)"},"children":":"}]," ",["$","span","8",{"style":{"color":"var(--ch-2)"},"children":"scale"}],["$","span","9",{"style":{"color":"var(--ch-4)"},"children":"("}],["$","span","10",{"style":{"color":"var(--ch-2)"},"children":"0"}],["$","span","11",{"style":{"color":"var(--ch-4)"},"children":");"}]," ",["$","span","13",{"style":{"color":"var(--ch-2)"},"children":"opacity"}],["$","span","14",{"style":{"color":"var(--ch-4)"},"children":":"}]," ",["$","span","16",{"style":{"color":"var(--ch-2)"},"children":"0"}],["$","span","17",{"style":{"color":"var(--ch-4)"},"children":"; }"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","16,16",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[16,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":[["$","span","0",{"style":{"color":"var(--ch-4)"},"children":"}"}]],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}]]}]}]]}]]}]
+b:["$","div",null,{"className":"code-tabs border rounded border-gray-200 overflow-hidden my-5","children":["$","$L1c",null,{"children":[["$","$L1d",null,{"tabs":[{"meta":"index.tsx -c","value":"import { useRef } from 'react'\nimport Modal, { ModalRef } from 'components/ui/modal'\n\nexport default function Demo01() {\n  const modal = useRef<ModalRef>(null)\n  function __click() {\n    if (modal.current) {\n      modal.current.show()\n    }\n  }\n  return (\n    <div className='flex justify-between'>\n      <button onClick={__click} className='button ml-3'>点击弹窗显示</button>\n      <Modal ref={modal}>\n        <div className='bg-white p-4 max-w-xl mt-48 mx-auto rounded'>\n          这是一个小弹窗\n        </div>\n      </Modal>\n    </div>\n  )\n}\n","lang":"tsx"}]}],["$","$L1e",null,{"highlighteds":[{"meta":"index.tsx -c","value":"import { useRef } from 'react'\nimport Modal, { ModalRef } from 'components/ui/modal'\n\nexport default function Demo01() {\n  const modal = useRef<ModalRef>(null)\n  function __click() {\n    if (modal.current) {\n      modal.current.show()\n    }\n  }\n  return (\n    <div className='flex justify-between'>\n      <button onClick={__click} className='button ml-3'>点击弹窗显示</button>\n      <Modal ref={modal}>\n        <div className='bg-white p-4 max-w-xl mt-48 mx-auto rounded'>\n          这是一个小弹窗\n        </div>\n      </Modal>\n    </div>\n  )\n}\n","lang":"tsx","code":"import { useRef } from 'react'\nimport Modal, { ModalRef } from 'components/ui/modal'\n\nexport default function Demo01() {\n  const modal = useRef<ModalRef>(null)\n  function __click() {\n    if (modal.current) {\n      modal.current.show()\n    }\n  }\n  return (\n    <div className='flex justify-between'>\n      <button onClick={__click} className='button ml-3'>点击弹窗显示</button>\n      <Modal ref={modal}>\n        <div className='bg-white p-4 max-w-xl mt-48 mx-auto rounded'>\n          这是一个小弹窗\n        </div>\n      </Modal>\n    </div>\n  )\n}\n","tokens":[["import","var(--ch-7)"]," ",["{ useRef }","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'react'","var(--ch-8)"],"\n",["import","var(--ch-7)"]," ",["Modal, { ModalRef }","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'components/ui/modal'","var(--ch-8)"],"\n\n",["export default function","var(--ch-7)"]," ",["Demo01","var(--ch-5)"],["()","var(--ch-3)"]," ",["{","var(--ch-4)"],"\n  ",["const","var(--ch-7)"]," ",["modal","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["useRef","var(--ch-5)"],["<","var(--ch-4)"],["ModalRef","var(--ch-3)"],[">(","var(--ch-4)"],["null","var(--ch-2)"],[")","var(--ch-4)"],"\n  ",["function","var(--ch-7)"]," ",["__click","var(--ch-5)"],["() {","var(--ch-4)"],"\n    ",["if","var(--ch-7)"]," ",["(modal.current) {","var(--ch-4)"],"\n      ",["modal.current.","var(--ch-4)"],["show","var(--ch-5)"],["()","var(--ch-4)"],"\n    ",["}","var(--ch-4)"],"\n  ",["}","var(--ch-4)"],"\n  ",["return","var(--ch-7)"]," ",["(","var(--ch-4)"],"\n    ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["'flex justify-between'","var(--ch-8)"],[">","var(--ch-4)"],"\n      ",["<","var(--ch-4)"],["button","var(--ch-6)"]," ",["onClick","var(--ch-2)"],["={","var(--ch-7)"],["__click","var(--ch-4)"],["}","var(--ch-7)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["'button ml-3'","var(--ch-8)"],[">点击弹窗显示</","var(--ch-4)"],["button","var(--ch-6)"],[">","var(--ch-4)"],"\n      ",["<","var(--ch-4)"],["Modal","var(--ch-6)"]," ",["ref","var(--ch-2)"],["={","var(--ch-7)"],["modal","var(--ch-4)"],["}","var(--ch-7)"],[">","var(--ch-4)"],"\n        ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["'bg-white p-4 max-w-xl mt-48 mx-auto rounded'","var(--ch-8)"],[">","var(--ch-4)"],"\n          ",["这是一个小弹窗","var(--ch-4)"],"\n        ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n      ",["</","var(--ch-4)"],["Modal","var(--ch-6)"],[">","var(--ch-4)"],"\n    ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n  ",[")","var(--ch-4)"],"\n",["}","var(--ch-4)"],"\n"],"annotations":[],"themeName":"github-from-css","style":{"color":"var(--ch-4)","background":"var(--ch-16)","colorScheme":"var(--ch-0)"}}]}]]}]}]
+1f:T104d,import { useEffect, useRef, useState, useImperativeHandle, RefObject, ReactNode } from 'react'
+import Modal from 'components/ui/modal'
+import Button from 'components/ui/button'
+import clsx from 'clsx'
+import './index.css'
+
+type Position = { x: number, y: number } | null
+
+let mousePosition: Position = null
+
+const getClickPosition = (e: any) => {
+  mousePosition = {
+    x: e.pageX,
+    y: e.pageY
+  }
+  setTimeout(() => {
+    mousePosition = null
+  }, 100)
+}
+
+document.documentElement.addEventListener('click', getClickPosition, true)
+
+function setTransformOrigin(node: any, value: number) {
+  var style = node.style;
+  ['Webkit', 'Moz', 'Ms', 'ms'].forEach(function (prefix) {
+    style[prefix + 'TransformOrigin'] = value;
+  });
+  style['transformOrigin'] = value;
+}
+
+function offset(el: any) {
+  const rect = el.getBoundingClientRect()
+  const pos = {
+    left: rect.left,
+    top: rect.top
+  }
+  const doc = el.ownerDocument
+  const w = doc.defaultView
+  pos.left += getScroll(w)
+  pos.top += getScroll(w, 1)
+  return pos
+}
+
+// 1st use window.pageXOffset and window.pageYOffset
+// 2nd use window.document.documentElement.scrollLeft/scrollTop
+// 3rd use window.document.body.scrollLeft/scrollTop
+function getScroll(w: any, top?: number) {
+  var ret = w['page' + (top ? 'Y' : 'X') + 'Offset'];
+  var method = 'scroll' + (top ? 'Top' : 'Left');
+  if (typeof ret !== 'number') {
+    var d = w.document;
+    ret = d.documentElement[method];
+    if (typeof ret !== 'number') {
+      ret = d.body[method];
+    }
+  }
+  return ret;
+}
+
+export type DialogRef = {
+  show: () => any,
+  close: () => any
+}
+
+export interface DialogProps {
+  onClose?: () => any,
+  ref: RefObject<DialogRef | null>,
+  children?: any,
+  title: string,
+  onSure?: () => any,
+  footer?: ReactNode
+}
+
+export default function Dialog(props: DialogProps) {
+  const { title, onClose, children, onSure, ref, footer } = props
+  const [show, setShow] = useState(false)
+  const [display, setDisplay] = useState(false)
+  const wrapperRef = useRef(null)
+  const modal = useRef(null)
+
+  useImperativeHandle(ref, () => ({
+    show: () => {
+      // @ts-ignore
+      modal.current.show()
+      document.body.style.overflow = 'hidden'
+      setShow(true)
+      setDisplay(true)
+    },
+    close
+  }))
+
+  function close() {
+    setShow(false)
+    // @ts-ignore
+    modal.current.close()
+    document.body.style.overflow = 'visible'
+  }
+
+  function closeHandler() {
+    close()
+    onClose && onClose()
+  }
+
+  function clickHander(e: any) {
+    e.stopPropagation()
+  }
+
+  function sureClickHander(e: any) {
+    e.stopPropagation()
+    onSure && onSure()
+  }
+
+  function animationendHandler() {
+    if (!show) {
+      setDisplay(false)
+    }
+  }
+
+  const cls = clsx('dialog-wrapper', {
+    in: show,
+    out: !show
+  })
+
+  useEffect(() => {
+    const node = wrapperRef.current
+    if (display && node) {
+      const elOffset = offset(node)
+
+      if (mousePosition)
+        // @ts-ignore
+        setTransformOrigin(node, mousePosition.x - elOffset.left + 'px ' + (mousePosition.y - elOffset.top) + 'px')
+    }
+  }, [display])
+
+  return (
+    <Modal ref={modal} onClose={closeHandler}>
+      {display ? (
+        <div ref={wrapperRef} className={cls} onClick={clickHander} onAnimationEnd={animationendHandler}>
+          <header className="flex justify-between items-center mb-2">
+            <div className="font-bold text-lg leading-6">
+              {title}
+            </div>
+            <div onClick={closeHandler} className='p-2 rounded-md cursor-pointer transition hover:bg-gray-200'>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
+                stroke="currentColor" className="size-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+              </svg>
+            </div>
+          </header>
+          <section className="leading-6">
+            {children}
+          </section>
+          {footer || (
+            <footer className="text-end mt-4">
+              <Button primary onClick={sureClickHander}>确认</Button>
+            </footer>
+          )}
+
+        </div>
+      ) : null}
+    </Modal>
+  )
+}
+20:T104d,import { useEffect, useRef, useState, useImperativeHandle, RefObject, ReactNode } from 'react'
+import Modal from 'components/ui/modal'
+import Button from 'components/ui/button'
+import clsx from 'clsx'
+import './index.css'
+
+type Position = { x: number, y: number } | null
+
+let mousePosition: Position = null
+
+const getClickPosition = (e: any) => {
+  mousePosition = {
+    x: e.pageX,
+    y: e.pageY
+  }
+  setTimeout(() => {
+    mousePosition = null
+  }, 100)
+}
+
+document.documentElement.addEventListener('click', getClickPosition, true)
+
+function setTransformOrigin(node: any, value: number) {
+  var style = node.style;
+  ['Webkit', 'Moz', 'Ms', 'ms'].forEach(function (prefix) {
+    style[prefix + 'TransformOrigin'] = value;
+  });
+  style['transformOrigin'] = value;
+}
+
+function offset(el: any) {
+  const rect = el.getBoundingClientRect()
+  const pos = {
+    left: rect.left,
+    top: rect.top
+  }
+  const doc = el.ownerDocument
+  const w = doc.defaultView
+  pos.left += getScroll(w)
+  pos.top += getScroll(w, 1)
+  return pos
+}
+
+// 1st use window.pageXOffset and window.pageYOffset
+// 2nd use window.document.documentElement.scrollLeft/scrollTop
+// 3rd use window.document.body.scrollLeft/scrollTop
+function getScroll(w: any, top?: number) {
+  var ret = w['page' + (top ? 'Y' : 'X') + 'Offset'];
+  var method = 'scroll' + (top ? 'Top' : 'Left');
+  if (typeof ret !== 'number') {
+    var d = w.document;
+    ret = d.documentElement[method];
+    if (typeof ret !== 'number') {
+      ret = d.body[method];
+    }
+  }
+  return ret;
+}
+
+export type DialogRef = {
+  show: () => any,
+  close: () => any
+}
+
+export interface DialogProps {
+  onClose?: () => any,
+  ref: RefObject<DialogRef | null>,
+  children?: any,
+  title: string,
+  onSure?: () => any,
+  footer?: ReactNode
+}
+
+export default function Dialog(props: DialogProps) {
+  const { title, onClose, children, onSure, ref, footer } = props
+  const [show, setShow] = useState(false)
+  const [display, setDisplay] = useState(false)
+  const wrapperRef = useRef(null)
+  const modal = useRef(null)
+
+  useImperativeHandle(ref, () => ({
+    show: () => {
+      // @ts-ignore
+      modal.current.show()
+      document.body.style.overflow = 'hidden'
+      setShow(true)
+      setDisplay(true)
+    },
+    close
+  }))
+
+  function close() {
+    setShow(false)
+    // @ts-ignore
+    modal.current.close()
+    document.body.style.overflow = 'visible'
+  }
+
+  function closeHandler() {
+    close()
+    onClose && onClose()
+  }
+
+  function clickHander(e: any) {
+    e.stopPropagation()
+  }
+
+  function sureClickHander(e: any) {
+    e.stopPropagation()
+    onSure && onSure()
+  }
+
+  function animationendHandler() {
+    if (!show) {
+      setDisplay(false)
+    }
+  }
+
+  const cls = clsx('dialog-wrapper', {
+    in: show,
+    out: !show
+  })
+
+  useEffect(() => {
+    const node = wrapperRef.current
+    if (display && node) {
+      const elOffset = offset(node)
+
+      if (mousePosition)
+        // @ts-ignore
+        setTransformOrigin(node, mousePosition.x - elOffset.left + 'px ' + (mousePosition.y - elOffset.top) + 'px')
+    }
+  }, [display])
+
+  return (
+    <Modal ref={modal} onClose={closeHandler}>
+      {display ? (
+        <div ref={wrapperRef} className={cls} onClick={clickHander} onAnimationEnd={animationendHandler}>
+          <header className="flex justify-between items-center mb-2">
+            <div className="font-bold text-lg leading-6">
+              {title}
+            </div>
+            <div onClick={closeHandler} className='p-2 rounded-md cursor-pointer transition hover:bg-gray-200'>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
+                stroke="currentColor" className="size-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+              </svg>
+            </div>
+          </header>
+          <section className="leading-6">
+            {children}
+          </section>
+          {footer || (
+            <footer className="text-end mt-4">
+              <Button primary onClick={sureClickHander}>确认</Button>
+            </footer>
+          )}
+
+        </div>
+      ) : null}
+    </Modal>
+  )
+}
+21:T104d,import { useEffect, useRef, useState, useImperativeHandle, RefObject, ReactNode } from 'react'
+import Modal from 'components/ui/modal'
+import Button from 'components/ui/button'
+import clsx from 'clsx'
+import './index.css'
+
+type Position = { x: number, y: number } | null
+
+let mousePosition: Position = null
+
+const getClickPosition = (e: any) => {
+  mousePosition = {
+    x: e.pageX,
+    y: e.pageY
+  }
+  setTimeout(() => {
+    mousePosition = null
+  }, 100)
+}
+
+document.documentElement.addEventListener('click', getClickPosition, true)
+
+function setTransformOrigin(node: any, value: number) {
+  var style = node.style;
+  ['Webkit', 'Moz', 'Ms', 'ms'].forEach(function (prefix) {
+    style[prefix + 'TransformOrigin'] = value;
+  });
+  style['transformOrigin'] = value;
+}
+
+function offset(el: any) {
+  const rect = el.getBoundingClientRect()
+  const pos = {
+    left: rect.left,
+    top: rect.top
+  }
+  const doc = el.ownerDocument
+  const w = doc.defaultView
+  pos.left += getScroll(w)
+  pos.top += getScroll(w, 1)
+  return pos
+}
+
+// 1st use window.pageXOffset and window.pageYOffset
+// 2nd use window.document.documentElement.scrollLeft/scrollTop
+// 3rd use window.document.body.scrollLeft/scrollTop
+function getScroll(w: any, top?: number) {
+  var ret = w['page' + (top ? 'Y' : 'X') + 'Offset'];
+  var method = 'scroll' + (top ? 'Top' : 'Left');
+  if (typeof ret !== 'number') {
+    var d = w.document;
+    ret = d.documentElement[method];
+    if (typeof ret !== 'number') {
+      ret = d.body[method];
+    }
+  }
+  return ret;
+}
+
+export type DialogRef = {
+  show: () => any,
+  close: () => any
+}
+
+export interface DialogProps {
+  onClose?: () => any,
+  ref: RefObject<DialogRef | null>,
+  children?: any,
+  title: string,
+  onSure?: () => any,
+  footer?: ReactNode
+}
+
+export default function Dialog(props: DialogProps) {
+  const { title, onClose, children, onSure, ref, footer } = props
+  const [show, setShow] = useState(false)
+  const [display, setDisplay] = useState(false)
+  const wrapperRef = useRef(null)
+  const modal = useRef(null)
+
+  useImperativeHandle(ref, () => ({
+    show: () => {
+      // @ts-ignore
+      modal.current.show()
+      document.body.style.overflow = 'hidden'
+      setShow(true)
+      setDisplay(true)
+    },
+    close
+  }))
+
+  function close() {
+    setShow(false)
+    // @ts-ignore
+    modal.current.close()
+    document.body.style.overflow = 'visible'
+  }
+
+  function closeHandler() {
+    close()
+    onClose && onClose()
+  }
+
+  function clickHander(e: any) {
+    e.stopPropagation()
+  }
+
+  function sureClickHander(e: any) {
+    e.stopPropagation()
+    onSure && onSure()
+  }
+
+  function animationendHandler() {
+    if (!show) {
+      setDisplay(false)
+    }
+  }
+
+  const cls = clsx('dialog-wrapper', {
+    in: show,
+    out: !show
+  })
+
+  useEffect(() => {
+    const node = wrapperRef.current
+    if (display && node) {
+      const elOffset = offset(node)
+
+      if (mousePosition)
+        // @ts-ignore
+        setTransformOrigin(node, mousePosition.x - elOffset.left + 'px ' + (mousePosition.y - elOffset.top) + 'px')
+    }
+  }, [display])
+
+  return (
+    <Modal ref={modal} onClose={closeHandler}>
+      {display ? (
+        <div ref={wrapperRef} className={cls} onClick={clickHander} onAnimationEnd={animationendHandler}>
+          <header className="flex justify-between items-center mb-2">
+            <div className="font-bold text-lg leading-6">
+              {title}
+            </div>
+            <div onClick={closeHandler} className='p-2 rounded-md cursor-pointer transition hover:bg-gray-200'>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
+                stroke="currentColor" className="size-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+              </svg>
+            </div>
+          </header>
+          <section className="leading-6">
+            {children}
+          </section>
+          {footer || (
+            <footer className="text-end mt-4">
+              <Button primary onClick={sureClickHander}>确认</Button>
+            </footer>
+          )}
+
+        </div>
+      ) : null}
+    </Modal>
+  )
+}
+13:["$","div",null,{"className":"code-tabs border rounded border-gray-200 overflow-hidden my-5","children":["$","$L1c",null,{"children":[["$","$L1d",null,{"tabs":[{"meta":"index.tsx -c","value":"import { useRef } from 'react'\nimport Dialog, { DialogRef } from 'components/ui/dialog'\n\nexport default function Demo02() {\n  const dialog = useRef<DialogRef>(null)\n\n  function __click() {\n    if (dialog.current) {\n      dialog.current.show()\n    }\n  }\n\n  function __close() {\n    if (dialog.current) {\n      dialog.current.close()\n    }\n  }\n\n  return (\n    <div className='flex justify-between'>\n      <button onClick={__click} className='button ml-3'>点击我，显示对话框组件</button>\n      <Dialog ref={dialog} title='Message For You' onSure={__close}>\n        <strong className='text-red-500'>React 19</strong> 是全网学习体验最好的小册，没有之一。它能帮助你快速领悟到 React 的独特的开发魅力，你将会感受到更快的学习速度，更高效的开发速度，更专业的开发思维。\n        <div className='mt-4'>\n          <img src='https://images.unsplash.com/photo-1485856407642-7f9ba0268b51?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt='' />\n        </div>\n      </Dialog>\n    </div>\n  )\n}\n","lang":"tsx"},{"meta":"dialog.tsx -c","value":"$1f","lang":"tsx"}]}],["$","$L1e",null,{"highlighteds":[{"meta":"index.tsx -c","value":"import { useRef } from 'react'\nimport Dialog, { DialogRef } from 'components/ui/dialog'\n\nexport default function Demo02() {\n  const dialog = useRef<DialogRef>(null)\n\n  function __click() {\n    if (dialog.current) {\n      dialog.current.show()\n    }\n  }\n\n  function __close() {\n    if (dialog.current) {\n      dialog.current.close()\n    }\n  }\n\n  return (\n    <div className='flex justify-between'>\n      <button onClick={__click} className='button ml-3'>点击我，显示对话框组件</button>\n      <Dialog ref={dialog} title='Message For You' onSure={__close}>\n        <strong className='text-red-500'>React 19</strong> 是全网学习体验最好的小册，没有之一。它能帮助你快速领悟到 React 的独特的开发魅力，你将会感受到更快的学习速度，更高效的开发速度，更专业的开发思维。\n        <div className='mt-4'>\n          <img src='https://images.unsplash.com/photo-1485856407642-7f9ba0268b51?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt='' />\n        </div>\n      </Dialog>\n    </div>\n  )\n}\n","lang":"tsx","code":"import { useRef } from 'react'\nimport Dialog, { DialogRef } from 'components/ui/dialog'\n\nexport default function Demo02() {\n  const dialog = useRef<DialogRef>(null)\n\n  function __click() {\n    if (dialog.current) {\n      dialog.current.show()\n    }\n  }\n\n  function __close() {\n    if (dialog.current) {\n      dialog.current.close()\n    }\n  }\n\n  return (\n    <div className='flex justify-between'>\n      <button onClick={__click} className='button ml-3'>点击我，显示对话框组件</button>\n      <Dialog ref={dialog} title='Message For You' onSure={__close}>\n        <strong className='text-red-500'>React 19</strong> 是全网学习体验最好的小册，没有之一。它能帮助你快速领悟到 React 的独特的开发魅力，你将会感受到更快的学习速度，更高效的开发速度，更专业的开发思维。\n        <div className='mt-4'>\n          <img src='https://images.unsplash.com/photo-1485856407642-7f9ba0268b51?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt='' />\n        </div>\n      </Dialog>\n    </div>\n  )\n}\n","tokens":[["import","var(--ch-7)"]," ",["{ useRef }","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'react'","var(--ch-8)"],"\n",["import","var(--ch-7)"]," ",["Dialog, { DialogRef }","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'components/ui/dialog'","var(--ch-8)"],"\n\n",["export default function","var(--ch-7)"]," ",["Demo02","var(--ch-5)"],["()","var(--ch-3)"]," ",["{","var(--ch-4)"],"\n  ",["const","var(--ch-7)"]," ",["dialog","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["useRef","var(--ch-5)"],["<","var(--ch-4)"],["DialogRef","var(--ch-3)"],[">(","var(--ch-4)"],["null","var(--ch-2)"],[")","var(--ch-4)"],"\n\n  ",["function","var(--ch-7)"]," ",["__click","var(--ch-5)"],["() {","var(--ch-4)"],"\n    ",["if","var(--ch-7)"]," ",["(dialog.current) {","var(--ch-4)"],"\n      ",["dialog.current.","var(--ch-4)"],["show","var(--ch-5)"],["()","var(--ch-4)"],"\n    ",["}","var(--ch-4)"],"\n  ",["}","var(--ch-4)"],"\n\n  ",["function","var(--ch-7)"]," ",["__close","var(--ch-5)"],["() {","var(--ch-4)"],"\n    ",["if","var(--ch-7)"]," ",["(dialog.current) {","var(--ch-4)"],"\n      ",["dialog.current.","var(--ch-4)"],["close","var(--ch-5)"],["()","var(--ch-4)"],"\n    ",["}","var(--ch-4)"],"\n  ",["}","var(--ch-4)"],"\n\n  ",["return","var(--ch-7)"]," ",["(","var(--ch-4)"],"\n    ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["'flex justify-between'","var(--ch-8)"],[">","var(--ch-4)"],"\n      ",["<","var(--ch-4)"],["button","var(--ch-6)"]," ",["onClick","var(--ch-2)"],["={","var(--ch-7)"],["__click","var(--ch-4)"],["}","var(--ch-7)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["'button ml-3'","var(--ch-8)"],[">点击我，显示对话框组件</","var(--ch-4)"],["button","var(--ch-6)"],[">","var(--ch-4)"],"\n      ",["<","var(--ch-4)"],["Dialog","var(--ch-6)"]," ",["ref","var(--ch-2)"],["={","var(--ch-7)"],["dialog","var(--ch-4)"],["}","var(--ch-7)"]," ",["title","var(--ch-2)"],["=","var(--ch-7)"],["'Message For You'","var(--ch-8)"]," ",["onSure","var(--ch-2)"],["={","var(--ch-7)"],["__close","var(--ch-4)"],["}","var(--ch-7)"],[">","var(--ch-4)"],"\n        ",["<","var(--ch-4)"],["strong","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["'text-red-500'","var(--ch-8)"],[">React 19</","var(--ch-4)"],["strong","var(--ch-6)"],["> 是全网学习体验最好的小册，没有之一。它能帮助你快速领悟到 React 的独特的开发魅力，你将会感受到更快的学习速度，更高效的开发速度，更专业的开发思维。","var(--ch-4)"],"\n        ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["'mt-4'","var(--ch-8)"],[">","var(--ch-4)"],"\n          ",["<","var(--ch-4)"],["img","var(--ch-6)"]," ",["src","var(--ch-2)"],["=","var(--ch-7)"],["'https://images.unsplash.com/photo-1485856407642-7f9ba0268b51?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'","var(--ch-8)"]," ",["alt","var(--ch-2)"],["=","var(--ch-7)"],["''","var(--ch-8)"]," ",["/>","var(--ch-4)"],"\n        ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n      ",["</","var(--ch-4)"],["Dialog","var(--ch-6)"],[">","var(--ch-4)"],"\n    ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n  ",[")","var(--ch-4)"],"\n",["}","var(--ch-4)"],"\n"],"annotations":[],"themeName":"github-from-css","style":{"color":"var(--ch-4)","background":"var(--ch-16)","colorScheme":"var(--ch-0)"}},{"meta":"dialog.tsx -c","value":"$20","lang":"tsx","code":"$21","tokens":[["import","var(--ch-7)"]," ",["{ useEffect, useRef, useState, useImperativeHandle, RefObject, ReactNode }","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'react'","var(--ch-8)"],"\n",["import","var(--ch-7)"]," ",["Modal","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'components/ui/modal'","var(--ch-8)"],"\n",["import","var(--ch-7)"]," ",["Button","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'components/ui/button'","var(--ch-8)"],"\n",["import","var(--ch-7)"]," ",["clsx","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'clsx'","var(--ch-8)"],"\n",["import","var(--ch-7)"]," ",["'./index.css'","var(--ch-8)"],"\n\n",["type","var(--ch-7)"]," ",["Position","var(--ch-3)"]," ",["=","var(--ch-7)"]," ",["{","var(--ch-4)"]," ",["x","var(--ch-3)"],[":","var(--ch-7)"]," ",["number","var(--ch-2)"],[",","var(--ch-4)"]," ",["y","var(--ch-3)"],[":","var(--ch-7)"]," ",["number","var(--ch-2)"]," ",["}","var(--ch-4)"]," ",["|","var(--ch-7)"]," ",["null","var(--ch-2)"],"\n\n",["let","var(--ch-7)"]," ",["mousePosition","var(--ch-4)"],[":","var(--ch-7)"]," ",["Position","var(--ch-3)"]," ",["=","var(--ch-7)"]," ",["null","var(--ch-2)"],"\n\n",["const","var(--ch-7)"]," ",["getClickPosition","var(--ch-5)"]," ",["=","var(--ch-7)"]," ",["(","var(--ch-4)"],["e","var(--ch-3)"],[":","var(--ch-7)"]," ",["any","var(--ch-2)"],[")","var(--ch-4)"]," ",["=>","var(--ch-7)"]," ",["{","var(--ch-4)"],"\n  ",["mousePosition","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["{","var(--ch-4)"],"\n    ",["x: e.pageX,","var(--ch-4)"],"\n    ",["y: e.pageY","var(--ch-4)"],"\n  ",["}","var(--ch-4)"],"\n  ",["setTimeout","var(--ch-5)"],["(()","var(--ch-4)"]," ",["=>","var(--ch-7)"]," ",["{","var(--ch-4)"],"\n    ",["mousePosition","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["null","var(--ch-2)"],"\n  ",["},","var(--ch-4)"]," ",["100","var(--ch-2)"],[")","var(--ch-4)"],"\n",["}","var(--ch-4)"],"\n\n",["document.documentElement.","var(--ch-4)"],["addEventListener","var(--ch-5)"],["(","var(--ch-4)"],["'click'","var(--ch-8)"],[", getClickPosition,","var(--ch-4)"]," ",["true","var(--ch-2)"],[")","var(--ch-4)"],"\n\n",["function","var(--ch-7)"]," ",["setTransformOrigin","var(--ch-5)"],["(","var(--ch-4)"],["node","var(--ch-3)"],[":","var(--ch-7)"]," ",["any","var(--ch-2)"],[",","var(--ch-4)"]," ",["value","var(--ch-3)"],[":","var(--ch-7)"]," ",["number","var(--ch-2)"],[") {","var(--ch-4)"],"\n  ",["var","var(--ch-7)"]," ",["style","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["node.style;","var(--ch-4)"],"\n  ",["[","var(--ch-4)"],["'Webkit'","var(--ch-8)"],[",","var(--ch-4)"]," ",["'Moz'","var(--ch-8)"],[",","var(--ch-4)"]," ",["'Ms'","var(--ch-8)"],[",","var(--ch-4)"]," ",["'ms'","var(--ch-8)"],["].","var(--ch-4)"],["forEach","var(--ch-5)"],["(","var(--ch-4)"],["function","var(--ch-7)"]," ",["(","var(--ch-4)"],["prefix","var(--ch-3)"],[") {","var(--ch-4)"],"\n    ",["style[prefix","var(--ch-4)"]," ",["+","var(--ch-7)"]," ",["'TransformOrigin'","var(--ch-8)"],["]","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["value;","var(--ch-4)"],"\n  ",["});","var(--ch-4)"],"\n  ",["style[","var(--ch-4)"],["'transformOrigin'","var(--ch-8)"],["]","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["value;","var(--ch-4)"],"\n",["}","var(--ch-4)"],"\n\n",["function","var(--ch-7)"]," ",["offset","var(--ch-5)"],["(","var(--ch-4)"],["el","var(--ch-3)"],[":","var(--ch-7)"]," ",["any","var(--ch-2)"],[") {","var(--ch-4)"],"\n  ",["const","var(--ch-7)"]," ",["rect","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["el.","var(--ch-4)"],["getBoundingClientRect","var(--ch-5)"],["()","var(--ch-4)"],"\n  ",["const","var(--ch-7)"]," ",["pos","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["{","var(--ch-4)"],"\n    ",["left: rect.left,","var(--ch-4)"],"\n    ",["top: rect.top","var(--ch-4)"],"\n  ",["}","var(--ch-4)"],"\n  ",["const","var(--ch-7)"]," ",["doc","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["el.ownerDocument","var(--ch-4)"],"\n  ",["const","var(--ch-7)"]," ",["w","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["doc.defaultView","var(--ch-4)"],"\n  ",["pos.left","var(--ch-4)"]," ",["+=","var(--ch-7)"]," ",["getScroll","var(--ch-5)"],["(w)","var(--ch-4)"],"\n  ",["pos.top","var(--ch-4)"]," ",["+=","var(--ch-7)"]," ",["getScroll","var(--ch-5)"],["(w,","var(--ch-4)"]," ",["1","var(--ch-2)"],[")","var(--ch-4)"],"\n  ",["return","var(--ch-7)"]," ",["pos","var(--ch-4)"],"\n",["}","var(--ch-4)"],"\n\n",["// 1st use window.pageXOffset and window.pageYOffset","var(--ch-1)"],"\n",["// 2nd use window.document.documentElement.scrollLeft/scrollTop","var(--ch-1)"],"\n",["// 3rd use window.document.body.scrollLeft/scrollTop","var(--ch-1)"],"\n",["function","var(--ch-7)"]," ",["getScroll","var(--ch-5)"],["(","var(--ch-4)"],["w","var(--ch-3)"],[":","var(--ch-7)"]," ",["any","var(--ch-2)"],[",","var(--ch-4)"]," ",["top","var(--ch-3)"],["?:","var(--ch-7)"]," ",["number","var(--ch-2)"],[") {","var(--ch-4)"],"\n  ",["var","var(--ch-7)"]," ",["ret","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["w[","var(--ch-4)"],["'page'","var(--ch-8)"]," ",["+","var(--ch-7)"]," ",["(top","var(--ch-4)"]," ",["?","var(--ch-7)"]," ",["'Y'","var(--ch-8)"]," ",[":","var(--ch-7)"]," ",["'X'","var(--ch-8)"],[")","var(--ch-4)"]," ",["+","var(--ch-7)"]," ",["'Offset'","var(--ch-8)"],["];","var(--ch-4)"],"\n  ",["var","var(--ch-7)"]," ",["method","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["'scroll'","var(--ch-8)"]," ",["+","var(--ch-7)"]," ",["(top","var(--ch-4)"]," ",["?","var(--ch-7)"]," ",["'Top'","var(--ch-8)"]," ",[":","var(--ch-7)"]," ",["'Left'","var(--ch-8)"],[");","var(--ch-4)"],"\n  ",["if","var(--ch-7)"]," ",["(","var(--ch-4)"],["typeof","var(--ch-7)"]," ",["ret","var(--ch-4)"]," ",["!==","var(--ch-7)"]," ",["'number'","var(--ch-8)"],[") {","var(--ch-4)"],"\n    ",["var","var(--ch-7)"]," ",["d","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["w.document;","var(--ch-4)"],"\n    ",["ret","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["d.documentElement[method];","var(--ch-4)"],"\n    ",["if","var(--ch-7)"]," ",["(","var(--ch-4)"],["typeof","var(--ch-7)"]," ",["ret","var(--ch-4)"]," ",["!==","var(--ch-7)"]," ",["'number'","var(--ch-8)"],[") {","var(--ch-4)"],"\n      ",["ret","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["d.body[method];","var(--ch-4)"],"\n    ",["}","var(--ch-4)"],"\n  ",["}","var(--ch-4)"],"\n  ",["return","var(--ch-7)"]," ",["ret;","var(--ch-4)"],"\n",["}","var(--ch-4)"],"\n\n",["export type","var(--ch-7)"]," ",["DialogRef","var(--ch-3)"]," ",["=","var(--ch-7)"]," ",["{","var(--ch-4)"],"\n  ",["show","var(--ch-5)"],[":","var(--ch-7)"]," ",["()","var(--ch-4)"]," ",["=>","var(--ch-7)"]," ",["any","var(--ch-2)"],[",","var(--ch-4)"],"\n  ",["close","var(--ch-5)"],[":","var(--ch-7)"]," ",["()","var(--ch-4)"]," ",["=>","var(--ch-7)"]," ",["any","var(--ch-2)"],"\n",["}","var(--ch-4)"],"\n\n",["export interface","var(--ch-7)"]," ",["DialogProps","var(--ch-3)"]," ",["{","var(--ch-4)"],"\n  ",["onClose","var(--ch-5)"],["?:","var(--ch-7)"]," ",["()","var(--ch-4)"]," ",["=>","var(--ch-7)"]," ",["any","var(--ch-2)"],[",","var(--ch-4)"],"\n  ",["ref","var(--ch-3)"],[":","var(--ch-7)"]," ",["RefObject","var(--ch-3)"],["<","var(--ch-4)"],["DialogRef","var(--ch-3)"]," ",["|","var(--ch-7)"]," ",["null","var(--ch-2)"],[">,","var(--ch-4)"],"\n  ",["children","var(--ch-3)"],["?:","var(--ch-7)"]," ",["any","var(--ch-2)"],[",","var(--ch-4)"],"\n  ",["title","var(--ch-3)"],[":","var(--ch-7)"]," ",["string","var(--ch-2)"],[",","var(--ch-4)"],"\n  ",["onSure","var(--ch-5)"],["?:","var(--ch-7)"]," ",["()","var(--ch-4)"]," ",["=>","var(--ch-7)"]," ",["any","var(--ch-2)"],[",","var(--ch-4)"],"\n  ",["footer","var(--ch-3)"],["?:","var(--ch-7)"]," ",["ReactNode","var(--ch-3)"],"\n",["}","var(--ch-4)"],"\n\n",["export default function","var(--ch-7)"]," ",["Dialog","var(--ch-5)"],["(props","var(--ch-3)"],[":","var(--ch-7)"]," ",["DialogProps)","var(--ch-3)"]," ",["{","var(--ch-4)"],"\n  ",["const","var(--ch-7)"]," ",["{","var(--ch-4)"]," ",["title","var(--ch-2)"],[",","var(--ch-4)"]," ",["onClose","var(--ch-2)"],[",","var(--ch-4)"]," ",["children","var(--ch-2)"],[",","var(--ch-4)"]," ",["onSure","var(--ch-2)"],[",","var(--ch-4)"]," ",["ref","var(--ch-2)"],[",","var(--ch-4)"]," ",["footer","var(--ch-2)"]," ",["}","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["props","var(--ch-4)"],"\n  ",["const","var(--ch-7)"]," ",["[","var(--ch-4)"],["show","var(--ch-2)"],[",","var(--ch-4)"]," ",["setShow","var(--ch-2)"],["]","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["useState","var(--ch-5)"],["(","var(--ch-4)"],["false","var(--ch-2)"],[")","var(--ch-4)"],"\n  ",["const","var(--ch-7)"]," ",["[","var(--ch-4)"],["display","var(--ch-2)"],[",","var(--ch-4)"]," ",["setDisplay","var(--ch-2)"],["]","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["useState","var(--ch-5)"],["(","var(--ch-4)"],["false","var(--ch-2)"],[")","var(--ch-4)"],"\n  ",["const","var(--ch-7)"]," ",["wrapperRef","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["useRef","var(--ch-5)"],["(","var(--ch-4)"],["null","var(--ch-2)"],[")","var(--ch-4)"],"\n  ",["const","var(--ch-7)"]," ",["modal","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["useRef","var(--ch-5)"],["(","var(--ch-4)"],["null","var(--ch-2)"],[")","var(--ch-4)"],"\n\n  ",["useImperativeHandle","var(--ch-5)"],["(ref, ()","var(--ch-4)"]," ",["=>","var(--ch-7)"]," ",["({","var(--ch-4)"],"\n    ",["show","var(--ch-5)"],[": ()","var(--ch-4)"]," ",["=>","var(--ch-7)"]," ",["{","var(--ch-4)"],"\n      ",["// @ts-ignore","var(--ch-1)"],"\n      ",["modal.current.","var(--ch-4)"],["show","var(--ch-5)"],["()","var(--ch-4)"],"\n      ",["document.body.style.overflow","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["'hidden'","var(--ch-8)"],"\n      ",["setShow","var(--ch-5)"],["(","var(--ch-4)"],["true","var(--ch-2)"],[")","var(--ch-4)"],"\n      ",["setDisplay","var(--ch-5)"],["(","var(--ch-4)"],["true","var(--ch-2)"],[")","var(--ch-4)"],"\n    ",["},","var(--ch-4)"],"\n    ",["close","var(--ch-4)"],"\n  ",["}))","var(--ch-4)"],"\n\n  ",["function","var(--ch-7)"]," ",["close","var(--ch-5)"],["() {","var(--ch-4)"],"\n    ",["setShow","var(--ch-5)"],["(","var(--ch-4)"],["false","var(--ch-2)"],[")","var(--ch-4)"],"\n    ",["// @ts-ignore","var(--ch-1)"],"\n    ",["modal.current.","var(--ch-4)"],["close","var(--ch-5)"],["()","var(--ch-4)"],"\n    ",["document.body.style.overflow","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["'visible'","var(--ch-8)"],"\n  ",["}","var(--ch-4)"],"\n\n  ",["function","var(--ch-7)"]," ",["closeHandler","var(--ch-5)"],["() {","var(--ch-4)"],"\n    ",["close","var(--ch-5)"],["()","var(--ch-4)"],"\n    ",["onClose","var(--ch-4)"]," ",["&&","var(--ch-7)"]," ",["onClose","var(--ch-5)"],["()","var(--ch-4)"],"\n  ",["}","var(--ch-4)"],"\n\n  ",["function","var(--ch-7)"]," ",["clickHander","var(--ch-5)"],["(","var(--ch-4)"],["e","var(--ch-3)"],[":","var(--ch-7)"]," ",["any","var(--ch-2)"],[") {","var(--ch-4)"],"\n    ",["e.","var(--ch-4)"],["stopPropagation","var(--ch-5)"],["()","var(--ch-4)"],"\n  ",["}","var(--ch-4)"],"\n\n  ",["function","var(--ch-7)"]," ",["sureClickHander","var(--ch-5)"],["(","var(--ch-4)"],["e","var(--ch-3)"],[":","var(--ch-7)"]," ",["any","var(--ch-2)"],[") {","var(--ch-4)"],"\n    ",["e.","var(--ch-4)"],["stopPropagation","var(--ch-5)"],["()","var(--ch-4)"],"\n    ",["onSure","var(--ch-4)"]," ",["&&","var(--ch-7)"]," ",["onSure","var(--ch-5)"],["()","var(--ch-4)"],"\n  ",["}","var(--ch-4)"],"\n\n  ",["function","var(--ch-7)"]," ",["animationendHandler","var(--ch-5)"],["() {","var(--ch-4)"],"\n    ",["if","var(--ch-7)"]," ",["(","var(--ch-4)"],["!","var(--ch-7)"],["show) {","var(--ch-4)"],"\n      ",["setDisplay","var(--ch-5)"],["(","var(--ch-4)"],["false","var(--ch-2)"],[")","var(--ch-4)"],"\n    ",["}","var(--ch-4)"],"\n  ",["}","var(--ch-4)"],"\n\n  ",["const","var(--ch-7)"]," ",["cls","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["clsx","var(--ch-5)"],["(","var(--ch-4)"],["'dialog-wrapper'","var(--ch-8)"],[", {","var(--ch-4)"],"\n    ",["in: show,","var(--ch-4)"],"\n    ",["out:","var(--ch-4)"]," ",["!","var(--ch-7)"],["show","var(--ch-4)"],"\n  ",["})","var(--ch-4)"],"\n\n  ",["useEffect","var(--ch-5)"],["(()","var(--ch-4)"]," ",["=>","var(--ch-7)"]," ",["{","var(--ch-4)"],"\n    ",["const","var(--ch-7)"]," ",["node","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["wrapperRef.current","var(--ch-4)"],"\n    ",["if","var(--ch-7)"]," ",["(display","var(--ch-4)"]," ",["&&","var(--ch-7)"]," ",["node) {","var(--ch-4)"],"\n      ",["const","var(--ch-7)"]," ",["elOffset","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["offset","var(--ch-5)"],["(node)","var(--ch-4)"],"\n\n      ",["if","var(--ch-7)"]," ",["(mousePosition)","var(--ch-4)"],"\n        ",["// @ts-ignore","var(--ch-1)"],"\n        ",["setTransformOrigin","var(--ch-5)"],["(node, mousePosition.x","var(--ch-4)"]," ",["-","var(--ch-7)"]," ",["elOffset.left","var(--ch-4)"]," ",["+","var(--ch-7)"]," ",["'px '","var(--ch-8)"]," ",["+","var(--ch-7)"]," ",["(mousePosition.y","var(--ch-4)"]," ",["-","var(--ch-7)"]," ",["elOffset.top)","var(--ch-4)"]," ",["+","var(--ch-7)"]," ",["'px'","var(--ch-8)"],[")","var(--ch-4)"],"\n    ",["}","var(--ch-4)"],"\n  ",["}, [display])","var(--ch-4)"],"\n\n  ",["return","var(--ch-7)"]," ",["(","var(--ch-4)"],"\n    ",["<","var(--ch-4)"],["Modal","var(--ch-6)"]," ",["ref","var(--ch-2)"],["={","var(--ch-7)"],["modal","var(--ch-4)"],["}","var(--ch-7)"]," ",["onClose","var(--ch-2)"],["={","var(--ch-7)"],["closeHandler","var(--ch-4)"],["}","var(--ch-7)"],[">","var(--ch-4)"],"\n      ",["{","var(--ch-7)"],["display","var(--ch-4)"]," ",["?","var(--ch-7)"]," ",["(","var(--ch-4)"],"\n        ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["ref","var(--ch-2)"],["={","var(--ch-7)"],["wrapperRef","var(--ch-4)"],["}","var(--ch-7)"]," ",["className","var(--ch-2)"],["={","var(--ch-7)"],["cls","var(--ch-4)"],["}","var(--ch-7)"]," ",["onClick","var(--ch-2)"],["={","var(--ch-7)"],["clickHander","var(--ch-4)"],["}","var(--ch-7)"]," ",["onAnimationEnd","var(--ch-2)"],["={","var(--ch-7)"],["animationendHandler","var(--ch-4)"],["}","var(--ch-7)"],[">","var(--ch-4)"],"\n          ",["<","var(--ch-4)"],["header","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"flex justify-between items-center mb-2\"","var(--ch-8)"],[">","var(--ch-4)"],"\n            ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"font-bold text-lg leading-6\"","var(--ch-8)"],[">","var(--ch-4)"],"\n              ",["{","var(--ch-7)"],["title","var(--ch-4)"],["}","var(--ch-7)"],"\n            ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n            ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["onClick","var(--ch-2)"],["={","var(--ch-7)"],["closeHandler","var(--ch-4)"],["}","var(--ch-7)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["'p-2 rounded-md cursor-pointer transition hover:bg-gray-200'","var(--ch-8)"],[">","var(--ch-4)"],"\n              ",["<","var(--ch-4)"],["svg","var(--ch-6)"]," ",["xmlns","var(--ch-2)"],["=","var(--ch-7)"],["\"http://www.w3.org/2000/svg\"","var(--ch-8)"]," ",["fill","var(--ch-2)"],["=","var(--ch-7)"],["\"none\"","var(--ch-8)"]," ",["viewBox","var(--ch-2)"],["=","var(--ch-7)"],["\"0 0 24 24\"","var(--ch-8)"]," ",["strokeWidth","var(--ch-2)"],["={","var(--ch-7)"],["1.5","var(--ch-2)"],["}","var(--ch-7)"],"\n                ",["stroke","var(--ch-2)"],["=","var(--ch-7)"],["\"currentColor\"","var(--ch-8)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"size-5\"","var(--ch-8)"],[">","var(--ch-4)"],"\n                ",["<","var(--ch-4)"],["path","var(--ch-6)"]," ",["strokeLinecap","var(--ch-2)"],["=","var(--ch-7)"],["\"round\"","var(--ch-8)"]," ",["strokeLinejoin","var(--ch-2)"],["=","var(--ch-7)"],["\"round\"","var(--ch-8)"]," ",["d","var(--ch-2)"],["=","var(--ch-7)"],["\"M6 18 18 6M6 6l12 12\"","var(--ch-8)"]," ",["/>","var(--ch-4)"],"\n              ",["</","var(--ch-4)"],["svg","var(--ch-6)"],[">","var(--ch-4)"],"\n            ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n          ",["</","var(--ch-4)"],["header","var(--ch-6)"],[">","var(--ch-4)"],"\n          ",["<","var(--ch-4)"],["section","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"leading-6\"","var(--ch-8)"],[">","var(--ch-4)"],"\n            ",["{","var(--ch-7)"],["children","var(--ch-4)"],["}","var(--ch-7)"],"\n          ",["</","var(--ch-4)"],["section","var(--ch-6)"],[">","var(--ch-4)"],"\n          ",["{","var(--ch-7)"],["footer","var(--ch-4)"]," ",["||","var(--ch-7)"]," ",["(","var(--ch-4)"],"\n            ",["<","var(--ch-4)"],["footer","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"text-end mt-4\"","var(--ch-8)"],[">","var(--ch-4)"],"\n              ",["<","var(--ch-4)"],["Button","var(--ch-6)"]," ",["primary onClick","var(--ch-2)"],["={","var(--ch-7)"],["sureClickHander","var(--ch-4)"],["}","var(--ch-7)"],[">确认</","var(--ch-4)"],["Button","var(--ch-6)"],[">","var(--ch-4)"],"\n            ",["</","var(--ch-4)"],["footer","var(--ch-6)"],[">","var(--ch-4)"],"\n          ",[")","var(--ch-4)"],["}","var(--ch-7)"],"\n\n        ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n      ",[")","var(--ch-4)"]," ",[":","var(--ch-7)"]," ",["null","var(--ch-2)"],["}","var(--ch-7)"],"\n    ",["</","var(--ch-4)"],["Modal","var(--ch-6)"],[">","var(--ch-4)"],"\n  ",[")","var(--ch-4)"],"\n",["}","var(--ch-4)"],"\n"],"annotations":[],"themeName":"github-from-css","style":{"color":"var(--ch-4)","background":"var(--ch-16)","colorScheme":"var(--ch-0)"}}]}]]}]}]
