@@ -1,13 +1,20 @@
 import Button from 'components/ui/button'
-import { useEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useState } from 'react'
 
 export default function Counter() {
   const [count, setCount] = useState(0)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     // 执行 mountState 返回的 dispatch 函数
     setCount(count + 1)
   }, [])
+
+  useLayoutEffect(() => {
+    // 执行 mountState 返回的 dispatch 函数
+    setCount(count + 2)
+  }, [])
+
+  console.log('xxxxxx')
 
   function _clickhandler() {
     setCount(count + 1)

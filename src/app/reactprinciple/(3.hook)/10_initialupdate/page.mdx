@@ -301,19 +301,3 @@ export function finishQueueingConcurrentUpdates(): void {
   }
 }
 ```
-
-这种处理方式主要是为了应对在多个 `useEffect` 中修改了同一个 hook 的情况
-
-```ts
-useEffect(() => {
-  // 同一个 useEffect 中修改多次，使用 eagerState 来合并
-  setCount(count + 1)
-  setCount(count + 1)
-  setCount(count + 1)
-}, [])
-
-useEffect(() => {
-  // 多个 useEffect 中创建不同的 update，则构建 update 环形链表
-  setCount(count + 2)
-}, [])
-```
