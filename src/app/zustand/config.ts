@@ -10,4 +10,5 @@ export const reactversion = 'zustand@5.0.3'
 export const user_ids: string[] = [
   '1876458676324360192', // 刘弘毅
   '1823968445075886080', // little
+  '1876714278527168512', // haha
 ].concat(svip)
