@@ -1,0 +1,351 @@
+1:"$Sreact.fragment"
+2:I[51790,["7525","static/chunks/7525-411280bffc37a107.js","8173","static/chunks/8173-1aab990e083a60ce.js","5926","static/chunks/5926-2f921190ce1e6581.js","3974","static/chunks/3974-a1a1a9aca3315bf5.js","7177","static/chunks/app/layout-42df43a67d50e5c7.js"],"default"]
+3:I[73974,["7525","static/chunks/7525-411280bffc37a107.js","8173","static/chunks/8173-1aab990e083a60ce.js","5926","static/chunks/5926-2f921190ce1e6581.js","3974","static/chunks/3974-a1a1a9aca3315bf5.js","7177","static/chunks/app/layout-42df43a67d50e5c7.js"],"default"]
+4:I[15244,[],""]
+5:I[43866,[],""]
+6:I[14547,[],"ClientSegmentRoot"]
+7:I[34489,["7525","static/chunks/7525-411280bffc37a107.js","8173","static/chunks/8173-1aab990e083a60ce.js","5926","static/chunks/5926-2f921190ce1e6581.js","3974","static/chunks/3974-a1a1a9aca3315bf5.js","8083","static/chunks/app/r19base/layout-b20bbbd0a39f0c29.js"],"default"]
+9:I[98087,["8150","static/chunks/7cfd557f-0718c923d48595ad.js","7525","static/chunks/7525-411280bffc37a107.js","4320","static/chunks/4320-eb0b4108191194bc.js","8173","static/chunks/8173-1aab990e083a60ce.js","3152","static/chunks/3152-e813ba8dd61cd947.js","8993","static/chunks/8993-346b19653c98ecf2.js","3706","static/chunks/app/r19base/(1.use)/11.tabs/layout-fcae1ac5a74979f1.js"],"default"]
+a:I[99770,["7525","static/chunks/7525-411280bffc37a107.js","4320","static/chunks/4320-eb0b4108191194bc.js","5926","static/chunks/5926-2f921190ce1e6581.js","5495","static/chunks/5495-c9afbde98032192a.js","2756","static/chunks/2756-7b2130b3332992d3.js","4009","static/chunks/app/r19base/(1.use)/11.tabs/page-eebc5ca7517a064d.js"],"default"]
+e:I[20053,["7525","static/chunks/7525-411280bffc37a107.js","4320","static/chunks/4320-eb0b4108191194bc.js","5926","static/chunks/5926-2f921190ce1e6581.js","5495","static/chunks/5495-c9afbde98032192a.js","2756","static/chunks/2756-7b2130b3332992d3.js","4009","static/chunks/app/r19base/(1.use)/11.tabs/page-eebc5ca7517a064d.js"],"default"]
+10:I[86213,[],"OutletBoundary"]
+12:I[86213,[],"MetadataBoundary"]
+14:I[86213,[],"ViewportBoundary"]
+16:I[34835,[],""]
+:HL["/_next/static/media/569ce4b8f30dc480-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/93f479601ee12b01-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/d498c84e4ab246b3.css","style"]
+:HL["/_next/static/css/0a9e87861d5bb349.css","style"]
+:HL["/_next/static/css/738174a5e4c964fb.css","style"]
+:HL["/_next/static/css/99a14b80c12a58f7.css","style"]
+:HL["/_next/static/css/b55814aba7c65cf0.css","style"]
+0:{"P":null,"b":"i1gdzKAYKDBjv411GHTQj","p":"","c":["","r19base","11.tabs"],"i":false,"f":[[["",{"children":["r19base",{"children":["(1.use)",{"children":["11.tabs",{"children":["__PAGE__",{}]}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/d498c84e4ab246b3.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/css/0a9e87861d5bb349.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","2",{"rel":"stylesheet","href":"/_next/static/css/738174a5e4c964fb.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","3",{"rel":"stylesheet","href":"/_next/static/css/99a14b80c12a58f7.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"zh","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","meta",null,{"charSet":"UTF-8"}],["$","link",null,{"href":"https://framerusercontent.com/images/YRd2KCq4G2aXNg15aHvl7AtcGQ.png","rel":"icon","media":"(prefers-color-scheme: light)"}],["$","link",null,{"rel":"stylesheet","href":"https://rsms.me/inter/inter.css"}],["$","link",null,{"rel":"stylesheet","href":"https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css","integrity":"sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV","crossOrigin":"anonymous"}],["$","meta",null,{"name":"viewport","content":"width=device-width, initial-scale=1.0 maximum-scale=1, user-scalable=no"}],["$","meta",null,{"name":"mobile-web-app-capable","content":"yes"}],["$","meta",null,{"name":"apple-mobile-web-app-status-bar-style","content":"black-translucent"}]]}],["$","body",null,{"className":"__variable_4d318d __variable_ea5f4b antialiased","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[],[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]]],"forbidden":"$undefined","unauthorized":"$undefined"}]]}]}]]}]]}],{"children":["r19base",["$","$1","c",{"children":[null,["$","$L6",null,{"Component":"$7","slots":{"children":["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children","r19base","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]},"params":{},"promise":"$@8"}]]}],{"children":["(1.use)",["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children","r19base","children","(1.use)","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["11.tabs",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/b55814aba7c65cf0.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L9",null,{"children":["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children","r19base","children","(1.use)","children","11.tabs","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}]]}],{"children":["__PAGE__",["$","$1","c",{"children":[[["$","p",null,{"children":"Tab 切换的过程中，请求接口也是日常开发中非常常见的交互方式。不过 tabs 切换的情况比较多，很考验开发者的个人能力。我们准备了三个不同的场景以供大家直接学习。"}],"\n",["$","p",null,{"children":["第一个案例比较简单。是",["$","strong",null,{"children":"多对一"}],"：多个 tab 按钮，对应一个组件。具体表现为按钮切换时，该组件本身重新获取数据渲染。演示效果如右侧案例所示。"]}],"\n",["$","p",null,{"children":["首先，我们需要先封装一个 Tab 切换按钮。具体的封装代码可以查看右面的 ",["$","code",null,{"children":"Tabs.jsx"}]," 文件。"]}],"\n",["$","p",null,{"children":"然后使用一下，检测一下效果"}],"\n",["$","$La",null,{}],"\n","$Lb","\n",["$","p",null,{"children":"这里需要注意观察的是，案例中我们对 tabs 数据和 current 当前选中项的一个管理方式。在使用过程中，我们可以尽量减少对于 state 的使用，能不用就不用。但是许多人在开发过程中会非常依赖于 state，管理不善时，可能会导致数据的大量冗余 re-render 产生。这里当我们切换点击时，会修改两个数据，但是最终只有一个 state 变化。"}],"\n",["$","p",null,{"children":"接下来的事情就比较简单了，跟之前的案例一样，只需要在切换时，通过改变 promise 的方式请求接口即可。"}],"\n",["$","p",null,{"children":"所以我们需要声明一个新的状态 promise"}],"\n","$Lc","\n",["$","p",null,{"children":"点击时重新请求并修改 state promise 即可"}],"\n","$Ld","\n",["$","p",null,{"children":"这里我们依然需要取消上一次请求是因为可能有的使用者会连续快速切换，我们可以通过取消为完成请求的方式让页面响应变得合理与流畅。"}],"\n",["$","$Le",null,{}],"\n","$Lf"],null,["$","$L10",null,{"children":"$L11"}]]}],{},null,false]},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","fQblVycr7cghpDJknMclp",{"children":[["$","$L12",null,{"children":"$L13"}],["$","$L14",null,{"children":"$L15"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]]}],false]],"m":"$undefined","G":["$16","$undefined"],"s":false,"S":true}
+8:{}
+17:I[34034,["7525","static/chunks/7525-411280bffc37a107.js","4320","static/chunks/4320-eb0b4108191194bc.js","5926","static/chunks/5926-2f921190ce1e6581.js","5495","static/chunks/5495-c9afbde98032192a.js","2756","static/chunks/2756-7b2130b3332992d3.js","4009","static/chunks/app/r19base/(1.use)/11.tabs/page-eebc5ca7517a064d.js"],"default"]
+18:I[65470,["7525","static/chunks/7525-411280bffc37a107.js","4320","static/chunks/4320-eb0b4108191194bc.js","5926","static/chunks/5926-2f921190ce1e6581.js","5495","static/chunks/5495-c9afbde98032192a.js","2756","static/chunks/2756-7b2130b3332992d3.js","4009","static/chunks/app/r19base/(1.use)/11.tabs/page-eebc5ca7517a064d.js"],"CodeTabHeader"]
+1a:I[65703,["7525","static/chunks/7525-411280bffc37a107.js","4320","static/chunks/4320-eb0b4108191194bc.js","5926","static/chunks/5926-2f921190ce1e6581.js","5495","static/chunks/5495-c9afbde98032192a.js","2756","static/chunks/2756-7b2130b3332992d3.js","4009","static/chunks/app/r19base/(1.use)/11.tabs/page-eebc5ca7517a064d.js"],"CodeTabsInner"]
+c:["$","div",null,{"className":"code-wrapper border my-4 border-gray-200 rounded overflow-hidden","children":[null,["$","div",null,{"className":"code-base tsx","children":[false,["$","pre",null,{"data-theme":"github-from-css","data-lang":"tsx","ref":"$undefined","data-ch":true,"children":["$","div",null,{"style":{"minWidth":"fit-content"},"children":[["$","div","1,1",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[1,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":[["$","span","0",{"style":{"color":"var(--ch-7)"},"children":"const"}]," ",["$","span","2",{"style":{"color":"var(--ch-4)"},"children":"["}],["$","span","3",{"style":{"color":"var(--ch-2)"},"children":"current"}],["$","span","4",{"style":{"color":"var(--ch-4)"},"children":","}]," ",["$","span","6",{"style":{"color":"var(--ch-2)"},"children":"switchToSelected"}],["$","span","7",{"style":{"color":"var(--ch-4)"},"children":"]"}]," ",["$","span","9",{"style":{"color":"var(--ch-7)"},"children":"="}]," ",["$","span","11",{"style":{"color":"var(--ch-5)"},"children":"useState"}],["$","span","12",{"style":{"color":"var(--ch-4)"},"children":"("}],["$","span","13",{"style":{"color":"var(--ch-2)"},"children":"0"}],["$","span","14",{"style":{"color":"var(--ch-4)"},"children":")"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","2,2",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[2,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":[["$","span","0",{"style":{"color":"var(--ch-1)"},"children":"// diff +"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}],["$","div","3,3",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[3,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":[["$","span","0",{"style":{"color":"var(--ch-7)"},"children":"const"}]," ",["$","span","2",{"style":{"color":"var(--ch-4)"},"children":"["}],["$","span","3",{"style":{"color":"var(--ch-2)"},"children":"promise"}],["$","span","4",{"style":{"color":"var(--ch-4)"},"children":","}]," ",["$","span","6",{"style":{"color":"var(--ch-2)"},"children":"update"}],["$","span","7",{"style":{"color":"var(--ch-4)"},"children":"]"}]," ",["$","span","9",{"style":{"color":"var(--ch-7)"},"children":"="}]," ",["$","span","11",{"style":{"color":"var(--ch-5)"},"children":"useState"}],["$","span","12",{"style":{"color":"var(--ch-4)"},"children":"(getUsersInfo)"}]],"className":"px-2 flex-1 flex-1 pl-2"}]]}]}]]}]}]]}]]}]
+d:["$","div",null,{"className":"code-wrapper border my-4 border-gray-200 rounded overflow-hidden","children":[null,["$","div",null,{"className":"code-base tsx","children":[false,["$","pre",null,{"data-theme":"github-from-css","data-lang":"tsx","ref":"$undefined","data-ch":true,"children":["$","div",null,{"style":{"minWidth":"fit-content"},"children":[["$","div","1,1",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex","children":[["$","div",null,{"className":"ml-2 text-gray-400 select-none","children":" "}],["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[1,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":[["$","span","0",{"style":{"color":"var(--ch-7)"},"children":"function"}]," ",["$","span","2",{"style":{"color":"var(--ch-5)"},"children":"__handler"}],["$","span","3",{"style":{"color":"var(--ch-4)"},"children":"("}],["$","span","4",{"style":{"color":"var(--ch-3)"},"children":"index"}],["$","span","5",{"style":{"color":"var(--ch-7)"},"children":":"}]," ",["$","span","7",{"style":{"color":"var(--ch-2)"},"children":"number"}],["$","span","8",{"style":{"color":"var(--ch-4)"},"children":") {"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]]}]}],["$","div","2,2",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex","children":[["$","div",null,{"className":"ml-2 text-gray-400 select-none","children":" "}],["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[2,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":["  ",["$","span","1",{"style":{"color":"var(--ch-4)"},"children":"tabs[current].current"}]," ",["$","span","3",{"style":{"color":"var(--ch-7)"},"children":"="}]," ",["$","span","5",{"style":{"color":"var(--ch-2)"},"children":"false"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]]}]}],["$","div","3,3",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex","children":[["$","div",null,{"className":"ml-2 text-gray-400 select-none","children":" "}],["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[3,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":["  ",["$","span","1",{"style":{"color":"var(--ch-4)"},"children":"tabs[index].current"}]," ",["$","span","3",{"style":{"color":"var(--ch-7)"},"children":"="}]," ",["$","span","5",{"style":{"color":"var(--ch-2)"},"children":"true"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]]}]}],["$","div","4,4",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex","children":[["$","div",null,{"className":"ml-2 text-gray-400 select-none","children":" "}],["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[4,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":["  ",["$","span","1",{"style":{"color":"var(--ch-5)"},"children":"switchToSelected"}],["$","span","2",{"style":{"color":"var(--ch-4)"},"children":"(index)"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]]}]}],["$","div","5,5",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex","children":[["$","div",null,{"className":"ml-2 text-gray-400 select-none","children":" "}],["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[5,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":["\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]]}]}],["$","$1","6",{"children":[["$","$1","6",{"children":[["$","div","6,6",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"#3fb950","backgroundColor":"rgb(from #3fb950 r g b / 0.13)"},"className":"flex","children":["$","div",null,{"className":"flex","children":[["$","div",null,{"className":"ml-2 text-gray-400 select-none","children":"+"}],["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[6,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":["  ",["$","span","1",{"style":{"color":"var(--ch-4)"},"children":"promise."}],["$","span","2",{"style":{"color":"var(--ch-5)"},"children":"cancel"}],["$","span","3",{"style":{"color":"var(--ch-4)"},"children":"()"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]]}]}],["$","div","7,7",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"#3fb950","backgroundColor":"rgb(from #3fb950 r g b / 0.13)"},"className":"flex","children":["$","div",null,{"className":"flex","children":[["$","div",null,{"className":"ml-2 text-gray-400 select-none","children":"+"}],["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[7,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":["  ",["$","span","1",{"style":{"color":"var(--ch-5)"},"children":"update"}],["$","span","2",{"style":{"color":"var(--ch-4)"},"children":"("}],["$","span","3",{"style":{"color":"var(--ch-5)"},"children":"getUsersInfo"}],["$","span","4",{"style":{"color":"var(--ch-4)"},"children":"())"}],"\n"],"className":"px-2 flex-1 flex-1 pl-2"}]]}]]}]}]]}]]}],["$","div","8,8",{"style":{"borderLeft":"solid 2px transparent","borderLeftColor":"$undefined","backgroundColor":"$undefined"},"className":"flex","children":["$","div",null,{"className":"flex","children":[["$","div",null,{"className":"ml-2 text-gray-400 select-none","children":" "}],["$","div",null,{"className":"flex items-center","children":[["$","span",null,{"className":"line-number px-4 text-gray-400 text-xs select-none","children":["$","span",null,{"children":[8,["$","span",null,{"className":"invisible","children":""}]]}]}],["$","div",null,{"children":[["$","span","0",{"style":{"color":"var(--ch-4)"},"children":"}"}]],"className":"px-2 flex-1 flex-1 pl-2"}]]}]]}]}]]}]}]]}]]}]
+19:T639,import { Tab } from './config'
+
+export default function Tabs({ tabs, onSwitch }: {
+  tabs: Tab[],
+  onSwitch: (index: number) => any
+}) {
+  return (
+    <div>
+      <div className="hidden">
+        <label htmlFor="tabs" className="sr-only">
+          Select a tab
+        </label>
+        {/* Use an "onChange" listener to redirect the user to the selected tab URL. */}
+        <select
+          id="tabs"
+          name="tabs"
+          className="block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+          defaultValue={tabs.find((tab) => tab.current)!.name}
+          onChange={(e) => onSwitch(e.target.selectedIndex)}
+        >
+          {tabs.map((tab) => (
+            <option key={tab.name}>{tab.name}</option>
+          ))}
+        </select>
+      </div>
+      <div className="block">
+        <nav className="flex space-x-4" aria-label="Tabs">
+          {tabs.map((tab, i) => (
+            <a
+              key={tab.name}
+              href={tab.href}
+              className={classNames(
+                tab.current ? 'bg-indigo-100 text-indigo-700' : 'text-gray-500 hover:text-gray-700',
+                'rounded-md px-3 py-2 text-sm font-medium',
+              )}
+              aria-current={tab.current ? 'page' : undefined}
+              onClick={(e) => {
+                e.preventDefault();
+                onSwitch(i)
+              }}
+            >
+              {tab.name}
+            </a>
+          ))}
+        </nav>
+      </div>
+    </div>
+  )
+}
+
+function classNames(...classes: string[]) {
+  return classes.filter(Boolean).join(' ')
+}
+1b:T639,import { Tab } from './config'
+
+export default function Tabs({ tabs, onSwitch }: {
+  tabs: Tab[],
+  onSwitch: (index: number) => any
+}) {
+  return (
+    <div>
+      <div className="hidden">
+        <label htmlFor="tabs" className="sr-only">
+          Select a tab
+        </label>
+        {/* Use an "onChange" listener to redirect the user to the selected tab URL. */}
+        <select
+          id="tabs"
+          name="tabs"
+          className="block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+          defaultValue={tabs.find((tab) => tab.current)!.name}
+          onChange={(e) => onSwitch(e.target.selectedIndex)}
+        >
+          {tabs.map((tab) => (
+            <option key={tab.name}>{tab.name}</option>
+          ))}
+        </select>
+      </div>
+      <div className="block">
+        <nav className="flex space-x-4" aria-label="Tabs">
+          {tabs.map((tab, i) => (
+            <a
+              key={tab.name}
+              href={tab.href}
+              className={classNames(
+                tab.current ? 'bg-indigo-100 text-indigo-700' : 'text-gray-500 hover:text-gray-700',
+                'rounded-md px-3 py-2 text-sm font-medium',
+              )}
+              aria-current={tab.current ? 'page' : undefined}
+              onClick={(e) => {
+                e.preventDefault();
+                onSwitch(i)
+              }}
+            >
+              {tab.name}
+            </a>
+          ))}
+        </nav>
+      </div>
+    </div>
+  )
+}
+
+function classNames(...classes: string[]) {
+  return classes.filter(Boolean).join(' ')
+}
+1c:T639,import { Tab } from './config'
+
+export default function Tabs({ tabs, onSwitch }: {
+  tabs: Tab[],
+  onSwitch: (index: number) => any
+}) {
+  return (
+    <div>
+      <div className="hidden">
+        <label htmlFor="tabs" className="sr-only">
+          Select a tab
+        </label>
+        {/* Use an "onChange" listener to redirect the user to the selected tab URL. */}
+        <select
+          id="tabs"
+          name="tabs"
+          className="block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+          defaultValue={tabs.find((tab) => tab.current)!.name}
+          onChange={(e) => onSwitch(e.target.selectedIndex)}
+        >
+          {tabs.map((tab) => (
+            <option key={tab.name}>{tab.name}</option>
+          ))}
+        </select>
+      </div>
+      <div className="block">
+        <nav className="flex space-x-4" aria-label="Tabs">
+          {tabs.map((tab, i) => (
+            <a
+              key={tab.name}
+              href={tab.href}
+              className={classNames(
+                tab.current ? 'bg-indigo-100 text-indigo-700' : 'text-gray-500 hover:text-gray-700',
+                'rounded-md px-3 py-2 text-sm font-medium',
+              )}
+              aria-current={tab.current ? 'page' : undefined}
+              onClick={(e) => {
+                e.preventDefault();
+                onSwitch(i)
+              }}
+            >
+              {tab.name}
+            </a>
+          ))}
+        </nav>
+      </div>
+    </div>
+  )
+}
+
+function classNames(...classes: string[]) {
+  return classes.filter(Boolean).join(' ')
+}
+b:["$","div",null,{"className":"code-tabs border rounded border-gray-200 overflow-hidden my-5","children":["$","$L17",null,{"children":[["$","$L18",null,{"tabs":[{"meta":"index.tsx -c","value":"import { useState } from 'react'\nimport Tabs from './tabs'\nimport { tabs } from './config'\n\nexport default function Demo01() {\n  const [current, switchToSelected] = useState(0)\n\n  function __handler(index: number) {\n    tabs[current].current = false\n    tabs[index].current = true\n    switchToSelected(index)\n  }\n\n  return (\n    <div>\n      <Tabs tabs={tabs} onSwitch={__handler} />\n      <div className='mt-4 font-bold'>\n        当前选中：{tabs[current].name}\n      </div>\n    </div>\n  )\n}","lang":"tsx"},{"meta":"tabs.tsx -c","value":"$19","lang":"tsx"},{"meta":"config.ts -c","value":"export const tabs = [\n  { name: 'My Account', href: '#', current: true },\n  { name: 'Company', href: '#', current: false },\n  { name: 'Team Members', href: '#', current: false },\n  { name: 'Billing', href: '#', current: false },\n]\n\nexport type Tab = typeof tabs[0]","lang":"tsx"}]}],["$","$L1a",null,{"highlighteds":[{"meta":"index.tsx -c","value":"import { useState } from 'react'\nimport Tabs from './tabs'\nimport { tabs } from './config'\n\nexport default function Demo01() {\n  const [current, switchToSelected] = useState(0)\n\n  function __handler(index: number) {\n    tabs[current].current = false\n    tabs[index].current = true\n    switchToSelected(index)\n  }\n\n  return (\n    <div>\n      <Tabs tabs={tabs} onSwitch={__handler} />\n      <div className='mt-4 font-bold'>\n        当前选中：{tabs[current].name}\n      </div>\n    </div>\n  )\n}","lang":"tsx","code":"import { useState } from 'react'\nimport Tabs from './tabs'\nimport { tabs } from './config'\n\nexport default function Demo01() {\n  const [current, switchToSelected] = useState(0)\n\n  function __handler(index: number) {\n    tabs[current].current = false\n    tabs[index].current = true\n    switchToSelected(index)\n  }\n\n  return (\n    <div>\n      <Tabs tabs={tabs} onSwitch={__handler} />\n      <div className='mt-4 font-bold'>\n        当前选中：{tabs[current].name}\n      </div>\n    </div>\n  )\n}","tokens":[["import","var(--ch-7)"]," ",["{ useState }","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'react'","var(--ch-8)"],"\n",["import","var(--ch-7)"]," ",["Tabs","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'./tabs'","var(--ch-8)"],"\n",["import","var(--ch-7)"]," ",["{ tabs }","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'./config'","var(--ch-8)"],"\n\n",["export default function","var(--ch-7)"]," ",["Demo01","var(--ch-5)"],["()","var(--ch-3)"]," ",["{","var(--ch-4)"],"\n  ",["const","var(--ch-7)"]," ",["[","var(--ch-4)"],["current","var(--ch-2)"],[",","var(--ch-4)"]," ",["switchToSelected","var(--ch-2)"],["]","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["useState","var(--ch-5)"],["(","var(--ch-4)"],["0","var(--ch-2)"],[")","var(--ch-4)"],"\n\n  ",["function","var(--ch-7)"]," ",["__handler","var(--ch-5)"],["(","var(--ch-4)"],["index","var(--ch-3)"],[":","var(--ch-7)"]," ",["number","var(--ch-2)"],[") {","var(--ch-4)"],"\n    ",["tabs[current].current","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["false","var(--ch-2)"],"\n    ",["tabs[index].current","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["true","var(--ch-2)"],"\n    ",["switchToSelected","var(--ch-5)"],["(index)","var(--ch-4)"],"\n  ",["}","var(--ch-4)"],"\n\n  ",["return","var(--ch-7)"]," ",["(","var(--ch-4)"],"\n    ",["<","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n      ",["<","var(--ch-4)"],["Tabs","var(--ch-6)"]," ",["tabs","var(--ch-2)"],["={","var(--ch-7)"],["tabs","var(--ch-4)"],["}","var(--ch-7)"]," ",["onSwitch","var(--ch-2)"],["={","var(--ch-7)"],["__handler","var(--ch-4)"],["}","var(--ch-7)"]," ",["/>","var(--ch-4)"],"\n      ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["'mt-4 font-bold'","var(--ch-8)"],[">","var(--ch-4)"],"\n        ",["当前选中：","var(--ch-4)"],["{","var(--ch-7)"],["tabs[current].name","var(--ch-4)"],["}","var(--ch-7)"],"\n      ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n    ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n  ",[")","var(--ch-4)"],"\n",["}","var(--ch-4)"]],"annotations":[],"themeName":"github-from-css","style":{"color":"var(--ch-4)","background":"var(--ch-16)","colorScheme":"var(--ch-0)"}},{"meta":"tabs.tsx -c","value":"$1b","lang":"tsx","code":"$1c","tokens":[["import","var(--ch-7)"]," ",["{ Tab }","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'./config'","var(--ch-8)"],"\n\n",["export default function","var(--ch-7)"]," ",["Tabs","var(--ch-5)"],["({ tabs, onSwitch }","var(--ch-3)"],[":","var(--ch-7)"]," ",["{","var(--ch-3)"],"\n  ",["tabs","var(--ch-3)"],[":","var(--ch-7)"]," ",["Tab[],","var(--ch-3)"],"\n  ",["onSwitch","var(--ch-5)"],[":","var(--ch-7)"]," ",["(index","var(--ch-3)"],[":","var(--ch-7)"]," ",["number","var(--ch-2)"],[")","var(--ch-3)"]," ",["=>","var(--ch-7)"]," ",["any","var(--ch-2)"],"\n",["})","var(--ch-3)"]," ",["{","var(--ch-4)"],"\n  ",["return","var(--ch-7)"]," ",["(","var(--ch-4)"],"\n    ",["<","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n      ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"hidden\"","var(--ch-8)"],[">","var(--ch-4)"],"\n        ",["<","var(--ch-4)"],["label","var(--ch-6)"]," ",["htmlFor","var(--ch-2)"],["=","var(--ch-7)"],["\"tabs\"","var(--ch-8)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"sr-only\"","var(--ch-8)"],[">","var(--ch-4)"],"\n          ",["Select a tab","var(--ch-4)"],"\n        ",["</","var(--ch-4)"],["label","var(--ch-6)"],[">","var(--ch-4)"],"\n        ",["{","var(--ch-7)"],["/* Use an \"onChange\" listener to redirect the user to the selected tab URL. */","var(--ch-1)"],["}","var(--ch-7)"],"\n        ",["<","var(--ch-4)"],["select","var(--ch-6)"],"\n          ",["id","var(--ch-2)"],["=","var(--ch-7)"],["\"tabs\"","var(--ch-8)"],"\n          ",["name","var(--ch-2)"],["=","var(--ch-7)"],["\"tabs\"","var(--ch-8)"],"\n          ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500\"","var(--ch-8)"],"\n          ",["defaultValue","var(--ch-2)"],["={","var(--ch-7)"],["tabs.","var(--ch-4)"],["find","var(--ch-5)"],["((","var(--ch-4)"],["tab","var(--ch-3)"],[")","var(--ch-4)"]," ",["=>","var(--ch-7)"]," ",["tab.current)","var(--ch-4)"],["!","var(--ch-7)"],[".name","var(--ch-4)"],["}","var(--ch-7)"],"\n          ",["onChange","var(--ch-2)"],["={","var(--ch-7)"],["(","var(--ch-4)"],["e","var(--ch-3)"],[")","var(--ch-4)"]," ",["=>","var(--ch-7)"]," ",["onSwitch","var(--ch-5)"],["(e.target.selectedIndex)","var(--ch-4)"],["}","var(--ch-7)"],"\n        ",[">","var(--ch-4)"],"\n          ",["{","var(--ch-7)"],["tabs.","var(--ch-4)"],["map","var(--ch-5)"],["((","var(--ch-4)"],["tab","var(--ch-3)"],[")","var(--ch-4)"]," ",["=>","var(--ch-7)"]," ",["(","var(--ch-4)"],"\n            ",["<","var(--ch-4)"],["option","var(--ch-6)"]," ",["key","var(--ch-2)"],["={","var(--ch-7)"],["tab.name","var(--ch-4)"],["}","var(--ch-7)"],[">","var(--ch-4)"],["{","var(--ch-7)"],["tab.name","var(--ch-4)"],["}","var(--ch-7)"],["</","var(--ch-4)"],["option","var(--ch-6)"],[">","var(--ch-4)"],"\n          ",["))","var(--ch-4)"],["}","var(--ch-7)"],"\n        ",["</","var(--ch-4)"],["select","var(--ch-6)"],[">","var(--ch-4)"],"\n      ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n      ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"block\"","var(--ch-8)"],[">","var(--ch-4)"],"\n        ",["<","var(--ch-4)"],["nav","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"flex space-x-4\"","var(--ch-8)"]," ",["aria-label","var(--ch-2)"],["=","var(--ch-7)"],["\"Tabs\"","var(--ch-8)"],[">","var(--ch-4)"],"\n          ",["{","var(--ch-7)"],["tabs.","var(--ch-4)"],["map","var(--ch-5)"],["((","var(--ch-4)"],["tab","var(--ch-3)"],[",","var(--ch-4)"]," ",["i","var(--ch-3)"],[")","var(--ch-4)"]," ",["=>","var(--ch-7)"]," ",["(","var(--ch-4)"],"\n            ",["<","var(--ch-4)"],["a","var(--ch-6)"],"\n              ",["key","var(--ch-2)"],["={","var(--ch-7)"],["tab.name","var(--ch-4)"],["}","var(--ch-7)"],"\n              ",["href","var(--ch-2)"],["={","var(--ch-7)"],["tab.href","var(--ch-4)"],["}","var(--ch-7)"],"\n              ",["className","var(--ch-2)"],["={","var(--ch-7)"],["classNames","var(--ch-5)"],["(","var(--ch-4)"],"\n                ",["tab.current","var(--ch-4)"]," ",["?","var(--ch-7)"]," ",["'bg-indigo-100 text-indigo-700'","var(--ch-8)"]," ",[":","var(--ch-7)"]," ",["'text-gray-500 hover:text-gray-700'","var(--ch-8)"],[",","var(--ch-4)"],"\n                ",["'rounded-md px-3 py-2 text-sm font-medium'","var(--ch-8)"],[",","var(--ch-4)"],"\n              ",[")","var(--ch-4)"],["}","var(--ch-7)"],"\n              ",["aria-current","var(--ch-2)"],["={","var(--ch-7)"],["tab.current","var(--ch-4)"]," ",["?","var(--ch-7)"]," ",["'page'","var(--ch-8)"]," ",[":","var(--ch-7)"]," ",["undefined","var(--ch-2)"],["}","var(--ch-7)"],"\n              ",["onClick","var(--ch-2)"],["={","var(--ch-7)"],["(","var(--ch-4)"],["e","var(--ch-3)"],[")","var(--ch-4)"]," ",["=>","var(--ch-7)"]," ",["{","var(--ch-4)"],"\n                ",["e.","var(--ch-4)"],["preventDefault","var(--ch-5)"],["();","var(--ch-4)"],"\n                ",["onSwitch","var(--ch-5)"],["(i)","var(--ch-4)"],"\n              ",["}","var(--ch-4)"],["}","var(--ch-7)"],"\n            ",[">","var(--ch-4)"],"\n              ",["{","var(--ch-7)"],["tab.name","var(--ch-4)"],["}","var(--ch-7)"],"\n            ",["</","var(--ch-4)"],["a","var(--ch-6)"],[">","var(--ch-4)"],"\n          ",["))","var(--ch-4)"],["}","var(--ch-7)"],"\n        ",["</","var(--ch-4)"],["nav","var(--ch-6)"],[">","var(--ch-4)"],"\n      ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n    ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n  ",[")","var(--ch-4)"],"\n",["}","var(--ch-4)"],"\n\n",["function","var(--ch-7)"]," ",["classNames","var(--ch-5)"],["(","var(--ch-4)"],["...","var(--ch-7)"],["classes","var(--ch-3)"],[":","var(--ch-7)"]," ",["string","var(--ch-2)"],["[]) {","var(--ch-4)"],"\n  ",["return","var(--ch-7)"]," ",["classes.","var(--ch-4)"],["filter","var(--ch-5)"],["(Boolean).","var(--ch-4)"],["join","var(--ch-5)"],["(","var(--ch-4)"],["' '","var(--ch-8)"],[")","var(--ch-4)"],"\n",["}","var(--ch-4)"],"\n"],"annotations":[],"themeName":"github-from-css","style":{"color":"var(--ch-4)","background":"var(--ch-16)","colorScheme":"var(--ch-0)"}},{"meta":"config.ts -c","value":"export const tabs = [\n  { name: 'My Account', href: '#', current: true },\n  { name: 'Company', href: '#', current: false },\n  { name: 'Team Members', href: '#', current: false },\n  { name: 'Billing', href: '#', current: false },\n]\n\nexport type Tab = typeof tabs[0]","lang":"tsx","code":"export const tabs = [\n  { name: 'My Account', href: '#', current: true },\n  { name: 'Company', href: '#', current: false },\n  { name: 'Team Members', href: '#', current: false },\n  { name: 'Billing', href: '#', current: false },\n]\n\nexport type Tab = typeof tabs[0]","tokens":[["export const","var(--ch-7)"]," ",["tabs","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["[","var(--ch-4)"],"\n  ",["{ name:","var(--ch-4)"]," ",["'My Account'","var(--ch-8)"],[", href:","var(--ch-4)"]," ",["'#'","var(--ch-8)"],[", current:","var(--ch-4)"]," ",["true","var(--ch-2)"]," ",["},","var(--ch-4)"],"\n  ",["{ name:","var(--ch-4)"]," ",["'Company'","var(--ch-8)"],[", href:","var(--ch-4)"]," ",["'#'","var(--ch-8)"],[", current:","var(--ch-4)"]," ",["false","var(--ch-2)"]," ",["},","var(--ch-4)"],"\n  ",["{ name:","var(--ch-4)"]," ",["'Team Members'","var(--ch-8)"],[", href:","var(--ch-4)"]," ",["'#'","var(--ch-8)"],[", current:","var(--ch-4)"]," ",["false","var(--ch-2)"]," ",["},","var(--ch-4)"],"\n  ",["{ name:","var(--ch-4)"]," ",["'Billing'","var(--ch-8)"],[", href:","var(--ch-4)"]," ",["'#'","var(--ch-8)"],[", current:","var(--ch-4)"]," ",["false","var(--ch-2)"]," ",["},","var(--ch-4)"],"\n",["]","var(--ch-4)"],"\n\n",["export type","var(--ch-7)"]," ",["Tab","var(--ch-3)"]," ",["= typeof","var(--ch-7)"]," ",["tabs[","var(--ch-4)"],["0","var(--ch-2)"],["]","var(--ch-4)"]],"annotations":[],"themeName":"github-from-css","style":{"color":"var(--ch-4)","background":"var(--ch-16)","colorScheme":"var(--ch-0)"}}]}]]}]}]
+1d:T639,import { Tab } from './config'
+
+export default function Tabs({ tabs, onSwitch }: {
+  tabs: Tab[],
+  onSwitch: (index: number) => any
+}) {
+  return (
+    <div>
+      <div className="hidden">
+        <label htmlFor="tabs" className="sr-only">
+          Select a tab
+        </label>
+        {/* Use an "onChange" listener to redirect the user to the selected tab URL. */}
+        <select
+          id="tabs"
+          name="tabs"
+          className="block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+          defaultValue={tabs.find((tab) => tab.current)!.name}
+          onChange={(e) => onSwitch(e.target.selectedIndex)}
+        >
+          {tabs.map((tab) => (
+            <option key={tab.name}>{tab.name}</option>
+          ))}
+        </select>
+      </div>
+      <div className="block">
+        <nav className="flex space-x-4" aria-label="Tabs">
+          {tabs.map((tab, i) => (
+            <a
+              key={tab.name}
+              href={tab.href}
+              className={classNames(
+                tab.current ? 'bg-indigo-100 text-indigo-700' : 'text-gray-500 hover:text-gray-700',
+                'rounded-md px-3 py-2 text-sm font-medium',
+              )}
+              aria-current={tab.current ? 'page' : undefined}
+              onClick={(e) => {
+                e.preventDefault();
+                onSwitch(i)
+              }}
+            >
+              {tab.name}
+            </a>
+          ))}
+        </nav>
+      </div>
+    </div>
+  )
+}
+
+function classNames(...classes: string[]) {
+  return classes.filter(Boolean).join(' ')
+}
+1e:T639,import { Tab } from './config'
+
+export default function Tabs({ tabs, onSwitch }: {
+  tabs: Tab[],
+  onSwitch: (index: number) => any
+}) {
+  return (
+    <div>
+      <div className="hidden">
+        <label htmlFor="tabs" className="sr-only">
+          Select a tab
+        </label>
+        {/* Use an "onChange" listener to redirect the user to the selected tab URL. */}
+        <select
+          id="tabs"
+          name="tabs"
+          className="block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+          defaultValue={tabs.find((tab) => tab.current)!.name}
+          onChange={(e) => onSwitch(e.target.selectedIndex)}
+        >
+          {tabs.map((tab) => (
+            <option key={tab.name}>{tab.name}</option>
+          ))}
+        </select>
+      </div>
+      <div className="block">
+        <nav className="flex space-x-4" aria-label="Tabs">
+          {tabs.map((tab, i) => (
+            <a
+              key={tab.name}
+              href={tab.href}
+              className={classNames(
+                tab.current ? 'bg-indigo-100 text-indigo-700' : 'text-gray-500 hover:text-gray-700',
+                'rounded-md px-3 py-2 text-sm font-medium',
+              )}
+              aria-current={tab.current ? 'page' : undefined}
+              onClick={(e) => {
+                e.preventDefault();
+                onSwitch(i)
+              }}
+            >
+              {tab.name}
+            </a>
+          ))}
+        </nav>
+      </div>
+    </div>
+  )
+}
+
+function classNames(...classes: string[]) {
+  return classes.filter(Boolean).join(' ')
+}
+1f:T639,import { Tab } from './config'
+
+export default function Tabs({ tabs, onSwitch }: {
+  tabs: Tab[],
+  onSwitch: (index: number) => any
+}) {
+  return (
+    <div>
+      <div className="hidden">
+        <label htmlFor="tabs" className="sr-only">
+          Select a tab
+        </label>
+        {/* Use an "onChange" listener to redirect the user to the selected tab URL. */}
+        <select
+          id="tabs"
+          name="tabs"
+          className="block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+          defaultValue={tabs.find((tab) => tab.current)!.name}
+          onChange={(e) => onSwitch(e.target.selectedIndex)}
+        >
+          {tabs.map((tab) => (
+            <option key={tab.name}>{tab.name}</option>
+          ))}
+        </select>
+      </div>
+      <div className="block">
+        <nav className="flex space-x-4" aria-label="Tabs">
+          {tabs.map((tab, i) => (
+            <a
+              key={tab.name}
+              href={tab.href}
+              className={classNames(
+                tab.current ? 'bg-indigo-100 text-indigo-700' : 'text-gray-500 hover:text-gray-700',
+                'rounded-md px-3 py-2 text-sm font-medium',
+              )}
+              aria-current={tab.current ? 'page' : undefined}
+              onClick={(e) => {
+                e.preventDefault();
+                onSwitch(i)
+              }}
+            >
+              {tab.name}
+            </a>
+          ))}
+        </nav>
+      </div>
+    </div>
+  )
+}
+
+function classNames(...classes: string[]) {
+  return classes.filter(Boolean).join(' ')
+}
+f:["$","div",null,{"className":"code-tabs border rounded border-gray-200 overflow-hidden my-5","children":["$","$L17",null,{"children":[["$","$L18",null,{"tabs":[{"meta":"index.tsx -c","value":"import { useState, Suspense } from 'react'\nimport Skeleton from 'components/ui/skeleton'\nimport { getUsersInfo } from './api'\nimport Tabs from './tabs'\nimport { tabs } from './config'\nimport List from './list'\n\nconst Index = () => {\n  const [current, switchToSelected] = useState(0)\n  const [promise, update] = useState(getUsersInfo)\n\n  function __handler(index: number) {\n    tabs[current].current = false\n    tabs[index].current = true\n    switchToSelected(index)\n\n    promise.cancel()\n    update(getUsersInfo())\n  }\n\n  return (\n    <div className='space-y-2'>\n      <Tabs tabs={tabs} onSwitch={__handler} />\n      <Suspense fallback={<Skeleton />}>\n        <List promise={promise} />\n      </Suspense>\n    </div>\n  )\n}\n\nexport default Index","lang":"tsx"},{"meta":"tabs.tsx -c","value":"$1d","lang":"tsx"},{"meta":"config.ts -c","value":"export const tabs = [\n  { name: 'My Account', href: '#', current: true },\n  { name: 'Company', href: '#', current: false },\n  { name: 'Team Members', href: '#', current: false },\n  { name: 'Billing', href: '#', current: false },\n]\n\nexport type Tab = typeof tabs[0]","lang":"tsx"},{"meta":"list.tsx -c","value":"import { use } from 'react'\nimport { getUsersInfo } from './api'\n\nexport default function CurrentList({ promise }: {\n  promise: ReturnType<typeof getUsersInfo>\n}) {\n  const users = use(promise)\n  return (\n    <div className='space-y-2'>\n      {users.map(item => (\n        <div key={item.id} className='flex border rounded p-4 items-center border-gray-200'>\n          <img className='w-14 h-14 rounded-full' src={item.picture.large} alt='' />\n          <div className='flex-1 ml-4'>\n            <div className='font-bold'>{item.name.last}</div>\n            <div className='text-gray-400 text-sm mt-1 line-clamp-1'>{item.desc}</div>\n          </div>\n        </div>\n      ))}\n    </div>\n  )\n}\n","lang":"tsx"},{"meta":"api.ts -c","value":"import {createRandomMessage, uuid} from '@/utils'\n\ninterface PromiseWithCancel<T> extends Promise<T> {\n  cancel: () => any\n}\n\nexport function getUsersInfo() {\n  const len = Math.floor(Math.random() * 10) % 10\n  const url = `https://randomuser.me/api/?results=${len}&inc=name,gender,email,nat,picture&noinfo`;\n\n  let controller = new AbortController();\n  let signal = controller.signal;\n\n  const __promise = new Promise(async resolve => {\n    try {\n      const response = await fetch(url, {signal})\n      const data = await response.json()\n      const users: UserInfo[] = data.results.map((item: UserInfo) => {\n        item.desc = createRandomMessage()\n        item.id = uuid()\n        return item\n      })\n      resolve(users)\n    } catch {\n      console.warn('fetch have been canceled!')\n    }\n  })\n\n  const promise = __promise as PromiseWithCancel<UserInfo[]>\n  promise.cancel = () => {\n    if (controller) {\n      controller.abort()\n    }\n  }\n\n  return promise\n}","lang":"tsx"}]}],["$","$L1a",null,{"highlighteds":[{"meta":"index.tsx -c","value":"import { useState, Suspense } from 'react'\nimport Skeleton from 'components/ui/skeleton'\nimport { getUsersInfo } from './api'\nimport Tabs from './tabs'\nimport { tabs } from './config'\nimport List from './list'\n\nconst Index = () => {\n  const [current, switchToSelected] = useState(0)\n  const [promise, update] = useState(getUsersInfo)\n\n  function __handler(index: number) {\n    tabs[current].current = false\n    tabs[index].current = true\n    switchToSelected(index)\n\n    promise.cancel()\n    update(getUsersInfo())\n  }\n\n  return (\n    <div className='space-y-2'>\n      <Tabs tabs={tabs} onSwitch={__handler} />\n      <Suspense fallback={<Skeleton />}>\n        <List promise={promise} />\n      </Suspense>\n    </div>\n  )\n}\n\nexport default Index","lang":"tsx","code":"import { useState, Suspense } from 'react'\nimport Skeleton from 'components/ui/skeleton'\nimport { getUsersInfo } from './api'\nimport Tabs from './tabs'\nimport { tabs } from './config'\nimport List from './list'\n\nconst Index = () => {\n  const [current, switchToSelected] = useState(0)\n  const [promise, update] = useState(getUsersInfo)\n\n  function __handler(index: number) {\n    tabs[current].current = false\n    tabs[index].current = true\n    switchToSelected(index)\n\n    promise.cancel()\n    update(getUsersInfo())\n  }\n\n  return (\n    <div className='space-y-2'>\n      <Tabs tabs={tabs} onSwitch={__handler} />\n      <Suspense fallback={<Skeleton />}>\n        <List promise={promise} />\n      </Suspense>\n    </div>\n  )\n}\n\nexport default Index","tokens":[["import","var(--ch-7)"]," ",["{ useState, Suspense }","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'react'","var(--ch-8)"],"\n",["import","var(--ch-7)"]," ",["Skeleton","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'components/ui/skeleton'","var(--ch-8)"],"\n",["import","var(--ch-7)"]," ",["{ getUsersInfo }","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'./api'","var(--ch-8)"],"\n",["import","var(--ch-7)"]," ",["Tabs","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'./tabs'","var(--ch-8)"],"\n",["import","var(--ch-7)"]," ",["{ tabs }","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'./config'","var(--ch-8)"],"\n",["import","var(--ch-7)"]," ",["List","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'./list'","var(--ch-8)"],"\n\n",["const","var(--ch-7)"]," ",["Index","var(--ch-5)"]," ",["=","var(--ch-7)"]," ",["()","var(--ch-4)"]," ",["=>","var(--ch-7)"]," ",["{","var(--ch-4)"],"\n  ",["const","var(--ch-7)"]," ",["[","var(--ch-4)"],["current","var(--ch-2)"],[",","var(--ch-4)"]," ",["switchToSelected","var(--ch-2)"],["]","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["useState","var(--ch-5)"],["(","var(--ch-4)"],["0","var(--ch-2)"],[")","var(--ch-4)"],"\n  ",["const","var(--ch-7)"]," ",["[","var(--ch-4)"],["promise","var(--ch-2)"],[",","var(--ch-4)"]," ",["update","var(--ch-2)"],["]","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["useState","var(--ch-5)"],["(getUsersInfo)","var(--ch-4)"],"\n\n  ",["function","var(--ch-7)"]," ",["__handler","var(--ch-5)"],["(","var(--ch-4)"],["index","var(--ch-3)"],[":","var(--ch-7)"]," ",["number","var(--ch-2)"],[") {","var(--ch-4)"],"\n    ",["tabs[current].current","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["false","var(--ch-2)"],"\n    ",["tabs[index].current","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["true","var(--ch-2)"],"\n    ",["switchToSelected","var(--ch-5)"],["(index)","var(--ch-4)"],"\n\n    ",["promise.","var(--ch-4)"],["cancel","var(--ch-5)"],["()","var(--ch-4)"],"\n    ",["update","var(--ch-5)"],["(","var(--ch-4)"],["getUsersInfo","var(--ch-5)"],["())","var(--ch-4)"],"\n  ",["}","var(--ch-4)"],"\n\n  ",["return","var(--ch-7)"]," ",["(","var(--ch-4)"],"\n    ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["'space-y-2'","var(--ch-8)"],[">","var(--ch-4)"],"\n      ",["<","var(--ch-4)"],["Tabs","var(--ch-6)"]," ",["tabs","var(--ch-2)"],["={","var(--ch-7)"],["tabs","var(--ch-4)"],["}","var(--ch-7)"]," ",["onSwitch","var(--ch-2)"],["={","var(--ch-7)"],["__handler","var(--ch-4)"],["}","var(--ch-7)"]," ",["/>","var(--ch-4)"],"\n      ",["<","var(--ch-4)"],["Suspense","var(--ch-6)"]," ",["fallback","var(--ch-2)"],["={","var(--ch-7)"],["<","var(--ch-4)"],["Skeleton","var(--ch-6)"]," ",["/>","var(--ch-4)"],["}","var(--ch-7)"],[">","var(--ch-4)"],"\n        ",["<","var(--ch-4)"],["List","var(--ch-6)"]," ",["promise","var(--ch-2)"],["={","var(--ch-7)"],["promise","var(--ch-4)"],["}","var(--ch-7)"]," ",["/>","var(--ch-4)"],"\n      ",["</","var(--ch-4)"],["Suspense","var(--ch-6)"],[">","var(--ch-4)"],"\n    ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n  ",[")","var(--ch-4)"],"\n",["}","var(--ch-4)"],"\n\n",["export default","var(--ch-7)"]," ",["Index","var(--ch-4)"]],"annotations":[],"themeName":"github-from-css","style":{"color":"var(--ch-4)","background":"var(--ch-16)","colorScheme":"var(--ch-0)"}},{"meta":"tabs.tsx -c","value":"$1e","lang":"tsx","code":"$1f","tokens":[["import","var(--ch-7)"]," ",["{ Tab }","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'./config'","var(--ch-8)"],"\n\n",["export default function","var(--ch-7)"]," ",["Tabs","var(--ch-5)"],["({ tabs, onSwitch }","var(--ch-3)"],[":","var(--ch-7)"]," ",["{","var(--ch-3)"],"\n  ",["tabs","var(--ch-3)"],[":","var(--ch-7)"]," ",["Tab[],","var(--ch-3)"],"\n  ",["onSwitch","var(--ch-5)"],[":","var(--ch-7)"]," ",["(index","var(--ch-3)"],[":","var(--ch-7)"]," ",["number","var(--ch-2)"],[")","var(--ch-3)"]," ",["=>","var(--ch-7)"]," ",["any","var(--ch-2)"],"\n",["})","var(--ch-3)"]," ",["{","var(--ch-4)"],"\n  ",["return","var(--ch-7)"]," ",["(","var(--ch-4)"],"\n    ",["<","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n      ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"hidden\"","var(--ch-8)"],[">","var(--ch-4)"],"\n        ",["<","var(--ch-4)"],["label","var(--ch-6)"]," ",["htmlFor","var(--ch-2)"],["=","var(--ch-7)"],["\"tabs\"","var(--ch-8)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"sr-only\"","var(--ch-8)"],[">","var(--ch-4)"],"\n          ",["Select a tab","var(--ch-4)"],"\n        ",["</","var(--ch-4)"],["label","var(--ch-6)"],[">","var(--ch-4)"],"\n        ",["{","var(--ch-7)"],["/* Use an \"onChange\" listener to redirect the user to the selected tab URL. */","var(--ch-1)"],["}","var(--ch-7)"],"\n        ",["<","var(--ch-4)"],["select","var(--ch-6)"],"\n          ",["id","var(--ch-2)"],["=","var(--ch-7)"],["\"tabs\"","var(--ch-8)"],"\n          ",["name","var(--ch-2)"],["=","var(--ch-7)"],["\"tabs\"","var(--ch-8)"],"\n          ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500\"","var(--ch-8)"],"\n          ",["defaultValue","var(--ch-2)"],["={","var(--ch-7)"],["tabs.","var(--ch-4)"],["find","var(--ch-5)"],["((","var(--ch-4)"],["tab","var(--ch-3)"],[")","var(--ch-4)"]," ",["=>","var(--ch-7)"]," ",["tab.current)","var(--ch-4)"],["!","var(--ch-7)"],[".name","var(--ch-4)"],["}","var(--ch-7)"],"\n          ",["onChange","var(--ch-2)"],["={","var(--ch-7)"],["(","var(--ch-4)"],["e","var(--ch-3)"],[")","var(--ch-4)"]," ",["=>","var(--ch-7)"]," ",["onSwitch","var(--ch-5)"],["(e.target.selectedIndex)","var(--ch-4)"],["}","var(--ch-7)"],"\n        ",[">","var(--ch-4)"],"\n          ",["{","var(--ch-7)"],["tabs.","var(--ch-4)"],["map","var(--ch-5)"],["((","var(--ch-4)"],["tab","var(--ch-3)"],[")","var(--ch-4)"]," ",["=>","var(--ch-7)"]," ",["(","var(--ch-4)"],"\n            ",["<","var(--ch-4)"],["option","var(--ch-6)"]," ",["key","var(--ch-2)"],["={","var(--ch-7)"],["tab.name","var(--ch-4)"],["}","var(--ch-7)"],[">","var(--ch-4)"],["{","var(--ch-7)"],["tab.name","var(--ch-4)"],["}","var(--ch-7)"],["</","var(--ch-4)"],["option","var(--ch-6)"],[">","var(--ch-4)"],"\n          ",["))","var(--ch-4)"],["}","var(--ch-7)"],"\n        ",["</","var(--ch-4)"],["select","var(--ch-6)"],[">","var(--ch-4)"],"\n      ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n      ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"block\"","var(--ch-8)"],[">","var(--ch-4)"],"\n        ",["<","var(--ch-4)"],["nav","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["\"flex space-x-4\"","var(--ch-8)"]," ",["aria-label","var(--ch-2)"],["=","var(--ch-7)"],["\"Tabs\"","var(--ch-8)"],[">","var(--ch-4)"],"\n          ",["{","var(--ch-7)"],["tabs.","var(--ch-4)"],["map","var(--ch-5)"],["((","var(--ch-4)"],["tab","var(--ch-3)"],[",","var(--ch-4)"]," ",["i","var(--ch-3)"],[")","var(--ch-4)"]," ",["=>","var(--ch-7)"]," ",["(","var(--ch-4)"],"\n            ",["<","var(--ch-4)"],["a","var(--ch-6)"],"\n              ",["key","var(--ch-2)"],["={","var(--ch-7)"],["tab.name","var(--ch-4)"],["}","var(--ch-7)"],"\n              ",["href","var(--ch-2)"],["={","var(--ch-7)"],["tab.href","var(--ch-4)"],["}","var(--ch-7)"],"\n              ",["className","var(--ch-2)"],["={","var(--ch-7)"],["classNames","var(--ch-5)"],["(","var(--ch-4)"],"\n                ",["tab.current","var(--ch-4)"]," ",["?","var(--ch-7)"]," ",["'bg-indigo-100 text-indigo-700'","var(--ch-8)"]," ",[":","var(--ch-7)"]," ",["'text-gray-500 hover:text-gray-700'","var(--ch-8)"],[",","var(--ch-4)"],"\n                ",["'rounded-md px-3 py-2 text-sm font-medium'","var(--ch-8)"],[",","var(--ch-4)"],"\n              ",[")","var(--ch-4)"],["}","var(--ch-7)"],"\n              ",["aria-current","var(--ch-2)"],["={","var(--ch-7)"],["tab.current","var(--ch-4)"]," ",["?","var(--ch-7)"]," ",["'page'","var(--ch-8)"]," ",[":","var(--ch-7)"]," ",["undefined","var(--ch-2)"],["}","var(--ch-7)"],"\n              ",["onClick","var(--ch-2)"],["={","var(--ch-7)"],["(","var(--ch-4)"],["e","var(--ch-3)"],[")","var(--ch-4)"]," ",["=>","var(--ch-7)"]," ",["{","var(--ch-4)"],"\n                ",["e.","var(--ch-4)"],["preventDefault","var(--ch-5)"],["();","var(--ch-4)"],"\n                ",["onSwitch","var(--ch-5)"],["(i)","var(--ch-4)"],"\n              ",["}","var(--ch-4)"],["}","var(--ch-7)"],"\n            ",[">","var(--ch-4)"],"\n              ",["{","var(--ch-7)"],["tab.name","var(--ch-4)"],["}","var(--ch-7)"],"\n            ",["</","var(--ch-4)"],["a","var(--ch-6)"],[">","var(--ch-4)"],"\n          ",["))","var(--ch-4)"],["}","var(--ch-7)"],"\n        ",["</","var(--ch-4)"],["nav","var(--ch-6)"],[">","var(--ch-4)"],"\n      ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n    ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n  ",[")","var(--ch-4)"],"\n",["}","var(--ch-4)"],"\n\n",["function","var(--ch-7)"]," ",["classNames","var(--ch-5)"],["(","var(--ch-4)"],["...","var(--ch-7)"],["classes","var(--ch-3)"],[":","var(--ch-7)"]," ",["string","var(--ch-2)"],["[]) {","var(--ch-4)"],"\n  ",["return","var(--ch-7)"]," ",["classes.","var(--ch-4)"],["filter","var(--ch-5)"],["(Boolean).","var(--ch-4)"],["join","var(--ch-5)"],["(","var(--ch-4)"],["' '","var(--ch-8)"],[")","var(--ch-4)"],"\n",["}","var(--ch-4)"],"\n"],"annotations":[],"themeName":"github-from-css","style":{"color":"var(--ch-4)","background":"var(--ch-16)","colorScheme":"var(--ch-0)"}},{"meta":"config.ts -c","value":"export const tabs = [\n  { name: 'My Account', href: '#', current: true },\n  { name: 'Company', href: '#', current: false },\n  { name: 'Team Members', href: '#', current: false },\n  { name: 'Billing', href: '#', current: false },\n]\n\nexport type Tab = typeof tabs[0]","lang":"tsx","code":"export const tabs = [\n  { name: 'My Account', href: '#', current: true },\n  { name: 'Company', href: '#', current: false },\n  { name: 'Team Members', href: '#', current: false },\n  { name: 'Billing', href: '#', current: false },\n]\n\nexport type Tab = typeof tabs[0]","tokens":[["export const","var(--ch-7)"]," ",["tabs","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["[","var(--ch-4)"],"\n  ",["{ name:","var(--ch-4)"]," ",["'My Account'","var(--ch-8)"],[", href:","var(--ch-4)"]," ",["'#'","var(--ch-8)"],[", current:","var(--ch-4)"]," ",["true","var(--ch-2)"]," ",["},","var(--ch-4)"],"\n  ",["{ name:","var(--ch-4)"]," ",["'Company'","var(--ch-8)"],[", href:","var(--ch-4)"]," ",["'#'","var(--ch-8)"],[", current:","var(--ch-4)"]," ",["false","var(--ch-2)"]," ",["},","var(--ch-4)"],"\n  ",["{ name:","var(--ch-4)"]," ",["'Team Members'","var(--ch-8)"],[", href:","var(--ch-4)"]," ",["'#'","var(--ch-8)"],[", current:","var(--ch-4)"]," ",["false","var(--ch-2)"]," ",["},","var(--ch-4)"],"\n  ",["{ name:","var(--ch-4)"]," ",["'Billing'","var(--ch-8)"],[", href:","var(--ch-4)"]," ",["'#'","var(--ch-8)"],[", current:","var(--ch-4)"]," ",["false","var(--ch-2)"]," ",["},","var(--ch-4)"],"\n",["]","var(--ch-4)"],"\n\n",["export type","var(--ch-7)"]," ",["Tab","var(--ch-3)"]," ",["= typeof","var(--ch-7)"]," ",["tabs[","var(--ch-4)"],["0","var(--ch-2)"],["]","var(--ch-4)"]],"annotations":[],"themeName":"github-from-css","style":{"color":"var(--ch-4)","background":"var(--ch-16)","colorScheme":"var(--ch-0)"}},{"meta":"list.tsx -c","value":"import { use } from 'react'\nimport { getUsersInfo } from './api'\n\nexport default function CurrentList({ promise }: {\n  promise: ReturnType<typeof getUsersInfo>\n}) {\n  const users = use(promise)\n  return (\n    <div className='space-y-2'>\n      {users.map(item => (\n        <div key={item.id} className='flex border rounded p-4 items-center border-gray-200'>\n          <img className='w-14 h-14 rounded-full' src={item.picture.large} alt='' />\n          <div className='flex-1 ml-4'>\n            <div className='font-bold'>{item.name.last}</div>\n            <div className='text-gray-400 text-sm mt-1 line-clamp-1'>{item.desc}</div>\n          </div>\n        </div>\n      ))}\n    </div>\n  )\n}\n","lang":"tsx","code":"import { use } from 'react'\nimport { getUsersInfo } from './api'\n\nexport default function CurrentList({ promise }: {\n  promise: ReturnType<typeof getUsersInfo>\n}) {\n  const users = use(promise)\n  return (\n    <div className='space-y-2'>\n      {users.map(item => (\n        <div key={item.id} className='flex border rounded p-4 items-center border-gray-200'>\n          <img className='w-14 h-14 rounded-full' src={item.picture.large} alt='' />\n          <div className='flex-1 ml-4'>\n            <div className='font-bold'>{item.name.last}</div>\n            <div className='text-gray-400 text-sm mt-1 line-clamp-1'>{item.desc}</div>\n          </div>\n        </div>\n      ))}\n    </div>\n  )\n}\n","tokens":[["import","var(--ch-7)"]," ",["{ use }","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'react'","var(--ch-8)"],"\n",["import","var(--ch-7)"]," ",["{ getUsersInfo }","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'./api'","var(--ch-8)"],"\n\n",["export default function","var(--ch-7)"]," ",["CurrentList","var(--ch-5)"],["({ promise }","var(--ch-3)"],[":","var(--ch-7)"]," ",["{","var(--ch-3)"],"\n  ",["promise","var(--ch-3)"],[":","var(--ch-7)"]," ",["ReturnType<","var(--ch-3)"],["typeof","var(--ch-7)"]," ",["getUsersInfo","var(--ch-4)"],[">","var(--ch-3)"],"\n",["})","var(--ch-3)"]," ",["{","var(--ch-4)"],"\n  ",["const","var(--ch-7)"]," ",["users","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["use","var(--ch-5)"],["(promise)","var(--ch-4)"],"\n  ",["return","var(--ch-7)"]," ",["(","var(--ch-4)"],"\n    ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["'space-y-2'","var(--ch-8)"],[">","var(--ch-4)"],"\n      ",["{","var(--ch-7)"],["users.","var(--ch-4)"],["map","var(--ch-5)"],["(","var(--ch-4)"],["item","var(--ch-3)"]," ",["=>","var(--ch-7)"]," ",["(","var(--ch-4)"],"\n        ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["key","var(--ch-2)"],["={","var(--ch-7)"],["item.id","var(--ch-4)"],["}","var(--ch-7)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["'flex border rounded p-4 items-center border-gray-200'","var(--ch-8)"],[">","var(--ch-4)"],"\n          ",["<","var(--ch-4)"],["img","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["'w-14 h-14 rounded-full'","var(--ch-8)"]," ",["src","var(--ch-2)"],["={","var(--ch-7)"],["item.picture.large","var(--ch-4)"],["}","var(--ch-7)"]," ",["alt","var(--ch-2)"],["=","var(--ch-7)"],["''","var(--ch-8)"]," ",["/>","var(--ch-4)"],"\n          ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["'flex-1 ml-4'","var(--ch-8)"],[">","var(--ch-4)"],"\n            ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["'font-bold'","var(--ch-8)"],[">","var(--ch-4)"],["{","var(--ch-7)"],["item.name.last","var(--ch-4)"],["}","var(--ch-7)"],["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n            ",["<","var(--ch-4)"],["div","var(--ch-6)"]," ",["className","var(--ch-2)"],["=","var(--ch-7)"],["'text-gray-400 text-sm mt-1 line-clamp-1'","var(--ch-8)"],[">","var(--ch-4)"],["{","var(--ch-7)"],["item.desc","var(--ch-4)"],["}","var(--ch-7)"],["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n          ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n        ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n      ",["))","var(--ch-4)"],["}","var(--ch-7)"],"\n    ",["</","var(--ch-4)"],["div","var(--ch-6)"],[">","var(--ch-4)"],"\n  ",[")","var(--ch-4)"],"\n",["}","var(--ch-4)"],"\n"],"annotations":[],"themeName":"github-from-css","style":{"color":"var(--ch-4)","background":"var(--ch-16)","colorScheme":"var(--ch-0)"}},{"meta":"api.ts -c","value":"import {createRandomMessage, uuid} from '@/utils'\n\ninterface PromiseWithCancel<T> extends Promise<T> {\n  cancel: () => any\n}\n\nexport function getUsersInfo() {\n  const len = Math.floor(Math.random() * 10) % 10\n  const url = `https://randomuser.me/api/?results=${len}&inc=name,gender,email,nat,picture&noinfo`;\n\n  let controller = new AbortController();\n  let signal = controller.signal;\n\n  const __promise = new Promise(async resolve => {\n    try {\n      const response = await fetch(url, {signal})\n      const data = await response.json()\n      const users: UserInfo[] = data.results.map((item: UserInfo) => {\n        item.desc = createRandomMessage()\n        item.id = uuid()\n        return item\n      })\n      resolve(users)\n    } catch {\n      console.warn('fetch have been canceled!')\n    }\n  })\n\n  const promise = __promise as PromiseWithCancel<UserInfo[]>\n  promise.cancel = () => {\n    if (controller) {\n      controller.abort()\n    }\n  }\n\n  return promise\n}","lang":"tsx","code":"import {createRandomMessage, uuid} from '@/utils'\n\ninterface PromiseWithCancel<T> extends Promise<T> {\n  cancel: () => any\n}\n\nexport function getUsersInfo() {\n  const len = Math.floor(Math.random() * 10) % 10\n  const url = `https://randomuser.me/api/?results=${len}&inc=name,gender,email,nat,picture&noinfo`;\n\n  let controller = new AbortController();\n  let signal = controller.signal;\n\n  const __promise = new Promise(async resolve => {\n    try {\n      const response = await fetch(url, {signal})\n      const data = await response.json()\n      const users: UserInfo[] = data.results.map((item: UserInfo) => {\n        item.desc = createRandomMessage()\n        item.id = uuid()\n        return item\n      })\n      resolve(users)\n    } catch {\n      console.warn('fetch have been canceled!')\n    }\n  })\n\n  const promise = __promise as PromiseWithCancel<UserInfo[]>\n  promise.cancel = () => {\n    if (controller) {\n      controller.abort()\n    }\n  }\n\n  return promise\n}","tokens":[["import","var(--ch-7)"]," ",["{createRandomMessage, uuid}","var(--ch-4)"]," ",["from","var(--ch-7)"]," ",["'@/utils'","var(--ch-8)"],"\n\n",["interface","var(--ch-7)"]," ",["PromiseWithCancel","var(--ch-3)"],["<","var(--ch-4)"],["T","var(--ch-3)"],[">","var(--ch-4)"]," ",["extends","var(--ch-7)"]," ",["Promise","var(--ch-2)"],["<","var(--ch-4)"],["T","var(--ch-3)"],["> {","var(--ch-4)"],"\n  ",["cancel","var(--ch-5)"],[":","var(--ch-7)"]," ",["()","var(--ch-4)"]," ",["=>","var(--ch-7)"]," ",["any","var(--ch-2)"],"\n",["}","var(--ch-4)"],"\n\n",["export function","var(--ch-7)"]," ",["getUsersInfo","var(--ch-5)"],["() {","var(--ch-4)"],"\n  ",["const","var(--ch-7)"]," ",["len","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["Math.","var(--ch-4)"],["floor","var(--ch-5)"],["(Math.","var(--ch-4)"],["random","var(--ch-5)"],["()","var(--ch-4)"]," ",["*","var(--ch-7)"]," ",["10","var(--ch-2)"],[")","var(--ch-4)"]," ",["%","var(--ch-7)"]," ",["10","var(--ch-2)"],"\n  ",["const","var(--ch-7)"]," ",["url","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["`https://randomuser.me/api/?results=${","var(--ch-8)"],["len","var(--ch-4)"],["}&inc=name,gender,email,nat,picture&noinfo`","var(--ch-8)"],[";","var(--ch-4)"],"\n\n  ",["let","var(--ch-7)"]," ",["controller","var(--ch-4)"]," ",["= new","var(--ch-7)"]," ",["AbortController","var(--ch-5)"],["();","var(--ch-4)"],"\n  ",["let","var(--ch-7)"]," ",["signal","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["controller.signal;","var(--ch-4)"],"\n\n  ",["const","var(--ch-7)"]," ",["__promise","var(--ch-2)"]," ",["= new","var(--ch-7)"]," ",["Promise","var(--ch-2)"],["(","var(--ch-4)"],["async","var(--ch-7)"]," ",["resolve","var(--ch-3)"]," ",["=>","var(--ch-7)"]," ",["{","var(--ch-4)"],"\n    ",["try","var(--ch-7)"]," ",["{","var(--ch-4)"],"\n      ",["const","var(--ch-7)"]," ",["response","var(--ch-2)"]," ",["= await","var(--ch-7)"]," ",["fetch","var(--ch-5)"],["(url, {signal})","var(--ch-4)"],"\n      ",["const","var(--ch-7)"]," ",["data","var(--ch-2)"]," ",["= await","var(--ch-7)"]," ",["response.","var(--ch-4)"],["json","var(--ch-5)"],["()","var(--ch-4)"],"\n      ",["const","var(--ch-7)"]," ",["users","var(--ch-2)"],[":","var(--ch-7)"]," ",["UserInfo","var(--ch-3)"],["[]","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["data.results.","var(--ch-4)"],["map","var(--ch-5)"],["((","var(--ch-4)"],["item","var(--ch-3)"],[":","var(--ch-7)"]," ",["UserInfo","var(--ch-3)"],[")","var(--ch-4)"]," ",["=>","var(--ch-7)"]," ",["{","var(--ch-4)"],"\n        ",["item.desc","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["createRandomMessage","var(--ch-5)"],["()","var(--ch-4)"],"\n        ",["item.id","var(--ch-4)"]," ",["=","var(--ch-7)"]," ",["uuid","var(--ch-5)"],["()","var(--ch-4)"],"\n        ",["return","var(--ch-7)"]," ",["item","var(--ch-4)"],"\n      ",["})","var(--ch-4)"],"\n      ",["resolve","var(--ch-5)"],["(users)","var(--ch-4)"],"\n    ",["}","var(--ch-4)"]," ",["catch","var(--ch-7)"]," ",["{","var(--ch-4)"],"\n      ",["console.","var(--ch-4)"],["warn","var(--ch-5)"],["(","var(--ch-4)"],["'fetch have been canceled!'","var(--ch-8)"],[")","var(--ch-4)"],"\n    ",["}","var(--ch-4)"],"\n  ",["})","var(--ch-4)"],"\n\n  ",["const","var(--ch-7)"]," ",["promise","var(--ch-2)"]," ",["=","var(--ch-7)"]," ",["__promise","var(--ch-4)"]," ",["as","var(--ch-7)"]," ",["PromiseWithCancel","var(--ch-3)"],["<","var(--ch-4)"],["UserInfo","var(--ch-3)"],["[]>","var(--ch-4)"],"\n  ",["promise.","var(--ch-4)"],["cancel","var(--ch-5)"]," ",["=","var(--ch-7)"]," ",["()","var(--ch-4)"]," ",["=>","var(--ch-7)"]," ",["{","var(--ch-4)"],"\n    ",["if","var(--ch-7)"]," ",["(controller) {","var(--ch-4)"],"\n      ",["controller.","var(--ch-4)"],["abort","var(--ch-5)"],["()","var(--ch-4)"],"\n    ",["}","var(--ch-4)"],"\n  ",["}","var(--ch-4)"],"\n\n  ",["return","var(--ch-7)"]," ",["promise","var(--ch-4)"],"\n",["}","var(--ch-4)"]],"annotations":[],"themeName":"github-from-css","style":{"color":"var(--ch-4)","background":"var(--ch-16)","colorScheme":"var(--ch-0)"}}]}]]}]}]
+15:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+13:[["$","meta","0",{"charSet":"utf-8"}],["$","title","1",{"children":"usehook - 前端顶级精英俱乐部"}],["$","meta","2",{"name":"description","content":"最好的前端学习网站, react, react19, react hooks, zustand"}],["$","meta","3",{"name":"author","content":"这波能反杀"}],["$","meta","4",{"name":"keywords","content":"react, react19, react hooks, zustand"}],["$","link","5",{"rel":"icon","href":"/favicon.ico","type":"image/x-icon","sizes":"16x16"}]]
+11:null
