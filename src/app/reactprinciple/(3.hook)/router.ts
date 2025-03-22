@@ -47,4 +47,8 @@ export const r3 = [
     path: '10_initialupdate',
     name: '10、初始阶段的状态更新',
   },
+  {
+    path: '11_baseQueue',
+    name: '11、baseQueue 与 queue.pending',
+  },
 ]
