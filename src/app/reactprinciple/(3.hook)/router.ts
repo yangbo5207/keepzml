@@ -51,4 +51,8 @@ export const r3 = [
     path: '11_baseQueue',
     name: '11、baseQueue 与 queue.pending',
   },
+  {
+    path: '12_updatedispatch',
+    name: '12、更新阶段的 dispatch',
+  },
 ]

@@ -1,0 +1,332 @@
+import Demo01 from './demo01/preview'
+import CodeTabs from 'components/codehike/code-tabs'
+
+```ts
+ReactSharedInternals.H =
+    current === null || current.memoizedState === null
+      ? HooksDispatcherOnMount
+      : HooksDispatcherOnUpdate;
+```
+
+继续看这段代码。
+
+在更新阶段，React Hook 的引用都会变成 `HooksDispatcherOnUpdate`
+
+```ts
+const HooksDispatcherOnUpdate: Dispatcher = {
+  readContext,
+
+  use,
+  useCallback: updateCallback,
+  useContext: readContext,
+  useEffect: updateEffect,
+  useImperativeHandle: updateImperativeHandle,
+  useInsertionEffect: updateInsertionEffect,
+  useLayoutEffect: updateLayoutEffect,
+  useMemo: updateMemo,
+  useReducer: updateReducer,
+  useRef: updateRef,
+  useState: updateState,
+  useDebugValue: updateDebugValue,
+  useDeferredValue: updateDeferredValue,
+  useTransition: updateTransition,
+  useSyncExternalStore: updateSyncExternalStore,
+  useId: updateId,
+};
+```
+
+因此，当我们在更新阶段，执行 `useState` 时，此时执行的其实是 `updateState`，其源码如下所示
+
+
+```ts
+function updateState<S>(
+  initialState: (() => S) | S,
+): [S, Dispatch<BasicStateAction<S>>] {
+  return updateReducer(basicStateReducer, initialState);
+}
+```
+
+也就是说，此时执行的其实是 `updateReducer`。这里需要注意的是，`useReducer` 在更新阶段执行的也是 `updateReducer`.
+
+`updateReducer` 的主要逻辑我们在上一章已经分析过，主要为 `update` 环形链表的合并计算 `state` 的过程，这里不在赘述，直接看其返回值。
+
+
+```ts
+function updateReducer<S, I, A>(
+  reducer: (S, A) => S,
+  initialArg: I,
+  init?: I => S,
+): [S, Dispatch<A>] {
+  const hook = updateWorkInProgressHook();
+  return updateReducerImpl(hook, ((currentHook: any): Hook), reducer);
+}
+```
+
+```ts
+function updateReducerImpl<S, A>(
+  hook: Hook,
+  current: Hook,
+  reducer: (S, A) => S,
+): [S, Dispatch<A>] {
+  const queue = hook.queue;
+  // ...
+  // !mark
+  const dispatch: Dispatch<A> = (queue.dispatch: any);
+  return [hook.memoizedState, dispatch];
+}
+```
+
+此时我们发现，`dispatch` 方法直接取的是 `hook.queue.dispatch`
+
+因此，我们需要到 `updateWorkInProgressHook` 中观察 `hook.queue` 的赋值过程。`updateWorkInProgressHook` 的源码如下所示。
+
+```ts
+function updateWorkInProgressHook(): Hook {
+  let nextCurrentHook: null | Hook;
+  if (currentHook === null) {
+    const current = currentlyRenderingFiber.alternate;
+    if (current !== null) {
+      // 指向当前 Fiber 节点的第一个 Hook 节点
+      nextCurrentHook = current.memoizedState;
+    } else {
+      nextCurrentHook = null;
+    }
+  } else {
+    // 指向 hook 链表的下一个节点
+    nextCurrentHook = currentHook.next;
+  }
+
+  let nextWorkInProgressHook: null | Hook;
+  if (workInProgressHook === null) {
+    nextWorkInProgressHook = currentlyRenderingFiber.memoizedState;
+  } else {
+    // 指向 hook 链表的下一个节点
+    nextWorkInProgressHook = workInProgressHook.next;
+  }
+
+  if (nextWorkInProgressHook !== null) {
+    // There's already a work-in-progress. Reuse it.
+    workInProgressHook = nextWorkInProgressHook;
+    nextWorkInProgressHook = workInProgressHook.next;
+
+    currentHook = nextCurrentHook;
+  } else {
+    // 下一个 Hook 节点还没创建，复用 currentHook
+    if (nextCurrentHook === null) {
+      const currentFiber = currentlyRenderingFiber.alternate;
+    }
+
+    currentHook = nextCurrentHook;
+
+    const newHook: Hook = {
+      memoizedState: currentHook.memoizedState,
+
+      baseState: currentHook.baseState,
+      baseQueue: currentHook.baseQueue,
+      queue: currentHook.queue,
+      next: null,
+    };
+
+    if (workInProgressHook === null) {
+      // This is the first hook in the list.
+      currentlyRenderingFiber.memoizedState = workInProgressHook = newHook;
+    } else {
+      // Append to the end of the list.
+      workInProgressHook = workInProgressHook.next = newHook;
+    }
+  }
+  return workInProgressHook;
+}
+```
+
+看了一下该函数的源码，发现并没有 `hook.queue` 的构建过程，主要的逻辑是通过复用 `currentHook` 来构建 `workInProgressHook`。
+
+因此，我们需要到 `currentHook` 的创建过程中去查找 `hook.queue` 的赋值情况。
+
+因此，我们需要观察 `mountWorkInProgressHook` 的执行逻辑。
+
+```ts
+function mountWorkInProgressHook(): Hook {
+  const hook: Hook = {
+    memoizedState: null,
+
+    baseState: null,
+    baseQueue: null,
+    queue: null,
+
+    next: null,
+  };
+
+  if (workInProgressHook === null) {
+    // This is the first hook in the list
+    currentlyRenderingFiber.memoizedState = workInProgressHook = hook;
+  } else {
+    // Append to the end of the list
+    workInProgressHook = workInProgressHook.next = hook;
+  }
+  return workInProgressHook;
+}
+```
+
+随后，此时我们发现，新创建的 `hook.queue` 并没有赋值。那么也就是说，可能是在调用该方式时，才会有 `hook.queue` 的赋值逻辑。我们就应该回溯到初次执行 `useState` 的函数逻辑中去查看。
+
+对应的函数为 `mountState`。这里的逻辑我们就非常熟悉了，在前面一章中有专门分析过。因此，我们可以得出结论，无论是在更新阶段，还是在初始阶段，`useState` 执行返回的 `dispatch` 函数都是一样的。
+
+```ts
+function mountState<S>(
+  initialState: (() => S) | S,
+): [S, Dispatch<BasicStateAction<S>>] {
+  const hook = mountStateImpl(initialState);
+  const queue = hook.queue;
+  const dispatch: Dispatch<BasicStateAction<S>> = (dispatchSetState.bind(
+    null,
+    currentlyRenderingFiber,
+    queue,
+  ): any);
+  queue.dispatch = dispatch;
+  return [hook.memoizedState, dispatch];
+}
+```
+
+-----
+
+初次之外，如果是 `useReducer`，那么则会对应的是 `mountReducer`
+
+```ts
+function mountReducer<S, I, A>(
+  reducer: (S, A) => S,
+  initialArg: I,
+  init?: I => S,
+): [S, Dispatch<A>] {
+  const hook = mountWorkInProgressHook();
+  let initialState;
+  if (init !== undefined) {
+    initialState = init(initialArg);
+  } else {
+    initialState = ((initialArg: any): S);
+  }
+  hook.memoizedState = hook.baseState = initialState;
+  const queue: UpdateQueue<S, A> = {
+    pending: null,
+    lanes: NoLanes,
+    dispatch: null,
+    lastRenderedReducer: reducer,
+    lastRenderedState: (initialState: any),
+  };
+
+  hook.queue = queue;
+  // !mark
+  const dispatch: Dispatch<A> = (queue.dispatch = (dispatchReducerAction.bind(
+    null,
+    currentlyRenderingFiber,
+    queue,
+  ): any));
+  return [hook.memoizedState, dispatch];
+}
+```
+
+然后在这里，我们终于找到了 `queue.dispatch` 的赋值逻辑。因此，我们可以知道，`useReducer` 返回的 `dispatch` 方法，对应的是 `dispatchReducerAction` 方法
+
+```ts
+function dispatchReducerAction<S, A>(
+  fiber: Fiber,
+  queue: UpdateQueue<S, A>,
+  action: A,
+): void {
+  const lane = requestUpdateLane(fiber);
+
+  // 创建 update 节点
+  const update: Update<S, A> = {
+    lane,
+    revertLane: NoLane,
+    action,
+    hasEagerState: false,
+    eagerState: null,
+    next: (null: any),
+  };
+
+  if (isRenderPhaseUpdate(fiber)) {
+    // 处于 render 阶段，进入特殊更新流程，此时是 queue.pending 链表的拼接过程
+    enqueueRenderPhaseUpdate(queue, update);
+  } else {
+    // 处于调度阶段，进入普通更新流程
+    const root = enqueueConcurrentHookUpdate(fiber, queue, update, lane);
+    if (root !== null) {
+      startUpdateTimerByLane(lane);
+      // !mark
+      scheduleUpdateOnFiber(root, fiber, lane);
+      entangleTransitionUpdate(root, queue, lane);
+    }
+  }
+}
+```
+
+这个时候，我们对比 `useState` 与 `useReducer` 的 `dispatch` 方法，我们可以发现他们有一个非常明显的区别
+
+`useReducer` 的 `dispatch` 方法在逻辑的处理上更加简单，比如，**他没有 `eagerState` 的优化逻辑。** 因此我们在使用时，应该尽量避免在同一轮函数调用栈中多次调用 useReducer 的 `dispatch` 方法。
+
+如下是 `useState` 的 `dispatch` 方法
+
+```ts
+function dispatchSetStateInternal<S, A>(
+  fiber: Fiber,
+  queue: UpdateQueue<S, A>,
+  action: A,
+  lane: Lane,
+): boolean {
+  // 创建 update
+  const update: Update<S, A> = {
+    lane,
+    revertLane: NoLane,
+    action,
+    hasEagerState: false,
+    eagerState: null,
+    next: (null: any),
+  };
+
+  // 判断是否是在渲染阶段更新，如果是，则触发特殊更新流程 -> 对应 案例一
+  if (isRenderPhaseUpdate(fiber)) {
+    // 触发特殊更新流程
+    enqueueRenderPhaseUpdate(queue, update);
+  } else {
+    // 正常更新流程 -> 对应 案例二
+    const alternate = fiber.alternate;
+    if ( // 判断是否有待处理的更新
+      fiber.lanes === NoLanes &&
+      (alternate === null || alternate.lanes === NoLanes)
+    ) {
+      const lastRenderedReducer = queue.lastRenderedReducer;
+      if (lastRenderedReducer !== null) {
+        let prevDispatcher = null;
+        try {
+          // 获取上一次 update 计算的后的 state 值
+          const currentState: S = (queue.lastRenderedState: any);
+          // 调用 reducer 计算新的 state
+          const eagerState = lastRenderedReducer(currentState, action);
+          update.hasEagerState = true; // 标记为 eager state，表示已经计算过了
+          update.eagerState = eagerState;
+          // 如果计算的新的 state 与当前 state 相同，则可以直接跳过渲染阶段，直接返回 false
+          if (is(eagerState, currentState)) {
+            enqueueConcurrentHookUpdateAndEagerlyBailout(fiber, queue, update);
+            return false;
+          }
+        } catch (error) {
+          // Suppress the error. It will throw again in the render phase.
+        } finally {
+          // ...
+        }
+      }
+    }
+    
+    // 从当前节点开始，向上找到根节点返回，并沿途所有的节点都标记上更新的优先级
+    const root = enqueueConcurrentHookUpdate(fiber, queue, update, lane);
+    if (root !== null) {
+      // 进入调度
+      scheduleUpdateOnFiber(root, fiber, lane);
+      entangleTransitionUpdate(root, queue, lane);
+      return true;
+    }
+  }
+  return false;
+}
+```
