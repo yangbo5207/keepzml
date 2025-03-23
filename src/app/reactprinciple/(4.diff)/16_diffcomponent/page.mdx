@@ -1,0 +1,179 @@
+### 如何比较节点是否发生了变化
+
+如果比较节点是否发生了变化，是一个比较容易被理解错的知识点。这里，我们要一步一步拆解一下，看看 React 是如何比较节点是否发生了变化的。
+
+首先，外层的循环，是从顶层节点开始，依次向下遍历。`performUnitOfWork` 传入的第一个 workInProgress 是根节点。
+
+```ts
+/** @noinline */
+function workLoopConcurrent() {
+  while (workInProgress !== null && !shouldYield()) {
+    performUnitOfWork(workInProgress);
+  }
+}
+```
+
+这里最重要的是理解 `performUnitOfWork` 的执行逻辑。他是通过传入的 `workInProgress` 来计算出下一个节点。因此，判断的是**下一个节点是否能被复用，而不是当前节点**，这句话划重点。
+
+```ts
+// workInProgress
+function performUnitOfWork(unitOfWork: Fiber): void {
+  const current = unitOfWork.alternate;
+
+  let next;
+  // 通过 current，在 beginWork 中计算出下一个节点
+  next = beginWork(current, unitOfWork, entangledRenderLanes);    
+  unitOfWork.memoizedProps = unitOfWork.pendingProps;
+  if (next === null) {
+    completeUnitOfWork(unitOfWork);
+  } else {
+    // 将下一个节点，赋值给 `workInProgress` 用于下一次循环
+    workInProgress = next;
+  }
+}
+```
+
+判断的细节逻辑，在 `beginWork` 函数中。
+
+React 的做法是，首先定一个了一个模块全局变量 `didReceiveUpdate` 来记录**下一个节点**是否发生了变化。
+
+```ts
+let didReceiveUpdate: boolean = false;
+```
+
+并且定义了方法来操作和获取该变量
+
+```ts
+// 标记为更新
+export function markWorkInProgressReceivedUpdate() {
+  didReceiveUpdate = true;
+}
+
+// 获取当前值
+export function checkIfWorkInProgressReceivedUpdate(): boolean {
+  return didReceiveUpdate;
+}
+```
+
+在 `beginWork` 中，会首先比较当前节点的 `props` 与 `context` 是否发生了变化，如果发生了变化，则标记为更新，子节点无法复用。
+
+```ts
+const oldProps = current.memoizedProps;
+const newProps = workInProgress.pendingProps;
+
+if (oldProps !== newProps || hasLegacyContextChanged()) {
+  didReceiveUpdate = true;
+}
+```
+
+如果 props 和 context 都没有发生改变，然后会利用 `renderLanes` 优先级来判断当前是否存在更新任务，如果不存在，则表示不会有任何变化，因此，就可以直接 `bailout`
+
+```ts
+if (oldProps !== newProps || hasLegacyContextChanged()) {
+  didReceiveUpdate = true;
+} else {
+  // 通过优先级 renderLanes 判断是否存在更新任务
+  const hasScheduledUpdateOrContext = checkScheduledUpdateOrContext(
+    current,
+    renderLanes,
+  );
+  if ( // 如果不存在更新任务，则直接 bailout
+    !hasScheduledUpdateOrContext && (workInProgress.flags & DidCapture) === NoFlags
+  ) {
+    didReceiveUpdate = false;
+    // 复制 current 子节点，并返回，beginWork 函数直接执行结束
+    return attemptEarlyBailoutIfNoScheduledUpdate(
+      current,
+      workInProgress,
+      renderLanes,
+    );
+  }
+}
+```
+
+`bailout` 的主要逻辑是复制 `current` 子节点，然后返回
+
+```ts
+function bailoutOnAlreadyFinishedWork(
+  current: Fiber | null,
+  workInProgress: Fiber,
+  renderLanes: Lanes,
+) {
+  ...
+  // 复制 current 子节点，并返回
+  cloneChildFibers(current, workInProgress);
+  return workInProgress.child;
+}
+```
+
+如果还存在更新任务，那么当前节点就会继续往下执行。
+
+以函数组件节点为例，接下来会直接执行 `updateFunctionComponent` 
+
+并在该函数中执行 `renderWithHooks` 获得子元素节点
+
+```ts
+nextChildren = renderWithHooks(
+  current,
+  workInProgress,
+  Component,
+  nextProps,
+  context,
+  renderLanes,
+);
+```
+
+renderWithHooks 的执行，实际上就是执行我们定义的那个函数组件，此时会重新执行 `useState`，此时 `useState` 对应的是 `updateReducer`。
+
+`updateReducer` 的执行过程中，会合并计算 `queue` 队列，从而计算出最新的 `newState`，然后当前后两次 `state` 的值如果发生变化时，也会调用 `markWorkInProgressReceivedUpdate` 方法，将 `didReceiveUpdate` 设置为true，表示无法复用子节点
+
+```ts
+// function updateReducer
+if (!is(newState, hook.memoizedState)) {
+  markWorkInProgressReceivedUpdate();
+}
+
+// 该函数已提前声明
+// 标记为更新
+export function markWorkInProgressReceivedUpdate() {
+  didReceiveUpdate = true;
+}
+```
+
+因此，在 `updateFunctionComponent` 的后续执行过程中，会包含如下的逻辑
+
++ 执行 `renderWithHooks`，通过 `state` 进一步判断是否要将 `didReceiveUpdate` 的值设置为 true
++ 如果到最后 `didReceiveUpdate` 任然为 false，则表示这里还可以满足复用子节点的条件，调用 `bailout`
++ 如果不能复用，则调用 `reconcileChildren` 创建子 Fiber 节点，并返回
+
+```ts
+// 此时 nextChildren 表示组件函数执行返回的 JSX，类型为 ReactElement
+nextChildren = renderWithHooks(
+  current,
+  workInProgress,
+  Component,
+  nextProps,
+  context,
+  renderLanes,
+);
+if (current !== null && !didReceiveUpdate) {
+  bailoutHooks(current, workInProgress, renderLanes);
+  return bailoutOnAlreadyFinishedWork(current, workInProgress, renderLanes);
+}
+
+if (getIsHydrating() && hasId) {
+  pushMaterializedTreeId(workInProgress);
+}
+
+// React DevTools reads this flag.
+workInProgress.flags |= PerformedWork;
+reconcileChildren(current, workInProgress, nextChildren, renderLanes);
+return workInProgress.child;
+```
+
+总结，为了判断子节点是否可以被复用，我们会先后比较当前节点的
+
++ props
++ context
++ 通过优先级判断是否符合复用条件
++ state

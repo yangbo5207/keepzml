@@ -1,0 +1,91 @@
+### double buffering
+
+在 React 中，使用双缓存技术来实现 diff 算法的理论。也就是说，在理论基础上会存在两颗树。
+
+
+其中一棵我们可以称之为 **workInProgress**，表示正在构建中的这棵树。
+
+> 在源码中， workInProgress 仅为一个栈顶元素，并没有代表一棵树，不过由于该变量贯穿了整棵树都构建过程，因此，通常情况下，我们会把正在构建过程中的这棵树称为 **workInProgress**
+
+
+另外一棵我们称之为 **current**，表示**已经构建完成**的这棵树。
+
+在初始阶段，React 会直接创建 workInProgress 树。此时，current 树为空。
+
+![](/images/reactprinciple/fiber/mountfiber/8.jpg)
+
+在更新阶段，上一次构建完成的 `workInProgress` 树会作为下一次更新的 `current` 树。**React 会通过遍历 current 的方式，来创建新的 workInProgress**
+
+```ts
+// 基于 current 来创建 workInProgress
+export function createWorkInProgress(current: Fiber, pendingProps: any): Fiber {
+  let workInProgress = current.alternate;
+  if (workInProgress === null) {
+    // We use a double buffering pool to avoid allocating new objects.
+    // We reset the currently used instance during the render phase.
+    workInProgress = createFiber(
+      current.tag,
+      pendingProps,
+      current.key,
+      current.mode,
+    );
+    workInProgress.elementType = current.elementType;
+    workInProgress.type = current.type;
+    workInProgress.stateNode = current.stateNode;
+    // !mark(1:2)
+    workInProgress.alternate = current;
+    current.alternate = workInProgress;
+  } else {
+    // 根据 current 来创建 workInProgress
+    workInProgress.pendingProps = pendingProps;  // props state context   
+    // Needed because Blocks store data on type.
+    workInProgress.type = current.type;
+  
+    // We already have an alternate.
+    // Reset the effect tag.
+    workInProgress.flags = NoFlags;
+
+    // The effects are no longer valid.
+    workInProgress.subtreeFlags = NoFlags;
+    workInProgress.deletions = null;
+  }
+
+  // Reset all effects except static ones.
+  // Static effects are not specific to a render.
+  workInProgress.flags = current.flags & StaticMask;
+  workInProgress.childLanes = current.childLanes;
+  workInProgress.lanes = current.lanes;
+
+  workInProgress.child = current.child;
+  workInProgress.memoizedProps = current.memoizedProps;
+  workInProgress.memoizedState = current.memoizedState;
+  workInProgress.updateQueue = current.updateQueue;
+
+  // ...
+
+  // These will be overridden during the parent's reconciliation
+  workInProgress.sibling = current.sibling;
+  workInProgress.index = current.index;
+  workInProgress.ref = current.ref;
+  workInProgress.refCleanup = current.refCleanup;
+
+  return workInProgress;
+}
+```
+
+相同位置的节点之间，通过 `alternate` 指针进行关联。
+
+```ts
+workInProgress.alternate = current;
+current.alternate = workInProgress;
+```
+
+创建完成之后会得到如下所示的树
+
+![](/images/reactprinciple/diff/doublebuffer/1.jpg)
+
+> 图中的 P 节点也会通过 `alternate` 一一对应，但是由于连线之后会造成图的混乱，因此，这里没有画出。
+
+遍历的顺序我们在之前的文章中已经介绍过，是按照深度优先的顺序进行遍历。
+
+在遍历的过程中，会通过 `alternate` 指针，来复用之前已经构建好的节点。因此，真实情况下，**两棵树会有大量的节点是重合的**。因此，在内存的使用上不会存在双倍消耗的情况。
