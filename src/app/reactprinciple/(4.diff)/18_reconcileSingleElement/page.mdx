@@ -1,0 +1,106 @@
+
+在 diff 的过程中，当我们通过比较 `props/context/state` 之后，发现无法复用子节点，就会执行 `reconcileChildren` 方法。但是在执行的过程中，我们依然需要进一步判断，单个子节点是否具备复用的可能性。
+
+对于单元素节点，我们使用 `reconcileSingleElement` 来进行这个判断过程。
+
+该函数接收 4 个参数
+
++ `returnFiber`：父节点
++ `currentFirstChild`：current 的第一个子节点
++ `element`: 新的元素节点，是 JSX 转换后的对象
++ `lanes`：优先级
+
+我们期望的是返回一个 Fiber 节点，该 Fiber 节点将会与传入的 `element` 对应。如果通过比较之后发现可以复用，那么就会返回从 `current` 中找到的 Fiber 节点。如果不能复用，则会基于 `element` 创建新的 Fiber 节点
+
+```ts
+function reconcileSingleElement(
+  returnFiber: Fiber,
+  currentFirstChild: Fiber | null,
+  element: ReactElement,
+  lanes: Lanes,
+): Fiber {
+  ...
+}
+```
+
+比较方式就是我们在 diff 算法中需要详细了解的细节。
+
+首先，会通过 `key` 值查找 `current` 的子节点中，中是否存在相同的子节点。这里的循环从 `current` 的第一个子节点开始，一直遍历到最后一个子节点。去找到 `key` 相同的子节点
+
+```ts
+const key = element.key;
+let child = currentFirstChild;
+while (child !== null) {
+  if (child.key === key) {
+    // 找到了 key 相同的节点，继续检查类型是否匹配
+    // ...
+  } else {
+    // key 不匹配，删除这个子节点
+    deleteChild(returnFiber, child);
+  }
+  child = child.sibling;
+}
+```
+
+如果找到了 `key` 相同的节点，那么就会继续检查类型是否匹配。如果类型也相同，就会调用 `useFiber` 方法来复用这个 Fiber 节点。
+
+```ts
+if (child.key === key) {
+  const elementType = element.type;
+  if (elementType === REACT_FRAGMENT_TYPE) {
+    if (child.tag === Fragment) {
+      deleteRemainingChildren(returnFiber, child.sibling);
+      const existing = useFiber(child, element.props.children);
+      existing.return = returnFiber;
+      validateFragmentProps(element, existing, returnFiber);
+      return existing;
+    }
+  } else {
+    if (
+      // !mark
+      child.elementType === elementType ||
+      // Keep this check inline so it only runs on the false path:
+      (__DEV__ // 开发环境下的热重载兼容性
+        ? isCompatibleFamilyForHotReloading(child, element)
+        : false) ||
+      (typeof elementType === 'object' &&
+        elementType !== null &&
+        elementType.$$typeof === REACT_LAZY_TYPE && // Lazy 类型的特殊处理
+        resolveLazy(elementType) === child.type)
+    ) {
+      deleteRemainingChildren(returnFiber, child.sibling);
+      // !mark
+      const existing = useFiber(child, element.props);
+      coerceRef(returnFiber, child, existing, element);
+      existing.return = returnFiber;
+      return existing;
+    }
+  }
+  // Didn't match. 如果找到了相同 key 的节点但类型不匹配，则删除该节点及其所有兄弟节点，并跳出循环。
+  deleteRemainingChildren(returnFiber, child);
+  break;
+}
+```
+
+```ts
+function useFiber(fiber: Fiber, pendingProps: mixed): Fiber {
+  // We currently set sibling to null and index to 0 here because it is easy
+  // to forget to do before returning it. E.g. for the single child case.
+  const clone = createWorkInProgress(fiber, pendingProps);
+  clone.index = 0;
+  clone.sibling = null;
+  return clone;
+}
+```
+
+如果没有匹配上，那么就会执行如下逻辑重新创建 Fiber 节点
+
+```ts
+const created = createFiberFromElement(element, returnFiber.mode, lanes);
+coerceRef(returnFiber, currentFirstChild, created, element);
+created.return = returnFiber;
+```
+
+因此，在实际的使用过程中，如果我们无法确保当前节点是否可以复用，那么我们可以给节点添加一个 key 属性来确保子节点被兜底复用。
+
+> 无论复用与否，返回的 Fiber 节点会在后续的执行 beginWork 时作为 `workInProgress` 传入，然后判断 props/context/state 是否发生变化，从而决定是否需要更新当前节点与复用对应的子组件

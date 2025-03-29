@@ -1,0 +1,113 @@
+React 的事件池(Event Pooling)是一种性能优化机制，用于高效管理合成事件(SyntheticEvent)对象的创建和销毁。
+
+**事件池的基本原理**
+
++ 对象复用：维护一个事件对象池，避免频繁创建和销毁事件对象
++ 内存优化：减少垃圾回收(GC)的压力
++ 性能提升：特别是在高频事件(如滚动、鼠标移动)场景下
+
+
+当我们需要一个事件对象时，会从事件池中获取
+
+```ts
+const event = SyntheticEvent.getPooled(
+  dispatchConfig,
+  targetInst,
+  nativeEvent,
+  nativeEventTarget
+);
+```
+
+事件处理完成后，React 会自动调用 `SyntheticEvent.release()` 将事件对象释放回池中
+
+
+一个需要注意的问题就是，异步访问的问题：
+
+```ts
+function handleClick(event) {
+  // 错误！事件属性将在回调执行前被重置
+  setTimeout(() => {
+    console.log(event.target); // null 或错误值
+  }, 100);
+  
+  // 正确做法：持久化事件
+  event.persist();
+  setTimeout(() => {
+    console.log(event.target); // 现在可以正常访问
+  }, 100);
+}
+```
+
+事件属性重置：
+
+释放回池中前，React 会清除事件的所有属性
+
+这是为了确保下次使用时不会受到之前使用的影响
+
+**事件池的实现细节**
+
+React 内部实现大致如下：
+
+```ts
+const EVENT_POOL_SIZE = 10;
+const eventPool = [];
+
+function getPooledEvent(dispatchConfig, targetInst, nativeEvent, nativeEventTarget) {
+  if (eventPool.length) {
+    const instance = eventPool.pop();
+    // 使用新数据重新初始化实例
+    instance.dispatchConfig = dispatchConfig;
+    instance._targetInst = targetInst;
+    instance.nativeEvent = nativeEvent;
+    // ...其他属性初始化
+    return instance;
+  }
+  return new SyntheticEvent(
+    dispatchConfig,
+    targetInst,
+    nativeEvent,
+    nativeEventTarget
+  );
+}
+
+function release(event) {
+  // 清除事件属性
+  event.dispatchConfig = null;
+  event._targetInst = null;
+  event.nativeEvent = null;
+  // ...清除其他属性
+  
+  // 如果池未满，则回收利用
+  if (eventPool.length < EVENT_POOL_SIZE) {
+    eventPool.push(event);
+  }
+}
+```
+
+**为什么需要事件池？**
+
+高频事件场景：
+
+如 onScroll, onMouseMove 等可能触发大量事件
+
+避免为每个事件都创建新对象
+
+性能考量：
+
+对象创建和销毁成本较高
+
+小对象频繁创建会增加GC压力
+
+内存占用：
+
+复用对象可以减少内存占用
+
+**React 17+ 的变化**
+
+从 React 17 开始，事件池机制已被移除，主要原因是：
+
+现代浏览器在垃圾回收方面已经足够高效，事件池带来的复杂性大于性能收益，开发者经常因为不了解事件池机制而遇到问题
+
+在 React 17+ 中：事件对象不再被池化，可以安全地在异步代码中访问事件属性
+
+不再需要 `event.persist()`

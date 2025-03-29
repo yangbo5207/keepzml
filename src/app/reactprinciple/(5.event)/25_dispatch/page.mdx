@@ -1,0 +1,128 @@
+当真实 DOM 事件触发时，会首先执行我们在事件绑定时定义好的 `listener` 回调函数。
+
+```ts
+let listener = createEventListenerWrapperWithPriority(
+  targetContainer,
+  domEventName,
+  eventSystemFlags,
+);
+```
+
+包裹上优先级之后，然后在 `createEventListenerWrapperWithPriority` 中调用 `dispatchEvent` 等方法
+
+后续的调用路径依次为
+
++ dispatchEventForPluginEventSystem
++ dispatchEventsForPlugins
++ extractEvents
++ processDispatchQueue
+
+
+```ts
+function dispatchEventsForPlugins(
+  domEventName: DOMEventName,
+  eventSystemFlags: EventSystemFlags,
+  nativeEvent: AnyNativeEvent,
+  targetInst: null | Fiber,
+  targetContainer: EventTarget,
+): void {
+  const nativeEventTarget = getEventTarget(nativeEvent);
+  const dispatchQueue: DispatchQueue = [];
+  extractEvents(
+    dispatchQueue,
+    domEventName,
+    targetInst,
+    nativeEvent,
+    nativeEventTarget,
+    eventSystemFlags,
+    targetContainer,
+  );
+  processDispatchQueue(dispatchQueue, eventSystemFlags);
+}
+
+```
+
+这里的 `extractEvents` 我们在之前的事件插件中提到过，该方法主要负责在向根节点回溯的过程中，  收集 Fiber 上定义好的事件回调函数，并将其添加到 `dispatchQueue` 中。
+
+```ts
+// 创建合成事件并添加到 dispatchQueue
+dispatchQueue.push({event, listeners});
+```
+
+```ts
+// 调用所有插件的 extractEvents 方法
+function extractEvents(
+  dispatchQueue: DispatchQueue,
+  domEventName: DOMEventName,
+  targetInst: null | Fiber,
+  nativeEvent: AnyNativeEvent,
+  nativeEventTarget: null | EventTarget,
+  eventSystemFlags: EventSystemFlags,
+  targetContainer: EventTarget,
+) {
+  SimpleEventPlugin.extractEvents(
+    dispatchQueue,
+    domEventName,
+    targetInst,
+    nativeEvent,
+    nativeEventTarget,
+    eventSystemFlags,
+    targetContainer,
+  );
+  const shouldProcessPolyfillPlugins =
+    (eventSystemFlags & SHOULD_NOT_PROCESS_POLYFILL_EVENT_PLUGINS) === 0;
+  
+  if (shouldProcessPolyfillPlugins) {
+    EnterLeaveEventPlugin.extractEvents(
+      dispatchQueue,
+      domEventName,
+      targetInst,
+      nativeEvent,
+      nativeEventTarget,
+      eventSystemFlags,
+      targetContainer,
+    );
+    ChangeEventPlugin.extractEvents(
+      dispatchQueue,
+      domEventName,
+      targetInst,
+      nativeEvent,
+      nativeEventTarget,
+      eventSystemFlags,
+      targetContainer,
+    );
+    SelectEventPlugin.extractEvents(
+      dispatchQueue,
+      domEventName,
+      targetInst,
+      nativeEvent,
+      nativeEventTarget,
+      eventSystemFlags,
+      targetContainer,
+    );
+    BeforeInputEventPlugin.extractEvents(
+      dispatchQueue,
+      domEventName,
+      targetInst,
+      nativeEvent,
+      nativeEventTarget,
+      eventSystemFlags,
+      targetContainer,
+    );
+    FormActionEventPlugin.extractEvents(
+      dispatchQueue,
+      domEventName,
+      targetInst,
+      nativeEvent,
+      nativeEventTarget,
+      eventSystemFlags,
+      targetContainer,
+    );
+  }
+}
+```
+
+最后调用 `processDispatchQueue(dispatchQueue, eventSystemFlags)` 方法，该方法会遍历 `dispatchQueue` 数组，依次执行其中的回调函数。
+
++ 如果是事件捕获，则是从上至下调用 fiber 树中绑定的回调函数, 所以倒序遍历 dispatchQueue
++ 如果是事件冒泡，则是从下至上调用 fiber 树中绑定的回调函数, 所以顺序遍历 dispatchQueue

@@ -1,0 +1,218 @@
+由于不同的事件处理逻辑有所不同，因此，React 引入了事件插件的机制来应对不同的事件类型
+
+React 将事件插件分为以下几类：
+
+**简单事件插件(SimpleEventPlugin)**，用于处理最常见的 DOM 事件，例如：
+
++ 鼠标事件 (onClick, onMouseDown 等)
++ 键盘事件 (onKeyDown, onKeyPress 等)
++ 焦点事件 (onFocus, onBlur)
++ 表单事件 (onChange, onSubmit)
+
+
+**变化事件插件(ChangeEventPlugin)**，专门处理表单元素的变化事件，例如
+
++ `input`
++ `select`
++ `textarea`
+
+**选择事件插件(SelectEventPlugin)**，用于处理文本选择事件，例如
+
++ `selectionchange`
+
+**动画事件插件(AnimationEventPlugin)**，用于处理 CSS 动画相关事件，例如
+
++ `animationStart`
++ `animationEnd`
+
+**过渡事件插件(TransitionEventPlugin)**，处理 CSS 过渡相关事件，例如
+
++ `transitionStart`
++ `transitionEnd`
+
+其他的插件还有 `BeforeInputEventPlugin、EnterLeaveEventPlugin、FormActionEventPlugin` 等
+
+事件插件会在项目初始化时，通过如下的方式注册
+
+```ts
+SimpleEventPlugin.registerEvents();
+EnterLeaveEventPlugin.registerEvents();
+ChangeEventPlugin.registerEvents();
+SelectEventPlugin.registerEvents();
+BeforeInputEventPlugin.registerEvents();
+```
+
+```ts
+export const topLevelEventsToReactNames: Map<DOMEventName, string | null> =
+  new Map();
+```
+
+`topLevelEventsToReactNames` 是一个映射表，用于将原生 DOM 事件映射到 React 事件。例如，`onClick` 映射到 `click`。
+
+```ts
+topLevelEventsToReactNames.set('click', 'onClick');
+```
+
+`registerEvents` 方法会遍历 `topLevelEventsToReactNames` 映射表，为每个 DOM 事件注册对应的 React 事件。
+
+
+
+每一个插件都包含了一个 `extractEvents` 方法，用于在**原生事件触发时**，基于原生事件创建合成事件。
+
+> 合成事件的创建是一个**懒创建**策略 - 只有在确实有监听器时才创建事件对象，这是一种性能优化
+
+```ts
+function extractEvents(
+  // 事件分发队列，用于存储待执行的事件回调
+  dispatchQueue: DispatchQueue,
+  // DOM 事件名称，例如 click
+  domEventName: DOMEventName,
+  // 事件目标对应的 Fiber 节点
+  targetInst: null | Fiber,
+  // 原生事件对象
+  nativeEvent: AnyNativeEvent,
+  // 原生事件目标元素
+  nativeEventTarget: null | EventTarget,
+  // 事件系统标志
+  eventSystemFlags: EventSystemFlags,
+  // 事件目标容器，现在是 DOM 根节点
+  targetContainer: EventTarget,
+): void {
+  ...
+}
+```
+
+该函数首先会根据 `domEventName` 从 `topLevelEventsToReactNames` 映射表中获取对应的 React 事件名称。
+
+```ts
+const reactName = topLevelEventsToReactNames.get(domEventName);
+if (reactName === undefined) {
+  return;
+}
+```
+
+根据不同的 DOM 事件类型，选择相应的合成事件构造函数。例如：
+
+- 键盘事件使用 SyntheticKeyboardEvent
+- 鼠标事件使用 SyntheticMouseEvent
+- 触摸事件使用 SyntheticTouchEvent 等等。
+
+```ts
+let SyntheticEventCtor = SyntheticEvent;
+let reactEventType: string = domEventName;
+switch (domEventName) {
+  case 'keypress':
+    if (getEventCharCode(((nativeEvent: any): KeyboardEvent)) === 0) {
+      return;
+    }
+  case 'keydown':
+  case 'keyup':
+    SyntheticEventCtor = SyntheticKeyboardEvent;
+    break;
+  case 'focusin':
+    reactEventType = 'focus';
+    SyntheticEventCtor = SyntheticFocusEvent;
+    break;
+  case 'focusout':
+    reactEventType = 'blur';
+    SyntheticEventCtor = SyntheticFocusEvent;
+    break;
+  case 'beforeblur':
+  case 'afterblur':
+    SyntheticEventCtor = SyntheticFocusEvent;
+    break;
+  ...
+}
+```
+
+接下来通过检查 `eventSystemFlags` 中的 `IS_CAPTURE_PHASE` 标志，确定当前是否处于捕获阶段。
+
+```ts
+const inCapturePhase = (eventSystemFlags & IS_CAPTURE_PHASE) !== 0;
+```
+
+最后使用 `accumulateSinglePhaseListeners` 收集事件监听并创建合成时间，然后推送到事件分发队列中去。
+
+> 这里有一个特殊处理：对于 scroll 和 scrollend 事件，设置 accumulateTargetOnly 为 true，表示这些事件只在目标元素上触发，不会冒泡。
+
+```ts
+const accumulateTargetOnly =
+  !inCapturePhase &&
+  // TODO: ideally, we'd eventually add all events from
+  // nonDelegatedEvents list in DOMPluginEventSystem.
+  // Then we can remove this special list.
+  // This is a breaking change that can wait until React 18.
+  (domEventName === 'scroll' || domEventName === 'scrollend');
+
+const listeners = accumulateSinglePhaseListeners(
+  targetInst,
+  reactName,
+  nativeEvent.type,
+  inCapturePhase,
+  accumulateTargetOnly,
+  nativeEvent,
+);
+if (listeners.length > 0) {
+  // Intentionally create event lazily.
+  const event: ReactSyntheticEvent = new SyntheticEventCtor(
+    reactName,
+    reactEventType,
+    null,
+    nativeEvent,
+    nativeEventTarget,
+  );
+  dispatchQueue.push({event, listeners});
+}
+```
+
+`accumulateSinglePhaseListeners` 是一个基于 Fiber Tree 自下而上回溯收集的过程。
+
+```ts
+export function accumulateSinglePhaseListeners(
+  targetFiber: Fiber | null,
+  reactName: string | null,
+  nativeEventType: string,
+  inCapturePhase: boolean,
+  accumulateTargetOnly: boolean,
+  nativeEvent: AnyNativeEvent,
+): Array<DispatchListener> {
+  const captureName = reactName !== null ? reactName + 'Capture' : null;
+  const reactEventName = inCapturePhase ? captureName : reactName;
+  let listeners: Array<DispatchListener> = [];
+
+  let instance = targetFiber;
+  let lastHostComponent = null;
+
+  // Accumulate all instances and listeners via the target -> root path.
+  while (instance !== null) {
+    ...
+    // 在 Fiber 节点中找到了 onMyCustomEvent 或者 onMyCustomEventCapture 事件处理函数
+    listeners.push(
+      createDispatchListener(instance, listener, lastHostComponent),
+    );
+    ...
+    // 向上回溯
+    instance = instance.return;
+  }
+  return listeners;
+}
+```
+
+除此之外，还有一个类似的方法  `accumulateTwoPhaseListeners` 用于同时收集事件捕获和事件冒泡的回调函数，例如 `onClickCapture`
+
+事件捕获的回调函数使用 `unshift` 方法添加到 `listeners` 数组的开头。这也是一个自底向上的回溯过程。因此，当我们依次遍历 `listeners` 数组时，就可以做到先执行捕获阶段的回调函数，再执行冒泡阶段的回调函数。
+
+```ts
+const captureListener = getListener(instance, captureName);
+if (captureListener != null) {
+  listeners.unshift(
+    createDispatchListener(instance, captureListener, currentTarget),
+  );
+}
+const bubbleListener = getListener(instance, reactName);
+if (bubbleListener != null) {
+  listeners.push(
+    createDispatchListener(instance, bubbleListener, currentTarget),
+  );
+}
+```

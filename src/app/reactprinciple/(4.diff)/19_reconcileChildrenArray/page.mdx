@@ -1,0 +1,189 @@
+**reconcileChildrenArray** 主要用于对比子节点是通过数组渲染出来的场景。这是我们在开发过程中非常常见的场景之一，因此，我们也需要对其进行深入的理解。
+
+```ts
+function reconcileChildrenArray(
+  // Fiber 节点的父元素
+  returnFiber: Fiber,
+  // current 的第一个子节点
+  currentFirstChild: Fiber | null,
+  // 新的子节点中的 JSX 数组
+  newChildren: Array<any>,
+  // 渲染优先级
+  lanes: Lanes,
+): Fiber | null {
+  // ...
+}
+```
+
+在列表的渲染中，我们会重新把子节点的移动这种情况考虑回来，因为，一个简单的移动，就很容易会造成整个组件被判定为需要全部重新创建。所以，我们需要判断出来节点是只发生了移动，而不是需要重新创建。
+
+给列表中的每一个节点，**引入唯一 key 值**，是减少比较成本的重要手段。通过唯一 key 值，我们可以在旧列表中找到新列表的节点是否已经存在，从而决定是移动节点的位置还是创建新的节点。我们通常会在数组中设定一个 id 用于表示唯一 key 值。
+
+```jsx
+const todoItems = todos.map((todo) =>
+  <li key={todo.id}>
+    {todo.text}
+  </li>
+);
+```
+
+
+在该函数中，比较的规则大概如下：
+
++ 没找到匹配的 key，则创建新节点
++ 找到了匹配的 key，则通过如下的方式判断，来移动节点，移动节点指的是 DOM 节点的移动操作，从旧列表中的索引位置，移动到新列表的索引位置中来
++ 新数组遍历完成之后，如果发现老数组中，还剩余了元素，则直接删除
+
+由于这个逻辑比较绕，因此我们通过案例来解析，而不是直接解析源码。
+
+如下几个变量比较重要。
+
+```ts
+oldIndex/current.index: 老 Fiber 节点的索引
+newIndex/newFiber.index: 新 Fiber 的索引
+lastPlacedIndex = 0  默认值为 0
+```
+
+首先，我们假定有一个已经渲染好的列表节点如下
+
+```js
+// 使用 _ 表示旧节点列表
+[_A] [_B] [_C] [_D]
+```
+
+然后，我们在 A 的前面新增的了一个节点，P，理想的结果如下所示
+
+```js
+[P] [A] [B] [C] [D]
+```
+
+在比较的过程中，我们会首先创建一个变量 `lastIndex`，默认值为 0。然后使用一个指针 `index` 用来记录新数组中的当前项在旧列表中的索引值。
+
+在比较的过程中，lastIndex 的变化规则如下
+
+```js
+// function placeChild
+if (oldIndex < lastPlacedIndex) {
+  // 移动节点
+  newFiber.flags |= Placement | PlacementDEV;
+  return lastPlacedIndex;
+} else {
+  return oldIndex;
+}
+
+// 等价于
+lastPlacedIndex = Math.max(oldIndex, lastPlacedIndex)
+```
+
+首先，我们假定有一个已经渲染好的列表节点如下
+
+```js
+// 使用 _ 表示旧节点列表
+[_A] [_B] [_C] [_D]
+```
+
+然后，我们在 A 的前面新增的了一个节点，P，理想的结果如下所示
+
+```js
+[P] [A] [B] [C] [D]
+```
+
+我们开始遍历新数据 `[P, A, B, C D]`
+
+**1、第一个目标项为 P**，我们会去旧列表中查询是否存在相同的 `key=P` 的项。发现没有，此时创建新节点
+
+```
+lastPlacedIndex = 0
+
+[P]
+```
+
+**2、第二个目标项为 A**，我们去旧列表中查询是否存在相同的，发现有，此时 index = 0，可复用节点
+
+**当满足条件 oldIndex < lastPlacedIndex** 时，移动节点。此时 oldIndex = lastPlacedIndex = 0，不满足条件，不移动，此时结果为
+
+```js
+// 结果为 0
+lastPlacedIndex = Math.max(oldIndex, lastPlacedIndex)
+
+[P] [A]
+```
+> 注意：这里说的移动节点，指的是对真实 DOM 的操作。
+
+
+**3、第三个目标项为 B**，我们去旧列表中查询是否存在相同的key，发现有，此时 index = 1，可复用节点
+
+不满足 `oldIndex(1) < lastPlacedIndex(0)`，不移动，结果为
+
+```js
+// 结果为 1
+lastPlacedIndex = max(oldIndex, lastPlacedIndex)
+
+[P] [A] [B]
+```
+
+依次类推，最终我们发现，这种情况下，只需要创建一个新节点 P，不需要移动任何节点。
+
+
+**第二个案例**
+
+新旧列表节点如下
+
+```js
+旧列表：[A] [B] [C] [D] 
+新列表：[B] [A] [D] [C]
+```
+
+新的数据为 `[B, A, D, C]`
+
+**1、第一个目标节点为 B**，发现在旧列表中存在相同 key，那么复用节点，此时，index = 1，当前结果为
+
+```js
+oldIndex = 1
+lastPlacedIndex = 0
+oldIndex < lastPlacedIndex // false，不移动
+
+lastPlacedIndex = max(oldIndex, lastPlacedIndex) // 1
+
+[B]
+```
+
+**2、第二个目标节点为 A**，发现在旧列表中存在相同 key，那么复用节点，此时，index = 0，当前结果为
+
+```js
+oldIndex = 0
+lastPlacedIndex = 1
+oldIndex < lastPlacedIndex // true，移动
+
+lastPlacedIndex = max(oldIndex, lastPlacedIndex) // 1
+
+[B] [A]
+```
+
+**3、第三个目标节点为 D**，发现在旧列表中存在相同 key，那么复用节点，此时，index = 3，当前结果为
+
+```js
+oldIndex = 3
+lastPlacedIndex = 1
+oldIndex < lastPlacedIndex // false，不移动
+
+lastPlacedIndex = max(oldIndex, lastPlacedIndex) // 3
+
+[B] [A] [D]
+```
+
+**4、第四个目标节点为 C**，发现在旧列表中存在相同 key，那么复用节点，此时，index = 2，当前结果为
+
+```js
+oldIndex = 2
+lastPlacedIndex = 3
+oldIndex < lastPlacedIndex // true，移动
+
+lastPlacedIndex = max(oldIndex, lastPlacedIndex) // 3
+
+[B] [A] [D] [C]
+```
+
+这个案例在 diff 之后，只需要真实 DOM 移动两次节点。就可以完成更新了。
+
+相信通过这两个案例，大家应该能掌握 React 在列表中的对比规则了，这也是 React Diff  中最复杂的一部分逻辑。

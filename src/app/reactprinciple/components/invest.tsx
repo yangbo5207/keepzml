@@ -15,7 +15,7 @@ export default function SuitableFor() {
 
       <p className='space-x-2 mt-2'>
         <PartyPopper className='inline-block text-red-500' size={18} />
-        <span>注意：本专栏专门聚焦于 React 源码面试题，针对至少大厂资深前端面试场景进行课程设计。本专栏原价 2000 元，现在开启超前 2 折购买，欢迎有需要的读者提前投资购买，<span className='text-red-500'>超前购买将于专栏完结之时结束</span>。错过将无法享受超低折扣了哦，千万不要错过！</span>
+        <span>本专栏原价 <strong className='text-red-500'>2000 元</strong>。由于目前内容正在创作过程中，特推出 2 折优惠购买。<span className='text-red-500'>专栏完结之后该优惠将会结束</span></span>其他说明：购买之后请务必进群交流学习心得，群内提供答疑服务，以及不定时直播讲解。目前群内学习氛围良好，欢迎加入。
       </p>
 
       <div className='text-right'>

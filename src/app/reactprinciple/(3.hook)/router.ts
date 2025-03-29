@@ -55,4 +55,8 @@ export const r3 = [
     path: '12_updatedispatch',
     name: '12、更新阶段的 dispatch',
   },
+  {
+    path: '13_commit',
+    name: '13、commitRoot',
+  },
 ]

@@ -44,10 +44,6 @@ export const r2 = [
     name: '9、fiber lanes',
   },
   {
-    path: 's.keydiff',
-    name: '附录：数组对比方案',
-  },
-  {
     path: 't.flags',
     name: '附录：flags',
   }

@@ -1,0 +1,40 @@
+import Demo01 from './demo01/preview'
+
+需要注意的是，这里的唯一 key 值，尽量不要使用递增的数字序列来表示。
+
+```js
+const todoItems = todos.map((todo, index) =>
+  // Only do this if items have no stable IDs
+  <li key={index}>
+    {todo.text}
+  </li>
+);
+```
+
+这个问题也是面试中经常会聊到的话题：为什么尽量不要使用 `index` 序列作为 key。这是因为当我们在列表中新增一个内容时，每一项的 index 每次都会发生变化，从而让渲染结果出现混乱。
+
+例如有一个数组为  `[a, b, c]`，此时我们将 index 作为key值，那么数组项与 key 值的对应关系就是 
+
+```
+[a:0, b:1, c:2]
+```
+
+此时，我们往数组头部添加一个数据，这个时候数组变成了 `[p, a, b, c]`，然后再执行，数组项与 key 的对应关系就变成了
+
+```
+[p:0, a:1, b:2, c:3]
+```
+
+新增的项是 p，但是最终导致了数组项与key 之间的对应关系错乱，结果导致缓存的节点挂到了错误的数组项上去了。
+
+我们可以通过如下案例演示观察在 UI 上的表现差别
+
+首先，我们的默认情况如下，上面的列表使用 index 作为 key 值，下面的列表使用 唯一 id 作为key 值。
+
+![](/images/reactprinciple/diff/whynotnumberkey/1.webp)
+
+当我新增一个项时，仔细观察两个列表的差异。
+
+![](/images/reactprinciple/diff/whynotnumberkey/2.webp)
+
+当我们使用 `index` 作为 key 值时，最终导致了缓存的节点挂到了错误的数组项上去了。

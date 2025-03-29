@@ -1,0 +1,134 @@
+在更新阶段，当我们通过当前 Fiber 节点的几个属性比较之后，明确无法直接复用子 Fiber 节点，我们会通过 `reconcileChildFibers` 方法来进一步比较子节点是否应该复用还是重新创建。
+
+此时的比较就是比较**子节点自身的属性和类型**。
+
+> 这里的子节点，指的是当前 Fiber 节点所对应的组件函数，执行之后返回的 JSX 所对应的节点
+
+```ts
+workInProgress.child = reconcileChildFibers(
+  workInProgress,
+  current.child,
+  nextChildren,
+  renderLanes,
+);
+```
+
+参数解释如下
+
++ workInProgress：当前正在处理的 Fiber 节点
++ current.child: current 表示之前渲染好的 Fiber 节点
++ nextChildren: 当前组件函数执行之后，返回的 JSX
++ renderLanes: 本次更新的优先级
+
+
+在 `reconcileChildFibers` 中，会根据 `nextChildren` 的类型来决定如何比较子节点。因此，他提供了多个方法来创建不同类型的子节点。
+
+
+
+从命名上，我们可以大致推断出这些方法的用途
+
+```ts
+// !mark
+function reconcileSingleElement() {...}
+function reconcileSingleTextNode() {...}
+function reconcileChildrenIterator() {...}
+function reconcileChildrenIteratable() {...}
+function reconcileSinglePortal() {...}
+// !mark
+function reconcileChildrenArray() {...}
+
+...
+```
+
+通过 `$$typeof` 来判断 `nextChildren` 的类型，然后调用不同的方法来创建子节点。`$$typeof` 是在 React 内部使用的一个特殊属性，用于标识一个对象的类型。当我们通过 `JSX` 来创建一个元素时，React 会在这个元素上添加 `$$typeof` 属性，并将其值设置为 `REACT_ELEMENT_TYPE` 等值。
+
+```ts
+switch (newChild.$$typeof) {
+  case REACT_ELEMENT_TYPE: {
+    const firstChild = placeSingleChild(
+      reconcileSingleElement(
+        returnFiber,
+        currentFirstChild,
+        newChild,
+        lanes,
+      ),
+    );
+    return firstChild;
+  }
+  case REACT_PORTAL_TYPE:
+    return placeSingleChild(
+      reconcileSinglePortal(
+        returnFiber,
+        currentFirstChild,
+        newChild,
+        lanes,
+      ),
+    );
+  case REACT_LAZY_TYPE: {
+    let result;
+    const payload = newChild._payload;
+    const init = newChild._init;
+    result = init(payload);
+
+    const firstChild = reconcileChildFibersImpl(
+      returnFiber,
+      currentFirstChild,
+      result,
+      lanes,
+    );
+    return firstChild;
+  }
+}
+```
+
+`$$typeof` 的值通常是一个Symbol，例如 `Symbol.for('react.element')`。
+
+使用 Symbol 是为了确保这个属性不会被意外篡改或伪造，增强安全性。
+
+一方面可以防止 XSS（跨站脚本攻击）。
+
+另外一方面，如果服务器返回的 JSON 数据中包含恶意内容，React 可以通过检查 $$typeof 来确保只有合法的 React 元素会被渲染。
+
+```ts
+var symbolFor = Symbol.for;
+REACT_ELEMENT_TYPE = symbolFor('react.element');
+REACT_PORTAL_TYPE = symbolFor('react.portal');
+exports.Fragment = symbolFor('react.fragment');
+REACT_STRICT_MODE_TYPE = symbolFor('react.strict_mode');
+REACT_PROFILER_TYPE = symbolFor('react.profiler');
+```
+
+还通过 `isArray` 来判断 `nextChildren` 是否是一个数组，如果是，就调用 `reconcileChildrenArray` 方法来创建子节点。
+
+```ts
+if (isArray(newChild)) {
+  const prevDebugInfo = pushDebugInfo(newChild._debugInfo);
+  const firstChild = reconcileChildrenArray(
+    returnFiber,
+    currentFirstChild,
+    newChild,
+    lanes,
+  );
+  currentDebugInfo = prevDebugInfo;
+  return firstChild;
+}
+```
+
+如果组件函数执行返回的是 `Fragment` 节点的话，这里会单独进行处理，将 `Fragment` 节点的子节点作为当前 Fiber 节点的子节点。
+
+```ts
+// 判断是否是 Fragment 节点
+const isUnkeyedTopLevelFragment =
+  typeof newChild === 'object' &&
+  newChild !== null &&
+  newChild.type === REACT_FRAGMENT_TYPE &&
+  newChild.key === null;
+if (isUnkeyedTopLevelFragment) {
+  validateFragmentProps(newChild, null, returnFiber);
+  // 将 Fragment 节点的子节点作为当前 Fiber 节点的子节点
+  newChild = newChild.props.children;
+}
+```
+
+
+我们主要关注单节点和数组节点的更新方式，其他类型大家如果有兴趣的话可以在源码中详细阅读
